@@ -1,0 +1,1620 @@
+2
+Information personnelle - enfant		
+Persönliche Angaben - Kind
+Personal information - child
+3
+Prénom
+Vorname
+First name
+4
+Nom de famille
+Name
+Family name
+5
+Date de naissance
+Geburtsdatum
+Date of birth
+6
+jj/mm/aaaa
+TT/MM/JJJJ
+dd/mm/yyyy
+7
+Sexe	
+Geschlecht
+Gender
+8
+Nationalité
+Staatsangehörigkeit
+Citizenship
+9
+Autre nationalité
+Andere Staatsangehörigkeit
+Other citizenship
+10
+Langue maternelle
+Muttersprache
+First language
+11
+Niveau
+Kenntnisse
+Proficiency
+12
+Autre langue maternelle
+Andere Muttersprache
+Other first language
+13
+Deuxième langue	
+Zweite Sprache
+Second language
+14
+Autre deuxième langue
+Andere zweite Sprache
+Other second language
+15
+Troisième langue
+Dritte Sprache
+Third
+16
+Autre troisième langue
+Andere dritte Sprache
+Other third language
+17
+Quatrième langue
+Vierte Sprache
+Fourth
+18
+Autre quatrième langue
+Andere vierte Sprache
+Other fourth language
+19
+Régime alimentaire particulier
+Mahlzeiten
+Special dietary requirements
+20
+Une alternative végétarienne  est offerte à chaque repas. En outre, la cuisine de Caux peut adapter les menus si nécessaire. Veuillez marquer d?une croix vos éventuels besoins:
+Eine vegetarische Variante wird bei jeder Mahlzeit angeboten. Zusätzlich kann die Küche in Caux folgende Wünsche berücksichtigen. Bitte kreuzen Sie gemäss Ihren Bedürfnissen an:
+A vegetarian option is always on offer. Additional to that, the Caux kitchen can provide the following menu adaptations. Please tick the box(es) according to your needs:
+21
+Séjour à Caux
+Aufenthalt in Caux
+Stay in Caux
+22
+Séjour précédent à Caux?
+Frühere Konferenzteilnahme in Caux?
+Previous visit to Caux?
+23
+Non,
+Nein, 
+No,
+24
+Oui, année de votre dernière visite:
+Ja, Jahr der letzten Teilnahme: 
+Yes, year of last visit:
+25
+À Caux, les participants sont encouragés à participer au fonctionnement pratique de la maison. Sélectionnez le secteur ou vous aimeriez participer:
+In Caux sind die Teilnehmenden eingeladen, sich an der Arbeit im Konferenzhaushalt zu beteiligen. Bitte wählen Sie den Bereich, in dem Sie gerne mithelfen möchten:
+In Caux, all participants are encouraged to help in the practical life of the house. Please choose in which department you would like to help:
+26
+Remarques
+Bemerkungen
+Remarks
+28
+Formulaire d'inscription - Conjoint/Partenaire
+Anmeldeformular - Partner/in
+Registration Form - Spouse/Partner
+29
+Vous avez indiqué que vous seriez accompagné de votre conjoint/partenaire. Merci d'entrer les informations le concernant ci-dessous
+Sie haben angegeben, dass Sie in Begleitung Ihres/r Partners/in anreisen. Bitte füllen Sie die untenstehenden Felder aus. 
+You indicated that you will be accompanied by your spouse/partner. Please provide some information on your spouse/partner below.
+30
+Veuillez remplir le formulaire de manière aussi complète que possible. Les champs marqués d'une astérisque (
+Bitte füllen Sie das Formular möglichst vollständig aus. Die mit einem Stern (
+Please fill out the form as completely as possible. The fields marked with an asterisk (
+31
+) doivent obligatoirement être remplis. Si vous rencontrez des problèmes, veuillez écrire <b>en donnant les détails du problème, y-compris le message d'erreur</b> à
+) markierten Felder sind obligatorisch. Wenn das Formular nicht richtig funktioniert, senden Sie uns bitte <b>eine Beschreibung des Problems und wenn möglich die Fehlermeldung, die Sie erhalten</b>, an
+) are compulsory. If you have any problems with this form, please write <b>with details of your problem, including the error message you receive</b> to
+32
+Information personnelle - Conjoint/Partenaire
+Persönliche Angaben - Partner/in
+Personal information - Spouse/partner
+33
+Profession
+Beruf
+Profession
+34
+Employeur
+Arbeitgeber
+Employer
+35
+Référence
+Kontaktmöglichkeiten
+Contact information
+36
+Adresse courriel (e-mail) 
+E-Mail Adresse
+E-mail address
+37
+Adresse courriel (e-mail) (confirmation)
+E-Mail Adresse (bitte wiederholen)
+E-mail address (verify)
+38
+Téléphone
+Telefon
+Telephone number
+39
+(par ex. +41...)
+(z.B. +41...)
+(e.g. +41 ...)
+40
+Téléphone portable
+Mobiltelefon
+Mobile phone number
+41
+Fax
+Fax
+Fax number
+42
+Je souhaite participer à la/aux rencontre(s) suivante(s)
+Ich möchte gerne an folgender/folgenden Konferenz/en teilnehmen
+I would like to participate in the following conference(s)
+46
+Autres raisons
+Andere Aufenthaltsgründe
+Other reasons, please specify
+47
+Formulaire d'inscription - adresse pour la correspondance
+Anmeldeformular - Korrespondenzadresse
+Registration Form - correspondence address
+48
+Vous avez indiqué le désir de recevoir votre lettre de confirmation à une adresse autre que votre adresse permanente. Veuillez indiquer cette adresse ci-dessous
+Sie haben angegeben, dass Sie Ihr Bestätigungsschreiben an eine andere Adresse als an Ihre ständige Wohnadresse erhalten wollen. Bitte geben Sie unten eine Korrespondenzadresse an. 
+You indicated that you want your confirmation letter sent to an address that is different than your permanent address. Please supply a correspondence address below.
+49
+Adresse pour la correspondance
+Korrespondenzadresse
+Correspondence address
+50
+Rue/no
+Strasse, Nr.
+Street address
+51
+Ville
+Ort
+City/Town
+52
+Code postal
+Postleitzahl
+Postal code
+53
+Etat/province
+Kanton/Provinz/Bundesland
+State/Province
+54
+Pays
+Land
+Country
+55
+Autre pays
+Anderes Land
+Other Country
+56
+Adresse valable jusqu'à
+Adresse gültig bis
+Address valid until
+57
+Ne pas remplir si cette adresse est valable indéfiniment
+Leer lassen, wenn diese Adresse unbefristet gültig ist
+Leave blank if this address is valid indefinitly.
+59
+Formulaire d'inscription complet
+Anmeldeformular vollständig ausgefüllt
+Registration Form complete
+60
+Merci, votre inscription a été reçue.
+Danke, wir haben Ihre Anmeldung erhalten. 
+Thank you, your registration has been received.
+61
+Votre inscription n'a pas encore été acceptée
+Ihre Anmeldung wurde noch nicht akzeptiert
+Your registration has not yet been approved
+62
+Vous recevrez une lettre de confirmation si votre inscription est acceptée. Si vous n'avez pas reçu de lettre de confirmation 2 semaines avant votre départ pour Caux, veuillez vous renseigner à
+Sie erhalten ein Bestätigungsschreiben, sobald ihre Anmeldung akzeptiert ist. Falls Sie bis zwei Wochen vor Ihrer geplanten Ankunft in Caux noch keine Bestätigung erhalten haben, erkundigen Sie sich bitte hier
+You will receive a formal confirmation letter if your registration is approved. If you have not received a confirmation letter 2 weeks prior to your planned arrival in Caux, please enquire via
+64
+
+
+
+65
+Formulaire d'inscription
+Anmeldeformular
+Registration Form
+66
+Confirmation
+Bestätigung
+Confirmation
+67
+Je confirme/nous confirmons avoir lu les
+Ich/Wir bestätige/n hiermit, die
+I/we confirm that I/we have read the 
+68
+<a href="http://www.caux.iofc.org/fr/2010-hiver" target="new">documents</a>
+<a href="http://www.caux.iofc.org/de/2010-winter" target="new">Dokumente</a>
+<a href="http://www.caux.iofc.org/en/2010-winter" target="new">documents</a>
+69
+concernant les rencontres de Caux et je souhaite/nous souhaitons y participer.
+betreffend die Konferenzen in Caux gelesen zu haben und möchte/n an der Konferenz teilnehmen. 
+relating to the Caux conferences and would like to take part in the conference.
+70
+J'accepte/nous acceptons que mes/nos données personnelles soient utilisées par le secrétariat des rencontres, afin d'être en contact avec moi/nous au sujet de mon/notre inscription de cette année
+Meine/Unsere persönlichen Daten dürfen vom Caux-Konferenzsekretariat für die Verarbeitung meiner/unserer diesjährigen Anmeldung benutzt werden.
+I consent for my/our personal data to be held by the Caux Conference Secretariat for the purpose of communicating with me about my registration this year.
+71
+Informations personnelles
+Persönliche Angaben
+Personal information
+72
+Adresse permanente
+Ständige Wohnadresse
+Permanent address
+73
+Arrivée
+Ankunft
+Arrival
+74
+Heure d'arrivée
+Ankunftszeit
+Arrival time
+75
+(hh:mm)
+(ca.)
+(hh:mm)
+76
+Format 24h
+Format 24h
+24h clock!
+77
+Départ
+Abreise
+Departure
+78
+Heure de départ
+Abreisezeit
+Departure time
+79
+Voyage: voiture/train
+Anreise mit: Auto/Zug
+Travel: car/train
+80
+Voyage: no de vol
+Anreise mit Flugzeug: Flugnummer
+Travel: flight number
+81
+Invité par
+Name der einladenden Person/Referenz
+Name of the person who invited you/reference person
+82
+Envoyer la lettre de confirmation par
+Senden Sie mir das Bestätigungsschreiben per
+Send confirmation letter via
+83
+Courriel
+E-mail
+E-mail
+84
+Poste
+Post
+Post
+85
+Fax
+Fax
+Fax
+86
+Poste, mais à une adresse différente (indiquer l'adresse à la page suivante)
+Post, aber an eine andere Adresse (geben Sie die Adresse bitte auf der nächsten Seite an)
+Post, but to a different address (you can specify the address on the next page)
+87
+Je serai accompagné/e de (membres de la même famille uniquement)
+Ich werde begleitet von (nur Familienmitglieder angeben)
+I will be accompanied by (members of the same family only)
+88
+Personne
+Niemandem 
+Nobody
+89
+Conjoint/Partenaire
+Partner/in
+Spouse/Partner
+90
+Conjoint/Partenaire et enfant(s)
+Prtner/in und Kind/ern
+Spouse/Partner and child(ren)
+91
+Enfant(s)
+Kind/ern
+Child(ren)
+92
+Visa
+Visum
+Visa
+93
+Oui, il me/nous faut un visa
+Ja, ich/wir benötige/n ein Visum
+yes, I/we need a visa
+94
+Renseignez-vous s'il vous faut un visa auprès des endroits suivants
+Bitte erkundigen Sie sich, ob Sie für die Einreise in die Schweiz ein Visum benötigen. Auskunft erteilt Ihnen
+Please enquire whether you need a visa by consulting one of the following
+95
+le consulat de Suisse le plus proche
+das nächste Schweizer Konsulat
+the nearest Swiss Consulate
+97
+le site Internet de l'office fédéral des migrations
+die Webseite des Bundesamts für Migration
+ID and Visa provisions for entry into Switzerland
+99
+votre agent de voyage
+Ihr Reiseveranstalter
+your travel agent
+100
+IMPORTANT
+WICHTIG
+IMPORTANT
+101
+S'il vous faut un visa pour entrer en Suisse, votre inscription doit parvenir au secrétariat des conférences
+Wenn Sie ein Visum für die Einreise in die Schweiz benötigen, muss Ihre Anmeldung
+If you require a Swiss visa your registration needs to reach the conference secretariat
+102
+au moins DIX semaines
+mindesten ZEHN Wochen
+at least TEN weeks
+103
+avant votre arrivée à Caux.
+vor Ihrer Ankunft in Caux auf dem Konferenzsekretariat eintreffen. 
+prior to your arrival at Caux.
+104
+Veuillez prendre note qu'une fois que la lettre pour demande de visa est envoyée (avec copie à l'Ambassade de Suisse) tout changement de dates en dehors de la période indiquée dans la lettre sera très difficile. 
+Bitte beachten Sie, dass es schwierig ist, nachträglich Änderungen der Daten vorzunehmen, sobald sich Ihre Visum-Anfrage (Kopie Ihres Visum-Briefes) bei der zuständigen Schweizer Botschaft befindet. 
+Please note that once your visa letter has been issued (copies of which go to the Swiss Embassy) it is very difficult to change your reservation outside the dates of the visa letter.
+105
+Les autorités suisses ne peuvent pas délivrer de visa de transit pour d'autres pays.
+Die Schweizer Behörden können keine Einreise- oder Transit-Visen für den Schengener Raum oder andere Drittländer erteilen. 
+The Swiss authorities cannot issue visas for transit through other countries.
+106
+Frais de séjour
+Konferenzgebühren
+Conference Fees
+107
+Ma propre contribution aux frais de séjour par nuit sera de
+Mein persönlicher Beitrag an die Konferenzgebühren beträgt pro Nacht
+My personal contribution per night
+108
+EUR
+EUR
+EUR
+109
+CHF
+CHF
+CHF
+110
+USD
+USD
+USD
+111
+Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas 
+Falls Sie nicht 
+In case you are not able to pay
+112
+92 CHF par nuit (adulte)
+92 CHF pro Nacht (Erwachsene)
+92 CHF per night (adult)
+113
+vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:
+selber bezahlen, geben Sie bitte den Namen der Person oder der Organisation an, die für den Restbetrag aufkommt sowie den genauen Betrag, den diese Person oder Organisation für Sie pro Nacht bezahlt:
+yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:
+114
+Formulaire d'inscription - visa
+Anmeldeformular - Visum
+Registration Form - visa
+115
+Vous avez indiqué avoir besoin d'un visa pour entrer en Suisse. 
+Sie haben angegeben, dass Sie für die Einreise in die Schweiz ein Visum benötigen.
+You indicated that you require a visa for travel to Switzerland.
+116
+Information importante
+Wichtige Angaben
+Important information
+122
+Information concernant votre passeport
+Angaben zu Ihrem Pass
+Passport information
+123
+No de passeport
+Passnummer
+Passport number
+124
+Lieu d'émission
+Ausstellungsort
+Place of issue
+125
+Date d'émission
+Ausstellungsdatum
+Issue date
+126
+Valable jusqu'au:
+Gültig bis: 
+Expiry date
+130
+Erreur!
+Fehler!
+Error!
+132
+Continuez
+Weiter
+Proceed
+133
+Formulaire d'inscription - enfants
+Anmeldeformular - Kinder
+Registration Form - Children
+134
+Vous avez indiqué que vous serez accompagné de votre/vos enfant(s). Veuillez fournir ci-dessous les informations nécessaires
+Sie haben angegeben, dass Sie von Ihrem/n Kind/ern begleitet werden. Bitte füllen Sie die untenstehenden Felder aus.
+You indicated that you will be accompanied by your child(ren). Please provide the necessary information below.
+135
+Je serai/nous serons accompagné(s) d'un autre enfant
+Ich/Wir werden von einem weiteren Kind begleitet
+I/we will bring another child
+136
+Soumettre!
+Anmelden!
+Register!
+137
+Sélectionner
+Auswählen
+Choose one
+138
+Autre, préciser
+Andere, bitte angeben
+Other, please specify
+139
+http://www.bfm.admin.ch/bfm/fr/home/themen/einreise/merkblatt_einreise.html
+http://www.bfm.admin.ch/bfm/de/home/themen/einreise/merkblatt_einreise.html
+http://www.bfm.admin.ch/bfm/en/home/themen/einreise/merkblatt_einreise.html
+140
+http://www.eda.admin.ch/eda/fr/home/reps.html
+http://www.eda.admin.ch/eda/de/home/reps.html
+http://www.eda.admin.ch/eda/en/home/reps.html
+141
+Masculin
+Männlich
+Male
+142
+Féminin
+Weiblich
+Female
+143
+http://www.caux.iofc.org/fr/2011-frais
+http://www.caux.iofc.org/de/2011-geb%C3%BChren
+http://www.caux.iofc.org/en/2011-fees 
+144
+Aucun
+Keine
+None
+145
+Rudimentaire
+Gering
+Poor
+146
+Bonne
+Gut
+Good
+147
+Excellente
+Ausgezeichnet
+Excellent
+148
+Maternelle
+Fliessend
+Native
+149
+Vous devez préciser un
+Sie müssen angeben
+You need to specify a
+150
+Votre
+Ihr
+Your
+151
+doit être dans le format
+muss im Format sein
+must be in the format
+152
+et ne peut pas être vide
+und darf nicht leer bleiben
+and may not be empty
+154
+Vous devez avoir au minimum 16 ans pour utiliser ce formulaire. Veuillez modifier votre
+Sie müssen mindestens 16 Jahre alt sein, um dieses Formular benützen zu dürfen. Bitte passen Sie Ihr 
+You must be at least 16 years old to use this form. Please modify your
+155
+Date d'arrivée
+Ankunftsdatum
+Arrival date
+156
+Heure d'arrivée
+Ankunftszeit
+Arrival time
+157
+Date de départ
+Abreisedatum
+Departure date
+158
+Heure de départ
+Abreisezeit
+Departure time
+159
+Vous devez entrer un nom dans le champ
+Sie müssen einen Namen im Feld eintragen
+You need to provide a name in the field
+160
+Si vous êtes déjà venu à Caux, veuillez préciser l'
+Wenn Sie schon einmal an einer Konferenz in Caux waren, geben Sie bitte an
+If you have visited Caux before, please specify the 
+161
+année
+Jahr
+Year
+162
+Vous avez dit n'être jamais venu à Caux, mais vous avez spécifié une
+Sie haben angegeben, noch nie an einer Konferenz in Caux gewesen zu sein, trotzdem haben Sie angegeben
+You indicated you have not visited Caux before, yet you specified a
+163
+Videz le champ de l'année ou choisissez "oui" pour des visites antérieures
+Löschen Sie den Inhalt des "Jahr"-Feldes oder wählen Sie "Ja" für das Feld der früheren Teilnahmen
+Empty the year field, or select 'yes' for previous visits.
+167
+Participation financière par jour
+Kostenbeitrag pro Tag
+Daily financial contribution
+168
+Utiliser seulement des chiffres
+Benützen Sie nur Zahlen
+Use only digits
+169
+Si vous ne venez pas à Caux pour une session spécifique
+Wenn Sie nicht für eine spezifische Konferenz nach Caux kommen
+If you don't come to Caux for a specific session
+170
+devise
+Währung
+Currency
+175
+doit être à l'avenir
+muss in der Zukunft liegen
+must be in the future
+176
+doit être après votre
+muss nach Ihrer
+must be after your
+177
+Sélectionner la devise
+Währung Auswählen
+Select currency
+187
+Les valeurs pour
+Die Werte für
+The values for
+188
+et
+und
+and
+189
+ne correspondent pas
+stimmen nicht überein 
+don't match
+190
+Le numéro doit commencer avec le signe + suivi du code de votre pays (par ex. +41 pour la Suisse, +33 pour la France) suivi du reste du numéro.
+Die Nummer muss mit dem Zeichen + beginnen, gefolgt vom Code Ihres Landes (z.B. +49 fur Deutschland) und dem Rest der Nummer. 
+It needs to start with a plus sign followed by your country code (e.g. +41 for Switzerland, +1 for the USA, etc) followed by the rest of the number.
+191
+Doit être selon le format jj/mm/aaaa (par exmple, 01/12/1970 est le 1er décembre 1970)
+Muss im Format TT/MM/JJJJ sein
+It should be of the format dd/mm/yyyy (for instance, 01/12/1970 is December 1st, 1970)
+192
+Doit être selon le format hh:mm. Si vous n'êtes pas sûr de votre heure d'arrivée, veuillez indiquer une heure approximative. Utilisez le format continental (24h)
+Muss im Format hh:mm sein.  Wenn Sie Ihre Ankunftszeit nicht genau kennen, geben Sie bitte eine ungefähre Zeit an. Benützen Sie das 24h-Format 
+It should be of the format hh:mm. If you are not sure when you will arrive, please provide an approximate time. Use the 24-hour clock!
+195
+S'il vous faut un visa, nous avons besoin d'un numéro
+Wenn Sie ein Visum benötigen, benötigen wir eine Nummer
+If you require a visa, we need a
+196
+Si vous souhaitez recevoir votre lettre de confirmation par fax, il nous faut un numéro
+Wenn Sie Ihr Bestätigungsschreiben per Fax erhalten wollen, benötigen wir Ihre Fax-Nummer
+If you would like a confirmation letter via fax, we need a 
+197
+Adresse valable jusqu'à
+Adresse gültig bis
+Address valid until date
+200
+Votre inscription est restée inactive trop longtemps.
+Ihre Anmeldung war zu lange inaktiv. 
+Your registration was inactive for too long.
+201
+Veuillez recommencer.
+Bitte beginnen Sie noch einmal von vorne. 
+Please start over.
+202
+Les informations concernant votre conjoint/partenaire ont déjà été envoyées. Veuillez
+Die Angaben zu Ihrem/r Partner/in wurden bereits eingesandt. Bitte
+The information for your spouse/partner has already been submitted. Please
+203
+continuer
+fahren Sie fort. 
+continue
+204
+Les informations concernant vos enfants ont déjà été envoyées. Veuillez
+Die Angaben zu Ihren Kindern wurden bereits eingesandt. Bitte 
+The information for your children has already been submitted. Please 
+207
+Date d'émission du passeport de votre conjoint/partenaire
+Ausstellungsdatum des Passes Ihres/r Partners/in
+Passport issue date (spouse/partner)
+208
+Le passeport du conjoint/partenaire est valable jusqu'au
+Der Pass Ihres/r Partners/in ist gültig bis
+Passport expiry date (spouse/partner)
+210
+Lieu d'émission du passeport
+Ausstellungsort des Passes
+Passport place of issue
+214
+No de passeport (conjoint/partenaire)
+Passnummer (Partner/in)
+Passport number (spouse/partner)
+215
+Lieu d'émission du passeport du conjoint/partenaire
+Ausstellungsort des Passes des/r Partners/in
+Passport place of issue (spouse/partner)
+216
+La <strong>Date de naissance</strong> doit être dans le passé
+Das <strong>Geburtsdatum</strong> muss in der Vergangenheit liegen
+The <strong>birth date</strong> must be in the past
+217
+Veuillez confirmer que vous avez lu les documents relatifs aux conférences de Caux et que vous souhaitez prendre part à ces conférences
+Bitte bestätigen Sie, dass sie die Dokumente zu den Konferenzen in Caux gelesen haben und dass sie an der Konferenz teilnehmen wollen. 
+You need to confirm that you have read the documents relating to the Caux conferences and would like to take part in the conference
+218
+Si vous refusez que vos données personnelles soient conservées par la Fondation de Caux, nous ne pouvons pas aller de l'avant avec votre inscription
+Wenn Sie nicht damit einverstanden sind, dass Ihre persönlichen Angebane von der Stiftung Caux aufbewahrt werden, können wir mit Ihrer Anmeldung nicht fortfahren!
+Unless you consent to your personal data being held by the Caux Foundation, we cannot process your application!
+219
+Vous semblez utiliser Internet Explorer sur Apple Mac
+Sie scheinen Internet Explorer auf einem Apple Mac zu benutzen. 
+You seem to be using Internet Explorer on an Apple Mac.
+220
+Ce navigateur est <font size="+1">unsupported</font> parce qu'il est trop vieux. Il se peut qu'il ne vous soit pas possible de remplir complètement votre formulaire. Microsoft a interrompu les mises à jour d'Internet Explorer pour Mac en juin 2003, et il n'est donc plus adapté. Dans la mesure du possible, installez un navigateur plus récent, par exemple <a href="http://www.apple.com/safari/" target="new">Safari</a> ou <a href="http://www.mozilla.org/firefox/" target="new">Mozilla Firefox</a>.
+Dieser Browser wird <font size="+1">nicht unterstützt</font>, weil er zu alt ist. Die meisten Funktionen dieses Anmeldeformulars werden trotzdem funktionieren, möglicherweise aber nicht alle. Internetexplorer für Mac wird von Microsoft seit Juni 2003 nicht mehr weiter entwickelt und ist deshalb nun nicht mehr brauchbar. Bitte installieren Sie wenn möglich einen neueren Browser, z.B. <a href="http://www.apple.com/safari/" target="new">Safari</a> oder <a href="http://www.mozilla.org/firefox/" target="new">Mozilla Firefox</a>.
+This browser is <font size="+1">unsupported</font> because it is too old. While most of the functions of this registration form will work, some might not. Internet Explorer for Mac has been discontinued by Microsoft in June 2003, and is now seriously out of date. If you can, please install a more recent browser, like <a href="http://www.apple.com/safari/" target="new">Safari</a> or <a href="http://www.mozilla.org/firefox/" target="new">Mozilla Firefox</a>.
+221
+Si vous utilisez Mac OS X, Safari est déjà installé; veuillez cliquer sur l'icône qui ressemble à un compas.
+Wenn Sie Mac OS X benutzen, ist Safari bereits installiert; bitte klicken Sie das Symbol an, das wie ein Kompass aussieht. 
+If you are on Mac OS X, Safari is already installed; please start it by clicking on the icon that looks like a compass.
+222
+Vous pouvez essayer de continuer avec ce navigateur, mais nous ne pouvons pas garantir le succès de votre inscription.
+Sie können versuchen, mit diesem Browser weiterzufahren, aber bitte beachten Sie, dass wir nicht für den problemlosen Abschluss Ihrer Anmeldung garantieren könnnen. 
+You can try to continue with this browser, but be advised that we can not guarantee that you will be able to submit your registration without problems.
+223
+Vous semblez utiliser une ancienne version d'Internet Explorer (version
+Sie scheinen eine alte Version des Internet Explorer zu benutzen (Version
+You seem to be using a very old version of Internet Explorer (version
+224
+Ce navigateur est <font size="+1">unsupported</font> car il est trop vieux. Vous aurez peut-être des difficultés à remplir votre formulaire. Il vous faut Internet Explorer 5.5 ou plus récent. Nous vous conseillons d'installer un navigateur plus récent (cliquer sur le lien et sélectionner "download" dans la page suivante): <a href="http://www.mozilla.org/firefox/" target="new">Mozilla Firefox</a> (recommandé!), ou la version la plus récente de <a href="http://www.microsoft.com/windows/ie/" target="new">Internet Explorer</a>.             
+Ihr Browser wird <font size="+1">nicht unterstützt</font>, weil er zu alt ist. Die meisten Funktionen dieses Anmeldeformulars werden trotzdem funktionieren, möglicherweise aber nicht alle. Sie benötigen Internet Explorer 5.5 oder eine neuere Version. Bitte installieren Sie wenn möglich einen aktuellen Browser, indem Sie auf einen der folgenden Links klicken: <a href="http://www.mozilla.org/firefox/" target="new">Mozilla Firefox</a> (empfohlen!), oder <a href="http://www.microsoft.com/windows/ie/" target="new">Internet Explorer</a>.
+This browser is <font size="+1">unsupported</font> because it is too old. While most of the functions of this registration form will work, some might not. Internet Explorer versions 5.5 and newer are supported. If you can, please install a more recent browser (click on the link, and then choose 'download' on the next page): <a href="http://www.mozilla.org/firefox/" target="new">Mozilla Firefox</a> (recommended!), or the latest version of <a href="http://www.microsoft.com/windows/ie/" target="new">Internet Explorer</a>.
+225
+Vous semblez utiliser une version ancienne de Netscape (version
+Sie scheinen eine alte Version von Netscape zu benutzen (Version
+You seem to be using a very old version of Netscape (version
+226
+Ce navigateur est <font size="+1">unsupported</font> car il est trop vieux. Vous aurez peut-être des difficultés à remplir votre formulaire. Des versions plus récentes de Mozilla (firefox) sont disponibles. Nous vous conseillons d'installer un navigateur plus récent (cliquer sur le lien et sélectionner "download" dans la page suivante): <a href="http://www.mozilla.org/firefox/" target="new">Mozilla Firefox</a> (recommandé!), ou la version la plus récente de <a href="http://www.mozilla.org/" target="new">Mozilla</a>.
+Dieser Browser wird <font size="+1">nicht unterstützt</font>, weil er zu alt ist. Die meisten Funktionen dieses Anmeldeformulars werden trotzdem funktionieren, möglicherweise aber nicht alle. Bitte installieren Sie wenn möglich einen aktuellen Browser, indem Sie auf einen der folgenden Links klicken: <a href="http://www.mozilla.org/firefox/" target="new">Mozilla Firefox</a> (empfohlen!), oder <a href="http://www.microsoft.com/windows/ie/" target="new">Internet Explorer</a>.
+This browser is <font size="+1">unsupported</font> because it is too old. While most of the functions of this registration form will work, some might not. More recent Mozilla (firefox) versions are supported. If you can, please install a more recent browser (click on the link, and then choose 'download' on the next page): <a href="http://www.mozilla.org/firefox/" target="new">Mozilla Firefox</a> (recommended!), or the latest version of <a href="http://www.mozilla.org/" target="new">Mozilla</a>.
+227
+http://www.caux.ch/img/headf.swf
+http://www.caux.ch/img/headd.swf
+http://www.caux.ch/img/heade.swf
+228
+Cher visiteur,<p>L'inscription en ligne des rencontres de Caux est actuellement hors service.<p>Merci pour votre compréhension.<p>Le secrétariat des rencontres.
+Liebe(r) Besucher(in),<p>Vielen Dank fr Ihre Aufmerksamkeit. Die online-Anmeldung fr die Konferenzen steht momentan nicht zur Verfgung.<p>Mit freundlichen Grssen,<p>Das Konferenzsekretariat.
+Dear visitor,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. Please try again later.<p>Yours sincerely,<br>The Conference Secretariat.
+229
+La session que vous avez choisie ne correspond pas aux dates de votre séjour à Caux.
+Die von Ihnen gewählte Konferenz stimmt nicht mit den Daten Ihres Aufenthalts in Caux überein. 
+A conference you selected does not overlap with your stay at Caux.
+230
+Il n'a pas été possible de valider le contenu de ce formulaire. Veuillez corriger le(s) problème(s) indiqué(s) ci-dessous et recommencer.
+Ihre Anmeldung konnte nicht entgegengenommen werden. Bitte beheben Sie die aufgelisteten Probleme und versuchen Sie es noch einmal. 
+The contents of this form could not be validated. Please correct the problem(s) listed below, and try again.
+231
+Si votre enfant est sur le passeport de votre conjoint/partenaire, veuillez entrer les détails de ce passeport ici.
+Wenn Ihr Kind im Pass Ihres/r Partner/in eingetragen ist, geben Sie bitte die Details des entsprechenden Passes hier an. 
+If your child is listed in your/your spouse/partner's passport, please repeat those passport details here.
+232
+Si vous avez des problèmes et avez un message d'erreur ci-dessus, indiquant que votre navigateur n'est pas reconnu, <a href="http://www.mozilla.org/firefox/" target="new"><b>veuillez installer une mise à jour plus récente</b></a> et ré-essayer avant de nous contacter.<p>Merci de vous inscrire au plus tard six semaines avant votre arrivée à Caux.
+Wenn Sie eine Fehlermeldung erhalten haben, Ihr Browser werde nicht unterstützt, <a href="http://www.mozilla.org/firefox/" target="new"><b>installieren Sie bitte einen neuen Browser</b></a> und versuchen Sie es noch einmal, bevor Sie uns kontaktieren.<p>Bitte melden Sie sich bis spätestens sechs Wochen vor Ihrer Ankunft in Caux an.
+If you have problems and you see an error message above about your browser being unsupported, <a href="http://www.mozilla.org/firefox/" target="new"><b>please upgrade to a newer browser</b></a> and try again before contacting us.<p>Thank you for registering as soon as possible, but no later than six weeks before your arrival.
+233
+Votre inscription est restée inactive trop longtemps, ou elle a déjà été envoyée. Il n'est plus possible de la modifier ou la compléter. Si vous désirez recommencer, veuillez utiliser le lien "Inscription" dans le menu.
+Ihre Anmeldung war zu lange inaktiv oder wurde bereits abgeschickt. Sie kann nicht mehr verändert oder vervollständigt werden. Wenn Sie eine neue Anmeldung abschicken wollen, benutzen Sie bitte den Link "Anmeldung" in der linken Navigationsleiste. 
+Your registration was inactive for too long, or has already been submitted. Your session information is not available. This registration can no longer be modified or completed. Possibly you have disabled cookies in your browser. If you keep getting this page, please make sure that cookies are enabled in your browser and restart the registration procedure. You can find instructions most browsers <a href="http://www.google.com/cookies.html">here</a>.
+234
+Sélectionner une heure approximative
+Wählen Sie
+Choose approximate time
+235
+Vous devez préciser une
+Sie müssen angeben
+You need to specify a
+236
+Vous devez préciser une nationalité dans le champ <strong>Autre nationalité</strong> si vous sélectionner "autre" dans le menu déroulant de la nationalité
+Sie müssen eine Staatsangehörigket im Feld <strong>Andere Staatsangehörigkeit</strong> angeben, wenn sie im Dropdown-Menu "Staatsangehörigkeit" "andere" gewählt haben
+You need to specify a citizenship in the <strong>Other citizenship</strong> field if you choose 'Other' in the citizenship dropdown box
+237
+Vous devez préciser une langue dans le champ <strong>Autre première langue</strong> si vous choisissez "autre" dans le menu première langue
+Sie müssen eine Sprache im Feld <strong>Andere Muttersprache</strong> angeben, wenn Sie im Dropdown-Menu "Muttersprache" "andere" gewählt haben
+You need to specify a language in the <strong>Other first language</strong> field if you choose 'Other' in the first language dropdown box
+238
+Vous devez préciser une langue dans le champ <strong>Autre deuxième langue</strong> si vous choisissez "autre" dans le menu deuxième langue
+Sie müssen eine Sprache im Feld <strong>Andere zweite Sprache</strong> angeben, wenn Sie im Dropdown-Menu "Zweite Sprache" "andere" gewählt haben 
+You need to specify a language in the <strong>Other second language</strong> field if you choose 'Other' in the second language dropdown box
+239
+Vous devez préciser une langue dans le champ <strong>Autre troisième langue</strong> si vous choisissez "autre" dans le menu troisième langue
+Sie müssen eine Sprache im Feld <strong>Andere dritte Sprache</strong> angeben, wenn Sie im Dropdown-Menu "Dritte Sprache" "andere" gewählt haben 
+You need to specify a language in the <strong>Other third language</strong> field if you choose 'Other' in the third language dropdown box
+240
+Vous devez préciser une langue dans le champ <strong>Autre quatrième langue</strong> si vous choisissez "autre" dans le menu quatrième langue
+Sie müssen eine Sprache im Feld <strong>Andere vierte Sprache</strong> angeben, wenn Sie im Dropdown-Menu "Vierte Sprache" "andere" gewählt haben 
+You need to specify a language in the <strong>Other fourth language</strong> field if you choose 'Other' in the fourth language dropdown box
+241
+Vous avez fourni une <strong>Adresse courriel</strong> non valable
+Sie haben eine ungültige <strong>E-mail Adresse</strong> angegeben
+You have supplied an invalid <strong>E-mail address</strong>
+242
+Vous avez fourni un <strong>numéro de Téléphone</strong> non valable.
+Sie haben eine ungültige <strong>Telefonnummer</strong> angegeben.
+You have supplied an invalid <strong>Telephone number</strong>.
+243
+Vous avez fourni un <strong>numéro de Téléphone portable</strong> non valable
+Sie haben eine ungültige <strong>Mobiltelefonnummer</strong> angegeben
+You have supplied an invalid <strong>Mobile phone number</strong>
+244
+Vous avez fourni un <strong>numéro Fax</strong> non valable
+Sie haben eine ungültige <strong>Faxnummer</strong> angegeben
+You have supplied an invalid <strong>Fax number</strong>
+245
+Vous devez préciser un pays dans le champ <strong>Autre pays</strong> si vous choisissez "autre" dans le menu déroulant Pays
+Sie müssen ein Land im Feld <strong>Anderes Land</strong> angeben, wenn Sie im Dropdown-Menu "Land" "anderes" wählen. 
+You need to specify a country in the <strong>Other country</strong> field if you choose 'Other' in the Country dropdown box
+246
+Vous avez fourni une <strong>Date d'arrivée</strong> non valable
+Sie haben ein ungültiges <strong>Ankunftsdatum</strong> angegeben
+You have supplied an invalid <strong>Arrival date</strong>
+247
+Vous avez fourni une <strong>Date de départ</strong> non valable
+Sie haben ein ungültiges <strong>Abreisedatum</strong> angegeben
+You have supplied an invalid <strong>Departure date</strong>
+248
+Vous avez fourni une <strong>Houre d'arrivée</strong> non valable
+Sie haben eine ungültige <strong>Ankunftszeit</strong> angegeben
+You have supplied an invalid <strong>Arrival time</strong>
+249
+Vous avez fourni une <strong>Heure de départ</strong> non valable
+Sie haben eine ungültige <strong>Abreisezeit</strong> angegeben
+You have supplied an invalid <strong>Departure time</strong>
+250
+Si vous ne venez pas à Caux pour une session spécifique, veuillez préciser vos raisons dans le champ <strong>Autres raisons</strong>
+Wenn Sie nicht für eine bestimmte Konferenz nach Caux kommen, nennen Sie Ihre Aufenthaltsgründe bitte im Feld <strong>Andere Aufenthaltsgründe</strong>
+If you don't come to Caux for a specific session, please specify your reasons in the <strong>Other reasons</strong> field
+251
+Si vous ne venez pas à Caux pour une session ou un programme spécifique, veuillez sélectionner <strong>Autres raisons</strong> et préciser vos raisons
+Wenn Sie nicht für eine bestimmte Konferenz oder Trainingsprogramm nach Caux kommen, wählen Sie bitte <strong>Andere Aufenthaltsgründe</strong> und nennen Sie diese Gründe
+If you don't come to Caux for a specific session or training programme, please select <strong>Other reasons</strong> and specify your reasons
+252
+Vous devez préciser un secteur dans le champ ci-contre si vous sélectionner "autre" dans le menu déroulant <strong>Vie pratique du centre</strong>
+Wenn Sie im Feld <stron>Mitarbeit im Konferenzhaushalt</strong> "andere" gewählt haben, müssen Sie im nebenstehenden Feld den Bereich, in dem Sie mithelfen wollen, definieren. 
+You need to specify a sector in the adjacent field if you choose 'Other' in the <strong>Practical life in the house</strong> dropdown box
+253
+Vous avez fourni une <strong>Adresse valable jusqu'à</strong> non valable 
+Sie haben das Feld <strong>Adresse gültig bis</strong> falsch ausgefüllt
+You have supplied an invalid <strong>Address valid until date</strong>
+254
+La date <strong>Adresse valable jusqu'à</strong> doit être au moins 6 semaines à l'avenir
+Das Datum im Feld <strong>Adresse gültig bis</strong> muss mindestens sechs Wochen in der Zukunft liegen
+The <strong>Address valid until date</strong> must be at least 6 weeks in the future
+255
+Au moins une <strong>Langue</strong> doit être précisé
+Mindestens eine <strong>Sprache</strong> muss definiert werden
+At least one <strong>Language</strong> needs to be specified
+256
+La <strong>Date d'émission</strong> doit être dans le format jj/mm/aaaa et ne peut pas être vide
+Das Feld <strong>Ausstellungsdatum</strong> muss im Format TT/MM/JJJJ ausgefüllt sein
+The <strong>Passport issue date</strong> must be in the format dd/mm/yyyy and it may not be empty
+257
+La <strong>Date d'éxpiration</strong> doit être dans le format jj/mm/aaaa et ne peut pas être vide
+Das Feld <strong>Gültig bis</strong> muss im Format TT/MM//JJJJ ausgefüllt sein
+The <strong>Passport expiry date</strong> must be in the format dd/mm/yyyy and it may not be empty
+258
+La <strong>Date d'émission</strong> ne peut pas être dans l'avenir
+Das <strong>Ausstellungsdatum</strong> darf nicht in der Zukunft liegen
+The <strong>Passport issue date</strong> can not be in the future
+259
+La <strong>Date d'éxpiration </strong> doit être valable au moins trois mois après votre départ de Caux
+Das Datum im Feld <strong>Gültig bis</strong> muss mindestens drei Monate hinter Ihrer Abreise aus Caux liegen
+The <strong>Passport expiry date</strong> must be at least 3 months beyond your departure date from Caux
+260
+La <strong>Date d'éxpiration</strong> doit être plus tard que la <strong>Date d'émission</strong>
+Das Datum im Feld <strong>Gültig bis</strong> muss hinter dem <strong>Ausstellungsdatum</strong> liegen
+The <strong>Passport expiry date</strong> must be later than the <strong>Passport issue date</strong>
+261
+Badge
+Namensschild
+Name badge
+262
+Tous les participants aux rencontres de Caux portent un badge indiquant leur nom et pays. Veuillez entrer ces informations telles que vous souhaitez qu'elles apparaissent.
+Während der Konferenzen in Caux trägt jeder Teilnehmende ein Namensschild, das den Namen und das Herkunftsland der Person angibt. Bitte tragen Sie diese Angaben hier so ein, wie sie auf Ihrem Namensschild erscheinen sollen. 
+While the conferences are on, everyone in the conference centre has a name badge that indicates name and country. Please provide your information as you want it to appear on your badge.
+263
+Badge prénom
+Namensschild: Vorname
+Name tag first name
+264
+Badge nom de famille
+Namensschild: Name
+Name tag family name
+265
+Badge pays
+Namensschild: Land
+Name tag country
+266
+Numéro de téléphone bureau
+Telefonnummer Büro
+Office phone number
+267
+Vous avez fourni un <strong>numéro de Téléphone Bureau</strong> non valable
+Sie haben eine ungültige <strong>Telefonnummer Büro</strong> angegeben
+You have supplied an invalid <strong>Office number</strong>
+268
+Vous avez suivi un lien incorrect. Vous pouvez retourner pour <a href="/fr/centre/application/index.php?_adp_page=applications&_adp_mode=new&group_id=6&language_id=1">vous inscrire</a>.
+Sie sind einem ungültigen Link gefolgt. Bitte gehen Sie zum <a href="/de/centre/application/index.php?_adp_page=applications&_adp_mode=new&group_id=6&language_id=2">Anmeldeformular</a>.
+You have followed an invalid link. Please go to the <a href="/en/centre/application/index.php?_adp_page=applications&_adp_mode=new&group_id=6&language_id=3">registration form</a>.
+269
+de votre dernière visite
+ihres letzten Besuchs
+of your last visit
+270
+Des outils pour Changer<br>4 - 11 Août 2007, Caux, Suisse
+Tools for Change<br>4 - 11 August 2007, Caux, Schweiz
+Tools for Change<br>4 - 11 August 2007, Caux, Switzerland
+271
+Veuillez remplir le formulaire de manière aussi complète que possible. Les champs marqués d'une astérisque (
+Bitte füllen Sie das Formular möglichst vollständig aus. Die mit einem Stern (
+Please complete the following information and click "Proceed" at the bottom of the page to submit the form. The fields marked with an asterisk (
+272
+) doivent obligatoirement être remplis. Si vous rencontrez des problèmes, veuillez écrire <b>en donnant les détails du problème, y-compris le message d'erreur</b> à
+) markierten Felder sind obligatorisch. Wenn das Formular nicht richtig funktioniert, senden Sie uns bitte <b>eine Beschreibung des Problems und wenn möglich die Fehlermeldung, die Sie erhalten</b>, an
+) are compulsory. If you have any questions or problems, or to receive a version of this registration form that can be mailed in, please email <a href="mailto:toolsforchange@iofc.org">toolsforchange@iofc.org</a>. For more information about the Tools for Change program, and scholarship information, please click <a href="http://toolsforchange.iofc.org" target="new">here</a>.
+273
+Votre milieu culturel / appartenance ethnique/ religion (facultatif)
+Wenn Sie möchten, geben Sie uns bitte hier Informationen über Ihren kulturellen/ethnischen/religiösen Hintergrund
+Cultural/Ethnic/Religious background (optional)
+274
+Experience et formation
+Angaben zum Lebenslauf
+Previous Experience and Skill level
+275
+Métier/profession
+Beruf/Beschäftigung
+Occupation/vocation
+276
+Formation
+Ausbildung
+Educational background
+277
+Autres compétences et expérience en matière de leadership, résolution de conflit, facilitation, etc.
+Andere Fähigkeiten und Erfahrung in Leadership, Konfliktlösung, Gruppenführung etc.
+Other skills and experience in leadership, conflict resolution, group facilitation, etc.
+278
+Si vous avez déjà participé à des projets ou des programmes d'Initiatives et Changement, quel(s) programme(s) ?
+Haben Sie an irgendwelchen Aktivitäten oder Programmen von Initiatives of Change teilgenommen? Wenn ja an welchen?	
+If you have previously participated in any Initiatives of Change activities or programmes, which one(s)?
+279
+Comment avez-vous eu connaissance de la formation "Des outils pour changer"?
+Wie haben Sie von Tools for Change erfahren?
+How did you first learn of Tools for Change?
+280
+Domaines d'intérêt
+Interessenbereiche
+Areas of interest
+281
+Les participants à la conférence Des outils pour Changer auront à choisir parmi des modules de formation (qui fonctionneront en parallèle). Merci d'indiquer votre préférence par ordre croissant (1, 2, 3). Dans l'intérêt des participants et afin d'assurer la diversité au sein des groupes et leur fonctionnement, nous ne pouvons vous garantir que votre premier choix sera respecté.
+Tools for Change wird diverse Kurse zu parallelen Kurszeiten anbieten. Um diese Kurse bestmöglich zu planen, möchten wir Ihre Interessengebiete kennenlernen. Bitte markieren Sie die drei Bereiche, die Sie am meisten interessieren mit 1, 2 und 3.
+Tools for Change will offer a variety of courses in parallel learning tracks. To plan these courses, we would like to know what you are interested in. Please rank your top three areas of interest from among the topics below with a 1, 2 or 3, using 1 for the track that interests you most.
+282
+Construire la paix: conflit, Traumatisme et histoire
+Friedensschaffung: Konflikt, Trauma und Geschichte
+Peacebuilding: Conflict, Trauma, and History
+283
+Conversations franches et facilitation de dialogue
+Aufrichtige Gespräche und Dialogführung
+Honest Conversation and Dialogue Facilitation
+284
+Mobiliser et entretenir des réseaux pour agir
+Netzwerke für Aktionen mobilisieren und unterhalten
+Mobilizing and Maintaining Networks for Action
+285
+Communiquer une vision, partager une expérience
+Eine Vision kommunizieren durch Erzählung von Geschichten
+Communicating a Vision, Telling the Story
+286
+Ressources personnelles au service du changement
+Innere Ressourcen für Veränderung nähren
+Inner Resources for Change
+287
+Attentes
+Erwartungen bezüglich der Konferenz
+Expectations for the Conference
+288
+Qu'attendez-vous de la session "Des outils pour changer" pour vous, votre famille, votre communauté, ou la société en générale?
+Was erhoffen Sie sich von Tools for Change für Sie selbst, für Ihre Familie, Ihr Umfeld oder die Gesellschaft?
+What do you hope to take back from Tools for Change for yourself, your family, your community, or your larger society?
+289
+J'accepte de payer la somme de 100 CHF de frais administratif pour participer au coût de la session "Des outils pour changer".
+Ich habe zur Kenntnis genommen, dass ich für die Anmeldung zur Tools for Change Konferenz eine Anmeldegebühr von 100 CHF  zur Beteiligung an der Deckung der Konferenzkosten zu entrichten habe.
+I understand that I will be expected to pay a 100 CHF administration fee to support the costs of the Tools for Change conference.
+290
+J'authorise Initiatives et Changement de rester en contact avec moi en utilisant l'adresse mail indiquée.
+Ich möchte, dass Initiativen zur Veränderung mich über meine angegebene E-mail Adresse weiterhin informiert
+I would like Initiatives of Change to stay in touch with me about Tools for Change using the email address I have provided.
+291
+Sélectionner
+Auswählen
+Select
+293
+Veuiller completer
+
+You need to complete
+294
+Vous devez accepter
+
+You need to accept
+295
+Si vous venez accompagné, vous pourrez fournir les détails concernant votre époux/épouse et/ou vos enfants sur la page suivante.
+Wenn Sie in Begleitung kommen, können Sie die Daten Ihrer Begleitperson(en) auf der folgenden Seite eingeben.
+If you are accompanied, you will be able to provide details for your spouse/partner and/or child(ren) on the following pages.
+296
+Prière de ne sélectionner chaque <strong>langue</strong> qu'une seule fois
+Bitte wählen Sie jede <strong>Sprache</strong> nur einmal
+Please select each <strong>language</strong> only once
+297
+
+
+
+298
+Oui, j'aimerais bien recevoir des informations régulières sur les futures rencontres de Caux (par couriel). 
+Ja, bitte senden Sie mir regelmässige Informationen über zukünftige Konferenzen in Caux (per E-Mail).
+Yes, I wish to regularly receive information about future International Caux Conferences (by email). 
+299
+Oui, j'aimerais bien recevoir des informations régulières sur les activités d'Initiatives et Changement dans mon pays de résidence.
+Ja, bitte senden Sie mir regelmässige Informationen über Aktivitäten von Initiativen der Veränderungen in dem Land, in dem ich wohne.
+Yes, I wish to regularly receive information about the activities of Initiatives of Change in my country of residence. 
+300
+Intégrité et confiance dans l'économie globale - 11-16 juillet 2008, Caux, Switzerland
+Vertrauen und Integrität in der Weltwirtschaft - 11-16 Juli 2008, Caux, Switzerland
+Trust and Integrity in the Global Economy - July 11-16 2008, Caux, Switzerland
+301
+Mon engagement avec le sujet est
+Meine Beschäftigung damit ist
+My level of involvement is
+302
+Bas
+Minim
+Low
+303
+Moyen
+Mässig
+Medium
+304
+Important
+Gut
+Good
+305
+Financer un monde plus sûr
+Eine sicherere Welt finanzieren
+Financing a secure world
+306
+Je m'interesse au sujet
+Ich interessiere mich für das Thema
+I'm interested in
+307
+Prise de décision basée sur des principes
+Auf ethischen Werten begründete Entscheidungsfindung
+Principled values-driven decision-making
+308
+Travail pour tous au 21ème siècle
+Arbeit für alle im 21. Jahrhundert
+Work for all in the 21st century
+309
+Si vous avez choisi 'Financer un monde plus sûr', veuillez bien indiquer votre degré d'engagement
+Wenn sie das Thema 'Eine sicherere Welt finanzieren', gewählt haben, dann geben sie bitte Ihren Beschäftigungsgrad an.
+If you have selected 'Financing a secure world', please select your level of involvement
+310
+Si vous avez choisi 'Prise de décision basée sur des principes', veuillez bien indiquer votre degré d'engagement
+Wenn sie das Thema 'Auf ethischen Werten begründete Entscheidungsfindung', gewählt haben, dann geben sie bitte Ihren Beschäftigungsgrad an.
+If you have selected 'Principled values-driven decision-making', please select your level of involvement
+311
+Si vous avez choisi 'Travail pour tous au 21ème siècle', veuillez bien indiquer votre degré d'engagement 
+Wenn sie das Thema 'Arbeit für alle im 21. Jahrhundert', gewählt haben, dann geben sie bitte Ihren Beschäftigungsgrad an.
+If you have selected 'Work for all in the 21st century', please select your level of involvement
+312
+Si vous voulez indiquer votre degré d'engagement, pour 'Financer un monde plus sûr', marquez aussi ce sujet. Sinon, n'indiquez pas un degré d'engagement.
+Wenn Sie Ihren Beschäftigungsgrad von 'Eine sicherere Welt finanzieren' angeben, dann wählen sie bitte auch das Thema.
+If want to indicate a level of involvement for 'Financing a secure world', please tick that box. Otherwise, do not choose a level of involvement.
+313
+Si vous voulez indiquer votre degré d'engagement, pour 'Prise de décision basée sur des principes', marquez aussi ce sujet. Sinon, n'indiquez pas un degré d'engagement.
+Wenn Sie Ihren Beschäftigungsgrad von 'Auf ethischen Werten begründete Entscheidungsfindung' angeben, dann wählen sie bitte auch das Thema.
+If want to indicate a level of involvement for 'Principled values-driven decision-making', please tick that box. Otherwise, do not choose a level of involvement.
+314
+Si vous voulez indiquer votre degré d'engagement, pour 'Travail pour tous au 21ème siècle', marquez aussi ce sujet. Sinon, n'indiquez pas un degré d'engagement.
+Wenn Sie Ihren Beschäftigungsgrad von 'Arbeit für alle im 21. Jahrhundert' angeben, dann wählen sie bitte auch das Thema.
+If want to indicate a level of involvement for 'Work for all in the 21st century', please tick that box. Otherwise, do not choose a level of involvement.
+315
+Votre année de naissance n'est pas plausible. Veuillez modifier votre
+Das von Ihnen angegebene Geburtsdatum liegt zu weit in der Vergangenheit. Bitte passen Sie Ihr 
+Your date of birth is too far in the past. Please modify your
+316
+Des outils pour Changer<br>25 Juillet - 1 Août 2008, Caux, Suisse
+Werkzeuge der Veränderung<br>Juli 25 - August 1 2008, Caux, Schweiz
+Tools for Change<br>25 July - 1 August 2008, Caux, Switzerland
+317
+Les participants à la conférence Des outils pour Changer auront à choisir parmi des modules de formation (qui fonctionneront en parallèle). Merci d'indiquer votre préférence par ordre croissant (1, 2, 3). Dans l'intérêt des participants et afin d'assurer la diversité au sein des groupes et leur fonctionnement, nous ne pouvons vous garantir que votre premier choix sera respecté.
+Tools for Change wird diverse Kurse zu parallelen Kurszeiten anbieten. Um diese Kurse bestmöglich zu planen, möchten wir Ihre Interessengebiete kennenlernen. Bitte markieren Sie die drei Bereiche, die Sie am meisten interessieren mit 1, 2 und 3.
+Tools for Change will offer a variety of skills-building courses. To plan these courses, we would like to know what you are interested in. Please rank your top three areas of interest from among the topics below with a 1, 2 or 3, using 1 for the track that interests you most.
+318
+Construire la paix: conflit, Traumatisme et histoire
+Friedensschaffung: Konflikt, Trauma und Geschichte
+Peacebuilding and Conflict Transformation
+319
+Conversations franches et facilitation de dialogue
+Aufrichtige Gespräche und Dialogführung
+Honest Conversation and Dialogue Facilitation
+320
+Mobiliser et entretenir des réseaux pour agir
+Netzwerke für Aktionen mobilisieren und unterhalten
+Mobilizing and Maintaining Diverse Teams and Networks for Action
+321
+Communiquer une vision, partager une expérience
+Eine Vision kommunizieren durch Erzählung von Geschichten
+Effective Communication
+322
+Ressources personnelles
+Innere Ressourcen
+Inner Resources
+323
+Les artistes peuvent-ils réparer ce monde brisé?<br>août 03-10, 2008, Caux, Suisse
+Renewal Arts: Können Kunstschaffende zu einer friedlicheren Welt beitragen?<br>August 03-10, 2008, Caux, Schweiz
+Renewal Arts<br>3 - 10 August 2008, Caux, Switzerland
+324
+
+
+Workshops
+325
+
+
+During the Renewal Arts conference everyone is assigned to a workshop. Please indicate your first, second and third choice below. You can read more about the different workshops <a href="/applicationform/documents/ra2008_workshops_en.pdf">here</a> [PDF].
+326
+
+
+Rhythm in Life: African Drumming
+327
+
+
+From Chaos to Harmony: Music
+328
+
+
+Painting From Within
+329
+
+
+Community in Clay
+330
+
+
+Improvisation for Theatre
+331
+
+
+Dance Workshop: Kuchipudi
+332
+
+
+Cartooning & Humor
+333
+
+
+Dance & Movement
+334
+
+
+Music & Creativity
+335
+
+
+Poetry in Performance
+336
+
+
+The Art of Photography
+337
+
+
+Puppet Theatre
+338
+
+
+Inside Out: Dramatic Workshop
+339
+
+
+First choice
+340
+
+
+Second choice
+341
+
+
+Third choice
+342
+Montant par nuit
+Beitrag pro Nacht
+Amount per night
+343
+
+
+Sponsor
+344
+
+
+for sponsor #{page.global[sponsor_1]}
+345
+
+
+for sponsor #{page.global[sponsor_2]}
+346
+Invité(e) par
+Eingeladen von
+Invited by
+347
+Deux session parallèles
+Zwei parallel stattfindende Konferenzen
+Two conferences in parallel
+348
+Si non, comment avez-vous entendu parler des rencontres de Caux?
+Wenn nein, wie sind Sie auf die Konferenzen in Caux aufmerksam geworden?
+If no, how did you hear about the Caux conferences?
+349
+Si vous n'avez pas encore participé à une rencontre de Caux avant, veuillez préciser comment vous avez entendu parler des rencontres de Caux.
+Wenn Sie bisher noch nie an einer Konferenz in Caux teilgenommen haben, geben Sie bitte an, wie sie auf die Konferenzen in Caux aufmerksam geworden sind. 
+If you have not visited Caux before, please specify <strong>how you heard about the Caux conferences</strong>.
+350
+Des outils pour Changer - Devenir un artisan de paix<br>9-15 Août 2009, Caux, Suisse
+Werkzeuge der Veränderung - Frieden ist lernbar<br>August 9-15 2009, Caux, Schweiz
+Tools for Change - Learning to be Peacemakers<br>9-15 August 2009, Caux, Switzerland
+351
+) doivent obligatoirement être remplis. Si vous rencontrez des problèmes, veuillez écrire <b>en donnant les détails du problème, y-compris le message d'erreur</b> à
+) markierten Felder sind obligatorisch. Wenn das Formular nicht richtig funktioniert, senden Sie uns bitte <b>eine Beschreibung des Problems und wenn möglich die Fehlermeldung, die Sie erhalten</b>, an
+) are compulsory. For more information about the Tools for Change program, and scholarship information, please click <a href="http://toolsforchange.iofc.org" target="new">here</a>.
+352
+
+
+I would like to join the following work stream:
+353
+
+
+Responding to the global 'meltdown' - Leading positive change
+354
+
+
+Food, Health and Sustainability
+355
+
+
+How can the media help rebuild a global economy that is trustworthy, honest and inspiring?
+356
+
+
+The conference will explore different subjects through work-streams formed around the conference theme, led by people with a real passion and willingness to take responsibility and positive action. To plan these work streams, we would like to know what you are interested in. Please rank your top three areas of interest from among the topics below with a 1, 2 or 3, using 1 for the track that interests you most.
+357
+Intégrité et confiance dans l'économie globale - 24-29 juillet 2009, Caux, Switzerland
+Vertrauen und Integrität in der Weltwirtschaft - 24-29 Juli 2009, Caux, Switzerland
+Trust and Integrity in the Global Economy - July 24-29 2009, Caux, Switzerland
+358
+
+
+Please select a preference for "Responding to the global 'meltdown' - Leading positive change"
+359
+
+
+Please select a preference for "Food, Health and Sustainability"
+360
+
+
+Please select a preference for "How can the media help rebuild a global economy that is trustworthy, honest and inspiring?"
+361
+
+
+Education for Peace: Creating Violent Free Schools
+362
+
+
+Building and Maintaining Diverse Teams and Networks for Action
+363
+
+
+Creators of Peace - Experience the Circle
+364
+
+
+Creators of Peace - Train the Trainer
+365
+
+
+Foundations for Freedom: Changing your perspective - from self to others
+366
+
+
+Reconciliation and Forgiveness
+367
+
+
+The Heart of Leadership
+368
+
+
+Life Matters
+369
+
+
+Family Renewal
+370
+
+
+Reshaping Business Around Core Values
+371
+Nous nous réjouissons que vous veniez en famille à Caux. Comme vous le savez, un jardin d'enfants prendra soin de votre/vos enfant(s) pendant les réunions. Afin que tout se déroule bien, nous vous demandons <b>d'apporter un téléphone mobile</b> pour que vous puissiez être atteint à n'importe quel moment. Ceci est un règlement établi par les autorités cantonales pour les jardins d'enfants. Merci.
+
+We look forward to welcoming you in Caux with your child/your children. As you know they can be looked after in a kindergarten during the meetings. In order for everything to go smoothly, we ask you <b>to bring a mobile phone</b> so that you can be easily reached if needed. This is a regulation of the cantonal authorities for kindergartens. Thank you in advance. 
+372
+0/46/55 CHF par nuit (enfant/jeune)
+0/46/55 CHF pro Nacht (Kind/Jugendliche)
+0/46/55 CHF per night (child/young person)
+373
+La date de votre arrivée ne correspond pas à la date du début de la conférence/du programme et/ou la date de votre départ ne correspond pas à la date de la fin de la conférence. Veuillez spécifier la raison pour ce prolongement de votre séjour dans le champ <strong>Remarques</strong>.
+Das Datum Ihrer Ankunft entspricht nicht dem Datum des Beginns der Konferenz/des Trainingsprogramms und/oder das Datum Ihrer Abreise entspricht nicht dem Datum des Beginns der Konferenz/des Trainingsprogramms und/oder das Datum Ihrer Abreise entspricht nicht dem Datum des Endes der Konferenz/des Trainingsprogramms. Bitte erläutern Sie im Feld <strong>Bemerkungen</strong>, weshalb Sie Ihren Aufenthalt verlängern möchten.
+You indicated that you wish to arrive earlier than the conference/training program starts, and/or that you wish to stay on after the end of the conference/training program. Please specify your reasons for that in the <strong>Remarks</strong> field.
+374
+Intégrité et confiance dans l'économie globale - 12-17 août 2010, Caux, Switzerland
+Vertrauen und Integrität in der Weltwirtschaft - 12.-17. August 2010, Caux, Switzerland
+Trust and Integrity in the Global Economy - August 12-17 2010, Caux, Switzerland
+375
+Groupes de travail
+Work Streams
+Work Streams
+376
+La rencontre 'Confiance et intégrité dans une économie mondialisée' offrera des groupes de travail. Merci de choisir votre groupe de travail préféré en indiquant votre préférence par ordre croissant (1,2,3,4).
+An der Konferenz 'Vertrauen und Integrität in der Weltwirtschaft' werden diverse Work Streams angeboten. Bitte wählen Sie den Work Stream, an dem Sie teilnehmen möchten, indem Sie die vier Work Streams mit 1,2, 3 oder 4 markieren, wobei der mit 1 markierte Work Stream Ihre erste Wahl ist. 
+The conference 'Trust and integrity in the Global Economy' will offer a variety of Work Streams. Please choose which Work Stream you would like to take part in by ranking the Work Streams with a 1, 2, 3 or 4 using 1 for the workshop that interests you most. 
+377
+La nourriture, la responsabilité des consommateurs et l'économie durable
+Ernährung, Verantwortung der Konsumierenden, und nachhaltiges Wirtschaften
+Food, Consumer Responsibility and a Sustainable Economy
+378
+L'entrepreneuriat social pour un changement sociétaire
+Soziales Unternehmertum für sozialen Wandel
+Social Entrepreneurship for Social Change
+379
+La recherche d'un sens à la vie dans le monde des affaires
+Sinnsuche in einer ökonomisierten Welt
+Seeking Meaning in a Business World
+380
+Résoudre des problèmes complexes dans une societé mondialisée
+Lösungen für komplexe Probleme in einer globalisierten Gesellschaft
+Solving Complex Problems in a Global Society
+381
+
+
+Please select a preference for 
+382
+Apprendre à vivre dans un monde multiculturel, 2-7 juillet 2010
+Gemeinsam Vielfalt leben: Grundrechte und Multikulturalität in Europa, 2.-7. Juli 2010
+Learning to Live in a Multicultural World - July 2-7, 2010
+383
+Ateliers
+Workshops
+Workshops
+384
+La rencontre 'Apprendre à vivre dans un monde multiculturel' offrera des ateliers. Une somme de 60 CHF de frais d'inscription doit être payé pour pouvoir participer à un de ces ateliers. Merci de choisir votre atelier préféré en indiquant votre préférence par ordre croissant (1, 2). 
+An der Konferenz 'Gemeinsam Vielfalt leben' werden diverse Workshops angeboten. Teilnehmende bezahlen eine zusätzliche Einschreibegebühr von 60 CHF. Bitte wählen Sie den Workshop, an dem Sie teilnehmen möchten, indem Sie die zwei Workshops, die Sie am meisten interessieren, mit 1 oder 2 markieren, wobei der mit 1 markierte Workshop Ihre erste Wahl ist.
+The conference 'Learning to Live in a Multicultural World' will offer a variety of workshops. Participants will be required to pay an additional registration fee of 60 CHF. Please choose in which workshop you would like to take part by ranking your top two choices with a 1 or 2 using 1 for the workshop that interests you most.
+385
+Diversité religieuse et lutte contre la discrimination (anglais)
+Trainingsprogramm zu religiöser Vielfalt und Antidiskriminierung (englisch)
+Religious Diversity and Anti-Discrimination Training (English)
+386
+Approches respectueuses dans l'éducation multiculturelle: Outils pour les parents, enseignants et professionnels de l'enfance (anglais/français)
+Respektvolle Zugänge zu einer multikulturellen Erziehung: Werkzeuge für Eltern, Lehrer und Fachleute im Bereich Kind/Jugend (englisch/französisch)
+Respectful Approaches to Multicultural Education: Tools for Parents, Teachers and Child Education Professionals (English/French)
+387
+La transformation du conflit dans un contexte interculturel (anglais)
+Konflikttransformation in einem interkulturellen Kontext (englisch)
+Conflict Transformation in an Intercultural Context (English)
+388
+Culture, valeurs et pratiques 'citoyennes' (français)
+Bürgerrecht: Kultur, Werte und Praktiken (französisch)
+Culture, Values and 'Citizen' Practices (French)
+389
+Le rôle des médias dans la création d'un environnement multiculturel inclusif (anglais)
+Die Rolle der Medien in der Förderung der interkulturellen Verständigung (englisch)
+The Role of the Media in Creating Intercultural Understanding in Europe (English)
+390
+J'accepte de payer la somme de 60 CHF de frais d'inscription pour participer à un de ces ateliers. 
+Ich habe zur Kenntnis genommen, dass ich für die Anmeldung zu einem Workshop der Konferenz 'Gemeinsam Vielfalt leben' eine zusätzliche Einschreibegebühr von 60 CHF zu entrichten habe.
+I understand that I will be expected to pay a 60 CHF registration fee. 
+391
+Formation organisé par Initiatives et Changement, 4-10 août
+Weiterbildung mit Initiativen der Veränderung, 4.-10. August 2010
+Training by Initiatives of Change, August 4-10, 2010
+392
+La rencontre 'Formation organisé par Initiatives et Changement' offrera des ateliers. La langue de ces ateliers sera l'anglais et le nombre de participants sera limité à 20 par atelier sauf si c'est indiqué autrement. Une somme de 100 CHF de frais administratif doit être payé pour pouvoir participer à un de ces ateliers. Merci de choisir votre atelier préféré en indiquant votre préférence par ordre croissant (1,2,3). 
+An der Konferenz 'Weiterbildung mit Initiativen der Veränderung' werden diverse Workshops angeboten. Diese Workshops werden in Englisch und für maximal 20 Teilnehmende pro Workshop durchgeführt, ausser wenn dies anders vermerkt ist. Teilnehmende bezahlen eine zusätzliche Einschreibegebühr von 100 CHF. Bitte wählen Sie den Workshop, an dem Sie teilnehmen möchten, indem Sie die drei Workshops, die Sie am meisten interessieren, mit 1,2 oder 3 markieren, wobei der mit 1 markierte Workshop Ihre erste Wahl ist. 
+The conference 'Training by Initiatives of Change' will offer a variety of workshops. These workshops will be in English for a maximum of 20 participants except where otherwise indicated. Participants will be required to pay an additional registration fee of 100 CHF. Please choose in which workshop you would like to take part by ranking your top three choices with a 1, 2 or 3, using 1 for the workshop that interests you most.
+393
+
+
+Creators of Peace - Experience the Circle
+394
+
+
+Education for Peace
+395
+
+
+Family Renewal (max. 10 participants)
+396
+
+
+Leadership in Transformative Change
+397
+Résolution des conflits au lieu de travail (en français)
+Résolution des conflits au lieu de travail (en français)
+Managing Conflict in the Workplace (in French)
+398
+
+
+Spirituality in Public Office
+399
+
+
+Training Creators of Peace (COP) Facilitators (Previous experience of COP Circle required - max. 10 participants)
+400
+J'accepte de payer la somme de 100 CHF de frais d'inscription pour participer à un de ces ateliers. 
+Ich habe zur Kenntnis genommen, dass ich für die Anmeldung zu einem Workshop der Konferenz 'Gemeinsam Vielfalt leben' eine zusätzliche Einschreibegebühr von 100 CHF zu entrichten habe.
+I understand that I will be expected to pay a 100 CHF registration fee. 
+401
+Halal
+Halal
+Halal
+402
+Kasher
+Koscher
+Kosher
+403
+Régime
+Diät
+Diet
+404
+Sans lactose
+Laktosefrei
+Lactose free
+405
+Sans gluten
+Glutenfrei
+Gluten free
+406
+Sans matière grasse
+Fettfrei
+Low fat
+407
+Sans sel
+Salzlos
+Low salt
+408
+Sans oignon
+Ohne Zwiebeln
+Onion free
+409
+Autre
+Anderes
+Other
+410
+Si vous avez d'autres besoins, nous mettons à votre disposition une cuisine spéciale. Si vous utilisez des  produits particuliers, merci de les apporter.<br>Si vous souhaitez utiliser cette option, ou avez d'autres requêtes, adressez-vous à la cuisine de régimes dès votre arrivée.
+Falls Sie andere Bedürfnisse haben, steht Ihnen eine Küche zur Benutzung zur Verfügung. Falls Sie dazu spezielle Zutaten benötigen, bitten wir Sie, diese selber mitzubringen. Wenn Sie von diesem Angebot Gebrauch machen möchten, oder irgendwelche anderen Bedürfnisse haben, melden Sie dies bitte bei Ihrer Ankunft am Empfang. 
+If you have any other needs, a special kitchen is being provided for you to use. If you need any special food items we also ask you to bring them with you.<br>If you wish to make use of this offer or have any other concerns, please make yourself known to the diet kitchen staff on arrival.
+411
+
+
+You need to confirm that you understand that you will be expected to pay a 100 CHF registration fee.
+412
+Je souhaite participer au programme spécial suivant:
+Ich möchte gerne an folgendem Trainingsprogramm teilnehmen:
+I would like to participate in the following training programme:
+413
+J'aimerais venir à Caux pour une autre raison:
+Ich möchte aus einem anderen Grund nach Caux kommen:
+I would like to come to Caux for another reason:
+414
+Intégrité et confiance dans l'économie globale - 2-8 août 2011, Caux, Switzerland
+Vertrauen und Integrität in der Weltwirtschaft - 2.-8. August 2011, Caux, Switzerland
+Trust and Integrity in the Global Economy - August 2-8 2011, Caux, Switzerland
+415
+) doivent obligatoirement être remplis.
+) markierten Felder sind obligatorisch.
+) are compulsory.
+416
+La rencontre 'Confiance et intégrité dans une économie mondialisée' offrera des groupes de travail. Merci de choisir votre groupe de travail préféré en indiquant votre préférence par ordre croissant (1,2,3).
+An der Konferenz 'Vertrauen und Integrität in der Weltwirtschaft' werden diverse Work Streams angeboten. Bitte wählen Sie den Work Stream, an dem Sie teilnehmen möchten, indem Sie die vier Work Streams mit 1,2 oder 3 markieren, wobei der mit 1 markierte Work Stream Ihre erste Wahl ist. 
+The conference 'Trust and integrity in the Global Economy' will offer a variety of Work Streams. Please choose which Work Stream you would like to take part in by ranking the Work Streams with a 1, 2 or 3 using 1 for the workshop that interests you most. 
+417
+Redéfinir les valeurs de base de l'entreprise
+Grundwerte in der Wirtschaft
+Reshaping business around core values
+418
+Conduire le changement vers un avenir durable
+Verantwortung übernehmen - Für eine nachhaltige Zukunft
+Leading change for a sustainable world
+419
+
+
+You have registered for the Caux Interns Program. Please note that you are required to pay a registration fee of 100 CHF until 1 May 2011. You can pay this fee either via:
+420
+
+
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=C5STDT3JWH36N&hosted_button_id=C5STDT3JWH36N" target="_blank">Paypal</a>. If you want to pay later, you can find this link also on <a href="http://www.caux.iofc.org/en/caux-interns#costs">http://www.caux.ch</a>
+421
+
+
+by direct transfer to a <a href="http://www.caux.iofc.org/en/2011-fees">Caux account</a>
+422
+
+
+I understand that if my registration fee payment has not been received by 1 May 2011, without any alternative arrangement being agreed by the Interns Coordination team, my registration will be cancelled and my place in the Interns Program forfeited. 
+423
+
+
+Caux Interns Program
+424
+
+
+You need to confirm that you understand that if your registration fee payment has not been received by 1 May 2011, without any alternative arrangement being agreed by the Interns Coordination team, your registration will be cancelled and your place in the Interns Program forfeited.
+425
+La rencontre 'Apprendre à vivre dans un monde multiculturel' offrera des ateliers. Merci de choisir votre atelier préféré en indiquant votre préférence par ordre croissant (1, 2). 
+An der Konferenz 'Gemeinsam Vielfalt leben' werden diverse Workshops angeboten. Bitte wählen Sie den Workshop, an dem Sie teilnehmen möchten, indem Sie die zwei Workshops, die Sie am meisten interessieren, mit 1 oder 2 markieren, wobei der mit 1 markierte Workshop Ihre erste Wahl ist.
+The conference 'Learning to Live in a Multicultural World' will offer a variety of workshops. Please choose in which workshop you would like to take part by ranking your top two choices with a 1 or 2 using 1 for the workshop that interests you most.
+426
+Workshop
+Workshop
+Workshop
+427
+Diversité religieuse et lutte contre la discrimination (anglais)
+Religiöse Vielfalt und Antidiskriminierung (english)
+Religious diversity and anti-discrimination (English)
+428
+Diaspora et transformation de conflit (anglais)
+Diaspora und Konflikttransformation (englisch)
+Diaspora and conflict transformation (English)
+429
+Introduction aux méthodes d'animation et de résolution de conflits (anglais/espagnol)
+Einführung in Techniken der Gruppenmoderation und Methoden der Konfliktlösung (englisch/spanisch)
+Introduction to facilitation skills and methods for conflict resolution (English/Spanish)
+430
+Le droit des enfants au respect dans une société multiculturelle: outils pour les parents, les enseignants et les professionnels de l'enfance (anglais/français)
+Das Recht der Kinder auf Respekt in einer multikulturellen Gesellschaft: Methoden für Eltern, Lehrer und Fachleute im Bereich Kind und Jugend (englisch/französisch)
+Children's rights to respect in a multicultural society: tools for parents, teachers and child professionals (English/French)
+431
+Conversation sincère et instauration de la confiance (anglais)
+Aufrichtige Gesprächsführung und Vertrauensbildung (englisch)
+Trustbuilding and honest conversation: character, commitment and competence (English)
+432
+Dialogue intergénérationnel - la paix commence à la maison (anglais)
+Generationenübergreifender Dialog - Frieden beginnt zu Hause (englisch)
+Intergenerational dialogue - Peace begins at home (English)
+433
+Développement et gestion de projets (anglais)
+Projektentwicklung und Projektmanagment (englisch)
+Project development and project management (English)
+434
+Ethique des médias pour la démocratie et l'entente mutuelle (anglais)
+Medienethik für Demokratie und gegenseitiges Verständnis (englisch)
+Media ethics for democracy and mutual understanding (English)
+435
+Apprendre à vivre dans un monde multiculturel, 26-31 juillet 2011
+Gemeinsam Vielfalt leben: Grundrechte und Multikulturalität in Europa, 26.-31. Juli 2011
+Learning to Live in a Multicultural World - July 26-31, 2011
+436
+Transformez-vous - Changez le monde, 3-8 juillet 2011
+Verändere dich selbst - Verändere die Welt, 3.-8. July 2011
+Transform yourself - Transform the world around you, July 3-8, 2011
+437
+La rencontre 'Transformez-vous - Changez le monde' offrera des ateliers. La langue de ces ateliers sera l'anglais sauf si c'est indiqué autrement. Une somme de 100 CHF de frais administratif doit être payé pour pouvoir participer à un de ces ateliers. Merci de choisir votre atelier préféré en indiquant votre préférence par ordre croissant (1,2,3). 
+An der Konferenz 'Verändere dich selbst - Verändere die Welt' werden diverse Workshops angeboten. Diese Workshops werden in Englisch  durchgeführt, ausser wenn dies anders vermerkt ist. Teilnehmende bezahlen eine zusätzliche Einschreibegebühr von 100 CHF. Bitte wählen Sie den Workshop, an dem Sie teilnehmen möchten, indem Sie die drei Workshops, die Sie am meisten interessieren, mit 1,2 oder 3 markieren, wobei der mit 1 markierte Workshop Ihre erste Wahl ist. 
+The conference 'Transform yourself - Transform the world around you' will offer a variety of workshops. These workshops will be in English except where otherwise indicated. Participants will be required to pay an additional registration fee of 100 CHF. Please choose in which workshop you would like to take part by ranking your top three choices with a 1, 2 or 3, using 1 for the workshop that interests you most.
+438
+Créatrices de paix - faire l'expérience et animer un cercle de paix (langue: français; nombre de participants limité; le cours commence déjà le 2 juillet!)
+Creators of Peace - Experience  and facilitate the circle (Teilnehmerzahl beschränkt; Der Kurs wird in Englisch und in Französisch angeboten und beginnt bereits am 2. Juli!)
+Creators of Peace - Experience and facilitate the circle (limited number of participants; course starts already on 2 July!)
+439
+
+
+Undoing racism: an honest look at racial issues, reconciliation, and responsibility
+440
+
+
+International service - mature leadership: the intellectual legacy of Dag Hammarskjöld
+441
+
+
+Responding to conflict constructively
+442
+
+
+Mediation and conflict coaching: working with people in conflict
+443
+
+
+Women in leadership: the impact and effectiveness of UN Resolution 1325
+444
+Je serai accompagné/e de
+Ich werde begleitet von
+I will be accompanied by
+445
+Si vous venez acccompagné, vous pourrez fournir les détails concernant votre compagnie sur la page suivante. 
+Wenn Sie in Begleitung kommmen, könne  en Sie die Daten Ihrer Begleitperson(en) auf der folgenden Seite eingeben.  
+If you are accommpanied, you will be able to provide details for your company on the following pages.  
+446
+Formulaire d'inscription - autre personne
+Anmeldeformular - weitere Person
+Registration Form - Other Person
+447
+Je viens/nous venons avec une autre personne
+Ich/wir kommen mit einer weiteren Person
+I/we will come with another person
+448
+Informations personnelles - autre personne
+Persönliche Informationen - andere Person
+Personal information - Other Person
+449
+
+
+To be eligible to attend this Work Stream you must submit a description of the project you are working on or planning to start. The projects should be in the following areas:<p>1. Sustainable use and preservation of  natural resources (water, energy, forest, and soil)<br>2. Maintaining natural services (nutrient cycle, carbon cycle, climate system and the hydrological cycle)<br>3. Social and economic sustainability (gender empowerment, microfinance, health and welfare)<p>The application form can be downloaded <a href="http://www.caux.iofc.org/en/node/53926">here</a> or from <a href="http://www.caux.iofc.org/en/2011-programme">Caux Programme 2011</a> website.<p>Please send your application to <a href="mailto:rishab.khanna@iofc.org">rishab.khanna@iofc.org</a> by April 30th, 2011.
+450
+Vers un 'Self Leadership' authentique
+Hin zu einem authentischen 'Self Leadership'
+Authentic self leadership
+644
+Veuillez ne pas réserver de billet de voyage pour Caux avant d'avoir reçu une lettre de confirmation, nous pourrions ne pas être en mesure de vous loger.
+Bitte buchen Sie Ihre Reise nach Caux erst nach Erhalt des Bestätigungsschreibens. Wir können andernfalls nicht für Ihre Unterbringung garantieren. 
+Please do not book your travel to Caux without receiving a confirmation letter, we may not be able to accomodate you.

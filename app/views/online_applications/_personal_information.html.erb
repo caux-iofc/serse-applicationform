@@ -1,0 +1,85 @@
+         <table class="af_block" width="500">
+           <tr>
+             <td colspan="2" align="center"><span class="af_normtitle"><%=t :personal_information %></span></td>
+           </tr>
+           <tr>
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :firstname, t(:firstname) %><br />
+                 <%= f.text_field :firstname %>
+               </div>
+             </td>
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :surname, t(:surname) %><br />
+                 <%= f.text_field :surname %>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :date_of_birth, t(:date_of_birth) %><br />
+                 <% field_with_errors @online_application, :date_of_birth do -%>
+                   <%= f.date_select :date_of_birth, :include_blank => true, :start_year => Time.now.year - 100, :end_year => Time.now.year %>
+                 <% end -%>
+               </div>
+             </td>
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :gender, t(:gender) %><br />
+                 <%= f.select("gender", [ [t('female'),'1'], [t('male'),'2'] ], {:include_blank => 'Choose one'}) %>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :citizenship_id, t(:citizenship) %><br />
+                 <%= f.select(:citizenship_id, [ [t(:other_please_specify),'0'] ] + Country.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Choose one'}) %>
+               </div>
+             </td>
+             <td>
+                <div class="field" id="online_application_other_citizenship_div" style="display: none">
+                 <span class="af_star">*</span><%= f.label :other_citizenship, t(:other_citizenship) %><br />
+                 <%= f.text_field :other_citizenship %>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td>
+               <div class="field">
+                 <%= f.label :profession, t(:profession) %><br />
+                 <%= f.text_field :profession %>
+               </div>
+             </td>
+             <td>
+               <div class="field">
+                 <%= f.label :employer, t(:employer) %><br />
+                 <%= f.text_field :employer %>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td colspan="2">
+                 <%= f.label :special_dietary_requirements, t(:special_dietary_requirements) %><br />
+                 <%= t(:diet_detail) %><br />
+             </td>
+           </tr>
+           <tr>
+             <td colspan="2">
+               <input type="checkbox"  name="diet_halal"><%=t 'halal' %><br>
+               <input type="checkbox"  name="diet_kosher" id="diet_kosher"><%=t 'kosher' %><br>
+               <%= t('diet') %>:<br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"  name="diet_lactose_free"><%=t 'lactose_free' %><br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"  name="diet_gluten_free"><%=t 'gluten_free' %><br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"  name="diet_low_fat"><%=t 'low_fat' %><br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"  name="diet_low_salt"><%=t 'low_salt' %><br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox"  name="diet_onion_free"><%=t 'onion_free' %><br>
+               <input type="checkbox"  name="diet_other" id="diet_other">Other<br>
+               <span name="diet_other_text" id="diet_other_text" style="display: none">
+                 <i><%=t 'other_diet_text' %></i>
+               </span>
+             </td>
+           </tr>
+         </table>

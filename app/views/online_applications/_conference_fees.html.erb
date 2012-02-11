@@ -1,0 +1,67 @@
+         <table class="af_block" width="500">
+           <tr>
+             <td colspan="2" align="center"><span class="af_normtitle"><%=t :conference_fees %></span></td>
+           </tr>
+           <tr>
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :nightly_contribution, t(:nightly_contribution) %><br />
+                 <%= f.text_field :nightly_contribution, :size => 6 %> <%=t :nightly_contribution_currency %><br />
+                 <%=t :nightly_contribution_html %>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td>
+               <table width="100%">
+                 <tr>
+                   <th>
+                     <div class="field">
+                       <label><%=t :sponsor_name %></label>
+                     </div>
+                   </th>
+                   <th>
+                     <div class="field">
+                       <label><%=t :sponsor_nights %></label>
+                     </div>
+                   </th>
+                   <th>
+                     <div class="field">
+                       <label><%=t :sponsor_currency %></label>
+                     </div>
+                   </th>
+                   <th>
+                     <div class="field">
+                       <label><%=t :sponsor_nightly_amount %></label>
+                     </div>
+                   </th>
+                 </tr>
+                 <%= f.fields_for :sponsors do |sf| -%>
+                 <tr>
+                   <td>
+                     <div class="field">
+                       <%= sf.text_field :name %>
+                     </div>
+                   </td>
+                   <td>
+                     <div class="field">
+                       <%= sf.text_field :nights, :size => 3 %>
+                     </div>
+                   </td>
+                   <td>
+                     <div class="field">
+                       <%=t :sponsor_currency_name %>
+                     </div>
+                   </td>
+                   <td>
+                     <div class="field">
+                       <%= sf.text_field :amount, :size => 3 %>
+                     </div>
+                   </td>
+                 </tr>
+                 <% end -%>
+               </table>
+             </td>
+           </tr>
+         </table>
+

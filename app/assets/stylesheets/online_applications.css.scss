@@ -1,0 +1,43 @@
+// Place all the styles related to the OnlineApplications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.af_block {
+  border-top-width: 1px;
+  border-right-width-value: 1px;
+  border-right-width-ltr-source: physical;
+  border-right-width-rtl-source: physical;
+  border-bottom-width: 1px;
+  border-left-width-value: 1px;
+  border-left-width-ltr-source: physical;
+  border-left-width-rtl-source: physical;
+  border-top-style: solid;
+  border-right-style-value: solid;
+  border-right-style-ltr-source: physical;
+  border-right-style-rtl-source: physical;
+  border-bottom-style: solid;
+  border-left-style-value: solid;
+  border-left-style-ltr-source: physical;
+  border-left-style-rtl-source: physical;
+  border-top-color: #990000;
+  border-right-color-value: #990000;
+  border-right-color-ltr-source: physical;
+  border-right-color-rtl-source: physical;
+  border-bottom-color: #990000;
+  border-left-color-value: #990000;
+  border-left-color-ltr-source: physical;
+  border-left-color-rtl-source: physical;
+  padding-top: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  padding-left: 4px;
+  color: black;
+}
+
+.af_center table {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+

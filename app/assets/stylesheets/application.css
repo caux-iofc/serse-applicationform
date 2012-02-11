@@ -1,0 +1,217 @@
+body {  
+margin-right: 0px;
+margin-bottom: 0px;
+margin-left: 0px;
+font-family: Arial,Helvetica,sans-serif;
+font-size: small;
+background-color: #717e66;
+text-align: left;
+}
+
+#page-wrapper {
+  width: 970px;
+  margin-top: 0pt;
+  margin-right: auto;
+  margin-bottom: 10px;
+  margin-left: auto;
+  background-color: #ffffff;
+  text-align: left;
+}
+
+#xmain-wrapper {
+margin-left: auto;
+margin-right: auto;
+text-align: left;
+border-top-width: 1px;
+border-right-width-value: 1px;
+border-right-width-ltr-source: physical;
+border-right-width-rtl-source: physical;
+border-bottom-width: 1px;
+border-left-width-value: 1px;
+border-left-width-ltr-source: physical;
+border-left-width-rtl-source: physical;
+border-top-style: solid;
+border-right-style-value: solid;
+border-right-style-ltr-source: physical;
+border-right-style-rtl-source: physical;
+border-bottom-style: solid;
+border-left-style-value: solid;
+border-left-style-ltr-source: physical;
+border-left-style-rtl-source: physical;
+border-top-color: #000000;
+border-right-color-value: #000000;
+border-right-color-ltr-source: physical;
+border-right-color-rtl-source: physical;
+border-bottom-color: #000000;
+border-left-color-value: #000000;
+border-left-color-ltr-source: physical;
+border-left-color-rtl-source: physical;
+padding-top: 4px;
+padding-right: 4px;
+padding-bottom: 4px;
+padding-left: 4px;
+color: black;
+}
+
+form {
+margin-top: 0pt;
+margin-right: 0pt;
+margin-bottom: 0pt;
+margin-left: 0pt;
+padding-top: 0pt;
+padding-right: 0pt;
+padding-bottom: 0pt;
+padding-left: 0pt;
+}
+
+td {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px}
+
+a { text-decoration:none; color: #0000FF}
+
+a:hover { 
+  color: red; 
+}
+
+.acontent { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; text-align: left}
+
+.select-select { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px }
+.select-option { font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px }
+
+.pagetitle {
+  color: #000000; 
+  font-size: 14px;
+  font-weight: bold;
+	text-align: center;
+}
+
+.tablerow {
+  border: 1px solid #000000;
+  padding: 4px;
+  color: black;
+}
+
+.af_label {
+  font-weight: bold;
+}
+
+.af_justify {
+  text-align: justify;
+}
+
+.af_star {
+	color: red;
+	display: inline;
+}
+
+.af_block {
+  border: 1px solid #990000;
+  padding: 4px;
+  color: black;
+}
+
+.af_normtitle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #990000;
+	font-weight: bold;
+}
+
+/* The next 2 styles are a very clever trick to center tables in all browsers. See
+   example IIf here: http://theodorakis.net/tablecentertest.html
+   WVW, 2004-11-30 */
+
+.af_center { 
+	text-align: center;
+}
+
+.af_center table { 
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+.seriouserror {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+}
+
+.error {
+	color: #FF0000;
+	font-weight: bold;
+}
+
+.error table {
+	color: #000000;
+	font-weight: normal;
+  border: 2px solid #FF0000;
+  padding: 10px;
+	border-spacing: 0px;
+  background: #ffffff;
+  border-style: solid;
+  border-width: thin;
+	background-color:#fffbb8;
+}
+
+label {
+  font-weight: bold;
+}
+
+/* STRUCTURE */
+.header { height: 90px; border-top: solid 2px #ffffff; border-bottom: solid 3px #ffffff; background: #990000; }
+.border_bottom { border-bottom: solid 4px #ffffff; }
+.container_left_top { width: 137px;	height: 18px; border-right: solid 5px #ffffff; border-bottom: solid 4px #ffffff; background: #990000; }
+.container_main_top { width: 486px; height: 18px; border-bottom: solid 4px #ffffff; background: #990000; vertical-align: middle; text-indent: 15px; }
+.container_right_top { width: 100%; height: 18px; border-left: none; border-bottom: solid 4px #ffffff; background: #990000; }
+.container_left { width: 137px; border-right: solid 4px #ffffff; border-bottom: solid 4px #ffffff; background: url('../images/cx_left_background.jpg'); }
+.container_main { background-color: #efede3; border-bottom: solid 4px #ffffff; }
+.container_right { width: 100%; border-bottom: solid 4px #ffffff; background: #efede3; border-left: none; }
+.container_left_bottom { width: 137px; height: 25px; border-right: solid 5px #ffffff; border-bottom: solid 2px #ffffff; background: #FE6600; }
+.container_main_bottom { width: 100%; height: 25px; border-bottom: solid 2px #ffffff; background: #FE6600; }
+.container_right_bottom { width: 100%; height: 25px; border-left: none; border-bottom: solid 2px #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: xx-small; color: #000000; text-align: right; background: #FE6600; }
+
+.hidden{display: none !important;}
+.visible{display: show;}
+
+.field_with_errors {
+  padding: 1px;
+  background-color: red;
+  display: inline-table;
+}
+
+.field_with_errors input, .field_with_errors select, .field_with_errors textarea {
+  border: 1px solid red;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid #c00;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  text-align: left;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+

@@ -1,0 +1,2 @@
+module OnlineApplicationsHelper
+end

@@ -1,0 +1,33 @@
+         <table class="af_block" width="500">
+           <tr>
+             <td colspan="2" align="center"><span class="af_normtitle"><%=t :name_badge %></span></td>
+           </tr>
+           <tr>
+             <td colspan="2">
+                 <%=t :badge_explanation %>
+             </td>
+           </tr>
+           <tr>
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :badge_firstname, t(:firstname) %><br />
+                 <%= f.text_field :badge_firstname %>
+               </div>
+             </td>
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :badge_surname, t(:surname) %><br />
+                 <%= f.text_field :badge_surname %>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :badge_country, t(:country) %><br />
+                 <%= f.text_field :badge_country, :size => 60 %>
+               </div>
+             </td>
+           </tr>
+         </table>
+

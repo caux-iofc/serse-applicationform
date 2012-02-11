@@ -1,0 +1,24 @@
+development:
+  adapter: mysql
+  encoding: utf8
+  database: serse_application_development
+  username: sa_dev
+  password: ********
+  host: localhost
+
+test:
+  adapter: mysql
+  encoding: utf8
+  database: serse_application_test
+  username: sa_test
+  password: ********
+  host: localhost
+
+production:
+  adapter: mysql
+  encoding: utf8
+  database: serse_application_production
+  username: sa_prod
+  password: ********
+  host: localhost
+

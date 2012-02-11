@@ -1,0 +1,101 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  title: "Registration Form"
+  intro_part_1_html: "Please fill out the form as completely as possible. The fields marked with an asterisk (<span class=\"af_star\">*</span>) are compulsory. If you have any problems with this form, please write <strong>with details of your problem, including the error message you receive</strong> to"
+  intro_part_2_html: "If you have problems and you see an error message above about your browser being unsupported, <a href=\"http://www.mozilla.org/firefox/\">please upgrade to a newer browser and try again</a> before contacting us."
+  intro_part_3: "Thank you for registering as soon as possible, but no later than six weeks before your arrival."
+  personal_information: "Personal information"
+  firstname: "First name"
+  surname: "Family name"
+  date_of_birth: "Date of birth"
+  gender: "Gender"
+  female: "Female"
+  male: "Male"
+  citizenship: "Citizenship"
+  other_please_specify: "Other, please specify"
+  other_citizenship: "Other citizenship"
+  profession: "Profession"
+  employer: "Employer"
+  special_dietary_requirements: "Special dietary requirements"
+  diet_detail: "A vegetarian option is always on offer. Additional to that, the Caux kitchen can provide the following menu adaptations. Please tick the box(es) according to your needs: "
+  diet: "Diet"
+  halal: "Halal"
+  kosher: "Kosher"
+  lactose_free: "Lactose free"
+  gluten_free: "Gluten free"
+  low_fat: "Low fat"
+  low_salt: "Low salt"
+  onion_free: "Onion free"
+  other_diet_text: "If you have any other needs, a special kitchen is being provided for you to use. If you need any special food items we also ask you to bring them with you. If you wish to make use of this offer or have any other concerns, please make yourself known to the diet kitchen staff on arrival."
+  contact_information: "Contact information"
+  email: "E-mail address"
+  email_confirmation: "E-mail address (confirm)"
+  telephone: "Telephone number (e.g. +41 ...)"
+  cellphone: "Mobile phone number"
+  fax: "Fax number"
+  work_telephone: "Office phone number"
+  street_address: "Street address"
+  city: "City / Town"
+  zipcode: "Postal code"
+  state: "State / Province"
+  country: "Country"
+  other_country: "Other country"
+  stay_in_caux: "Stay in Caux"
+  arrival: "Arrival"
+  approximate_time: "(please provide approximate time in 24h clock)"
+  departure: "Departure"
+  travel_car_train: "Travel: car/train"
+  travel_flight: "Travel: flight number"
+  previous_visit: "Previous visit to Caux?"
+  previous_visit_no: "No"
+  previous_visit_yes: "Yes"
+  previous_visit_unset: ": please indicate if you have visited Caux before."
+  previous_year: "Year of last visit:"
+  heard_about: "If no, how did you hear about the Caux conferences?"
+  confirmation_letter_via: "Send confirmation letter via"
+  confirmation_letter_via_email: "E-mail"
+  confirmation_letter_via_post: "Post"
+  confirmation_letter_via_fax: "Fax"
+  ensure_fax_number: "Please make sure to provide a fax number in the 'Contact information' section."
+  visa: "Visa for Switzerland"
+  visa_needed: "Yes I need a visa"
+  visa_reference_name: "Reference person from IofC"
+  visa_reference_email: "E-mail address reference person"
+  visa_information_html: '<p>Please enquire whether you need a visa by consulting one of the following
+                          <ul>
+                            <li><a href="http://www.eda.admin.ch/eda/en/home/reps.html" target="new">the nearest Swiss Consulate</a>
+                            <li><a href="http://www.bfm.admin.ch/bfm/en/home/themen/einreise/merkblatt_einreise.html" target="new">ID and Visa provisions for entry into Switzerland</a>
+                            <li>your travel agent
+                          </ul>
+                          <strong>IMPORTANT</strong>
+                            <ul>
+                              <li>If you require a Swiss visa your registration needs to reach the conference secretariat <b>at least TEN weeks</b> prior to your arrival at Caux.
+                              <li>Please note that once your visa letter has been issued (copies of which go to the Swiss Embassy) it is very difficult to change your reservation outside the dates of the visa letter.
+                            </ul></p>'
+  visa_information_2: 'If you have any problems or questions please contact the Conference Secretariat as early as possible at '
+  passport_number: "Passport number"
+  passport_issue_place: "Place of issue"
+  passport_issue_date: "Issue date"
+  passport_expiry_date: "Expiry date"
+  passport_embassy: "In which embassy will you request your visa?"
+  conference_fees: "Conference fees"
+  nightly_contribution: "My personal contribution per night"
+  nightly_contribution_currency: "CHF"
+  nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.iofc.org/en/2012-fees\">92 CHF per night (adult)</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
+  sponsor_name: "Sponsor"
+  sponsor_nights: "# Nights"
+  sponsor_currency: "Currency"
+  sponsor_currency_name: "CHF"
+  sponsor_nightly_amount: "Amount per night"
+  badge_explanation: "While the conferences are on, everyone in the conference centre has a name badge that indicates name and country. Please provide your information as you want it to appear on your badge."
+  proceed: "Proceed"
+  phone_number_invalid: "must start with a plus sign followed by your country code (e.g. +41 for Switzerland, +1 for the USA, etc) followed by the rest of the number."
+  postal_code_invalid: "must be either empty or two or more characters long"
+  may_not_be_in_the_future: "may not be in the future"
+  must_be_valid_for_3_months_beyond_departure_date: "must be at least 3 months beyond your departure date from Caux"
+
+
+fr:
+  hello_flash: "Bonjour"

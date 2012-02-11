@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  complete: false
+  data_protection_consent: false
+  data_protection_caux_info: false
+  data_protection_three_local_events: false
+  data_protection_local_info: false
+  session_group: 
+  comment: MyText
+
+two:
+  name: MyString
+  complete: false
+  data_protection_consent: false
+  data_protection_caux_info: false
+  data_protection_three_local_events: false
+  data_protection_local_info: false
+  session_group: 
+  comment: MyText

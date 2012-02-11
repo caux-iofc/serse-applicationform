@@ -1,0 +1,8 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  Congo__Democratic_Republic_of_the_: "Congo (Democratic Republic of the)"
+
+fr:
+  Congo__Democratic_Republic_of_the_: "République démocratique du Congo"

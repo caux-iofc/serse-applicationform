@@ -1,0 +1,57 @@
+         <table class="af_block" width="500">
+           <tr>
+             <td colspan="2" align="center"><span class="af_normtitle"><%=t :contact_information %></span></td>
+           </tr>
+           <tr>
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :email, t(:email) %><br />
+                 <%= f.text_field :email %>
+               </div>
+             </td>
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :email_confirmation, t(:email_confirmation) %><br />
+                 <%= f.text_field :email_confirmation %>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :telephone, t(:telephone) %><br />
+                 <%= f.text_field :telephone %>
+               </div>
+             </td>
+             <td>
+               <div class="field">
+                 <%= f.label :cellphone, t(:cellphone) %><br />
+                 <%= f.text_field :cellphone %>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td>
+               <div class="field">
+                 <span class="af_star" id="fax_required" style="display: none">*</span><%= f.label :fax, t(:fax ) %><br />
+                 <%= f.text_field :fax %>
+               </div>
+             </td>
+             <td>
+               <div class="field">
+                 <%= f.label :work_telephone, t(:work_telephone) %><br />
+                 <%= f.text_field :work_telephone %>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :confirmation_letter_via, t(:confirmation_letter_via) %><br />
+                 <%= f.radio_button :confirmation_letter_via, 'email', :checked => true %> <%=t :confirmation_letter_via_email %>
+                 <%= f.radio_button :confirmation_letter_via, 'post' %> <%=t :confirmation_letter_via_post %>
+                 <%= f.radio_button :confirmation_letter_via, 'fax' %> <%=t :confirmation_letter_via_fax %>
+               </div>
+             </td>
+           </tr>
+         </table>

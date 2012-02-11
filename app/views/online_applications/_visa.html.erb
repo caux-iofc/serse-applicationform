@@ -1,0 +1,86 @@
+         <table class="af_block" width="500">
+           <tr>
+             <td colspan="2" align="center"><span class="af_normtitle"><%=t :visa %></span></td>
+           </tr>
+           <tr>
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :visa, t(:visa) %><br />
+                 <%= f.check_box :visa %> <%=t :visa_needed %><br />
+                 <%=t :visa_information_html %>
+               </div>
+             </td>
+           </tr>
+           <tr class="visa_required" style="display:none">
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :visa_reference_name, t(:visa_reference_name) %><br />
+                 <%= f.text_field :visa_reference_name %>
+               </div>
+             </td>
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :visa_reference_name, t(:visa_reference_email) %><br />
+                 <%= f.text_field :visa_reference_email %>
+               </div>
+             </td>
+           </tr>
+           <tr class="visa_required" style="display:none">
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :passport_number, t(:passport_number) %><br />
+                 <%= f.text_field :passport_number %>
+               </div>
+             </td>
+           </tr>
+           <tr class="visa_required" style="display:none">
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :passport_issue_place, t(:passport_issue_place) %><br />
+                 <%= f.text_field :passport_issue_place %>
+               </div>
+             </td>
+           </tr>
+           <tr class="visa_required" style="display:none">
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :passport_issue_date, t(:passport_issue_date) %><br />
+                 <% field_with_errors @online_application, :passport_issue_date do -%>
+                   <%= f.date_select :passport_issue_date, :include_blank => true, :start_year => Time.now.year - 10, :end_year => Time.now.year + 10 %>
+                 <% end -%>
+               </div>
+             </td>
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :passport_expiry_date, t(:passport_expiry_date) %><br />
+                 <% field_with_errors @online_application, :passport_expiry_date do -%>
+                   <%= f.date_select :passport_expiry_date, :include_blank => true, :start_year => Time.now.year - 10, :end_year => Time.now.year + 10 %>
+                 <% end -%>
+               </div>
+             </td>
+           </tr>
+           <tr class="visa_required" style="display:none">
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :passport_embassy, t(:passport_embassy) %><br />
+                 <%= f.text_field :passport_embassy %>
+               </div>
+             </td>
+           </tr>
+           <tr class="visa_required" style="display:none">
+             <td colspan="2">
+               <%=t :visa_information_2 %>
+                 <script language="JavaScript"> 
+                 <!--
+                 document.write ('<A HREF="mai')
+                 document.write ('lto:confsec')
+                 document.write ('&#64;')
+                 document.write ('caux.ch">confsec')
+                 document.write ('&#64;')
+                 document.write ('caux.ch</A>')
+                 // -->
+                 </script>.
+             </td>
+           </tr>
+         </table>
+

@@ -1,0 +1,85 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  application_group: 
+  application_group_order: 1
+  firstname: MyString
+  surname: MyString
+  gender: 1
+  country: 
+  other_citizenship: MyString
+  profession: MyString
+  employer: MyString
+  email: MyString
+  telephone: MyString
+  cellphone: MyString
+  fax: MyString
+  work_telephone: MyString
+  arrival: 2012-02-05 10:25:18
+  departure: 2012-02-05 10:25:18
+  travel_car_train: MyString
+  travel_flight: MyString
+  previous_visit: MyString
+  previous_year: MyString
+  heard_about: MyString
+  reference: MyString
+  diet: MyString
+  confirmation_letter_via: MyString
+  accompanied_by: MyString
+  visa: false
+  passport_number: MyString
+  passport_issue_date: 2012-02-05
+  passport_issue_place: MyString
+  passport_expire_date: 2012-02-05
+  passport_iofc_reference: MyString
+  passport_iofc_reference_email: MyString
+  nightly_contribution: 1
+  remarks: MyText
+  badge_firstname: MyString
+  badge_surname: MyString
+  badge_country: MyString
+  reason_other: MyString
+  reason_interpreting: false
+  reason_volunteer: false
+
+two:
+  application_group: 
+  application_group_order: 1
+  firstname: MyString
+  surname: MyString
+  gender: 1
+  country: 
+  other_citizenship: MyString
+  profession: MyString
+  employer: MyString
+  email: MyString
+  telephone: MyString
+  cellphone: MyString
+  fax: MyString
+  work_telephone: MyString
+  arrival: 2012-02-05 10:25:18
+  departure: 2012-02-05 10:25:18
+  travel_car_train: MyString
+  travel_flight: MyString
+  previous_visit: MyString
+  previous_year: MyString
+  heard_about: MyString
+  reference: MyString
+  diet: MyString
+  confirmation_letter_via: MyString
+  accompanied_by: MyString
+  visa: false
+  passport_number: MyString
+  passport_issue_date: 2012-02-05
+  passport_issue_place: MyString
+  passport_expire_date: 2012-02-05
+  passport_iofc_reference: MyString
+  passport_iofc_reference_email: MyString
+  nightly_contribution: 1
+  remarks: MyText
+  badge_firstname: MyString
+  badge_surname: MyString
+  badge_country: MyString
+  reason_other: MyString
+  reason_interpreting: false
+  reason_volunteer: false

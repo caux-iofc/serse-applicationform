@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  session_group: 
+  abbrev: MyString
+  start: 2012-02-04 22:36:47
+  stop: 2012-02-04 22:36:47
+
+two:
+  session_group: 
+  abbrev: MyString
+  start: 2012-02-04 22:36:47
+  stop: 2012-02-04 22:36:47

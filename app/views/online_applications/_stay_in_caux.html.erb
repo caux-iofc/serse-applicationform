@@ -1,0 +1,60 @@
+         <table class="af_block" width="500">
+           <tr>
+             <td colspan="2" align="center"><span class="af_normtitle"><%=t :stay_in_caux %></span></td>
+           </tr>
+           <tr>
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :arrival, t(:arrival) %> <%=t :approximate_time %><br />
+                 <% field_with_errors @online_application, :arrival do -%>
+                   <%= f.datetime_select :arrival, :include_blank => :true, :start_year => Time.now.year, :end_year => Time.now.year + 1, :minute_step => 15 %>
+                 <% end -%>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :departure, t(:departure) %> <%=t :approximate_time %><br />
+                 <% field_with_errors @online_application, :departure do -%>
+                   <%= f.datetime_select :departure, :include_blank => :true, :start_year => Time.now.year, :end_year => Time.now.year + 1, :minute_step => 15 %>
+                 <% end -%>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td>
+               <div class="field">
+                 <%= f.label :travel_car_train, t(:travel_car_train) %><br />
+                 <%= f.text_field :travel_car_train%>
+               </div>
+             </td>
+             <td>
+               <div class="field">
+                 <%= f.label :travel_flight, t(:travel_flight) %><br />
+                 <%= f.text_field :travel_flight %>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :previous_visit, t(:previous_visit) %><br />
+                 <%= f.radio_button :previous_visit, :false %> <%=t :previous_visit_no %>
+                 <%= f.radio_button :previous_visit, :true %> <%=t :previous_visit_yes %>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td colspan="2">
+               <div class="field" id="previous_year_div" style="display: none">
+                 <span class="af_star">*</span><%= f.label :previous_year, t(:previous_year) %><br />
+                 <%= f.text_field :previous_year, :size => 5 %>
+               </div>
+               <div class="field" id="heard_about_div" style="display: none">
+                 <span class="af_star">*</span><%= f.label :heard_about, t(:heard_about) %><br />
+                 <%= f.text_field :heard_about %>
+               </div>
+             </td>
+           </tr>
+         </table>
