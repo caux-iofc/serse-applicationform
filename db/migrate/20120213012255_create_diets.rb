@@ -1,8 +1,7 @@
-class CreateCountries < ActiveRecord::Migration
-  def up
-    create_table :countries do |t|
-      t.integer :zipcode_order
-      t.integer :state_order
+class CreateDiets < ActiveRecord::Migration
+  def up 
+    create_table :diets do |t|
+      t.integer :priority_sort
 
       t.column "created_by", :string, :limit => 100, :null => false, :default => ''
       t.column "updated_by", :string, :limit => 100, :null => false, :default => ''
@@ -10,14 +9,14 @@ class CreateCountries < ActiveRecord::Migration
       t.column "deleted_at", :timestamp
       t.timestamps
     end
-    Country.create_versioned_table
+    Diet.create_versioned_table
     # See Globalize3: https://github.com/svenfuchs/globalize3
-    Country.create_translation_table! :name => :string
+    Diet.create_translation_table! :name => :string
   end
 
   def down
-    drop_table :countries
-    Country.drop_versioned_table
-    Country.drop_translation_table!
+    drop_table :diets
+    Diet.drop_versioned_table
+    Diet.drop_translation_table!
   end
 end

@@ -2,7 +2,6 @@ class CreateAddresses < ActiveRecord::Migration
   def up
     create_table :addresses do |t|
       t.references :online_application
-      t.integer :type
       t.string :street1
       t.string :street2
       t.string :street3
@@ -11,6 +10,11 @@ class CreateAddresses < ActiveRecord::Migration
       t.string :state
       t.references :country
       t.string :other_country
+      t.date :valid_from
+      t.date :valid_until
+
+      t.integer :addressable_id
+      t.string  :addressable_type
 
       t.column "created_by", :string, :limit => 100, :null => false, :default => ''
       t.column "updated_by", :string, :limit => 100, :null => false, :default => ''

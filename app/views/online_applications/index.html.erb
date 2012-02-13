@@ -1,101 +1,29 @@
-<h1>Listing online_applications</h1>
+<h1>Your application for Caux</h1>
 
 <table>
   <tr>
-    <th>Application group</th>
-    <th>Application group order</th>
-    <th>Firstname</th>
-    <th>Surname</th>
+    <th></th>
+    <th><%=t :firstname %></th>
+    <th><%=t :surname %></th>
     <th>Gender</th>
-    <th>Country</th>
-    <th>Other citizenship</th>
-    <th>Profession</th>
-    <th>Employer</th>
-    <th>Email</th>
-    <th>Telephone</th>
-    <th>Cellphone</th>
-    <th>Fax</th>
-    <th>Work telephone</th>
     <th>Arrival</th>
     <th>Departure</th>
-    <th>Travel car train</th>
-    <th>Travel flight</th>
-    <th>Previous visit</th>
-    <th>Previous year</th>
-    <th>Heard about</th>
-    <th>Reference</th>
-    <th>Diet</th>
-    <th>Confirmation letter via</th>
-    <th>Accompanied by</th>
-    <th>Visa</th>
-    <th>Passport number</th>
-    <th>Passport issue date</th>
-    <th>Passport issue place</th>
-    <th>Passport expire date</th>
-    <th>Passport iofc reference</th>
-    <th>Passport iofc reference email</th>
-    <th>Nightly contribution</th>
-    <th>Remarks</th>
-    <th>Badge firstname</th>
-    <th>Badge surname</th>
-    <th>Badge country</th>
-    <th>Reason other</th>
-    <th>Reason interpreting</th>
-    <th>Reason volunteer</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @online_applications.each do |online_application| %>
   <tr>
-    <td><%= online_application.application_group %></td>
-    <td><%= online_application.application_group_order %></td>
+    <td><%= online_application.relation %></td>
     <td><%= online_application.firstname %></td>
     <td><%= online_application.surname %></td>
-    <td><%= online_application.gender %></td>
-    <td><%= online_application.country %></td>
-    <td><%= online_application.other_citizenship %></td>
-    <td><%= online_application.profession %></td>
-    <td><%= online_application.employer %></td>
-    <td><%= online_application.email %></td>
-    <td><%= online_application.telephone %></td>
-    <td><%= online_application.cellphone %></td>
-    <td><%= online_application.fax %></td>
-    <td><%= online_application.work_telephone %></td>
-    <td><%= online_application.arrival %></td>
-    <td><%= online_application.departure %></td>
-    <td><%= online_application.travel_car_train %></td>
-    <td><%= online_application.travel_flight %></td>
-    <td><%= online_application.previous_visit %></td>
-    <td><%= online_application.previous_year %></td>
-    <td><%= online_application.heard_about %></td>
-    <td><%= online_application.reference %></td>
-    <td><%= online_application.diet %></td>
-    <td><%= online_application.confirmation_letter_via %></td>
-    <td><%= online_application.accompanied_by %></td>
-    <td><%= online_application.visa %></td>
-    <td><%= online_application.passport_number %></td>
-    <td><%= online_application.passport_issue_date %></td>
-    <td><%= online_application.passport_issue_place %></td>
-    <td><%= online_application.passport_expire_date %></td>
-    <td><%= online_application.passport_iofc_reference %></td>
-    <td><%= online_application.passport_iofc_reference_email %></td>
-    <td><%= online_application.nightly_contribution %></td>
-    <td><%= online_application.remarks %></td>
-    <td><%= online_application.badge_firstname %></td>
-    <td><%= online_application.badge_surname %></td>
-    <td><%= online_application.badge_country %></td>
-    <td><%= online_application.reason_other %></td>
-    <td><%= online_application.reason_interpreting %></td>
-    <td><%= online_application.reason_volunteer %></td>
-    <td><%= link_to 'Show', online_application %></td>
+    <td><%= online_application.gender == 1 ? 'Female' : 'Male' %></td>
+    <td><%= online_application.arrival.to_s(:pretty) %></td>
+    <td><%= online_application.departure.to_s(:pretty) %></td>
     <td><%= link_to 'Edit', edit_online_application_path(online_application) %></td>
-    <td><%= link_to 'Destroy', online_application, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Remove', online_application, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Online application', new_online_application_path %>
+<%= link_to 'Add a person to this application', new_online_application_path %>

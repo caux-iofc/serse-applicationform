@@ -4,6 +4,7 @@ class CreateOnlineApplications < ActiveRecord::Migration
       t.references :application_group
       t.integer :application_group_order
       t.date :date_of_birth
+      t.string :relation
       t.string :firstname
       t.string :surname
       t.integer :gender
@@ -26,7 +27,6 @@ class CreateOnlineApplications < ActiveRecord::Migration
       t.boolean :visa
       t.string :visa_reference_name
       t.string :visa_reference_email
-      t.string :diet
       t.string :confirmation_letter_via
       t.string :accompanied_by
       t.string :passport_number

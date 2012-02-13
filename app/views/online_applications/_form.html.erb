@@ -53,6 +53,11 @@ document.write ('caux.ch</a>.')
           <%= render 'permanent_address', :f => f %>
         </td>
       </tr>
+      <tr class="correspondence_address_required" style="display:none">
+        <td colspan="2">
+          <%= render 'correspondence_address', :f => f %>
+        </td>
+      </tr>
       <tr>
         <td colspan="2">
           <%= render 'stay_in_caux', :f => f %>

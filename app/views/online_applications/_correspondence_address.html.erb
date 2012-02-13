@@ -1,7 +1,7 @@
-         <%= f.fields_for :permanent_address do |af| %>
+         <%= f.fields_for :correspondence_address do |af| %>
          <table class="af_block" width="500">
            <tr>
-             <td colspan="2" align="center"><span class="af_normtitle"><%=t :permanent_address %></span></td>
+             <td colspan="2" align="center"><span class="af_normtitle"><%=t :correspondence_address %></span></td>
            </tr>
            <tr>
              <td colspan="2">
@@ -45,9 +45,29 @@
                </div>
              </td>
              <td>
-                <div class="field" id="permanent_address_other_country" style="display: none">
+                <div class="field" id="correspondence_address_other_country" style="display: none">
                  <span class="af_star">*</span><%= af.label :other_country, t(:other_country) %><br />
                  <%= af.text_field :other_country %>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= af.label :valid_from, t(:valid_from) %><br />
+                 <% field_with_errors @online_application.correspondence_address, :valid_from do -%>
+                   <%= af.date_select :valid_from, :include_blank => :true, :start_year => Time.now.year, :end_year => Time.now.year + 1 %>
+                 <% end -%>
+               </div>
+             </td>
+           </tr>
+           <tr>
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= af.label :valid_until, t(:valid_until) %><br />
+                 <% field_with_errors @online_application.correspondence_address, :valid_until do -%>
+                   <%= af.date_select :valid_until, :include_blank => :true, :start_year => Time.now.year, :end_year => Time.now.year + 1 %>
+                 <% end -%>
                </div>
              </td>
            </tr>

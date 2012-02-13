@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120208211929) do
+ActiveRecord::Schema.define(:version => 20120213021402) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -24,19 +24,21 @@ ActiveRecord::Schema.define(:version => 20120208211929) do
     t.string   "state"
     t.integer  "country_id"
     t.string   "other_country"
+    t.date     "valid_from"
+    t.date     "valid_until"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
     t.string   "created_by",            :limit => 100, :default => ""
     t.string   "updated_by",            :limit => 100, :default => ""
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "versioned_type"
   end
 
   add_index "address_versions", ["address_id"], :name => "index_address_versions_on_address_id"
 
   create_table "addresses", :force => true do |t|
     t.integer  "online_application_id"
-    t.integer  "type"
     t.string   "street1"
     t.string   "street2"
     t.string   "street3"
@@ -45,6 +47,10 @@ ActiveRecord::Schema.define(:version => 20120208211929) do
     t.string   "state"
     t.integer  "country_id"
     t.string   "other_country"
+    t.date     "valid_from"
+    t.date     "valid_until"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
     t.string   "created_by",            :limit => 100, :default => "", :null => false
     t.string   "updated_by",            :limit => 100, :default => "", :null => false
     t.integer  "lock_version",                         :default => 0,  :null => false
@@ -59,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20120208211929) do
     t.integer  "application_group_id"
     t.integer  "lock_version"
     t.string   "name"
+    t.string   "session_id"
     t.boolean  "complete"
     t.boolean  "data_protection_consent"
     t.boolean  "data_protection_caux_info"
@@ -78,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20120208211929) do
 
   create_table "application_groups", :force => true do |t|
     t.string   "name"
+    t.string   "session_id",                                                        :null => false
     t.boolean  "complete"
     t.boolean  "data_protection_consent"
     t.boolean  "data_protection_caux_info"
@@ -132,6 +140,40 @@ ActiveRecord::Schema.define(:version => 20120208211929) do
 
   add_index "country_versions", ["country_id"], :name => "index_country_versions_on_country_id"
 
+  create_table "diet_translations", :force => true do |t|
+    t.integer  "diet_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "diet_translations", ["diet_id"], :name => "index_diet_translations_on_diet_id"
+  add_index "diet_translations", ["locale"], :name => "index_diet_translations_on_locale"
+
+  create_table "diet_versions", :force => true do |t|
+    t.integer  "diet_id"
+    t.integer  "lock_version"
+    t.integer  "priority_sort"
+    t.string   "created_by",    :limit => 100, :default => ""
+    t.string   "updated_by",    :limit => 100, :default => ""
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "diet_versions", ["diet_id"], :name => "index_diet_versions_on_diet_id"
+
+  create_table "diets", :force => true do |t|
+    t.integer  "priority_sort"
+    t.string   "created_by",    :limit => 100, :default => "", :null => false
+    t.string   "updated_by",    :limit => 100, :default => "", :null => false
+    t.integer  "lock_version",                 :default => 0,  :null => false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "language_versions", :force => true do |t|
     t.integer  "language_id"
     t.integer  "lock_version"
@@ -157,12 +199,41 @@ ActiveRecord::Schema.define(:version => 20120208211929) do
     t.datetime "updated_at"
   end
 
+  create_table "online_application_diet_versions", :force => true do |t|
+    t.integer  "online_application_diet_id"
+    t.integer  "lock_version"
+    t.integer  "online_application_id"
+    t.integer  "diet_id"
+    t.string   "created_by",                 :limit => 100, :default => ""
+    t.string   "updated_by",                 :limit => 100, :default => ""
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "online_application_diet_versions", ["online_application_diet_id"], :name => "index_online_application_diet_versions_on_online_application_di"
+
+  create_table "online_application_diets", :force => true do |t|
+    t.integer  "online_application_id"
+    t.integer  "diet_id"
+    t.string   "created_by",            :limit => 100, :default => "", :null => false
+    t.string   "updated_by",            :limit => 100, :default => "", :null => false
+    t.integer  "lock_version",                         :default => 0,  :null => false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "online_application_diets", ["diet_id"], :name => "index_online_application_diets_on_diet_id"
+  add_index "online_application_diets", ["online_application_id"], :name => "index_online_application_diets_on_online_application_id"
+
   create_table "online_application_versions", :force => true do |t|
     t.integer  "online_application_id"
     t.integer  "lock_version"
     t.integer  "application_group_id"
     t.integer  "application_group_order"
     t.date     "date_of_birth"
+    t.string   "relation"
     t.string   "firstname"
     t.string   "surname"
     t.integer  "gender"
@@ -185,7 +256,6 @@ ActiveRecord::Schema.define(:version => 20120208211929) do
     t.boolean  "visa"
     t.string   "visa_reference_name"
     t.string   "visa_reference_email"
-    t.string   "diet"
     t.string   "confirmation_letter_via"
     t.string   "accompanied_by"
     t.string   "passport_number"
@@ -214,6 +284,7 @@ ActiveRecord::Schema.define(:version => 20120208211929) do
     t.integer  "application_group_id"
     t.integer  "application_group_order"
     t.date     "date_of_birth"
+    t.string   "relation"
     t.string   "firstname"
     t.string   "surname"
     t.integer  "gender"
@@ -236,7 +307,6 @@ ActiveRecord::Schema.define(:version => 20120208211929) do
     t.boolean  "visa"
     t.string   "visa_reference_name"
     t.string   "visa_reference_email"
-    t.string   "diet"
     t.string   "confirmation_letter_via"
     t.string   "accompanied_by"
     t.string   "passport_number"
@@ -316,6 +386,16 @@ ActiveRecord::Schema.define(:version => 20120208211929) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "sponsor_versions", :force => true do |t|
     t.integer  "sponsor_id"

@@ -2,6 +2,8 @@ class CreateApplicationGroups < ActiveRecord::Migration
   def up
     create_table :application_groups do |t|
       t.string :name
+      t.string :session_id, :null => false
+
       t.boolean :complete
       t.boolean :data_protection_consent
       t.boolean :data_protection_caux_info

@@ -3,13 +3,13 @@ jQuery ->
   ##### handle diet_other ####
 
   ## First the code that will run on document load ##
-  if ($('#diet_other').is(':checked'))
+  if ($('#diet_check_other').is(':checked'))
     $("#diet_other_text").show()
   else
     $("#diet_other_text").hide()
 
   ## And then all the hooks ##
-  $("#diet_other").change ->
+  $("#diet_check_other").change ->
     $("#diet_other_text").toggle()
     false
  
@@ -28,20 +28,36 @@ jQuery ->
     else
       $("#online_application_other_citizenship_div").hide()
 
-  ##### handle other_country ####
+  ##### handle permanent_address_other_country ####
 
   ## First the code that will run on document load ##
-  if $('#online_application_addresses_attributes_0_country_id').val() == '0'
-    $("#other_country").show()
+  if $('#online_application_permanent_address_attributes_country_id').val() == '0'
+    $("#permanent_address_other_country").show()
   else
-    $("#other_country").hide()
+    $("#permanent_address_other_country").hide()
 
   ## And then all the hooks ##
-  $("#online_application_addresses_attributes_0_country_id").change ->
-    if $("#online_application_addresses_attributes_0_country_id").val() == '0'
-      $("#other_country").show()
+  $("#online_application_permanent_address_attributes_country_id").change ->
+    if $("#online_application_permanent_address_attributes_country_id").val() == '0'
+      $("#permanent_address_other_country").show()
     else
-      $("#other_country").hide()
+      $("#permanent_address_other_country").hide()
+    return
+
+  ##### handle correspondence_address_other_country ####
+
+  ## First the code that will run on document load ##
+  if $('#online_application_correspondence_address_attributes_country_id').val() == '0'
+    $("#correspondence_address_other_country").show()
+  else
+    $("#correspondence_address_other_country").hide()
+
+  ## And then all the hooks ##
+  $("#online_application_correspondence_address_attributes_country_id").change ->
+    if $("#online_application_correspondence_address_attributes_country_id").val() == '0'
+      $("#correspondence_address_other_country").show()
+    else
+      $("#correspondence_address_other_country").hide()
     return
 
   ##### handle previous visit conditional fields ####
@@ -86,6 +102,22 @@ jQuery ->
     if $('#online_application_confirmation_letter_via_fax').is(':checked')
       alert(I18n.t("ensure_fax_number"))
 
+  ##### correspondence address is compulsory in certain cases ####
+
+  ## First the code that will run on document load ##
+  if $('#online_application_confirmation_letter_via_correspondence_address').is(':checked')
+    $(".correspondence_address_required").show()
+  else
+    $(".correspondence_address_required").hide()
+
+  ## And then all the hooks ##
+  $('input:radio[name="online_application[confirmation_letter_via]"]').change ->
+    if $('#online_application_confirmation_letter_via_correspondence_address').is(':checked')
+      $(".correspondence_address_required").show()
+      alert(I18n.t("ensure_correspondence_address"))
+    else
+      $(".correspondence_address_required").hide()
+
   ##### show visa related fields if a visa is required ####
 
   ## First the code that will run on document load ##
@@ -108,10 +140,10 @@ jQuery ->
   if $("#online_application_surname").val() != ''
     $("#online_application_badge_surname").val($("#online_application_surname").val())
 
-  if $("#online_application_citizenship").val() != 'other' and $("#online_application_citizenship").val() != ''
-    $("#online_application_badge_country").val($("#online_application_citizenship option:selected").text())
+  if $("#online_application_citizenship_id").val() != '0' and $("#online_application_citizenship_id").val() != ''
+    $("#online_application_badge_country").val($("#online_application_citizenship_id option:selected").text())
 
-  if $("#online_application_citizenship").val() == 'other'
+  if $("#online_application_citizenship_id").val() == '0' and $("#online_application_citizenship_id").val() != ''
     $("#online_application_badge_country").val($("#online_application_other_citizenship").val())
 
   ## And then all the hooks ##
@@ -121,9 +153,9 @@ jQuery ->
   $("#online_application_surname").change ->
     $("#online_application_badge_surname").val($("#online_application_surname").val())
  
-  $("#online_application_citizenship").change ->
-    if $("#online_application_citizenship").val() != 'other'
-      $("#online_application_badge_country").val($("#online_application_citizenship option:selected").text())
+  $("#online_application_citizenship_id").change ->
+    if $("#online_application_citizenship_id").val() != 'other'
+      $("#online_application_badge_country").val($("#online_application_citizenship_id option:selected").text())
     else
       $("#online_application_badge_country").val($("#online_application_other_citizenship").val())
  

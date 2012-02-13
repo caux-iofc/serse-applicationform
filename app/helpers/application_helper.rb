@@ -18,7 +18,7 @@ module ApplicationHelper
 
       header_message = "Error!"
       header_message = options[:header_message] if options.has_key?(:header_message)
-      error_messages = raw(objects.map {|object| object.errors.full_messages.map {|msg| content_tag(:li, msg) } })
+      error_messages = raw(objects.map {|object| object.errors.each_with_index.map {|msg| content_tag(:li, raw("<strong>") + I18n.t(msg[0][0].to_s.gsub(/\./,'_')) + raw('</strong> ') + msg[0][1]) } })
 
       content_tag(:table,
         content_tag(:tr,

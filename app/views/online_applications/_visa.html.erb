@@ -54,7 +54,7 @@
                <div class="field">
                  <span class="af_star">*</span><%= f.label :passport_expiry_date, t(:passport_expiry_date) %><br />
                  <% field_with_errors @online_application, :passport_expiry_date do -%>
-                   <%= f.date_select :passport_expiry_date, :include_blank => true, :start_year => Time.now.year - 10, :end_year => Time.now.year + 10 %>
+                   <%= f.date_select :passport_expiry_date, :include_blank => true, :start_year => Time.now.year, :end_year => Time.now.year + 15 %>
                  <% end -%>
                </div>
              </td>
