@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20120213021402) do
     t.integer  "address_id"
     t.integer  "lock_version"
     t.integer  "online_application_id"
+    t.string   "kind"
     t.string   "street1"
     t.string   "street2"
     t.string   "street3"
@@ -26,8 +27,6 @@ ActiveRecord::Schema.define(:version => 20120213021402) do
     t.string   "other_country"
     t.date     "valid_from"
     t.date     "valid_until"
-    t.integer  "addressable_id"
-    t.string   "addressable_type"
     t.string   "created_by",            :limit => 100, :default => ""
     t.string   "updated_by",            :limit => 100, :default => ""
     t.datetime "deleted_at"
@@ -39,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20120213021402) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "online_application_id"
+    t.string   "kind"
     t.string   "street1"
     t.string   "street2"
     t.string   "street3"
@@ -49,8 +49,6 @@ ActiveRecord::Schema.define(:version => 20120213021402) do
     t.string   "other_country"
     t.date     "valid_from"
     t.date     "valid_until"
-    t.integer  "addressable_id"
-    t.string   "addressable_type"
     t.string   "created_by",            :limit => 100, :default => "", :null => false
     t.string   "updated_by",            :limit => 100, :default => "", :null => false
     t.integer  "lock_version",                         :default => 0,  :null => false

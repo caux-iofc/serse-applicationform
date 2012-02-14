@@ -31,8 +31,8 @@ class OnlineApplicationsController < ApplicationController
   def new
     @online_application = OnlineApplication.new
     # Add a blank address (for permanent/correspondence address)
-    @online_application.permanent_address = PermanentAddress.new()
-    @online_application.correspondence_address = CorrespondenceAddress.new()
+    @online_application.build_permanent_address
+    @online_application.build_correspondence_address
     # And two sponsor lines
     @online_application.sponsors.build
     @online_application.sponsors.build
@@ -46,7 +46,17 @@ class OnlineApplicationsController < ApplicationController
   # GET /online_applications/1/edit
   def edit
     @online_application = OnlineApplication.find(params[:id])
+    # Populate the email_confirmation field
     @online_application.email_confirmation = @online_application.email
+
+    # Add a blank address (for permanent/correspondence address) if either is nil
+    # The permanent address should never be nil, but let's include it here just in case.
+    # The correspondence address can be nil if it was not required on the
+    # previous edit/creation of the online application.  It has to exist if we want it to
+    # show up in the form if it becomes needed.
+    @online_application.build_permanent_address if @online_application.permanent_address.nil?
+    @online_application.build_correspondence_address if @online_application.correspondence_address.nil?
+
   end
 
   # POST /online_applications
@@ -71,21 +81,19 @@ class OnlineApplicationsController < ApplicationController
       @online_application.relation = 'primary applicant'
     end
 
-    # We only care about the correspondence address if we need it
-    if @online_application.confirmation_letter_via != "correspondence_address" then
-      @online_application.correspondence_address.destroy!
-    end
-
-    # And two sponsor lines
-    @online_application.sponsors.build
-    @online_application.sponsors.build
-
     respond_to do |format|
       if @online_application.save
         format.html { redirect_to online_applications_url, :notice => 'Online application was successfully created.' }
         format.json { render :json => @online_application, :status => :created, :location => @online_application }
       else
-        format.html { render :action => "new" }
+        format.html { 
+          # Make sure we have exactly two sponsor lines if the form has to be
+          # re-rendered due to errors (blank lines will have been eaten)
+          while @online_application.sponsors.size < 2 do
+            @online_application.sponsors.build
+          end
+          render :action => "new" 
+        }
         format.json { render :json => @online_application.errors, :status => :unprocessable_entity }
       end
     end
@@ -95,11 +103,6 @@ class OnlineApplicationsController < ApplicationController
   # PUT /online_applications/1.json
   def update
     @online_application = OnlineApplication.find(params[:id])
-
-    # We only care about the correspondence address if we need it
-    if @online_application.confirmation_letter_via != "correspondence_address" then
-      @online_application.correspondence_address.destroy!
-    end
 
     respond_to do |format|
       if @online_application.update_attributes(params[:online_application])

@@ -1,7 +1,7 @@
 class Address < ActiveRecord::Base
   acts_as_paranoid_versioned :version_column => :lock_version
   belongs_to :country
-  belongs_to :addressable, :polymorphic => true 
+  belongs_to :online_application
 
   validates :street1, :presence => true
   validates :city, :presence => true

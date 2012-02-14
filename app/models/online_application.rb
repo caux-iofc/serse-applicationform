@@ -4,21 +4,28 @@ class OnlineApplication < ActiveRecord::Base
   belongs_to :application_group
   belongs_to :country, :foreign_key => :citizenship_id
 
-  has_many :addresses, :as => :addressable, :dependent => :destroy
-  has_one :permanent_address, :as => :addressable
-  has_one :correspondence_address, :as => :addressable
+  has_one :permanent_address, :dependent => :destroy
+  has_one :correspondence_address, :dependent => :destroy
 
   accepts_nested_attributes_for :permanent_address, 
     :allow_destroy => :true
   accepts_nested_attributes_for :correspondence_address, 
     :allow_destroy => :true
 
-
   has_many :sponsors, :dependent => :destroy
   accepts_nested_attributes_for :sponsors, :allow_destroy => :true, :reject_if => :all_blank
 
   has_many :online_application_diets
   has_many :diets, :through => :online_application_diets, :dependent => :destroy
+
+
+  before_validation() do
+    # We only care about the correspondence address if we need it
+    if not self.correspondence_address.nil? and 
+       self.confirmation_letter_via != "correspondence_address" then
+      self.correspondence_address.destroy! 
+    end
+  end
 
   validates :firstname, :presence => true
   validates :surname, :presence => true
@@ -91,9 +98,6 @@ class OnlineApplication < ActiveRecord::Base
   validates :badge_surname, :presence => true
   validates :badge_country, :presence => true
 
-#  validates_associated :permanent_address
-#  validates :permanent_address, :presence => true
-#  validates :correspondence_address, :presence => true, :if => "confirmation_letter_via == 'correspondence_address'"
   validates_associated :sponsors
 
 end

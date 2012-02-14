@@ -36,7 +36,7 @@ en:
   cellphone: "Mobile phone number"
   fax: "Fax number"
   work_telephone: "Office phone number"
-  addresses_street1: "Street addresses"
+  addresses_street1: "Street address"
   addresses_city: "City / Town"
   addresses_country_id: "Country"
   addresses_zipcode: "Postal code"
@@ -126,6 +126,7 @@ en:
   must_be_before_valid_until: " must be before valid until date"
   must_be_after_valid_from: " must be after valid from date"
   must_be_at_least_6_weeks_in_the_future: " must be at least six weeks in the future"
+  must_be_valid_now: " must be valid now"
 
 
 fr:
