@@ -9,7 +9,7 @@
 </tr>
 <tr>
    <td class="af_center">
-    <%= error_messages_for :online_application, :header_message => 'Error: the contents of this form could not be validated.', :message => nil %>
+    <%= error_messages_for :online_application, :header_message => 'Error:', :message => nil %>
    </td>
 </tr>
 <tr>
@@ -48,7 +48,7 @@ document.write ('caux.ch</a>.')
           <%= render 'contact_information', :f => f %>
         </td>
       </tr>
-      <tr>
+      <tr class="hide_for_family_members">
         <td colspan="2">
           <%= render 'permanent_address', :f => f %>
         </td>

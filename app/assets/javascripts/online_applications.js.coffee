@@ -162,4 +162,19 @@ jQuery ->
   $("#online_application_other_citizenship").change ->
     $("#online_application_badge_country").val($("#online_application_other_citizenship").val())
 
+  ##### handle hiding of certain sections for spouse/children ####
+
+  ## First the code that will run on document load ##
+  if $('#online_application_relation').val() == 'spouse' or $('#online_application_relation').val() == 'child'
+    $(".hide_for_family_members").hide()
+  else
+    $(".hide_for_family_members").show()
+
+  ## And then all the hooks ##
+  $("#online_application_relation").change ->
+    if $('#online_application_relation').val() == 'spouse' or $('#online_application_relation').val() == 'child'
+      $(".hide_for_family_members").hide()
+    else
+      $(".hide_for_family_members").show()
+
 

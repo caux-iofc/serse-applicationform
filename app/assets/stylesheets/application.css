@@ -18,41 +18,6 @@ text-align: left;
   text-align: left;
 }
 
-#xmain-wrapper {
-margin-left: auto;
-margin-right: auto;
-text-align: left;
-border-top-width: 1px;
-border-right-width-value: 1px;
-border-right-width-ltr-source: physical;
-border-right-width-rtl-source: physical;
-border-bottom-width: 1px;
-border-left-width-value: 1px;
-border-left-width-ltr-source: physical;
-border-left-width-rtl-source: physical;
-border-top-style: solid;
-border-right-style-value: solid;
-border-right-style-ltr-source: physical;
-border-right-style-rtl-source: physical;
-border-bottom-style: solid;
-border-left-style-value: solid;
-border-left-style-ltr-source: physical;
-border-left-style-rtl-source: physical;
-border-top-color: #000000;
-border-right-color-value: #000000;
-border-right-color-ltr-source: physical;
-border-right-color-rtl-source: physical;
-border-bottom-color: #000000;
-border-left-color-value: #000000;
-border-left-color-ltr-source: physical;
-border-left-color-rtl-source: physical;
-padding-top: 4px;
-padding-right: 4px;
-padding-bottom: 4px;
-padding-left: 4px;
-color: black;
-}
-
 form {
 margin-top: 0pt;
 margin-right: 0pt;
@@ -103,6 +68,23 @@ a:hover {
 	display: inline;
 }
 
+table.application_list {
+  border: 1px solid black;
+  padding: 4px;
+  border-collapse: collapse;
+}
+
+.application_list td, .application_list th {
+  border: 1px solid black;
+  padding: 4px;
+}
+
+.application_list th
+{
+background-color: #990000;
+color:white;
+}
+
 .af_block {
   border: 1px solid #990000;
   padding: 4px;
@@ -114,6 +96,13 @@ a:hover {
 	font-size: 16px;
 	color: #990000;
 	font-weight: bold;
+}
+
+h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 24px;
+  color: #990000;
+  font-weight: bold;
 }
 
 /* The next 2 styles are a very clever trick to center tables in all browsers. See
@@ -171,8 +160,8 @@ label {
 .container_main_bottom { width: 100%; height: 25px; border-bottom: solid 2px #ffffff; background: #FE6600; }
 .container_right_bottom { width: 100%; height: 25px; border-left: none; border-bottom: solid 2px #ffffff; font-family: Arial, Helvetica, sans-serif; font-size: xx-small; color: #000000; text-align: right; background: #FE6600; }
 
-.hidden{display: none !important;}
-.visible{display: show;}
+/* .hidden{display: none !important;}
+.visible{display: show;} */
 
 .field_with_errors {
   padding: 1px;
@@ -215,3 +204,7 @@ label {
   list-style: square;
 }
 
+.prominent {
+  font-size: 18px;
+  font-weight: bold;
+}

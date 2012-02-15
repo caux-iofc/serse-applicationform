@@ -1,6 +1,6 @@
-<h1>Your application for Caux</h1>
+<h1><%=t :your_application_title %></h1>
 
-<table>
+<table class="application_list">
   <tr>
     <th></th>
     <th><%=t :firstname %></th>
@@ -8,13 +8,15 @@
     <th>Gender</th>
     <th>Arrival</th>
     <th>Departure</th>
+    <th></th>
+    <th></th>
   </tr>
 
 <% @online_applications.each do |online_application| %>
   <tr>
     <td><%= online_application.relation %></td>
-    <td><%= online_application.firstname %></td>
-    <td><%= online_application.surname %></td>
+    <td><strong><%= online_application.firstname %></strong></td>
+    <td><strong><%= online_application.surname %></strong></td>
     <td><%= online_application.gender == 1 ? 'Female' : 'Male' %></td>
     <td><%= online_application.arrival.to_s(:pretty) %></td>
     <td><%= online_application.departure.to_s(:pretty) %></td>
@@ -26,4 +28,17 @@
 
 <br />
 
-<%= link_to 'Add a person to this application', new_online_application_path %>
+<p class="prominent">
+<%=t :application_not_yet_submitted %>
+</p>
+
+<table>
+<tr>
+<td>
+<%= button_to 'Add a person to this application', new_online_application_path, :method => :get %>
+</td>
+<td>
+<%= button_to 'Submit this application', submit_application_group_path, :method => :get %>
+</td>
+</tr>
+</table>

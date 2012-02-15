@@ -18,7 +18,16 @@ module ApplicationHelper
 
       header_message = "Error!"
       header_message = options[:header_message] if options.has_key?(:header_message)
-      error_messages = raw(objects.map {|object| object.errors.each_with_index.map {|msg| content_tag(:li, raw("<strong>") + I18n.t(msg[0][0].to_s.gsub(/\./,'_')) + raw('</strong> ') + msg[0][1]) } })
+      error_messages = raw(objects.map { |object| 
+        object.errors.each_with_index.map {|msg| 
+          # If the translation field is deliberately empty, do not print it
+          if (I18n.t(msg[0][0]) != '') then
+            content_tag(:li, raw("<strong>") + I18n.t(msg[0][0].to_s.gsub(/\./,'_')) + raw('</strong> ') + msg[0][1]) 
+          else
+            content_tag(:li, msg[0][1]) 
+          end
+        } 
+      })
 
       content_tag(:table,
         content_tag(:tr,

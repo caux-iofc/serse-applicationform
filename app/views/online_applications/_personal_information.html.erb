@@ -2,6 +2,18 @@
            <tr>
              <td colspan="2" align="center"><span class="af_normtitle"><%=t :personal_information %></span></td>
            </tr>
+           <% if @ag.online_applications.count > 0 and @online_application.relation != 'primary applicant' then -%>
+           <tr>
+             <td>
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :relation, t(:relation) %><br />
+                 <%= f.select(:relation, [ [t('spouse'),'spouse'], [t('child'),'child'], [t('other'),'other'] ], {:include_blank => 'Choose one'}) %>
+               </div>
+             </td>
+           </tr>
+           <% else -%>
+             <%= f.hidden_field :relation, :value => 'primary applicant' %>
+           <% end -%>
            <tr>
              <td>
                <div class="field">

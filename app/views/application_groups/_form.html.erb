@@ -1,0 +1,52 @@
+<%= form_for(@application_group) do |f| %>
+
+<table class="tablerow" width="550">
+<tr>
+  <td class="pagetitle">
+    <h1><%= t(:title) %></h1>
+  </td>
+</tr>
+</tr>
+<tr>
+   <td class="af_center">
+    <%= error_messages_for :application_group, :header_message => 'Error:', :message => nil %>
+   </td>
+</tr>
+<tr>
+  <td class="af_justify">
+<p align="left">
+<%=t :intro_part_1_html %>
+<script language="JavaScript"> 
+<!--
+document.write ('<a href="mai')
+document.write ('lto:confsec')
+document.write ('&#64;')
+document.write ('caux.ch">confsec')
+document.write ('&#64;')
+document.write ('caux.ch</a>.')
+// -->
+</script>
+</p>
+</td>
+</tr>
+
+<tr>
+  <td valign="top">
+    <table cellspacing="2" cellpadding="2" border="0" width="100%">
+      <tr>
+        <td colspan="2">
+          <%= render 'confirmation', :f => f %>
+      </td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center">
+          <div class="actions">
+            <%= f.submit t(:register) %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<% end -%>

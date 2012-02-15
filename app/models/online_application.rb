@@ -18,6 +18,7 @@ class OnlineApplication < ActiveRecord::Base
   has_many :online_application_diets
   has_many :diets, :through => :online_application_diets, :dependent => :destroy
 
+  scope :primary_applicant, where("relation = 'primary applicant'")
 
   before_validation() do
     # We only care about the correspondence address if we need it
@@ -25,8 +26,13 @@ class OnlineApplication < ActiveRecord::Base
        self.confirmation_letter_via != "correspondence_address" then
       self.correspondence_address.destroy! 
     end
+    # permanent address is only required for primary applicants and their 'other' co-applicants
+    if self.relation == 'spouse' or self.relation == 'child' then
+      self.permanent_address.destroy! 
+    end
   end
 
+  validates :relation, :inclusion => { :in => [ 'primary applicant', 'spouse', 'child', 'other' ], :message => I18n.t(:only_valid_relations) }
   validates :firstname, :presence => true
   validates :surname, :presence => true
 
@@ -45,11 +51,12 @@ class OnlineApplication < ActiveRecord::Base
 
   validates :email, :confirmation => true,
                     :presence => true,
-                    :email => true
+                    :email => true, :if => "relation == 'primary applicant'"
 
-  validates :email_confirmation, :presence => true
+  validates :email_confirmation, :presence => true, :if => "relation == 'primary applicant'"
   validates :telephone, :presence => true,
-                        :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }
+                        :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, 
+                        :if => "relation == 'primary applicant'"
   validates :cellphone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }
   validates :confirmation_letter_via, :presence => true
   validates :work_telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }
@@ -62,11 +69,15 @@ class OnlineApplication < ActiveRecord::Base
   # There appears to be no way to pass two different :date conditions with a unique message for each
   # in one validates statement. So we make sure to put each :date condition in a separate validates statement.
   validates :arrival, :presence => true,
-                      :date => { :before_or_equal_to => :departure, :message => I18n.t(:must_be_before_departure) }
-  validates :arrival, :date => { :after_or_equal_to => Date.today, :message => I18n.t(:can_be_no_earlier_than_today) }
+                      :date => { :before_or_equal_to => :departure, :message => I18n.t(:must_be_before_departure) },
+                      :if => "relation == 'primary applicant'"
+  validates :arrival, :date => { :after_or_equal_to => Date.today, :message => I18n.t(:can_be_no_earlier_than_today) },
+                      :if => "relation == 'primary applicant'"
   validates :departure, :presence => true,
-                        :date => { :after_or_equal_to => :arrival, :message => I18n.t(:must_be_after_arrival) }
-  validates :departure, :date => { :after_or_equal_to => Date.today, :message => I18n.t(:can_be_no_earlier_than_today) }
+                        :date => { :after_or_equal_to => :arrival, :message => I18n.t(:must_be_after_arrival) },
+                        :if => "relation == 'primary applicant'"
+  validates :departure, :date => { :after_or_equal_to => Date.today, :message => I18n.t(:can_be_no_earlier_than_today) },
+                        :if => "relation == 'primary applicant'"
 
   # Whoa. Serious rough edge, can't use :presence => true here. 
   # cf. http://stackoverflow.com/questions/4112858/radio-buttons-for-boolean-field-how-to-do-a-false

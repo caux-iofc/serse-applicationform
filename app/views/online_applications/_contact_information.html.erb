@@ -5,13 +5,13 @@
            <tr>
              <td>
                <div class="field">
-                 <span class="af_star">*</span><%= f.label :email, t(:email) %><br />
+                 <span class="af_star hide_for_family_members">*</span><%= f.label :email, t(:email) %><br />
                  <%= f.text_field :email %>
                </div>
              </td>
              <td>
                <div class="field">
-                 <span class="af_star">*</span><%= f.label :email_confirmation, t(:email_confirmation) %><br />
+                 <span class="af_star hide_for_family_members">*</span><%= f.label :email_confirmation, t(:email_confirmation) %><br />
                  <%= f.text_field :email_confirmation %>
                </div>
              </td>
@@ -19,7 +19,7 @@
            <tr>
              <td>
                <div class="field">
-                 <span class="af_star">*</span><%= f.label :telephone, t(:telephone) %><br />
+                 <span class="af_star hide_for_family_members">*</span><%= f.label :telephone, t(:telephone) %><br />
                  <%= f.text_field :telephone %>
                </div>
              </td>
@@ -44,7 +44,7 @@
                </div>
              </td>
            </tr>
-           <tr>
+           <tr class="hide_for_family_members">
              <td colspan="2">
                <div class="field">
                  <span class="af_star">*</span><%= f.label :confirmation_letter_via, t(:confirmation_letter_via) %><br />

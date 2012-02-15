@@ -1,0 +1,46 @@
+         <table class="af_block" width="500">
+           <tr>
+             <td colspan="2" align="center"><span class="af_normtitle"><%=t :confirmation %></span></td>
+           </tr>
+           <tr>
+             <td width="50">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.check_box :confirm_read_documents %>
+               </div>
+             </td>
+             <td>
+                <%=t :confirm_read_documents_text_html %>
+             </td>
+           </tr>
+           <tr>
+             <td width="50">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.check_box :data_protection_consent %>
+               </div>
+             </td>
+             <td>
+               <%=t :data_protection_consent_text %>
+             </td>
+           </tr>
+           <tr>
+             <td width="50">
+               <div class="field">
+                 <%= f.check_box :data_protection_caux_info %>
+               </div>
+             </td>
+             <td>
+               <%=t :data_protection_caux_info_text %>
+             </td>
+           </tr>
+           <tr>
+             <td width="50">
+               <div class="field">
+                 <%= f.check_box :data_protection_local_info %>
+               </div>
+             </td>
+             <td>
+               <%=t :data_protection_local_info_text %>
+             </td>
+           </tr>
+         </table>
+

@@ -2,7 +2,7 @@
            <tr>
              <td colspan="2" align="center"><span class="af_normtitle"><%=t :stay_in_caux %></span></td>
            </tr>
-           <tr>
+           <tr class="hide_for_family_members">
              <td colspan="2">
                <div class="field">
                  <span class="af_star">*</span><%= f.label :arrival, t(:arrival) %> <%=t :approximate_time %><br />
@@ -12,7 +12,7 @@
                </div>
              </td>
            </tr>
-           <tr>
+           <tr class="hide_for_family_members">
              <td colspan="2">
                <div class="field">
                  <span class="af_star">*</span><%= f.label :departure, t(:departure) %> <%=t :approximate_time %><br />
@@ -22,7 +22,7 @@
                </div>
              </td>
            </tr>
-           <tr>
+           <tr class="hide_for_family_members">
              <td>
                <div class="field">
                  <%= f.label :travel_car_train, t(:travel_car_train) %><br />

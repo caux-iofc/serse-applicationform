@@ -5,14 +5,15 @@ class CreateApplicationGroups < ActiveRecord::Migration
       t.string :session_id, :null => false
 
       t.boolean :complete
+      t.boolean :confirm_read_documents
       t.boolean :data_protection_consent
       t.boolean :data_protection_caux_info
-      t.boolean :data_protection_three_local_events
       t.boolean :data_protection_local_info
       t.references :session_group
       t.text :comment
 
       t.string :browser
+      t.string :remote_ip
 
       t.column "created_by", :string, :limit => 100, :null => false, :default => ''
       t.column "updated_by", :string, :limit => 100, :null => false, :default => ''
