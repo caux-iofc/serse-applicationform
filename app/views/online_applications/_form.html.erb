@@ -14,7 +14,7 @@
 </tr>
 <tr>
   <td class="af_justify">
-<p align="left">
+<p>
 <%=t :intro_part_1_html %>
 <script language="JavaScript"> 
 <!--
@@ -43,7 +43,7 @@ document.write ('caux.ch</a>.')
           <%= render 'personal_information', :f => f %>
       </td>
       </tr>
-      <tr>
+      <tr class="hide_for_children">
         <td colspan="2">
           <%= render 'contact_information', :f => f %>
         </td>
@@ -70,12 +70,12 @@ document.write ('caux.ch</a>.')
       </tr>
       <tr>
         <td colspan="2">
-          <%= render 'conference_fees', :f => f %>
+          <%= render 'name_badge', :f => f %>
         </td>
       </tr>
       <tr>
         <td colspan="2">
-          <%= render 'name_badge', :f => f %>
+          <%= render 'conference_fees', :f => f %>
         </td>
       </tr>
       <tr>

@@ -7,7 +7,12 @@
                <div class="field">
                  <span class="af_star">*</span><%= f.label :nightly_contribution, t(:nightly_contribution) %><br />
                  <%= f.text_field :nightly_contribution, :size => 6 %> <%=t :nightly_contribution_currency %><br />
-                 <%=t :nightly_contribution_html %>
+                 <span class="show_for_children">
+                   <%=t :child_nightly_contribution_html %>
+                 </span>
+                 <span class="hide_for_children">
+                   <%=t :nightly_contribution_html %>
+                 </span>
                </div>
              </td>
            </tr>

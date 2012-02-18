@@ -63,7 +63,7 @@ class OnlineApplication < ActiveRecord::Base
   validates :fax, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }
   validates :fax, :presence => true, :if => :fax_needed?
   def fax_needed?
-    visa or confirmation_letter_via == "fax"
+    (visa or confirmation_letter_via == "fax") and relation == 'primary applicant'
   end
 
   # There appears to be no way to pass two different :date conditions with a unique message for each
@@ -83,10 +83,15 @@ class OnlineApplication < ActiveRecord::Base
   # cf. http://stackoverflow.com/questions/4112858/radio-buttons-for-boolean-field-how-to-do-a-false
   validates :previous_visit, :inclusion => { :in => [ true, false ], :message => I18n.t(:previous_visit_unset) }
   validates :previous_year, :presence => true, :format => { :with => /^([\d]{4}|)$/, :message => I18n.t(:previous_year_invalid) }, :if => :previous_visit 
-  validates :heard_about, :presence => true, :unless => "previous_visit.nil? or previous_visit"
+  validates :heard_about, :presence => true, :unless => "previous_visit.nil? or previous_visit or relation != 'primary applicant'"
 
-  validates :visa_reference_name, :presence => true, :if => :visa
-  validates :visa_reference_email, :presence => true, :if => :visa
+  validates :visa_reference_name, :presence => true, :if => :visa_reference_needed?
+  validates :visa_reference_email, :presence => true, :if => :visa_reference_needed?
+
+  def visa_reference_needed?
+    visa and relation == 'primary applicant'
+  end
+
   validates :passport_number, :presence => true, :if => :visa
   validates :passport_issue_place, :presence => true, :if => :visa
   validates :passport_issue_date, :presence => true,

@@ -106,6 +106,7 @@ en:
   nightly_contribution: "My personal contribution per night"
   nightly_contribution_currency: "CHF"
   nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.iofc.org/en/2012-fees\">92 CHF per night (adult)</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
+  child_nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.iofc.org/en/2012-fees\">0/46/55 CHF per night (child/young person)</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
   sponsors_name: "Sponsor"
   sponsors_nights: "# Nights"
   sponsors_currency: "Currency"
@@ -149,8 +150,7 @@ en:
   follow_us_on: "Follow us on"
   your_application_title: "Your application"
   application_not_yet_submitted: "Your application has not yet been submitted. Please add a person or submit your application."
-
-
+  welcome_children_html: "We look forward to welcoming you in Caux with your child(ren). As you know they can be looked after in a kindergarten during the meetings. In order for everything to go smoothly, we ask you <b>to bring a mobile phone</b> so that you can be easily reached if needed. This is a regulation of the cantonal authorities for kindergartens. Thank you in advance."
 
 fr:
   hello_flash: "Bonjour"

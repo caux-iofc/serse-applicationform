@@ -4,11 +4,14 @@
            </tr>
            <% if @ag.online_applications.count > 0 and @online_application.relation != 'primary applicant' then -%>
            <tr>
-             <td>
+             <td colspan="2">
                <div class="field">
                  <span class="af_star">*</span><%= f.label :relation, t(:relation) %><br />
                  <%= f.select(:relation, [ [t('spouse'),'spouse'], [t('child'),'child'], [t('other'),'other'] ], {:include_blank => 'Choose one'}) %>
                </div>
+               <p class="show_for_children prominent_text">
+                 <%=t :welcome_children_html %>
+               </p>
              </td>
            </tr>
            <% else -%>
@@ -58,7 +61,7 @@
                </div>
              </td>
            </tr>
-           <tr>
+           <tr class="hide_for_children">
              <td>
                <div class="field">
                  <%= f.label :profession, t(:profession) %><br />

@@ -63,15 +63,16 @@ jQuery ->
   ##### handle previous visit conditional fields ####
 
   ## First the code that will run on document load ##
-  if ($('#online_application_previous_visit_false').is(':checked'))
+  if $('#online_application_previous_visit_false').is(':checked') and $('#online_application_relation').val() == 'primary applicant'
     $("#heard_about_div").show()
-  if ($('#online_application_previous_visit_true').is(':checked'))
+  if $('#online_application_previous_visit_true').is(':checked')
     $("#previous_year_div").show()
 
   ## And then all the hooks ##
   $('input:radio[name="online_application[previous_visit]"]').click ->
-    if ($('#online_application_previous_visit_false').is(':checked'))
-      $("#heard_about_div").show()
+    if $('#online_application_previous_visit_false').is(':checked') 
+      if $('#online_application_relation').val() == 'primary applicant'
+        $("#heard_about_div").show()
       $("#previous_year_div").hide()
     else
       $("#heard_about_div").hide()
@@ -80,18 +81,18 @@ jQuery ->
   ##### fax number is compulsory in certain cases ####
 
   ## First the code that will run on document load ##
-  if $('#online_application_confirmation_letter_via_fax').is(':checked') or $('#online_application_visa').is(':checked')
+  if ($('#online_application_confirmation_letter_via_fax').is(':checked') or $('#online_application_visa').is(':checked')) and $('#online_application_relation').val() == 'primary applicant'
     $("#fax_required").show()
   else
     $("#fax_required").hide()
 
   ## And then all the hooks ##
   $('#online_application_visa').change ->
-    if $('#online_application_confirmation_letter_via_fax').is(':checked') or $('#online_application_visa').is(':checked')
+    if ($('#online_application_confirmation_letter_via_fax').is(':checked') or $('#online_application_visa').is(':checked')) and $('#online_application_relation').val() == 'primary applicant'
       $("#fax_required").show()
     else
       $("#fax_required").hide()
-    if $('#online_application_visa').is(':checked')
+    if $('#online_application_visa').is(':checked') and $('#online_application_relation').val() == 'primary applicant'
       alert(I18n.t("ensure_fax_number"))
 
   $('input:radio[name="online_application[confirmation_letter_via]"]').change ->
@@ -123,13 +124,17 @@ jQuery ->
   ## First the code that will run on document load ##
   if ($('#online_application_visa').is(':checked'))
     $(".visa_required").show()
+    if $('#online_application_relation').val() == 'primary applicant'
+      $(".visa_required_primary_applicant_only").show()
   else
     $(".visa_required").hide()
+    $(".visa_required_primary_applicant_only").hide()
 
   ## And then all the hooks
   $("#online_application_visa").change ->
     $(".visa_required").toggle()
-    false
+    if $('#online_application_relation').val() == 'primary applicant'
+      $(".visa_required_primary_applicant_only").toggle()
   
   ##### update name badge fields when changes are made to name/country fields ####
 
@@ -162,13 +167,24 @@ jQuery ->
   $("#online_application_other_citizenship").change ->
     $("#online_application_badge_country").val($("#online_application_other_citizenship").val())
 
-  ##### handle hiding of certain sections for spouse/children ####
+  ##### handle showing/hiding of certain sections for spouse/children ####
 
   ## First the code that will run on document load ##
   if $('#online_application_relation').val() == 'spouse' or $('#online_application_relation').val() == 'child'
     $(".hide_for_family_members").hide()
   else
     $(".hide_for_family_members").show()
+  if $('#online_application_relation').val() == 'child'
+    $(".hide_for_children").hide()
+    $(".show_for_children").show()
+  else
+    $(".hide_for_children").show()
+    $(".show_for_children").hide()
+  if $('#online_application_relation').val() == 'primary applicant'
+    $(".show_for_primary_applicant").show()
+  else
+    $(".show_for_primary_applicant").hide()
+
 
   ## And then all the hooks ##
   $("#online_application_relation").change ->
@@ -176,5 +192,14 @@ jQuery ->
       $(".hide_for_family_members").hide()
     else
       $(".hide_for_family_members").show()
-
+    if $('#online_application_relation').val() == 'child'
+      $(".hide_for_children").hide()
+      $(".show_for_children").show()
+    else
+      $(".hide_for_children").show()
+      $(".show_for_children").hide()
+    if $('#online_application_relation').val() == 'primary applicant'
+      $(".show_for_primary_applicant").show()
+    else
+      $(".show_for_primary_applicant").hide()
 
