@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213021402) do
+ActiveRecord::Schema.define(:version => 20120224190144) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -98,9 +98,98 @@ ActiveRecord::Schema.define(:version => 20120213021402) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "confirm_read_documents"
+    t.string   "remote_ip"
   end
 
   add_index "application_groups", ["session_group_id"], :name => "index_application_groups_on_session_group_id"
+
+  create_table "conference_translations", :force => true do |t|
+    t.integer  "conference_id"
+    t.string   "locale"
+    t.string   "byline"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conference_translations", ["conference_id"], :name => "index_conference_translations_on_conference_id"
+  add_index "conference_translations", ["locale"], :name => "index_conference_translations_on_locale"
+
+  create_table "conference_versions", :force => true do |t|
+    t.integer  "conference_id"
+    t.integer  "lock_version"
+    t.integer  "session_group_id"
+    t.datetime "start"
+    t.datetime "stop"
+    t.boolean  "private"
+    t.boolean  "special"
+    t.string   "template_path"
+    t.string   "created_by",       :limit => 100, :default => ""
+    t.string   "updated_by",       :limit => 100, :default => ""
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conference_versions", ["conference_id"], :name => "index_conference_versions_on_conference_id"
+
+  create_table "conference_workstream_translations", :force => true do |t|
+    t.integer  "conference_workstream_id"
+    t.string   "locale"
+    t.string   "language"
+    t.string   "name"
+    t.string   "byline"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conference_workstream_translations", ["conference_workstream_id"], :name => "index_ab83f95ead2bb1de6c8c949c308b2cb99df775ad"
+  add_index "conference_workstream_translations", ["locale"], :name => "index_conference_workstream_translations_on_locale"
+
+  create_table "conference_workstream_versions", :force => true do |t|
+    t.integer  "conference_workstream_id"
+    t.integer  "lock_version"
+    t.integer  "conference_id"
+    t.integer  "priority_sort"
+    t.string   "created_by",               :limit => 100, :default => ""
+    t.string   "updated_by",               :limit => 100, :default => ""
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conference_workstream_versions", ["conference_workstream_id"], :name => "index_conference_workstream_versions_on_conference_workstream_i"
+
+  create_table "conference_workstreams", :force => true do |t|
+    t.integer  "conference_id"
+    t.integer  "priority_sort"
+    t.string   "created_by",    :limit => 100, :default => "", :null => false
+    t.string   "updated_by",    :limit => 100, :default => "", :null => false
+    t.integer  "lock_version",                 :default => 0,  :null => false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conference_workstreams", ["conference_id"], :name => "index_conference_workstreams_on_conference_id"
+
+  create_table "conferences", :force => true do |t|
+    t.integer  "session_group_id"
+    t.datetime "start"
+    t.datetime "stop"
+    t.boolean  "private"
+    t.boolean  "special"
+    t.string   "template_path"
+    t.string   "created_by",       :limit => 100, :default => "", :null => false
+    t.string   "updated_by",       :limit => 100, :default => "", :null => false
+    t.integer  "lock_version",                    :default => 0,  :null => false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conferences", ["session_group_id"], :name => "index_conferences_on_session_group_id"
 
   create_table "countries", :force => true do |t|
     t.integer  "zipcode_order"
@@ -172,10 +261,20 @@ ActiveRecord::Schema.define(:version => 20120213021402) do
     t.datetime "updated_at"
   end
 
+  create_table "language_translations", :force => true do |t|
+    t.integer  "language_id"
+    t.string   "locale"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "language_translations", ["language_id"], :name => "index_language_translations_on_language_id"
+  add_index "language_translations", ["locale"], :name => "index_language_translations_on_locale"
+
   create_table "language_versions", :force => true do |t|
     t.integer  "language_id"
     t.integer  "lock_version"
-    t.string   "name"
     t.integer  "priority_sort"
     t.string   "created_by",    :limit => 100, :default => ""
     t.string   "updated_by",    :limit => 100, :default => ""
@@ -187,7 +286,6 @@ ActiveRecord::Schema.define(:version => 20120213021402) do
   add_index "language_versions", ["language_id"], :name => "index_language_versions_on_language_id"
 
   create_table "languages", :force => true do |t|
-    t.string   "name"
     t.integer  "priority_sort"
     t.string   "created_by",    :limit => 100, :default => "", :null => false
     t.string   "updated_by",    :limit => 100, :default => "", :null => false
@@ -196,6 +294,76 @@ ActiveRecord::Schema.define(:version => 20120213021402) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "online_application_conference_versions", :force => true do |t|
+    t.integer  "online_application_conference_id"
+    t.integer  "lock_version"
+    t.integer  "online_application_id"
+    t.integer  "conference_id"
+    t.boolean  "selected"
+    t.text     "variables"
+    t.integer  "priority_sort"
+    t.boolean  "role_participant"
+    t.boolean  "role_speaker"
+    t.boolean  "role_team"
+    t.string   "created_by",                       :limit => 100, :default => ""
+    t.string   "updated_by",                       :limit => 100, :default => ""
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "online_application_conference_versions", ["online_application_conference_id"], :name => "index_online_application_conference_versions_on_online_applicat"
+
+  create_table "online_application_conference_workstream_versions", :force => true do |t|
+    t.integer  "online_application_conference_workstream_id"
+    t.integer  "lock_version"
+    t.integer  "online_application_conference_id"
+    t.integer  "conference_workstream_id"
+    t.string   "preference"
+    t.string   "created_by",                                  :limit => 100, :default => ""
+    t.string   "updated_by",                                  :limit => 100, :default => ""
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "online_application_conference_workstream_versions", ["online_application_conference_workstream_id"], :name => "index_online_application_conference_workstream_versions_on_onli"
+
+  create_table "online_application_conference_workstreams", :force => true do |t|
+    t.integer  "online_application_conference_id"
+    t.integer  "conference_workstream_id"
+    t.string   "preference"
+    t.string   "created_by",                       :limit => 100, :default => "", :null => false
+    t.string   "updated_by",                       :limit => 100, :default => "", :null => false
+    t.integer  "lock_version",                                    :default => 0,  :null => false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "online_application_conference_workstreams", ["conference_workstream_id"], :name => "index_oa_conf_workstreams_on_conference_workstream_id"
+  add_index "online_application_conference_workstreams", ["online_application_conference_id"], :name => "index_oa_conf_workstreams_on_application_id"
+
+  create_table "online_application_conferences", :force => true do |t|
+    t.integer  "online_application_id"
+    t.integer  "conference_id"
+    t.boolean  "selected"
+    t.text     "variables"
+    t.integer  "priority_sort"
+    t.boolean  "role_participant"
+    t.boolean  "role_speaker"
+    t.boolean  "role_team"
+    t.string   "created_by",            :limit => 100, :default => "", :null => false
+    t.string   "updated_by",            :limit => 100, :default => "", :null => false
+    t.integer  "lock_version",                         :default => 0,  :null => false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "online_application_conferences", ["conference_id"], :name => "index_oa_conferences_on_conference_id"
+  add_index "online_application_conferences", ["online_application_id"], :name => "index_oa_conferences_on_online_application_id"
 
   create_table "online_application_diet_versions", :force => true do |t|
     t.integer  "online_application_diet_id"
@@ -224,6 +392,64 @@ ActiveRecord::Schema.define(:version => 20120213021402) do
 
   add_index "online_application_diets", ["diet_id"], :name => "index_online_application_diets_on_diet_id"
   add_index "online_application_diets", ["online_application_id"], :name => "index_online_application_diets_on_online_application_id"
+
+  create_table "online_application_language_versions", :force => true do |t|
+    t.integer  "online_application_language_id"
+    t.integer  "lock_version"
+    t.integer  "online_application_id"
+    t.integer  "language_id"
+    t.integer  "proficiency"
+    t.string   "created_by",                     :limit => 100, :default => ""
+    t.string   "updated_by",                     :limit => 100, :default => ""
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "online_application_language_versions", ["online_application_language_id"], :name => "index_online_application_language_versions_on_online_applicatio"
+
+  create_table "online_application_languages", :force => true do |t|
+    t.integer  "online_application_id"
+    t.integer  "language_id"
+    t.integer  "proficiency"
+    t.string   "created_by",            :limit => 100, :default => "", :null => false
+    t.string   "updated_by",            :limit => 100, :default => "", :null => false
+    t.integer  "lock_version",                         :default => 0,  :null => false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "online_application_languages", ["language_id"], :name => "index_online_application_languages_on_language_id"
+  add_index "online_application_languages", ["online_application_id"], :name => "index_online_application_languages_on_online_application_id"
+
+  create_table "online_application_training_program_versions", :force => true do |t|
+    t.integer  "online_application_training_program_id"
+    t.integer  "lock_version"
+    t.integer  "online_application_id"
+    t.integer  "training_program_id"
+    t.string   "created_by",                             :limit => 100, :default => ""
+    t.string   "updated_by",                             :limit => 100, :default => ""
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "online_application_training_program_versions", ["online_application_training_program_id"], :name => "index_online_application_training_program_versions_on_online_ap"
+
+  create_table "online_application_training_programs", :force => true do |t|
+    t.integer  "online_application_id"
+    t.integer  "training_program_id"
+    t.string   "created_by",            :limit => 100, :default => "", :null => false
+    t.string   "updated_by",            :limit => 100, :default => "", :null => false
+    t.integer  "lock_version",                         :default => 0,  :null => false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "online_application_training_programs", ["online_application_id"], :name => "index_oa_training_programs_on_online_application_id"
+  add_index "online_application_training_programs", ["training_program_id"], :name => "index_oa_training_programs_on_training_program_id"
 
   create_table "online_application_versions", :force => true do |t|
     t.integer  "online_application_id"
@@ -425,5 +651,48 @@ ActiveRecord::Schema.define(:version => 20120213021402) do
   end
 
   add_index "sponsors", ["online_application_id"], :name => "index_sponsors_on_online_application_id"
+
+  create_table "training_program_translations", :force => true do |t|
+    t.integer  "training_program_id"
+    t.string   "locale"
+    t.string   "byline"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "training_program_translations", ["locale"], :name => "index_training_program_translations_on_locale"
+  add_index "training_program_translations", ["training_program_id"], :name => "index_3708342cad7dac9bf701cd4a10134af180c8b5f4"
+
+  create_table "training_program_versions", :force => true do |t|
+    t.integer  "training_program_id"
+    t.integer  "lock_version"
+    t.integer  "session_group_id"
+    t.boolean  "display_dates"
+    t.datetime "start"
+    t.datetime "stop"
+    t.string   "created_by",          :limit => 100, :default => ""
+    t.string   "updated_by",          :limit => 100, :default => ""
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "training_program_versions", ["training_program_id"], :name => "index_training_program_versions_on_training_program_id"
+
+  create_table "training_programs", :force => true do |t|
+    t.integer  "session_group_id"
+    t.boolean  "display_dates"
+    t.datetime "start"
+    t.datetime "stop"
+    t.string   "created_by",       :limit => 100, :default => "", :null => false
+    t.string   "updated_by",       :limit => 100, :default => "", :null => false
+    t.integer  "lock_version",                    :default => 0,  :null => false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "training_programs", ["session_group_id"], :name => "index_training_programs_on_session_group_id"
 
 end

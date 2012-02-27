@@ -1,4 +1,4 @@
-         <table class="af_block" width="500">
+         <table class="af_block">
            <tr>
              <td colspan="2" align="center"><span class="af_normtitle"><%=t :personal_information %></span></td>
            </tr>
@@ -59,6 +59,38 @@
                  <span class="af_star">*</span><%= f.label :other_citizenship, t(:other_citizenship) %><br />
                  <%= f.text_field :other_citizenship %>
                </div>
+             </td>
+           </tr>
+           <tr>
+             <td colspan="2">
+               <table class="languages_table">
+                 <tr>
+                   <th>
+                     <div class="field">
+                       <span class="af_star">*</span><label><%=t :language_name %></label>
+                     </div>
+                   </th>
+                   <th>
+                     <div class="field">
+                       <label><%=t :language_proficiency%></label>
+                     </div>
+                   </th>
+                 </tr>
+                 <%= f.fields_for :online_application_languages do |lf| -%>
+                 <tr>
+                   <td>
+                     <div class="field">
+                       <%= lf.select(:language_id, [ [t(:other_please_specify),'0'] ] + Language.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Choose one'}) %>
+                     </div>
+                   </td>
+                   <td>
+                     <div class="field">
+                       <%= lf.select(:proficiency, [ [t('proficiency_poor'),'110'], [t('proficiency_good'),'120'], [t('proficiency_excellent'),'130'], [t('proficiency_native'),'140'] ], {:include_blank => 'Choose one'}) %>
+                     </div>
+                   </td>
+                 </tr>
+                 <% end -%>
+               </table>
              </td>
            </tr>
            <tr class="hide_for_children">

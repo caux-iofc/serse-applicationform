@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  session_group: 
+  display_dates: false
+  start: 2012-02-20 20:12:24
+  stop: 2012-02-20 20:12:24
+
+two:
+  session_group: 
+  display_dates: false
+  start: 2012-02-20 20:12:24
+  stop: 2012-02-20 20:12:24

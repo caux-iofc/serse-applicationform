@@ -1,6 +1,6 @@
 <%= form_for(@online_application) do |f| %>
 
-<table class="tablerow" width="550">
+<table class="tablerow">
 <tr>
   <td class="pagetitle">
     <h1><%= t(:title) %></h1>
@@ -37,7 +37,7 @@ document.write ('caux.ch</a>.')
 
 <tr>
   <td valign="top">
-    <table cellspacing="2" cellpadding="2" border="0" width="100%">
+    <table>
       <tr>
         <td colspan="2">
           <%= render 'personal_information', :f => f %>
@@ -66,6 +66,11 @@ document.write ('caux.ch</a>.')
       <tr>
         <td colspan="2">
           <%= render 'visa', :f => f %>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <%= render 'participation', :f => f %>
         </td>
       </tr>
       <tr>

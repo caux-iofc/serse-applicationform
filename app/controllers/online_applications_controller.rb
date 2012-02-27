@@ -36,17 +36,48 @@ class OnlineApplicationsController < ApplicationController
     # Add a blank address (for permanent/correspondence address)
     @online_application.build_permanent_address
     @online_application.build_correspondence_address
-    # And two sponsor lines
-    @online_application.sponsors.build
-    @online_application.sponsors.build
 
     if OnlineApplication.find_all_by_application_group_id(@ag.id).size == 0 then
       @online_application.relation = 'primary applicant'
     end
 
+    populate_ethereal_variables
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @online_application }
+    end
+  end
+
+  def populate_ethereal_variables
+
+    # Make sure we have exactly two sponsor lines
+    while @online_application.sponsors.size < 2 do
+      @online_application.sponsors.build
+    end
+
+    # Make sure we have at least four online_application_language lines
+    while @online_application.online_application_languages.size < 4 do
+      @online_application.online_application_languages.build
+    end
+
+
+    # For some reason @online_application.online_application_conferences.find_by_conference_id(c.id).nil?
+    # does not work on records that were created with 'build' (and not saved yet). So, use this workaround.
+    @conferences = Hash.new()
+    @online_application.online_application_conferences.each do |oac|
+      @conferences[oac.conference_id] = true
+    end
+
+    # FIXME: TODO: parameterize session_group id
+    @priority_sort = 0
+    Conference.find_all_by_session_group_id(1).sort { |a,b| a.start <=> b.start }.each do |c|
+      if not @conferences.has_key?(c.id) then
+        @oac = @online_application.online_application_conferences.build({ :conference_id => c.id, :priority_sort => @priority_sort += 1 })
+        # The user can choose 2 workstreams: a first choice and a second choice
+        @oac.online_application_conference_workstreams.build({ :preference => 'first_choice' })
+        @oac.online_application_conference_workstreams.build({ :preference => 'second_choice' })
+      end
     end
   end
 
@@ -64,10 +95,7 @@ class OnlineApplicationsController < ApplicationController
     @online_application.build_permanent_address if @online_application.permanent_address.nil?
     @online_application.build_correspondence_address if @online_application.correspondence_address.nil?
 
-    # Make sure we have exactly two sponsor lines
-    while @online_application.sponsors.size < 2 do
-      @online_application.sponsors.build
-    end
+    populate_ethereal_variables
 
   end
 
@@ -88,13 +116,9 @@ class OnlineApplicationsController < ApplicationController
         format.html { redirect_to online_applications_url, :notice => 'Online application was successfully created.' }
         format.json { render :json => @online_application, :status => :created, :location => @online_application }
       else
-        format.html { 
-          # Make sure we have exactly two sponsor lines if the form has to be
-          # re-rendered due to errors (blank lines will have been eaten)
-          while @online_application.sponsors.size < 2 do
-            @online_application.sponsors.build
-          end
-          render :action => "new" 
+        format.html {
+          populate_ethereal_variables
+          render :action => "new"
         }
         format.json { render :json => @online_application.errors, :status => :unprocessable_entity }
       end
@@ -106,11 +130,23 @@ class OnlineApplicationsController < ApplicationController
   def update
     @online_application = OnlineApplication.find(params[:id])
 
+    # If no check boxes are checked, the form does not return those fields.
+    # Handle that here, making sure that any diets, conferences, or
+    # training programs previously selected will be removed.
+    if not params[:online_application].has_key?('diet_ids') then
+      params[:online_application]['diet_ids'] = []
+    end
+    if not params[:online_application].has_key?('training_program_ids') then
+      params[:online_application]['training_program_ids'] = []
+    end
+
     respond_to do |format|
       if @online_application.update_attributes(params[:online_application])
         format.html { redirect_to online_applications_url, :notice => 'Online application was successfully updated.' }
         format.json { head :ok }
       else
+        populate_ethereal_variables
+
         format.html { render :action => "edit" }
         format.json { render :json => @online_application.errors, :status => :unprocessable_entity }
       end

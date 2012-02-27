@@ -1,0 +1,60 @@
+<%=t :llwm_2012_intro_html %>
+
+<ul>
+<table width="100%">
+<% oac.object.conference.conference_workstreams.each do |w| -%>
+<tr>
+   <td align="left">
+     <li><strong><%= w.name %></strong>
+   </td>
+   <td align="right">
+     <% if w.language != '' then -%>
+       <i><%= w.language %></i>
+     <% end -%>
+   </td>
+</tr>
+<% if w.byline != '' then -%>
+<tr>
+<td colspan="2">&nbsp;&nbsp;<%= w.byline %></td>
+</tr>
+<% end -%>
+<% end -%>
+</table>
+</ul>
+<p>
+
+  <table>
+     <%= oac.fields_for :online_application_conference_workstreams do |cw| -%>
+     <tr>
+       <td>
+         <strong><%=t cw.object.preference %></strong>
+         <%= cw.hidden_field :preference, :value => cw.object.preference %>
+       </td>
+       <td><%= cw.select(:conference_workstream_id, ConferenceWorkstream.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Choose one'}) %></td>
+     </tr>
+     <% end -%>
+    <tr><td colspan="2">&nbsp;</td></tr>
+    <tr>
+      <td colspan="2">
+        <strong><%=t :I_will_come_as %></strong><br/>
+          <%= oac.check_box :role_participant %><%=t 'participant' %>&nbsp;&nbsp;
+          <%= oac.check_box :role_speaker %><%=t 'speaker' %>&nbsp;&nbsp;
+          <%= oac.check_box :role_team %><%=t 'team' %>&nbsp;&nbsp;
+      </td>
+    </tr>
+  </table>
+</p>
+
+<p><%=t :llwm_2012_middle_html %></p>
+
+<p><%=t :llwm_2012_projects_intro_html %></p>
+
+<%= oac.fields_for :variables do |var| -%>
+<p><strong><%=t :llwm_2012_projects_involved_in %></strong><br/>
+<%= var.text_area :projects_involved_in, :value => oac.object.variables["projects_involved_in"], :cols => '80', :rows => '2' %>
+ </p>
+<p><strong><%=t :llwm_2012_projects_interested_in %></strong><br/>
+<%= var.text_area :projects_interested_in, :value => oac.object.variables["projects_interested_in"], :cols => '80', :rows => '2' %>
+</p>
+<% end -%>
+

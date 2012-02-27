@@ -18,6 +18,7 @@ en:
   gender: "Gender"
   female: "Female"
   male: "Male"
+  citizenship: "Citizenship"
   citizenship_id: "Citizenship"
   other_please_specify: "Other, please specify"
   other_citizenship: "Other citizenship"
@@ -47,6 +48,14 @@ en:
   addresses_zipcode: "Postal code"
   addresses_state: "State / Province"
   addresses_other_country: "Other country"
+  permanent_address: "Permanent address"
+  correspondence_address: "Correspondence address"
+  postal_code: "Postal code"
+  state: "State"
+  country: "Country"
+  other_country: "Other country"
+  valid_from: "Valid from"
+  valid_until: "Valid until"
   permanent_address_street1: "Permanent address: Street address"
   permanent_address_city: "Permanent address: City / Town"
   permanent_address_country_id: "Permanent address: Country"
@@ -112,6 +121,7 @@ en:
   sponsors_currency: "Currency"
   sponsors_currency_name: "CHF"
   sponsors_amount: "Amount per night"
+  name_badge: "Name badge"
   badge_explanation: "While the conferences are on, everyone in the conference centre has a name badge that indicates name and country. Please provide your information as you want it to appear on your badge."
   proceed: "Proceed"
   phone_number_invalid: "must start with a plus sign followed by your country code (e.g. +41 for Switzerland, +1 for the USA, etc) followed by the rest of the number."
@@ -151,6 +161,31 @@ en:
   your_application_title: "Your application"
   application_not_yet_submitted: "Your application has not yet been submitted. Please add a person or submit your application."
   welcome_children_html: "We look forward to welcoming you in Caux with your child(ren). As you know they can be looked after in a kindergarten during the meetings. In order for everything to go smoothly, we ask you <b>to bring a mobile phone</b> so that you can be easily reached if needed. This is a regulation of the cantonal authorities for kindergartens. Thank you in advance."
+  language_name: "Language(s)"
+  language_proficiency: "Proficiency"
+  proficiency_poor: "Poor"
+  proficiency_good: "Good"
+  proficiency_excellent: "Excellent"
+  proficiency_native: "Native"
+  conference_participation: "I would like to participate in the following conference(s)"
+  training_participation: "I would like to participate in the following training programme"
+  other_reason: "I would like to come to Caux for another reason"
+  remarks: "Remarks"
+
+  I_will_come_as: "I will come as"
+  conference_role_participant: "participant"
+  conference_role_speaker: "speaker"
+  conference_role_team: "team"
+
+  llwm_2012_intro_html: "<p>Dear participant,</p><p>Please select your first priority for the offered workshops and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
+  llwm_2012_middle_html: "<strong>Please note!</strong> Due to the Community Discussion Groups which all participants join during all Caux conferences to help run the house, you will not be able to attend all plenary and might miss either a workshop or a plenary session and we ask for your understanding in advance. You will be assigned to a Community Discussion Group upon arrival in Caux."
+
+  llwm_2012_projects_intro_html: "As we will have a <strong><a href=\"http://youtu.be/qvOMsIGkzws\">HUB</a></strong> space again, which will encourage very interactive participation of all participants, please provide information involved in / projects you would be interested in / participate in (in bullet points):"
+
+  llwm_2012_projects_involved_in: "Projects I am currently involved in:"
+  llwm_2012_projects_interested_in: "Projects I would be interested in / participate in / work on during the conference:"
+
+
 
 fr:
   hello_flash: "Bonjour"

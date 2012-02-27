@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  online_application: 
+  conference_workstream: 
+  preference: 1
+
+two:
+  online_application: 
+  conference_workstream: 
+  preference: 1

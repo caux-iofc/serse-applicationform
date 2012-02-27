@@ -1,6 +1,6 @@
 <%= form_for(@application_group) do |f| %>
 
-<table class="tablerow" width="550">
+<table class="tablerow">
 <tr>
   <td class="pagetitle">
     <h1><%= t(:title) %></h1>
@@ -32,7 +32,7 @@ document.write ('caux.ch</a>.')
 
 <tr>
   <td valign="top">
-    <table cellspacing="2" cellpadding="2" border="0" width="100%">
+    <table>
       <tr>
         <td colspan="2">
           <%= render 'confirmation', :f => f %>

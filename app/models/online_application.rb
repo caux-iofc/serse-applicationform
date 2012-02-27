@@ -15,8 +15,27 @@ class OnlineApplication < ActiveRecord::Base
   has_many :sponsors, :dependent => :destroy
   accepts_nested_attributes_for :sponsors, :allow_destroy => :true, :reject_if => :all_blank
 
+  has_many :languages, :through => :online_application_languages
+  has_many :online_application_languages, :dependent => :destroy
+  accepts_nested_attributes_for :online_application_languages, :allow_destroy => :true, :reject_if => :all_blank
+
   has_many :online_application_diets
-  has_many :diets, :through => :online_application_diets, :dependent => :destroy
+  has_many :diets, :through => :online_application_diets
+
+  has_many :online_application_training_programs
+  has_many :training_programs, :through => :online_application_training_programs
+
+  has_many :conferences, :through => :online_application_conferences
+  has_many :online_application_conferences, :order => 'priority_sort asc'
+  accepts_nested_attributes_for :online_application_conferences, :allow_destroy => :true, :reject_if => :conference_not_selected, :update_only => :true
+
+  # We need to build an OnlineApplicationConference object for every conference,
+  # because we have conference sub forms that depend on that. So, we use a checkbox
+  # called 'selected' to indicate if a conference was actually selected. If not
+  # we do not save the OnlineApplicationConference object.
+  def conference_not_selected(attributed)
+    attributed['selected'] == "0"
+  end
 
   scope :primary_applicant, where("relation = 'primary applicant'")
 

@@ -203,3 +203,17 @@ jQuery ->
     else
       $(".show_for_primary_applicant").hide()
 
+  ##### handle conference subforms #####
+
+  ## First the code that will run on document load ##
+  $("input[class^=oac_checkbox_]").each ->
+    if $(this).is(':checked')
+      $("." + $(this).attr('class') + "_subform").show()
+    else
+      $("." + $(this).attr('class') + "_subform").hide()
+
+  ## And then all the hooks ##
+  $("input[class^=oac_checkbox_]").change ->
+    $("." + $(this).attr('class') + "_subform").toggle()
+
+

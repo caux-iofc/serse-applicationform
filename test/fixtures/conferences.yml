@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  session_group: 
+  start: 2012-02-20 21:23:41
+  stop: 2012-02-20 21:23:41
+  private: false
+  special: false
+  template_path: MyString
+
+two:
+  session_group: 
+  start: 2012-02-20 21:23:41
+  stop: 2012-02-20 21:23:41
+  private: false
+  special: false
+  template_path: MyString
