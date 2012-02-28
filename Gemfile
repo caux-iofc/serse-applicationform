@@ -16,7 +16,7 @@ end
 
 gem 'jquery-rails'
 
-gem 'rails3_acts_as_paranoid'
+gem 'cure_rails3_acts_as_paranoid'
 gem 'cure_acts_as_versioned', '0.6.1'
 
 # To use ActiveModel has_secure_password
