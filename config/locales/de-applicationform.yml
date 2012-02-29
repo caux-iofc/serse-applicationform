@@ -1,0 +1,9 @@
+# Localization file for English.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+de:
+  follow_us_on: "Folgen Sie uns auf"
+
+  form_unavailable_title: "Anmeldeformular nicht verfügbar"
+  form_unavailable_html: "Sehr geehrte Damen und Herren,<p>Vielen Dank für Ihr Interesse an unserem Anmeldeformular. Das online Anmeldeformular ist zurzeit nicht verfügbar. Wenn Sie eine E-Mail an das Konferenzsekretariat confsec@caux.ch senden werden Sie informiert sobald das Anmeldeformular online ist.<p>Freundliche Grüsse,<p>Das Konferenzsekretariat Team"
+
