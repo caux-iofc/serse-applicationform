@@ -1,0 +1,11 @@
+# Localization file for English.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+fr:
+  firstname: "Prénom"
+  surname: "Family name"
+  follow_us_on: "Suivez notre actualité sur"
+
+  form_unavailable_title: "Inscription en ligne hors service"
+  form_unavailable_html: "Cher visiteur,<p>L'inscription en ligne des rencontres de Caux est actuellement hors service.<p>Merci pour votre compréhension.<p>Le secrétariat des rencontres."
+

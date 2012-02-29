@@ -69,9 +69,8 @@ class OnlineApplicationsController < ApplicationController
       @conferences[oac.conference_id] = true
     end
 
-    # FIXME: TODO: parameterize session_group id
     @priority_sort = 0
-    Conference.find_all_by_session_group_id(1).sort { |a,b| a.start <=> b.start }.each do |c|
+    Conference.find_all_by_session_group_id(session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
       if not @conferences.has_key?(c.id) then
         @oac = @online_application.online_application_conferences.build({ :conference_id => c.id, :priority_sort => @priority_sort += 1 })
         # The user can choose 2 workstreams: a first choice and a second choice
@@ -169,9 +168,14 @@ protected
 
   def ensure_application_group
     # TODO: FIXME: what if session is null? Force creation of a session? Shouldn't rails do this for us?
-    if not session.has_key?(:application_group_id) or session[:application_group_id] == 0 then
+    if session.nil? or not session.has_key?(:application_group_id) or session[:application_group_id] == 0 then
       # new application group
       @ag = ApplicationGroup.new()
+      # Trigger creation of session id, in case the session is new. We have to do this
+      # because of lazy session loading. 
+      # Cf. https://rails.lighthouseapp.com/projects/8994/tickets/2268-rails-23-session_optionsid-problem
+      # Ward, 2012-02-29
+      request.session_options[:id]
       @ag.session_id = request.session_options[:id]
       @ag.browser = request.env['HTTP_USER_AGENT']
       @ag.remote_ip = request.env['REMOTE_ADDR']

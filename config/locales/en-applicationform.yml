@@ -1,4 +1,4 @@
-# Sample localization file for English. Add more files in this directory for other locales.
+# Localization file for English.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
@@ -185,14 +185,8 @@ en:
   llwm_2012_projects_involved_in: "Projects I am currently involved in:"
   llwm_2012_projects_interested_in: "Projects I would be interested in / participate in / work on during the conference:"
 
+  form_unavailable_title: "Registration form unavailable"
+  form_unavailable_html: "Dear visitor,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the Conference Secretary at confsec@caux.ch you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat."
 
 
-fr:
-  hello_flash: "Bonjour"
-  firstname: "Prénom"
-  surname: "Family name"
-  follow_us_on: "Suivez notre actualité sur"
-
-de:
-  follow_us_on: "Folgen Sie uns auf"
 
