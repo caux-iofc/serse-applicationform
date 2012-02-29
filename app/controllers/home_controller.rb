@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
+
   def index
-    flash[:notice] = t(:hello_flash)
+    redirect_to "/#{I18n.locale}/online_applications"
   end
+
 end
