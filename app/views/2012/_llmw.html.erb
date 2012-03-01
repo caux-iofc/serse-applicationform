@@ -56,5 +56,12 @@
 <p><strong><%=t :llmw_2012_projects_interested_in %></strong><br/>
 <%= var.text_area :projects_interested_in, :value => oac.object.variables["projects_interested_in"], :cols => '80', :rows => '2' %>
 </p>
+
+<%=t :llmw_2012_others %>
+<p>
+<%= var.check_box :llmw_2012_advanced_course_for_young_peacemakers, { :checked => oac.object.variables["llmw_2012_advanced_course_for_young_peacemakers"] == '1' ? true : false } %> <strong><%=t :llmw_2012_advanced_course_for_young_peacemakers %></strong><br/>
+<%=t :llmw_2012_advanced_course_for_young_peacemakers_note %>
+</p>
+
 <% end -%>
 

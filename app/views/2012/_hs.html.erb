@@ -21,6 +21,7 @@
 
 <p> <%= var.check_box :hs_2012_updates_prior_to_forum, { :checked => (oac.object.variables.has_key?('hs_2012_updates_prior_to_forum') == false or oac.object.variables["hs_2012_updates_prior_to_forum"] == '1') ? true : false } %> <strong><%=t :hs_2012_updates_prior_to_forum %></strong><br/> </p>
 <p>
-<%= var.check_box :hs_2012_confirm_registration_fee, { :checked => oac.object.variables["hs_2012_confirm_registration_fee"] == '1' ? true : false } %> <strong><%=t :hs_2012_confirm_registration_fee %></strong><br/></p>
+<%= var.check_box :hs_2012_confirm_registration_fee, { :checked => oac.object.variables["hs_2012_confirm_registration_fee"] == '1' ? true : false } %> <strong><%=t :hs_2012_confirm_registration_fee %></strong><br/>
+</p>
 <% end -%>
 
