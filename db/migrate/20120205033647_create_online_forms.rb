@@ -1,10 +1,11 @@
 class CreateOnlineForms < ActiveRecord::Migration
-  def change
+  def up
     create_table :online_forms do |t|
       t.references :session_group
       t.string :abbrev
       t.datetime :start
       t.datetime :stop
+      t.integer :serse_id
 
       t.column "created_by", :string, :limit => 100, :null => false, :default => ''
       t.column "updated_by", :string, :limit => 100, :null => false, :default => ''
@@ -17,7 +18,7 @@ class CreateOnlineForms < ActiveRecord::Migration
   end
 
   def down
-    drop_table :countries
     OnlineForm.drop_versioned_table
+    drop_table :online_forms
   end
 end

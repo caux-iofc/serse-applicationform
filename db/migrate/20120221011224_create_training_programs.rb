@@ -5,6 +5,7 @@ class CreateTrainingPrograms < ActiveRecord::Migration
       t.boolean :display_dates
       t.timestamp :start
       t.timestamp :stop
+      t.integer :serse_id
 
       t.column "created_by", :string, :limit => 100, :null => false, :default => ''
       t.column "updated_by", :string, :limit => 100, :null => false, :default => ''

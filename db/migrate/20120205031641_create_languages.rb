@@ -2,6 +2,7 @@ class CreateLanguages < ActiveRecord::Migration
   def up
     create_table :languages do |t|
       t.integer :priority_sort
+      t.integer :serse_id
 
       t.column "created_by", :string, :limit => 100, :null => false, :default => ''
       t.column "updated_by", :string, :limit => 100, :null => false, :default => ''

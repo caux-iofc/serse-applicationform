@@ -185,8 +185,12 @@ en:
   llwm_2012_projects_involved_in: "Projects I am currently involved in:"
   llwm_2012_projects_interested_in: "Projects I would be interested in / participate in / work on during the conference:"
 
+  tige_2012_intro_html: "<p>Dear participant,</p><p>Please select your first priority for the offered workshops and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
+
   form_unavailable_title: "Registration form unavailable"
   form_unavailable_html: "Dear visitor,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the Conference Secretary at confsec@caux.ch you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat."
 
-
+  interpreter: "Interpreter"
+  volunteer: "Volunteer"
+  other_reason_please_specify: "Other reason, please specify:"
 

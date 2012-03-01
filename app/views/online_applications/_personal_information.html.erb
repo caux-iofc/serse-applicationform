@@ -51,7 +51,7 @@
              <td>
                <div class="field">
                  <span class="af_star">*</span><%= f.label :citizenship_id, t(:citizenship) %><br />
-                 <%= f.select(:citizenship_id, [ [t(:other_please_specify),'0'] ] + Country.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Choose one'}) %>
+                 <%= f.select(:citizenship_id, [ [t(:other_please_specify),'0'] ] + Country.with_translations.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Choose one'}) %>
                </div>
              </td>
              <td>
@@ -80,7 +80,7 @@
                  <tr>
                    <td>
                      <div class="field">
-                       <%= lf.select(:language_id, [ [t(:other_please_specify),'0'] ] + Language.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Choose one'}) %>
+                       <%= lf.select(:language_id, [ [t(:other_please_specify),'0'] ] + Language.with_translations.all.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Choose one'}) %>
                      </div>
                    </td>
                    <td>

@@ -124,7 +124,9 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
     t.datetime "stop"
     t.boolean  "private"
     t.boolean  "special"
+    t.string   "abbreviation"
     t.string   "template_path"
+    t.integer  "serse_id"
     t.string   "created_by",       :limit => 100, :default => ""
     t.string   "updated_by",       :limit => 100, :default => ""
     t.datetime "deleted_at"
@@ -180,7 +182,9 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
     t.datetime "stop"
     t.boolean  "private"
     t.boolean  "special"
+    t.string   "abbreviation"
     t.string   "template_path"
+    t.integer  "serse_id"
     t.string   "created_by",       :limit => 100, :default => "", :null => false
     t.string   "updated_by",       :limit => 100, :default => "", :null => false
     t.integer  "lock_version",                    :default => 0,  :null => false
@@ -194,6 +198,7 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
   create_table "countries", :force => true do |t|
     t.integer  "zipcode_order"
     t.integer  "state_order"
+    t.integer  "serse_id"
     t.string   "created_by",    :limit => 100, :default => "", :null => false
     t.string   "updated_by",    :limit => 100, :default => "", :null => false
     t.integer  "lock_version",                 :default => 0,  :null => false
@@ -218,6 +223,7 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
     t.integer  "lock_version"
     t.integer  "zipcode_order"
     t.integer  "state_order"
+    t.integer  "serse_id"
     t.string   "created_by",    :limit => 100, :default => ""
     t.string   "updated_by",    :limit => 100, :default => ""
     t.datetime "deleted_at"
@@ -276,6 +282,7 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
     t.integer  "language_id"
     t.integer  "lock_version"
     t.integer  "priority_sort"
+    t.integer  "serse_id"
     t.string   "created_by",    :limit => 100, :default => ""
     t.string   "updated_by",    :limit => 100, :default => ""
     t.datetime "deleted_at"
@@ -287,6 +294,7 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
 
   create_table "languages", :force => true do |t|
     t.integer  "priority_sort"
+    t.integer  "serse_id"
     t.string   "created_by",    :limit => 100, :default => "", :null => false
     t.string   "updated_by",    :limit => 100, :default => "", :null => false
     t.integer  "lock_version",                 :default => 0,  :null => false
@@ -492,9 +500,10 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
     t.string   "badge_firstname"
     t.string   "badge_surname"
     t.string   "badge_country"
-    t.string   "reason_other"
-    t.boolean  "reason_interpreting"
-    t.boolean  "reason_volunteer"
+    t.boolean  "interpreter"
+    t.boolean  "volunteer"
+    t.boolean  "other_reason"
+    t.string   "other_reason_detail"
     t.string   "created_by",              :limit => 100, :default => ""
     t.string   "updated_by",              :limit => 100, :default => ""
     t.datetime "deleted_at"
@@ -543,9 +552,10 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
     t.string   "badge_firstname"
     t.string   "badge_surname"
     t.string   "badge_country"
-    t.string   "reason_other"
-    t.boolean  "reason_interpreting"
-    t.boolean  "reason_volunteer"
+    t.boolean  "interpreter"
+    t.boolean  "volunteer"
+    t.boolean  "other_reason"
+    t.string   "other_reason_detail"
     t.string   "created_by",              :limit => 100, :default => "", :null => false
     t.string   "updated_by",              :limit => 100, :default => "", :null => false
     t.integer  "lock_version",                           :default => 0,  :null => false
@@ -564,6 +574,7 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
     t.string   "abbrev"
     t.datetime "start"
     t.datetime "stop"
+    t.integer  "serse_id"
     t.string   "created_by",       :limit => 100, :default => ""
     t.string   "updated_by",       :limit => 100, :default => ""
     t.datetime "deleted_at"
@@ -578,6 +589,7 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
     t.string   "abbrev"
     t.datetime "start"
     t.datetime "stop"
+    t.integer  "serse_id"
     t.string   "created_by",       :limit => 100, :default => "", :null => false
     t.string   "updated_by",       :limit => 100, :default => "", :null => false
     t.integer  "lock_version",                    :default => 0,  :null => false
@@ -592,6 +604,7 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
     t.integer  "session_group_id"
     t.integer  "lock_version"
     t.string   "name"
+    t.integer  "serse_id"
     t.string   "created_by",       :limit => 100, :default => ""
     t.string   "updated_by",       :limit => 100, :default => ""
     t.datetime "deleted_at"
@@ -603,6 +616,7 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
 
   create_table "session_groups", :force => true do |t|
     t.string   "name"
+    t.integer  "serse_id"
     t.string   "created_by",   :limit => 100, :default => "", :null => false
     t.string   "updated_by",   :limit => 100, :default => "", :null => false
     t.integer  "lock_version",                :default => 0,  :null => false
@@ -671,6 +685,7 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
     t.boolean  "display_dates"
     t.datetime "start"
     t.datetime "stop"
+    t.integer  "serse_id"
     t.string   "created_by",          :limit => 100, :default => ""
     t.string   "updated_by",          :limit => 100, :default => ""
     t.datetime "deleted_at"
@@ -685,6 +700,7 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
     t.boolean  "display_dates"
     t.datetime "start"
     t.datetime "stop"
+    t.integer  "serse_id"
     t.string   "created_by",       :limit => 100, :default => "", :null => false
     t.string   "updated_by",       :limit => 100, :default => "", :null => false
     t.integer  "lock_version",                    :default => 0,  :null => false

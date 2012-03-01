@@ -16,4 +16,14 @@ class OnlineApplicationConference < ActiveRecord::Base
   scope :normal, joins(:conference).where("conferences.special = ?", false)
   scope :special, joins(:conference).where("conferences.special = ?", true)
 
+  def template_exists
+    @tmp = self.conference.template_path.split(/\//,2)
+    @p = Rails.root.to_s + '/app/views/' + @tmp[0] + '/' + '_' + @tmp[1] + '.html.erb'
+    if File.exists?(@p) then
+      return true
+    else
+      return false
+    end
+  end
+
 end

@@ -24,16 +24,17 @@ class OnlineApplication < ActiveRecord::Base
 
   has_many :online_application_training_programs
   has_many :training_programs, :through => :online_application_training_programs
+  accepts_nested_attributes_for :online_application_training_programs, :allow_destroy => :true, :reject_if => :not_selected, :update_only => :true
 
   has_many :conferences, :through => :online_application_conferences
   has_many :online_application_conferences, :order => 'priority_sort asc'
-  accepts_nested_attributes_for :online_application_conferences, :allow_destroy => :true, :reject_if => :conference_not_selected, :update_only => :true
+  accepts_nested_attributes_for :online_application_conferences, :allow_destroy => :true, :reject_if => :not_selected, :update_only => :true
 
   # We need to build an OnlineApplicationConference object for every conference,
   # because we have conference sub forms that depend on that. So, we use a checkbox
   # called 'selected' to indicate if a conference was actually selected. If not
   # we do not save the OnlineApplicationConference object.
-  def conference_not_selected(attributed)
+  def not_selected(attributed)
     attributed['selected'] == "0"
   end
 

@@ -2,6 +2,7 @@ class CreateSessionGroups < ActiveRecord::Migration
   def up
     create_table :session_groups do |t|
       t.string :name
+      t.integer :serse_id
 
       t.column "created_by", :string, :limit => 100, :null => false, :default => ''
       t.column "updated_by", :string, :limit => 100, :null => false, :default => ''
@@ -13,7 +14,7 @@ class CreateSessionGroups < ActiveRecord::Migration
   end
 
   def down
-    drop_table :session_groups
     SessionGroup.drop_versioned_table
+    drop_table :session_groups
   end
 end

@@ -39,9 +39,10 @@ class CreateOnlineApplications < ActiveRecord::Migration
       t.string :badge_firstname
       t.string :badge_surname
       t.string :badge_country
-      t.string :reason_other
-      t.boolean :reason_interpreting
-      t.boolean :reason_volunteer
+      t.boolean :interpreter
+      t.boolean :volunteer
+      t.boolean :other_reason
+      t.string :other_reason_detail
 
       t.column "created_by", :string, :limit => 100, :null => false, :default => ''
       t.column "updated_by", :string, :limit => 100, :null => false, :default => ''

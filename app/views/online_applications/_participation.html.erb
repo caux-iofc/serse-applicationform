@@ -21,7 +21,7 @@
              </td>
            </tr>
            <% end -%>
-           <% if oac.object.conference.template_path != '' -%>
+           <% if oac.object.template_exists -%>
            <tr class="oac_checkbox_<%= oac.object.conference.id %>_subform" style="display:none">
              <td colspan="2" class="conference_subform_td">
                <div class="conference_subform">
@@ -34,10 +34,10 @@
            <tr>
              <td colspan="2" align="center"><span class="af_normtitle"><%=t :training_participation %></span></td>
            </tr>
-           <% TrainingProgram.all.each do |tp| -%>
+           <% TrainingProgram.find_all_by_session_group_id(session[:session_group_id]).each do |tp| -%>
            <tr>
              <td>
-               <%= check_box_tag :training_program_ids, tp.id, @online_application.training_programs.include?(tp), :name => 'online_application[training_program_ids][]', :id => "tp_check_#{tp.name.downcase}" %>
+               <%= check_box_tag :training_program_ids, tp.id, @online_application.training_programs.include?(tp), :name => 'online_application[training_program_ids][]', :id => "tp_check_" + (tp.nil? or tp.name.nil? ? '' : tp.name.downcase) %>
                <%= label_tag :training_program_ids, tp.name %>
              </td>
              <td>
@@ -47,13 +47,20 @@
            <% if tp.byline != '' -%>
            <tr>
              <td colspan="2">
-               <%= tp.byline %>
+               &nbsp;&nbsp;<font size="-1"><%= tp.byline %></font>
              </td>
            </tr>
            <% end -%>
            <% end -%>
            <tr>
              <td colspan="2" align="center"><span class="af_normtitle"><%=t :other_reason %></span></td>
+           </tr>
+           <tr>
+             <td colspan="2">
+               <%= f.check_box :interpreter %> <%=t :interpreter %><br />
+               <%= f.check_box :volunteer %> <%=t :volunteer %><br />
+               <%= f.check_box :other_reason %> <%=t :other_reason_please_specify %> <%= f.text_field :other_reason_detail %>
+             </td>
            </tr>
          </table>
 
