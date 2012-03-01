@@ -1,1 +1,26 @@
-TEST
+
+<%= oac.fields_for :variables do |var| -%>
+<p><strong><%=t :hs_2012_invited_by %></strong><br/>
+<%= var.text_field :invited_by, :value => oac.object.variables["invited_by"] %>
+ </p>
+<p><strong><%=t :hs_2012_name_and_role %></strong><br/>
+<%= var.text_field :hs_2012_name_and_role, :value => oac.object.variables["hs_2012_name_and_role"] %>
+</p>
+<p><strong><%=t :hs_2012_previous_experience %></strong><br/>
+<%= var.text_area :hs_2012_previous_experience, :value => oac.object.variables["hs_2012_previous_experience"], :cols => '80', :rows => '4' %>
+</p>
+
+<p>
+<%=t :hs_2012_themes_intro %><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<%= var.check_box :hs_2012_theme_just_governance, { :checked => oac.object.variables["hs_2012_theme_just_governance"] == '1' ? true : false } %> <strong><%=t :hs_2012_theme_just_governance %></strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<%= var.check_box :hs_2012_theme_inclusive_economics, { :checked => oac.object.variables["hs_2012_theme_inclusive_economics"] == '1' ? true : false } %> <strong><%=t :hs_2012_theme_inclusive_economics %></strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<%= var.check_box :hs_2012_theme_living_sustainably, { :checked => oac.object.variables["hs_2012_theme_living_sustainably"] == '1' ? true : false } %> <strong><%=t :hs_2012_theme_living_sustainably %></strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<%= var.check_box :hs_2012_theme_intercultural_dialogue, { :checked => oac.object.variables["hs_2012_theme_intercultural_dialogue"] == '1' ? true : false } %> <strong><%=t :hs_2012_theme_intercultural_dialogue %></strong><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<%= var.check_box :hs_2012_theme_healing_memory, { :checked => oac.object.variables["hs_2012_theme_healing_memory"] == '1' ? true : false } %> <strong><%=t :hs_2012_theme_healing_memory %></strong><br/>
+</p>
+
+<p> <%= var.check_box :hs_2012_updates_prior_to_forum, { :checked => (oac.object.variables.has_key?('hs_2012_updates_prior_to_forum') == false or oac.object.variables["hs_2012_updates_prior_to_forum"] == '1') ? true : false } %> <strong><%=t :hs_2012_updates_prior_to_forum %></strong><br/> </p>
+<p>
+<%= var.check_box :hs_2012_confirm_registration_fee, { :checked => oac.object.variables["hs_2012_confirm_registration_fee"] == '1' ? true : false } %> <strong><%=t :hs_2012_confirm_registration_fee %></strong><br/></p>
+<% end -%>
+

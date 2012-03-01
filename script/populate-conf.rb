@@ -44,6 +44,15 @@ new_ws(@conference_id,@sort += 1,'Leadership','Authentic Self-Leadership','Engli
 new_ws(@conference_id,@sort += 1,'Integral Economy','Integral Economy and Integral Society','English')
 new_ws(@conference_id,@sort += 1,'Learning Society','Creating a Learning Society','English')
 
+@conference_id = Conference.with_translations.where("session_group_id = 12 and name = 'The dynamics of being a change-maker'").first.id
+@sort = 0
+
+new_ws(@conference_id,@sort += 1,'Creators of Peace - Creators of Peace Circle','','English')
+new_ws(@conference_id,@sort += 1,'Creators of Peace - Facilitating the Circle','','English')
+new_ws(@conference_id,@sort += 1,'Connecting communities through trustbuilding','','English')
+new_ws(@conference_id,@sort += 1,'The heart of effective leadership','','English')
+new_ws(@conference_id,@sort += 1,'Foundations for freedom','','English')
+new_ws(@conference_id,@sort += 1,'Life matters course','','English')
 
 I18n.locale = 'en'
 
@@ -58,6 +67,10 @@ tp.save
 
 tp = TrainingProgram.with_translations.where('name = ? and session_group_id = ?','Caux Interns Program - Session 2','12').first
 tp.byline = 'Please note that is not the application form for the Caux Interns Program. This is to register for those who have already applied and have been accepted.'
+tp.save
+
+tp = TrainingProgram.with_translations.where('name = ? and session_group_id = ?','Week of International Community','12').first
+tp.byline = 'Preparation Week - no conference!';
 tp.save
 
 

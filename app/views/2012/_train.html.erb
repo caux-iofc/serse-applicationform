@@ -1,4 +1,4 @@
-<%=t :llmw_2012_intro_html %>
+<%=t :train_2012_intro_html %>
 
 <ul>
 <table width="100%">
@@ -44,17 +44,4 @@
     </tr>
   </table>
 </p>
-
-<p><%=t :llmw_2012_middle_html %></p>
-
-<p><%=t :llmw_2012_projects_intro_html %></p>
-
-<%= oac.fields_for :variables do |var| -%>
-<p><strong><%=t :llmw_2012_projects_involved_in %></strong><br/>
-<%= var.text_area :projects_involved_in, :value => oac.object.variables["projects_involved_in"], :cols => '80', :rows => '2' %>
- </p>
-<p><strong><%=t :llmw_2012_projects_interested_in %></strong><br/>
-<%= var.text_area :projects_interested_in, :value => oac.object.variables["projects_interested_in"], :cols => '80', :rows => '2' %>
-</p>
-<% end -%>
 

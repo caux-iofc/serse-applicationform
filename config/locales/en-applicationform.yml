@@ -177,15 +177,31 @@ en:
   conference_role_speaker: "speaker"
   conference_role_team: "team"
 
-  llwm_2012_intro_html: "<p>Dear participant,</p><p>Please select your first priority for the offered workshops and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
-  llwm_2012_middle_html: "<strong>Please note!</strong> Due to the Community Discussion Groups which all participants join during all Caux conferences to help run the house, you will not be able to attend all plenary and might miss either a workshop or a plenary session and we ask for your understanding in advance. You will be assigned to a Community Discussion Group upon arrival in Caux."
+  llmw_2012_intro_html: "<p>Dear participant,</p><p>Please select your first priority for the offered workshops and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
+  llmw_2012_middle_html: "<strong>Please note!</strong> Due to the Community Discussion Groups which all participants join during all Caux conferences to help run the house, you will not be able to attend all plenary and might miss either a workshop or a plenary session and we ask for your understanding in advance. You will be assigned to a Community Discussion Group upon arrival in Caux."
 
-  llwm_2012_projects_intro_html: "As we will have a <strong><a href=\"http://youtu.be/qvOMsIGkzws\">HUB</a></strong> space again, which will encourage very interactive participation of all participants, please provide information involved in / projects you would be interested in / participate in (in bullet points):"
+  llmw_2012_projects_intro_html: "As we will have a <strong><a href=\"http://www.caux.iofc.org/de/node/56803\">HUB</a></strong> space again, which will encourage very interactive participation of all participants, please provide information involved in / projects you would be interested in / participate in (in bullet points):"
 
-  llwm_2012_projects_involved_in: "Projects I am currently involved in:"
-  llwm_2012_projects_interested_in: "Projects I would be interested in / participate in / work on during the conference:"
+  llmw_2012_projects_involved_in: "Projects I am currently involved in:"
+  llmw_2012_projects_interested_in: "Projects I would be interested in / participate in / work on during the conference:"
 
   tige_2012_intro_html: "<p>Dear participant,</p><p>Please select your first priority for the offered workshops and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
+  train_2012_intro_html: "<p>Dear participant,</p><p>Please select your first priority for the offered workshops and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
+
+  hs_2012_invited_by: "Invited by"
+  hs_2012_name_and_role: "How would you like your name to be displayed in the Forum programme, including your current role?"
+
+  hs_2012_previous_experience: "Please outline previous experiences, in work or otherwise, that have contributed to your interest in human security and any particular hopes or expectations you have for attending the Forum (150 words; Please note that this information will be made available to other participants of the 2012 Forum)."
+
+  hs_2012_themes_intro: "Which of the Forum’s five themes resonates most with your interests and/or work? (Please tick any that apply)"
+  hs_2012_theme_just_governance: "Just Governance"
+  hs_2012_theme_inclusive_economics: "Inclusive Economics"
+  hs_2012_theme_living_sustainably: "Living Sustainably"
+  hs_2012_theme_intercultural_dialogue: "Intercultural Dialogue"
+  hs_2012_theme_healing_memory: "Healing Memory"
+
+  hs_2012_updates_prior_to_forum: "I would like to receive updates from the team in advance of the Forum."
+  hs_2012_confirm_registration_fee: "I understand that there is a CHF 100.- registration fee to participate in this conference."
 
   form_unavailable_title: "Registration form unavailable"
   form_unavailable_html: "Dear visitor,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the Conference Secretary at confsec@caux.ch you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat."

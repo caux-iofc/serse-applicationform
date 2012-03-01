@@ -95,7 +95,7 @@ class OnlineApplicationsController < ApplicationController
 #      end
 #    end
 
-
+    @session_group = SessionGroup.find_by_id(session[:session_group_id])
 
   end
 
