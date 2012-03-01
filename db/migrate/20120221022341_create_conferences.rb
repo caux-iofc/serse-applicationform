@@ -6,6 +6,7 @@ class CreateConferences < ActiveRecord::Migration
       t.datetime :stop
       t.boolean :private
       t.boolean :special
+      t.boolean :display_dates
       t.string :abbreviation
       t.string :template_path
       t.integer :serse_id

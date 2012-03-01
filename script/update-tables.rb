@@ -124,6 +124,7 @@ y.sort.each do |k,v|
   of.stop = v['stop']
   of.private = v['private']
   of.special = v['special']
+  of.display_dates = v['display_dates']
   of.abbreviation = v['abbrev']
   dd = DateTime.parse(v['start'])
   of.template_path = dd.strftime("%Y") + '/' + v['abbrev'].downcase

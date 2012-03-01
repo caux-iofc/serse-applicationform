@@ -61,42 +61,39 @@ class OnlineApplicationsController < ApplicationController
       @online_application.online_application_languages.build
     end
 
+    @oac_normal = Array.new()
+    @oac_special = Array.new()
+
     # For some reason @online_application.online_application_conferences.find_by_conference_id(c.id).nil?
     # does not work on records that were created with 'build' (and not saved yet). So, use this workaround.
     @conferences = Hash.new()
     @online_application.online_application_conferences.each do |oac|
+      if oac.conference.special == false then
+        @oac_normal << oac
+      else
+        @oac_special << oac
+      end
       @conferences[oac.conference_id] = true
     end
 
     @priority_sort = 0
-    Conference.find_all_by_session_group_id(session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
+    Conference.normal.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
       if not @conferences.has_key?(c.id) then
         @oac = @online_application.online_application_conferences.build({ :conference_id => c.id, :priority_sort => @priority_sort += 1 })
+        @oac_normal << @oac
         # The user can choose 2 workstreams: a first choice and a second choice
         @oac.online_application_conference_workstreams.build({ :preference => 'first_choice' })
         @oac.online_application_conference_workstreams.build({ :preference => 'second_choice' })
       end
     end
 
-#    # For some reason @online_application.online_application_training_programs.find_by_training_program_id(c.id).nil?
-#    # does not work on records that were created with 'build' (and not saved yet). So, use this workaround.
-#    @training_programs = Hash.new()
-#    @online_application.online_application_training_programs.each do |oatp|
-#      @training_programs[oatp.training_program_id] = true
-#    end
-#
-#    @priority_sort = 0
-#    TrainingProgram.find_all_by_session_group_id(session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |tp|
-#      if not @training_programs.has_key?(tp.id) then
-#        @oac = @online_application.online_application_training_programs.build({ :training_program_id => tp.id, :priority_sort => @priority_sort += 1 })
-#        # The user can choose 2 workstreams: a first choice and a second choice
-#        #@oac.online_application_conference_workstreams.build({ :preference => 'first_choice' })
-#        #@oac.online_application_conference_workstreams.build({ :preference => 'second_choice' })
-#      end
-#    end
-
-    @session_group = SessionGroup.find_by_id(session[:session_group_id])
-
+    @priority_sort = 0
+    Conference.special.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
+      if not @conferences.has_key?(c.id) then
+        @oac = @online_application.online_application_conferences.build({ :conference_id => c.id, :priority_sort => @priority_sort += 1 })
+        @oac_special << @oac
+      end
+    end
   end
 
   # GET /online_applications/1/edit

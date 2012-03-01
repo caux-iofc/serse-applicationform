@@ -2,7 +2,7 @@
            <tr>
              <td colspan="2" align="center"><span class="af_normtitle"><%=t :conference_participation %></span></td>
            </tr>
-           <%= f.fields_for :online_application_conferences do |oac| %>
+           <%= f.fields_for :online_application_conferences, @oac_normal do |oac| %>
            <%= oac.hidden_field :conference_id, :value => oac.object.conference.id %>
            <%= oac.hidden_field :priority_sort, :value => oac.object.priority_sort %>
            <tr>
@@ -14,10 +14,15 @@
                <%=t oac.object.conference.start.strftime("%B %e, %Y") %> - <%=t oac.object.conference.stop.strftime("%B %e, %Y") %> 
              </td>
            </tr>
-           <% if oac.object.conference.byline != '' -%>
+           <% if not oac.object.conference.byline.nil? -%>
            <tr>
              <td colspan="2">
-               <%= oac.object.conference.byline %>
+               <table align=left>
+                 <tr>
+                   <td width="30">&nbsp;</td>
+                   <td><font size="-1"><%= oac.object.conference.byline %></font></td>
+                 </tr>
+               </table>
              </td>
            </tr>
            <% end -%>
@@ -32,6 +37,38 @@
            <% end -%>
            <% end -%>
            <tr>
+             <td colspan="2" align="center"><span class="af_normtitle"><%=t :special_conference_participation %></span></td>
+           </tr>
+           <%= f.fields_for :online_application_conferences, @oac_special do |oac| %>
+           <%= oac.hidden_field :conference_id, :value => oac.object.conference.id %>
+           <%= oac.hidden_field :priority_sort, :value => oac.object.priority_sort %>
+           <tr>
+             <td>
+               <%= oac.check_box :selected, :class => "oac_checkbox_#{oac.object.conference.id}" %>
+               <%= label_tag :conference_id, oac.object.conference.name %>
+             </td>
+             <td>
+               <% if oac.object.conference.display_dates -%>
+                 <%=t oac.object.conference.start.strftime("%B %e, %Y") %> - <%=t oac.object.conference.stop.strftime("%B %e, %Y") %> 
+               <% end -%>
+             </td>
+           </tr>
+           <% if not oac.object.conference.byline.nil? -%>
+           <tr>
+             <td colspan="2">
+               <table align=left>
+                 <tr>
+                   <td width="30">&nbsp;</td>
+                   <td><font size="-1"><%= oac.object.conference.byline %></font></td>
+                 </tr>
+               </table>
+             </td>
+           </tr>
+           <% end -%>
+           <% end -%>
+
+
+           <tr>
              <td colspan="2" align="center"><span class="af_normtitle"><%=t :training_participation %></span></td>
            </tr>
            <% TrainingProgram.find_all_by_session_group_id(session[:session_group_id]).each do |tp| -%>
@@ -41,7 +78,9 @@
                <%= label_tag :training_program_ids, tp.name %>
              </td>
              <td>
-               <%=t tp.start.strftime("%B %e, %Y") %> - <%=t tp.stop.strftime("%B %e, %Y") %> 
+               <% if tp.display_dates -%>
+                 <%=t tp.start.strftime("%B %e, %Y") %> - <%=t tp.stop.strftime("%B %e, %Y") %> 
+               <% end -%>
              </td>
            </tr>
            <% if tp.byline != '' -%>
@@ -49,7 +88,7 @@
              <td colspan="2">
                <table align=left>
                  <tr>
-                   <td width="100">&nbsp;</td>
+                   <td width="30">&nbsp;</td>
                    <td><font size="-1"><%= tp.byline %></font></td>
                  </tr>
                </table>

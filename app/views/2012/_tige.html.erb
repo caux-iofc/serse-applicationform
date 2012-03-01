@@ -5,7 +5,7 @@
 <% oac.object.conference.conference_workstreams.each do |w| -%>
 <tr>
    <td align="left">
-     <li><strong><%=t w.name %></strong>
+     <li><strong><%= w.name %></strong>
    </td>
    <td align="right">
      <% if w.language != '' then -%>
@@ -15,7 +15,7 @@
 </tr>
 <% if w.byline != '' then -%>
 <tr>
-<td colspan="2">&nbsp;&nbsp;<%=t w.byline %></td>
+<td colspan="2">&nbsp;&nbsp;<%=raw w.byline %></td>
 </tr>
 <% end -%>
 <% end -%>

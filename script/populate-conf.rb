@@ -39,7 +39,7 @@ new_ws(@conference_id,@sort += 1,'Anti-discrimination and religious diversity','
 
 new_ws(@conference_id,@sort += 1,'Reshaping Business','Reshaping Business around Core Values','English')
 new_ws(@conference_id,@sort += 1,'Food and Development','Food and the New Development Paradigm: Farmers, consumers and business protecting our common environmental future.','English')
-new_ws(@conference_id,@sort += 1,'Sustainable World','Leading Change for a Sustainable World.','English')
+new_ws(@conference_id,@sort += 1,'Sustainable World','Leading Change for a Sustainable World. <br/>&nbsp;&nbsp;If you want to participate this workstream please read <a href="http://www.caux.iofc.org/sites/all/files/LCSW%20application%20form.pdf">this document</a>.','English')
 new_ws(@conference_id,@sort += 1,'Leadership','Authentic Self-Leadership','English')
 new_ws(@conference_id,@sort += 1,'Integral Economy','Integral Economy and Integral Society','English')
 new_ws(@conference_id,@sort += 1,'Learning Society','Creating a Learning Society','English')
@@ -55,6 +55,14 @@ new_ws(@conference_id,@sort += 1,'Foundations for freedom','','English')
 new_ws(@conference_id,@sort += 1,'Life matters course','','English')
 
 I18n.locale = 'en'
+
+c = Conference.with_translations.where("session_group_id = 12 and name = 'One wholesome World - a global gathering'").first
+c.byline = 'Please note that you can only participate in this conference with an invitation!'
+c.save
+
+c = Conference.with_translations.where("session_group_id = 12 and name = 'ICP'").first
+c.byline = 'Only by invitation'
+c.save
 
 tp = TrainingProgram.with_translations.where('name = ? and session_group_id = ?','Caux Scholars Program','12').first
 tp.byline = 'Please note that is not the application form for the Caux Scholars Program. This is to register for those who have already applied and have been accepted.'

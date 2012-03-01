@@ -6,9 +6,10 @@ class Conference < ActiveRecord::Base
 
   has_many :conference_workstreams
 
+  scope :private, where("private = ?", true)
   # public is a reserved word
   scope :not_private, where("private = ?", false)
-  scope :normal, where("special = ?", false)
-  scope :special, where("special = ?", true)
+  scope :normal, not_private.where("special = ?", false)
+  scope :special, not_private.where("special = ?", true)
 
 end
