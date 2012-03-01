@@ -13,9 +13,9 @@
      <% end -%>
    </td>
 </tr>
-<% if w.byline != '' then -%>
+<% if not w.byline.nil? then -%>
 <tr>
-<td colspan="2">&nbsp;&nbsp;<%=t w.byline %></td>
+<td colspan="2">&nbsp;&nbsp;<%= w.byline %></td>
 </tr>
 <% end -%>
 <% end -%>

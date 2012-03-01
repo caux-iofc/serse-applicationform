@@ -10,7 +10,8 @@ ENV["RAILS_ENV"] = "production" if production
 require File.dirname(__FILE__) + '/../config/boot'
 require File.dirname(__FILE__) + '/../config/environment'
 
-def new_ws(conference_id,priority_sort,name,byline='',language='')
+def new_ws(conference_id,priority_sort,name,byline=nil,language='')
+  byline = nil if byline == ''
   cw = ConferenceWorkstream.find_by_name(name)
   if cw.nil? then
     cw = ConferenceWorkstream.new()
@@ -26,23 +27,38 @@ end
 @conference_id = Conference.with_translations.where("session_group_id = 12 and name = 'Learning to live in a Multicultural World'").first.id
 @sort = 0
 
-new_ws(@conference_id,@sort += 1,'Youth as empowered civil society actors','An interactive workshop by youth for youth who want to actively shape our future societies','English')
+#new_ws(@conference_id,@sort += 1,'Youth as empowered civil society actors','An interactive workshop by youth for youth who want to actively shape our future societies','English')
+#new_ws(@conference_id,@sort += 1,'Empowering Women\'s Leadership within Civil Society','','Spanish, with interpretation')
+#new_ws(@conference_id,@sort += 1,'Building Trust between Generations, Communities and Cultures','','English')
+#new_ws(@conference_id,@sort += 1,'Pedagogy for the Child as Global Citizen','Children & Youth as Teachers','English')
+#new_ws(@conference_id,@sort += 1,'Social Practice in the Making','An interactive, experiential learning experience with Critical Mass Foundation','English')
+#new_ws(@conference_id,@sort += 1,'Media and its responsibilities','Creating a perception of the "Other"','English')
+#new_ws(@conference_id,@sort += 1,'Anti-discrimination and religious diversity','','English')
+
+new_ws(@conference_id,@sort += 1,'Youth as empowered civil society actors','','English')
 new_ws(@conference_id,@sort += 1,'Empowering Women\'s Leadership within Civil Society','','Spanish, with interpretation')
 new_ws(@conference_id,@sort += 1,'Building Trust between Generations, Communities and Cultures','','English')
-new_ws(@conference_id,@sort += 1,'Pedagogy for the Child as Global Citizen','Children & Youth as Teachers','English')
-new_ws(@conference_id,@sort += 1,'Social Practice in the Making','An interactive, experiential learning experience with Critical Mass Foundation','English')
-new_ws(@conference_id,@sort += 1,'Media and its responsibilities','Creating a perception of the "Other"','English')
+new_ws(@conference_id,@sort += 1,'Pedagogy for the Child as Global Citizen','','English')
+new_ws(@conference_id,@sort += 1,'Social Practice in the Making','','English')
+new_ws(@conference_id,@sort += 1,'Media and its responsibilities','','English')
 new_ws(@conference_id,@sort += 1,'Anti-discrimination and religious diversity','','English')
 
 @conference_id = Conference.with_translations.where("session_group_id = 12 and name = 'Trust and integrity in the global economy'").first.id
 @sort = 0
 
-new_ws(@conference_id,@sort += 1,'Reshaping Business','Reshaping Business around Core Values','English')
-new_ws(@conference_id,@sort += 1,'Food and Development','Food and the New Development Paradigm: Farmers, consumers and business protecting our common environmental future.','English')
-new_ws(@conference_id,@sort += 1,'Sustainable World','Leading Change for a Sustainable World. <br/>&nbsp;&nbsp;If you want to participate this workstream please read <a href="http://www.caux.iofc.org/sites/all/files/LCSW%20application%20form.pdf">this document</a>.','English')
-new_ws(@conference_id,@sort += 1,'Leadership','Authentic Self-Leadership','English')
-new_ws(@conference_id,@sort += 1,'Integral Economy','Integral Economy and Integral Society','English')
-new_ws(@conference_id,@sort += 1,'Learning Society','Creating a Learning Society','English')
+#new_ws(@conference_id,@sort += 1,'Reshaping Business','Reshaping Business around Core Values','English')
+#new_ws(@conference_id,@sort += 1,'Food and Development','Food and the New Development Paradigm: Farmers, consumers and business protecting our common environmental future.','English')
+#new_ws(@conference_id,@sort += 1,'Sustainable World','Leading Change for a Sustainable World. <br/>&nbsp;&nbsp;If you want to participate this workstream please read <a href="http://www.caux.iofc.org/sites/all/files/LCSW%20application%20form.pdf">this document</a>.','English')
+#new_ws(@conference_id,@sort += 1,'Leadership','Authentic Self-Leadership','English')
+#new_ws(@conference_id,@sort += 1,'Integral Economy','Integral Economy and Integral Society','English')
+#new_ws(@conference_id,@sort += 1,'Learning Society','Creating a Learning Society','English')
+
+new_ws(@conference_id,@sort += 1,'Reshaping Business','','English')
+new_ws(@conference_id,@sort += 1,'Food and Development','','English')
+new_ws(@conference_id,@sort += 1,'Sustainable World','If you want to participate this workstream please read <a href="http://www.caux.iofc.org/sites/all/files/LCSW%20application%20form.pdf">this document</a>.','English')
+new_ws(@conference_id,@sort += 1,'Leadership','','English')
+new_ws(@conference_id,@sort += 1,'Integral Economy','','English')
+new_ws(@conference_id,@sort += 1,'Learning Society','','English')
 
 @conference_id = Conference.with_translations.where("session_group_id = 12 and name = 'The dynamics of being a change-maker'").first.id
 @sort = 0
@@ -57,7 +73,7 @@ new_ws(@conference_id,@sort += 1,'Life matters course','','English')
 I18n.locale = 'en'
 
 c = Conference.with_translations.where("session_group_id = 12 and name = 'One wholesome World - a global gathering'").first
-c.byline = 'Please note that you can only participate in this conference with an invitation!'
+c.byline = 'Only by invitation'
 c.save
 
 c = Conference.with_translations.where("session_group_id = 12 and name = 'ICP'").first
