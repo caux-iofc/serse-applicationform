@@ -65,8 +65,10 @@ class OnlineApplicationsController < ApplicationController
     @oac_special = Array.new()
 
     # For some reason @online_application.online_application_conferences.find_by_conference_id(c.id).nil?
-    # does not work on records that were created with 'build' (and not saved yet). So, use this workaround.
+    # does not work on records that were created with 'build' (presumably because they are not saved yet). 
+    # So, use this workaround.
     @conferences = Hash.new()
+STDERR.puts @online_application.online_application_conferences.pretty_inspect()    
     @online_application.online_application_conferences.each do |oac|
       if oac.conference.special == false then
         @oac_normal << oac
@@ -160,6 +162,7 @@ class OnlineApplicationsController < ApplicationController
         format.html { redirect_to online_applications_url, :notice => 'Online application was successfully updated.' }
         format.json { head :ok }
       else
+STDERR.puts params[:online_application].pretty_inspect()
         populate_ethereal_variables
 
         format.html { render :action => "edit" }

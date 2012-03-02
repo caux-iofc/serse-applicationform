@@ -69,6 +69,14 @@ class OnlineApplication < ActiveRecord::Base
   validates :citizenship_id, :presence => true
   validates :other_citizenship, :presence => true, :if => "citizenship_id == 0"
 
+  validate :must_have_one_language
+
+  def must_have_one_language
+    if online_application_languages.empty? or online_application_languages.all? { |lang| lang.marked_for_destruction? }
+      errors.add :base, I18n.t(:language_missing)
+    end
+  end 
+
   validates :email, :confirmation => true,
                     :presence => true,
                     :email => true, :if => "relation == 'primary applicant'"
@@ -134,6 +142,34 @@ class OnlineApplication < ActiveRecord::Base
   validates :badge_surname, :presence => true
   validates :badge_country, :presence => true
 
-  validates_associated :sponsors
+  validate  :sub_forms
+
+  def sub_forms
+    online_application_conferences.each do |oac|
+      oac.online_application_conference_workstreams.each do |oacws|
+        if oacws.conference_workstream_id.nil?
+          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_choose_preferred_workshops)
+          break
+        end
+      end
+      # Exclude HS 2012 from this validation
+      if oac.conference.name != 'Fifth annual Caux Forum for Human Security' and not oac.role_participant and not oac.role_speaker and not oac.role_team then
+        errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_indicate_conference_role)
+      end
+      oac.variables.each do |k,v|
+        # Please note that checkboxes are *NOT* caught by this rule
+        if v.nil? or v == '' then
+          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_complete_all_required_fields)
+          break
+        end
+      end
+      oac.variables.each do |k,v|
+        # Another HS 2012 special
+        if k == 'hs_2012_confirm_registration_fee' and v == '0' then
+          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_confirm_chf_100_registration_fee)
+        end
+      end
+    end
+  end
 
 end

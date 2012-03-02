@@ -3,4 +3,8 @@ class OnlineApplicationLanguage < ActiveRecord::Base
 
   belongs_to :online_application
   belongs_to :language
+
+  validates :language_id, :presence => true
+  validates :proficiency, :presence => true
+
 end

@@ -13,6 +13,19 @@ jQuery ->
     $("#diet_other_text").toggle()
     false
  
+  ##### handle ramadan ####
+
+  ## First the code that will run on document load ##
+  if ($('#diet_check_halal').is(':checked'))
+    $("#ramadan").show()
+  else
+    $("#ramadan").hide()
+
+  ## And then the hook ##
+  $("#diet_check_halal").change ->
+    $("#ramadan").toggle()
+    false
+
   ##### handle other_citizenship ####
 
   ## First the code that will run on document load ##

@@ -11,10 +11,13 @@ require File.dirname(__FILE__) + '/../config/boot'
 require File.dirname(__FILE__) + '/../config/environment'
 
 def new_diet(sort,en,fr=en,de=en)
-  d = Diet.new()
+  I18n.locale = :en
+  d = Diet.find_by_name(en)
+  if d.nil? then
+    d = Diet.new()
+  end
   d.priority_sort = sort
 
-  I18n.locale = :en
   d.name = en
   I18n.locale = :fr
   d.name = fr
@@ -25,6 +28,7 @@ end
 
 sort = 0
 new_diet(sort += 1,'Halal')
+new_diet(sort += 1,'Ramadan','Ramadan','Ramadan')
 new_diet(sort += 1,'Kosher','Kaser','Koscher')
 new_diet(sort += 1,'Lactose free','Sans lactose','Laktosefrei')
 new_diet(sort += 1,'Gluten free','Sans gluten','Glutenfrei')

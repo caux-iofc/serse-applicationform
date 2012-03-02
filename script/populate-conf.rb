@@ -81,16 +81,16 @@ c.byline = 'Only by invitation'
 c.save
 
 tp = TrainingProgram.with_translations.where('name = ? and session_group_id = ?','Caux Scholars Program','12').first
-tp.byline = 'Please note that is not the application form for the Caux Scholars Program. This is to register for those who have already applied and have been accepted.'
+tp.byline = 'Please note that this is not the application form for the Caux Scholars Program. This is to register for those who have already applied and have been accepted.'
 tp.save
 
 
 tp = TrainingProgram.with_translations.where('name = ? and session_group_id = ?','Caux Interns Program - Session 1','12').first
-tp.byline = 'Please note that is not the application form for the Caux Interns Program. This is to register for those who have already applied and have been accepted.'
+tp.byline = 'Please note that this is not the application form for the Caux Interns Program. This is to register for those who have already applied and have been accepted.'
 tp.save
 
 tp = TrainingProgram.with_translations.where('name = ? and session_group_id = ?','Caux Interns Program - Session 2','12').first
-tp.byline = 'Please note that is not the application form for the Caux Interns Program. This is to register for those who have already applied and have been accepted.'
+tp.byline = 'Please note that this is not the application form for the Caux Interns Program. This is to register for those who have already applied and have been accepted.'
 tp.save
 
 tp = TrainingProgram.with_translations.where('name = ? and session_group_id = ?','Week of International Community','12').first
