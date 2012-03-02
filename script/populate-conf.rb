@@ -12,6 +12,7 @@ require File.dirname(__FILE__) + '/../config/environment'
 
 def new_ws(conference_id,priority_sort,name,byline=nil,language='')
   byline = nil if byline == ''
+  language = '' if language == 'English'
   cw = ConferenceWorkstream.find_by_name(name)
   if cw.nil? then
     cw = ConferenceWorkstream.new()
@@ -53,12 +54,12 @@ new_ws(@conference_id,@sort += 1,'Anti-discrimination and religious diversity','
 #new_ws(@conference_id,@sort += 1,'Integral Economy','Integral Economy and Integral Society','English')
 #new_ws(@conference_id,@sort += 1,'Learning Society','Creating a Learning Society','English')
 
-new_ws(@conference_id,@sort += 1,'Reshaping Business','','English')
-new_ws(@conference_id,@sort += 1,'Food and Development','','English')
-new_ws(@conference_id,@sort += 1,'Sustainable World','If you want to participate this workstream please read <a href="http://www.caux.iofc.org/sites/all/files/LCSW%20application%20form.pdf">this document</a>.','English')
-new_ws(@conference_id,@sort += 1,'Leadership','','English')
+new_ws(@conference_id,@sort += 1,'Business Work Stream','','English')
+new_ws(@conference_id,@sort += 1,'Food Sustainability Network','','English')
+new_ws(@conference_id,@sort += 1,'Leading change for a Sustainable World','If you want to participate this workstream please read <a href="http://www.caux.iofc.org/sites/all/files/LCSW%20application%20form.pdf">this document</a>.','English')
+new_ws(@conference_id,@sort += 1,'Authentic Self-Leadership','','English')
 new_ws(@conference_id,@sort += 1,'Integral Economy','','English')
-new_ws(@conference_id,@sort += 1,'Learning Society','','English')
+new_ws(@conference_id,@sort += 1,'Creating the Learning Society','','English')
 
 @conference_id = Conference.with_translations.where("session_group_id = 12 and name = 'The dynamics of being a change-maker'").first.id
 @sort = 0
@@ -81,16 +82,16 @@ c.byline = 'Only by invitation'
 c.save
 
 tp = TrainingProgram.with_translations.where('name = ? and session_group_id = ?','Caux Scholars Program','12').first
-tp.byline = 'Please note that this is not the application form for the Caux Scholars Program. This is to register for those who have already applied and have been accepted.'
+tp.byline = 'Please note that this is not the application form for the Caux Scholars Program.<br/>This is to register for those who have already applied and have been accepted.'
 tp.save
 
 
 tp = TrainingProgram.with_translations.where('name = ? and session_group_id = ?','Caux Interns Program - Session 1','12').first
-tp.byline = 'Please note that this is not the application form for the Caux Interns Program. This is to register for those who have already applied and have been accepted.'
+tp.byline = 'Please note that this is not the application form for the Caux Interns Program.<br/>This is to register for those who have already applied and have been accepted.'
 tp.save
 
 tp = TrainingProgram.with_translations.where('name = ? and session_group_id = ?','Caux Interns Program - Session 2','12').first
-tp.byline = 'Please note that this is not the application form for the Caux Interns Program. This is to register for those who have already applied and have been accepted.'
+tp.byline = 'Please note that this is not the application form for the Caux Interns Program.<br/>This is to register for those who have already applied and have been accepted.'
 tp.save
 
 tp = TrainingProgram.with_translations.where('name = ? and session_group_id = ?','Week of International Community','12').first

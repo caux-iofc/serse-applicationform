@@ -163,6 +163,7 @@ STDERR.puts @online_application.online_application_conferences.pretty_inspect()
         format.json { head :ok }
       else
 STDERR.puts params[:online_application].pretty_inspect()
+STDERR.puts @online_application.online_application_conferences.pretty_inspect()
         populate_ethereal_variables
 
         format.html { render :action => "edit" }
