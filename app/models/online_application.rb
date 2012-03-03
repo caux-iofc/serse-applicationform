@@ -152,8 +152,10 @@ class OnlineApplication < ActiveRecord::Base
           break
         end
       end
-      # Exclude HS 2012 from this validation
-      if oac.conference.name != 'Fifth annual Caux Forum for Human Security' and not oac.role_participant and not oac.role_speaker and not oac.role_team then
+      # Exclude HS 2012, as well as conferences marked as 'special' from this validation
+      if oac.conference.name != 'Fifth annual Caux Forum for Human Security' and 
+         not oac.conference.special and
+         not oac.role_participant and not oac.role_speaker and not oac.role_team then
         errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_indicate_conference_role)
       end
       oac.variables.each do |k,v|
