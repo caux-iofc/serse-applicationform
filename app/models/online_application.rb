@@ -52,6 +52,13 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
+  after_validation() do
+    # Keep track of validation errors, so that we can improve the user experience
+    if not errors.empty? then
+      SystemMailer.validation_failure_notification(errors.pretty_inspect()).deliver
+    end
+  end
+
   validates :relation, :inclusion => { :in => [ 'primary applicant', 'spouse', 'child', 'other' ], :message => I18n.t(:only_valid_relations) }
   validates :firstname, :presence => true
   validates :surname, :presence => true
