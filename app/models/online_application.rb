@@ -52,10 +52,27 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
+  attr_accessor :the_request
+
   after_validation() do
     # Keep track of validation errors, so that we can improve the user experience
     if not errors.empty? then
-      SystemMailer.validation_failure_notification(errors.pretty_inspect()).deliver
+      messages = ''
+      errors.messages.each do |k,v|
+        if k != :base then
+          messages += "#{k}: #{v}\n"
+        else
+          v.each do |v2|
+            @tmp = v2.split(':',2)
+            @key = @tmp[0]
+            @key.gsub!(/<\/?[^>]*>/, "")
+            @val = @tmp[1]
+            @val.gsub!(/<\/?[^>]*>/, "")
+            messages += "#{@key}: #{@val}\n"
+          end
+        end
+      end
+      SystemMailer.validation_failure_notification(messages,self.the_request).deliver
     end
   end
 

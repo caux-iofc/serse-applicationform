@@ -68,7 +68,6 @@ class OnlineApplicationsController < ApplicationController
     # does not work on records that were created with 'build' (presumably because they are not saved yet). 
     # So, use this workaround.
     @conferences = Hash.new()
-STDERR.puts @online_application.online_application_conferences.pretty_inspect()    
     @online_application.online_application_conferences.each do |oac|
       if oac.conference.special == false then
         @oac_normal << oac
@@ -128,6 +127,8 @@ STDERR.puts @online_application.online_application_conferences.pretty_inspect()
       @online_application.departure = @ag.online_applications.primary_applicant.first.departure
     end
 
+    @online_application.the_request = request
+
     respond_to do |format|
       if @online_application.save
         format.html { redirect_to online_applications_url, :notice => 'Online application was successfully created.' }
@@ -147,6 +148,8 @@ STDERR.puts @online_application.online_application_conferences.pretty_inspect()
   def update
     @online_application = OnlineApplication.find(params[:id])
 
+    @online_application.the_request = request
+
     # If no check boxes are checked, the form does not return those fields.
     # Handle that here, making sure that any diets, conferences, or
     # training programs previously selected will be removed.
@@ -162,8 +165,6 @@ STDERR.puts @online_application.online_application_conferences.pretty_inspect()
         format.html { redirect_to online_applications_url, :notice => 'Online application was successfully updated.' }
         format.json { head :ok }
       else
-STDERR.puts params[:online_application].pretty_inspect()
-STDERR.puts @online_application.online_application_conferences.pretty_inspect()
         populate_ethereal_variables
 
         format.html { render :action => "edit" }
