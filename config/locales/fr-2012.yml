@@ -1,0 +1,12 @@
+
+# Localization file for French -- 2012 conferences.
+
+fr:
+  llmw_2012_intro_html: "<p>Chère participante, Cher participant,</p><p>Merci de sélectionner votre atelier préféré ainsi qu’un second choix. Nous ferons notre possible pour que vous puissiez participer à l’un des ateliers choisis.</p>"
+  llmw_2012_middle_html:
+  llmw_2012_projects_intro_html: "Comme nous organisons de nouveau un <strong><a href=\"http://www.caux.iofc.org/de/node/56803\">HUB</a></strong> (vidéo en anglais), qui encourage une participation interactive entre les participants, merci de nous donner des informations (en quelques points) sur:"
+  llmw_2012_projects_involved_in: "Les projets dans lesquels vous êtes actuellement engagés"
+  llmw_2012_projects_interested_in: "Les projets qui vous intéressent/ auxquels vous voudriez participer / travailler durant la rencontre"
+  llmw_2012_others: "Autres"
+  llmw_2012_advanced_course_for_young_peacemakers: "Cours avancé: Devenir un artisan de paix"
+  llmw_2012_advanced_course_for_young_peacemakers_note: "Remarque: vous devez avoir participé au cours de base pour vous inscrire."

@@ -7,7 +7,7 @@
              <td colspan="2">
                <div class="field">
                  <span class="af_star">*</span><%= f.label :relation, t(:relation) %><br />
-                 <%= f.select(:relation, [ [t('spouse'),'spouse'], [t('child'),'child'], [t('other'),'other'] ], {:include_blank => 'Choose one'}) %>
+                 <%= f.select(:relation, [ [t('spouse'),'spouse'], [t('child'),'child'], [t('other'),'other'] ], {:include_blank => t('Choose one')}) %>
                </div>
                <p class="show_for_children prominent_text">
                  <%=t :welcome_children_html %>
@@ -43,7 +43,7 @@
              <td>
                <div class="field">
                  <span class="af_star">*</span><%= f.label :gender, t(:gender) %><br />
-                 <%= f.select("gender", [ [t('female'),'1'], [t('male'),'2'] ], {:include_blank => 'Choose one'}) %>
+                 <%= f.select("gender", [ [t('female'),'1'], [t('male'),'2'] ], {:include_blank => t('Choose one')}) %>
                </div>
              </td>
            </tr>
@@ -51,7 +51,7 @@
              <td>
                <div class="field">
                  <span class="af_star">*</span><%= f.label :citizenship_id, t(:citizenship) %><br />
-                 <%= f.select(:citizenship_id, [ [t(:other_please_specify),'0'] ] + Country.with_translations.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Choose one'}) %>
+                 <%= f.select(:citizenship_id, [ [t(:other_please_specify),'0'] ] + Country.with_translations.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }, {:include_blank => t('Choose one')}) %>
                </div>
              </td>
              <td>
@@ -80,12 +80,12 @@
                  <tr>
                    <td>
                      <div class="field">
-                       <%= lf.select(:language_id, Language.with_translations.all.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }, {:include_blank => 'Choose one'}) %>
+                       <%= lf.select(:language_id, Language.with_translations.all.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }, {:include_blank => t('Choose one')}) %>
                      </div>
                    </td>
                    <td>
                      <div class="field">
-                       <%= lf.select(:proficiency, [ [t('proficiency_poor'),'110'], [t('proficiency_good'),'120'], [t('proficiency_excellent'),'130'], [t('proficiency_native'),'140'] ], {:include_blank => 'Choose one'}) %>
+                       <%= lf.select(:proficiency, [ [t('proficiency_poor'),'110'], [t('proficiency_good'),'120'], [t('proficiency_excellent'),'130'], [t('proficiency_native'),'140'] ], {:include_blank => t('Choose one')}) %>
                      </div>
                    </td>
                  </tr>

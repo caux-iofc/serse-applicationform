@@ -1,9 +1,137 @@
-# Localization file for English.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
+--- 
 fr:
-  firstname: "Prénom"
-  surname: "Family name"
+  approximate_time: "+ heure approximative - utilisez le format continental (24h)"
+  departure: "D\xC3\xA9part"
+  diet: "R\xC3\xA9gime"
+  remarks: Remarques
+  stay_in_caux: "S\xC3\xA9jour \xC3\xA0 Caux"
+  other_citizenship: "Autre nationalit\xC3\xA9"
+  confirmation: Confirmation
+  travel_flight: "Voyage: no de vol"
+  submitted_title: Formulaire d'inscription complet
+  citizenship: "Nationalit\xC3\xA9"
+  citizenship_id: "Nationalit\xC3\xA9"
+  work_telephone: "Num\xC3\xA9ro de t\xC3\xA9l\xC3\xA9phone bureau"
+  title: Formulaire d'inscription
+  intro_part_1_html: "Veuillez remplir le formulaire de manière aussi complète que possible. Les champs marqués d'une astérisque (<span class=\"af_star\">*</span>) doivent obligatoirement être remplis. Si vous rencontrez des problèmes, veuillez écrire <b>en donnant les détails du problème, y-compris le message d'erreur</b> à"
+  intro_part_2_html: "Si vous avez des problèmes et avez un message d'erreur ci-dessus, indiquant que votre navigateur n'est pas reconnu, <a href=\"http://www.mozilla.org/firefox/\" target=\"new\"><b>veuillez installer une mise à jour plus récente</b></a> et ré-essayer avant de nous contacter.<p>"
+  intro_part_3: "Merci de vous inscrire au plus tard six semaines avant votre arrivée à Caux."
+  language_name: "Langue(s)"
+
+  confirmation_letter_via_post: Poste
+  confirmation_letter_via_correspondence_address: Poste, par adresse de correspondence
+
+  ensure_fax_number: "S'il vous plaît assurez-vous de fournir un numéro de fax dans la section 'R\xC3\xA9f\xC3\xA9rence'."
+  ensure_correspondence_address: "Veuillez remplir la section 'Adresse de correspondence'"
+
+  proficiency_native: Maternelle
+  proficiency_excellent: Excellente
+  proficiency_poor: Rudimentaire
+  female: "F\xC3\xA9minin"
+  register: Soumettre!
+  proceed: Continuez
+  personal_information: Informations personnelles
+  name_badge: Badge
+  contact_information: "R\xC3\xA9f\xC3\xA9rence"
+
+  arrival: "Arriv\xC3\xA9e"
+  previous_visit: "S\xC3\xA9jour pr\xC3\xA9c\xC3\xA9dent \xC3\xA0 Caux?"
+  data_protection_consent_text: "J'accepte/nous acceptons que mes/nos donn\xC3\xA9es personnelles soient utilis\xC3\xA9es par le secr\xC3\xA9tariat des rencontres, afin d'\xC3\xAAtre en contact avec moi/nous au sujet de mon/notre inscription de cette ann\xC3\xA9e"
+  gender: "Sexe\t"
+  special_dietary_requirements: "R\xC3\xA9gime alimentaire particulier"
+  language_proficiency: Niveau
+  male: Masculin
+  travel_car_train: "Voyage: voiture/train"
+  correspondence_address: Adresse de correspondance
+  other_please_specify: "Autre, pr\xC3\xA9ciser"
+  fax: Fax
+  cellphone: "T\xC3\xA9l\xC3\xA9phone portable"
+  firstname: "Pr\xC3\xA9nom"
+  other: Autre
+  confirm_read_documents: ""
+  employer: Employeur
+  date_of_birth: Date de naissance
+  heard_about: Si non, comment avez-vous entendu parler des rencontres de Caux?
+  nightly_contribution_currency: CHF
+  sponsors_name: ""
+  sponsors_nights: "# Nuits"
+  sponsors_currency: Devise
+  sponsors_currency_name: "CHF"
+  sponsors_amount: Montant par nuit
+  confirmation_letter_via_email: Courriel
+  proficiency_good: Bonne
+  permanent_address: Adresse permanente
+  surname: Nom de famille
+  badge_explanation: Tous les participants aux rencontres de Caux portent un badge indiquant leur nom et pays. Veuillez entrer ces informations telles que vous souhaitez qu'elles apparaissent.
+  passport_number: No de passeport
+  passport_issue_place: "Lieu d'\xC3\xA9mission du passeport"
+  passport_issue_date: "Date d'émission"
+  passport_expiry_date: "Valable jusqu'au"
+  visa_information_2: "Si vous avez des problèmes ou des questions veuillez contacter le Secrétariat de la Conférence dès que possible au "
+
+  confirmation_letter_via_fax: Fax
+  confirmation_letter_via: Envoyer la lettre de confirmation par
+  postal_code: Code postal
+  state: Etat/province
+  country: Pays
+  other_country: Autre pays
+  valid_from: "Valable à partir du"
+  valid_until: "Valable jusqu'au"
+
+  addresses_street1: Rue/no
+  addresses_postal_code: Code postal
+  addresses_city: Ville
+  addresses_state: Etat/province
+  addresses_country_id: Pays
+  addresses_other_country: Autre pays
+  permanent_address_street1: Rue/no
+  permanent_address_postal_code: Code postal
+  permanent_address_city: Ville
+  permanent_address_state: Etat/province
+  permanent_address_country_id: Pays
+  permanent_address_other_country: Autre pays
+
+  previous_visit_no: "Non"
+  previous_visit_yes: "Oui"
+
+  previous_year: "Année de votre dernière visite"
+
+  practical_life: "Lors des Rencontres Internationales de Caux, chaque participant s’engage dans un groupe de discussion et de service. Pour cette raison, vous ne pourrez pas assister à toutes les conférences en plénière et sessions d’atelier. Nous vous remercions dès à présent de votre compréhension. Vous recevrez votre inscription dans un groupe discussion lors de votre arrivée à Caux."
+
+  visa_needed: "Oui, il me faut un visa"
+  visa_information_html: "<p>Renseignez-vous s'il vous faut un visa auprès des endroits suivants
+                          <ul>
+                            <li><a href=\"http://www.eda.admin.ch/eda/en/home/reps.html\" target=\"new\">le consulat de Suisse le plus proche</a>
+                            <li><a href=\"http://www.bfm.admin.ch/bfm/en/home/themen/einreise/merkblatt_einreise.html\" target=\"new\">le site Internet de l'office fédéral des migrations</a>
+                            <li>votre agent de voyage
+                          </ul>
+                          <strong>IMPORTANT</strong>
+                            <ul>
+                              <li>S'il vous faut un visa pour entrer en Suisse, votre inscription doit parvenir au secrétariat des conférences <strong>au moins DIX semaines</strong> avant votre arrivée à Caux.
+                              <li>Veuillez prendre note qu'une fois que la lettre pour demande de visa est envoyée (avec copie à l'Ambassade de Suisse) tout changement de dates en dehors de la période indiquée dans la lettre sera très difficile.
+                            </ul></p>"
+
+
+  nightly_contribution: "Ma propre contribution aux frais de s\xC3\xA9jour par nuit sera de"
+  nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/2012-frais\">92 CHF par nuit (adulte)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
+  submitted_intro_part_1: "Merci, votre inscription a \xC3\xA9t\xC3\xA9 re\xC3\xA7ue."
+  spouse: Conjoint/Partenaire
+  email: "Adresse courriel (e-mail) "
+  profession: Profession
+
+  conference_participation: "Je participe à la/aux rencontre(s) suivante(s):"
+  special_conference_participation: "Autre réunion:"
+  training_participation: "Je participe à la formation suivante:"
+  other_reason: "Je viens à Caux pour une autre raison:"
+  interpreter: "Interprétation"
+  volunteer: "Bénévolat"
+  other_reason_please_specify: "Merci de préciser: "
+
+  I_will_come_as: "Je viens en tant que"
+  participant: "participant(e)"
+  speaker: "intervenant"
+  team: "membre de l’équipe"
+
   follow_us_on: "Suivez notre actualité sur"
 
   form_unavailable_title: "Inscription en ligne hors service"

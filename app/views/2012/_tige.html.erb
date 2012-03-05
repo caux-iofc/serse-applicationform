@@ -30,7 +30,7 @@
          <span class="af_star">*</span><strong><%=t cw.object.preference %></strong>
          <%= cw.hidden_field :preference, :value => cw.object.preference %>
        </td>
-       <td><%= cw.select(:conference_workstream_id, ConferenceWorkstream.find_all_by_conference_id(oac.object.conference.id).collect {|p| [ p.name, p.id ] }, {:include_blank => 'Choose one'}) %></td>
+       <td><%= cw.select(:conference_workstream_id, ConferenceWorkstream.find_all_by_conference_id(oac.object.conference.id).collect {|p| [ p.name, p.id ] }, {:include_blank => t('Choose one')}) %></td>
      </tr>
      <% end -%>
     <tr><td colspan="2">&nbsp;</td></tr>

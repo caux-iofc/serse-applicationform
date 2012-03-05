@@ -1,7 +1,90 @@
-# Localization file for English.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+--- 
+de: 
+  approximate_time: "+ ungefähre Zeit an - benützen Sie das 24h-Format"
+  departure: Abreise
+  diet: "Di\xC3\xA4t"
 
-de:
+  remarks: Bemerkungen
+  stay_in_caux: Aufenthalt in Caux
+  other_citizenship: "Andere Staatsangeh\xC3\xB6rigkeit"
+  confirmation: "Best\xC3\xA4tigung"
+  travel_flight: "Anreise mit Flugzeug: Flugnummer"
+  submitted_title: "Anmeldeformular vollst\xC3\xA4ndig ausgef\xC3\xBCllt"
+  citizenship_id: "Staatsangeh\xC3\xB6rigkeit"
+  work_telephone: "Telefonnummer B\xC3\xBCro"
+  title: Anmeldeformular
+  confirmation_letter_via_post: Post
+  proficiency_native: Fliessend
+  proficiency_excellent: Ausgezeichnet
+  proficiency_poor: Gering
+  female: Weiblich
+  register: Anmelden!
+  proceed: Weiter
+  personal_information: "Pers\xC3\xB6nliche Angaben"
+  name_badge: Namensschild
+  contact_information: "Kontaktm\xC3\xB6glichkeiten"
+  arrival: Ankunft
+  previous_visit: "Fr\xC3\xBChere Konferenzteilnahme in Caux?"
+
+  practial_life: "Da alle Konferenzteilnehmenden auch Teil einer Gemeinschaftsgruppe sein werden, mit der sie während der Konferenz kleinere Aufgaben im Haus übernehmen, werden Sie leider nicht an allen Sitzungen und Versammlungen teilnehmen können. Wir bitten Sie dafür um Ihr Verständnis! Sie werden der Gemeinschaftsgruppe vor Ort vor Beginn der Konferenz zugeteilt um einem Departement wie Küche, Service, Abwasch, Haushaltung, Gemüse Zubereitung oder Konferenz Logistik zugeteilt."
+
+  visa_needed: "Ja, ich benötige ein Visum"
+  visa_information_html: "<p>Bitte erkundigen Sie sich, ob Sie für die Einreise in die Schweiz ein Visum benötigen. Auskunft erteilt Ihnen
+                          <ul>
+                            <li><a href=\"http://www.eda.admin.ch/eda/en/home/reps.html\" target=\"new\">das nächste Schweizer Konsulat</a>
+                            <li><a href=\"http://www.bfm.admin.ch/bfm/en/home/themen/einreise/merkblatt_einreise.html\" target=\"new\">die Webseite des Bundesamts für Migration</a>
+                            <li>Ihr Reiseveranstalter
+                          </ul>
+                          <strong>WICHTIG</strong>
+                            <ul>
+                              <li>Wenn Sie ein Visum für die Einreise in die Schweiz benötigen, muss Ihre Anmeldung <strong>mindesten ZEHN Wochen</strong> vor Ihrer Ankunft in Caux auf dem Konferenzsekretariat eintreffen.
+                              <li>Bitte beachten Sie, dass es schwierig ist, nachträglich Änderungen der Daten vorzunehmen, sobald sich Ihre Visum-Anfrage (Kopie Ihres Visum-Briefes) bei der zuständigen Schweizer Botschaft befindet.
+                            </ul></p>"
+
+  passport_issue_place: Ausstellungsort des Passes
+  passport_number: Passnummer
+  visa_information_2: "Wenn Sie irgendwelche Probleme oder Fragen haben, kontaktieren Sie bitte das Konferenz-Sekretariat so früh wie möglich an "
+
+
+  data_protection_consent_text: "Meine/Unsere pers\xC3\xB6nlichen Daten d\xC3\xBCrfen vom Caux-Konferenzsekretariat f\xC3\xBCr die Verarbeitung meiner/unserer diesj\xC3\xA4hrigen Anmeldung benutzt werden."
+  gender: Geschlecht
+  special_dietary_requirements: Mahlzeiten
+  language_proficiency: Kenntnisse
+  male: "M\xC3\xA4nnlich"
+  travel_car_train: "Anreise mit: Auto/Zug"
+  correspondence_address: Korrespondenzadresse
+  other_please_specify: Andere, bitte angeben
+  fax: Fax
+  cellphone: Mobiltelefon
+  firstname: Vorname
+  other: Anderes
+  confirm_read_documents: ""
+  employer: Arbeitgeber
+  date_of_birth: Geburtsdatum
+  heard_about: Wenn nein, wie sind Sie auf die Konferenzen in Caux aufmerksam geworden?
+  nightly_contribution_currency: CHF
+  sponsors_name: "Sponsor"
+  sponsors_amount: Beitrag pro Nacht
+  sponsors_currency: "W\xC3\xA4hrung"
+  confirmation_letter_via_email: E-mail
+  proficiency_good: Gut
+  permanent_address: "St\xC3\xA4ndige Wohnadresse"
+  surname: Name
+  badge_explanation: "W\xC3\xA4hrend der Konferenzen in Caux tr\xC3\xA4gt jeder Teilnehmende ein Namensschild, das den Namen und das Herkunftsland der Person angibt. Bitte tragen Sie diese Angaben hier so ein, wie sie auf Ihrem Namensschild erscheinen sollen. "
+  confirmation_letter_via_fax: Fax
+  confirmation_letter_via: "Senden Sie mir das Best\xC3\xA4tigungsschreiben per"
+  addresses_street1: Strasse, Nr.
+  addresses_city: Ort
+  addresses_postal_code: Postleitzahl
+  addresses_state: Kanton/Provinz/Bundesland
+  addresses_country_id: Land
+  addresses_other_country: Anderes Land
+  nightly_contribution: "Mein pers\xC3\xB6nlicher Beitrag an die Konferenzgeb\xC3\xBChren betr\xC3\xA4gt pro Nacht"
+  submitted_intro_part_1: "Danke, wir haben Ihre Anmeldung erhalten. "
+  spouse: Partner/in
+  email: E-Mail Adresse
+  profession: Beruf
+
   follow_us_on: "Folgen Sie uns auf"
 
   form_unavailable_title: "Anmeldeformular nicht verfügbar"

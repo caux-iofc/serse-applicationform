@@ -39,7 +39,7 @@ en:
   addresses_street1: "Street address"
   addresses_city: "City / Town"
   addresses_country_id: "Country"
-  addresses_zipcode: "Postal code"
+  addresses_postal_code: "Postal code"
   addresses_state: "State / Province"
   addresses_other_country: "Other country"
   permanent_address: "Permanent address"
@@ -53,13 +53,13 @@ en:
   permanent_address_street1: "Permanent address: Street address"
   permanent_address_city: "Permanent address: City / Town"
   permanent_address_country_id: "Permanent address: Country"
-  permanent_address_zipcode: "Permanent address: Postal code"
+  permanent_address_postal_code: "Permanent address: Postal code"
   permanent_address_state: "Permanent address: State / Province"
   permanent_address_other_country: "Permanent address: Other country"
   correspondence_address_street1: "Correspondence Address: Street address"
   correspondence_address_city: "Correspondence Address: City / Town"
   correspondence_address_country_id: "Correspondence Address: Country"
-  correspondence_address_zipcode: "Correspondence Address: Postal code"
+  correspondence_address_postal_code: "Correspondence Address: Postal code"
   correspondence_address_state: "Correspondence Address: State / Province"
   correspondence_address_other_country: "Correspondence Address: Other country"
   correspondence_address_valid_from: "Correspondence Address: Valid from date"
@@ -172,9 +172,9 @@ en:
   remarks: "Remarks"
 
   I_will_come_as: "I will come as"
-  conference_role_participant: "participant"
-  conference_role_speaker: "speaker"
-  conference_role_team: "team"
+  participant: "participant"
+  speaker: "speaker"
+  team: "team"
 
   form_unavailable_title: "Registration form unavailable"
   form_unavailable_html: "Dear visitor,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the Conference Secretary at confsec@caux.ch you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat."
@@ -186,6 +186,9 @@ en:
   please_indicate_conference_role: "Please indicate your role(s) during the conference"
   please_complete_all_required_fields: "Please complete all required fields"
   please_confirm_chf_100_registration_fee: "Please confirm that you understand that there is a CHF 100.- registration fee to participate in this conference."
+
+  choose_one: "Choose one"
+
   # This is a hack; for some reason adding to error[:base] makes Rails look for a translation of ':base'
   base: ''
 
