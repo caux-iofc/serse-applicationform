@@ -67,6 +67,7 @@ class OnlineApplication < ActiveRecord::Base
             @key = @tmp[0]
             @key.gsub!(/<\/?[^>]*>/, "")
             @val = @tmp[1]
+            @val = '' if @val.nil?
             @val.gsub!(/<\/?[^>]*>/, "")
             messages += "#{@key}: #{@val}\n"
           end
