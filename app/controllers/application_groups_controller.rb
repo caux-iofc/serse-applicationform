@@ -22,6 +22,7 @@ class ApplicationGroupsController < ApplicationController
     else
       @application_group = nil
       redirect_to :new_online_application
+      return
     end
 
     @application_group.attributes = params[:application_group]
