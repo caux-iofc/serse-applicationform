@@ -68,6 +68,7 @@ fr:
   passport_issue_date: "Date d'émission"
   passport_expiry_date: "Valable jusqu'au"
   visa_information_2: "Si vous avez des problèmes ou des questions veuillez contacter le Secrétariat de la Conférence dès que possible au "
+  visa: Visa pour la Suisse
 
   confirmation_letter_via_fax: Fax
   confirmation_letter_via: Envoyer la lettre de confirmation par
@@ -96,13 +97,13 @@ fr:
 
   previous_year: "Année de votre dernière visite"
 
-  practical_life: "Lors des Rencontres Internationales de Caux, chaque participant s’engage dans un groupe de discussion et de service. Pour cette raison, vous ne pourrez pas assister à toutes les conférences en plénière et sessions d’atelier. Nous vous remercions dès à présent de votre compréhension. Vous recevrez votre inscription dans un groupe discussion lors de votre arrivée à Caux."
+  practical_life: "Lors des Rencontres Internationales de Caux, chaque participant s’engage dans un groupe de discussion et de service. Pour cette raison, vous ne pourrez pas assister à toutes les conférences en plénière et sessions d’atelier. Nous vous remercions dès à présent de votre compréhension. Vous serez incorporé à l’un des groupes de discussion lors de votre arrivée à Caux ; et participerez au travail d’un des départements, tel que la cuisine, le service des repas, la vaisselle, les chambres, la préparation des légumes ou la logistique de la rencontre."
 
   visa_needed: "Oui, il me faut un visa"
   visa_information_html: "<p>Renseignez-vous s'il vous faut un visa auprès des endroits suivants
                           <ul>
-                            <li><a href=\"http://www.eda.admin.ch/eda/en/home/reps.html\" target=\"new\">le consulat de Suisse le plus proche</a>
-                            <li><a href=\"http://www.bfm.admin.ch/bfm/en/home/themen/einreise/merkblatt_einreise.html\" target=\"new\">le site Internet de l'office fédéral des migrations</a>
+                            <li><a href=\"http://www.eda.admin.ch/eda/fr/home/reps.html\" target=\"new\">le consulat de Suisse le plus proche</a>
+                            <li><a href=\"http://www.bfm.admin.ch/bfm/fr/home/themen/einreise/merkblatt_einreise.html\" target=\"new\">le site Internet de l'office fédéral des migrations</a>
                             <li>votre agent de voyage
                           </ul>
                           <strong>IMPORTANT</strong>
@@ -137,3 +138,42 @@ fr:
   form_unavailable_title: "Inscription en ligne hors service"
   form_unavailable_html: "Cher visiteur,<p>L'inscription en ligne des rencontres de Caux est actuellement hors service.<p>Merci pour votre compréhension.<p>Le secrétariat des rencontres."
 
+  correspondence_address_country_id: "Adresse de correspondance: Pays"
+  correspondence_address_other_country: "Adresse de correspondance: Autre Pays"
+  correspondence_address_valid_until: "Adresse de correspondance: Valable jusqu'à"
+  correspondence_address_state: "Adresse de correspondence: Etat/province"
+  correspondence_address_city: "Adresse de correspondence: Ville" 
+  correspondence_address_street1: "Adresse de correspondence: Rue/no"
+  correspondence_address_postal_code: "Adresse de correspondence: Code postale"
+
+
+  badge_firstname: "Badge Pr\xC3\xA9nom"
+  badge_surname: Badge Nom de famille
+  badge_country: Badge Pays
+  submitted_intro_part_2: "Votre inscription n'a pas encore été acceptée."
+  online_application_language_proficiency: Niveaua
+  may_not_be_in_the_future: "ne peut pas être dans l'avenir"
+  must_be_valid_for_3_months_beyond_departure_date: "doit être valable au moins trois mois après votre départ de Caux"
+  addresses: Adresse permanente
+  email_confirmation: Adresse courriel (confirmation)
+  language_missing: "Vous devez préciser au moins une langue"
+  confirm_read_documents_text_html: Je confirme/nous confirmons avoir lu les <a href="http://www.caux.iofc.org/fr/2012" target="_new">documents</a> concernant les rencontres de Caux et je souhaite/nous souhaitons y participer.
+  confirm_read_documents_error: Veuillez confirmer que vous avez lu les documents relatifs aux conférences de Caux et que vous souhaitez prendre part à ces conférences
+  data_protection_caux_info_text: Oui, j'aimerais bien recevoir des informations régulières sur les futures rencontres de Caux (par couriel).
+  data_protection_local_info_text: Oui, j'aimerais bien recevoir des informations régulières sur les activités d'Initiatives et Changement dans mon pays de résidence.
+
+  diet_detail: "Une alternative végétarienne est offerte à chaque repas. En outre, la cuisine de Caux peut adapter les menus si nécessare. Veuillez marquer d'une croix vos éventuels besoins:"
+
+  other_diet_text: Si vous avez d'autres besoins, nous mettons à votre disposition une cuisine spéciale. Si vous utilisez des produits particuliers, merci de les apporter. Si vous souhaitez utiliser cette option, ou avez d'autres requêtes, adressez-vous à la cuisine de régimes dès votre arrivée.
+  conference_fees: Frais de séjour
+  welcome_children_html: Nous nous réjouissons que vous veniez en famille à Caux. Comme vous le savez, un jardin d'enfants prendra soin de votre/vos enfant(s) pendant les réunions. Afin que tout se déroule bien, nous vous demandons <b>d'apporter un téléphone mobile</b> pour que vous puissiez être atteint à n'importe quel moment. Ceci est un règlement établi par les autorités cantonales pour les jardins d'enfants. Merci.
+  telephone: Téléphone (par ex. +41...)
+  child: enfant
+  phone_number_invalid: Le numéro doit commencer avec le signe + suivi du code de votre pays (par ex. +41 pour la Suisse, +33 pour la France) suivi du reste du numéro.
+  data_protection_consent_error: Si vous refusez que vos données personnelles soient conservées par la Fondation de Caux, nous ne pouvons pas aller de l'avant avec votre inscription!
+
+  must_be_at_least_6_weeks_in_the_future: doit être au moins 6 semaines à l'avenir
+
+  child_nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/2012-fees\">0/46/55 CHF par nuit (enfant/jeune)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
+  must_be_after_arrival: " doit être après votre arriv\xC3\xA9e"
+  base: ""
