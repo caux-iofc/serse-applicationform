@@ -176,4 +176,8 @@ fr:
 
   child_nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/2012-fees\">0/46/55 CHF par nuit (enfant/jeune)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
   must_be_after_arrival: " doit être après votre arriv\xC3\xA9e"
+
+  first_choice: "Atelier préféré"
+  second_choice: "Second choix"
+
   base: ""

@@ -188,6 +188,8 @@ en:
   please_confirm_chf_100_registration_fee: "Please confirm that you understand that there is a CHF 100.- registration fee to participate in this conference."
 
   choose_one: "Choose one"
+  first_choice: "First choice"
+  second_choice: "Second choice"
 
   # This is a hack; for some reason adding to error[:base] makes Rails look for a translation of ':base'
   base: ''
