@@ -53,8 +53,33 @@ de:
   male: "M\xC3\xA4nnlich"
   travel_car_train: "Anreise mit: Auto/Zug"
   correspondence_address: Korrespondenzadresse
+  correspondence_address_street1: 'Korrespondenzadresse: Strasse, Nr.'
+  correspondence_address_city: 'Korrespondenzadresse: Ort'
+  correspondence_address_postal_code: 'Korrespondenzadresse: Postleitzahl'
+  correspondence_address_state: 'Korrespondenzadresse: Kanton/Provinz/Bundesland'
+  correspondence_address_country_id: 'Korrespondenzadresse: Land'
+  correspondence_address_other_country: 'Korrespondenzadresse: Anderes Land'
+  correspondence_address_valid_until: 'Korrespondenzadresse: gültig bis'
+
+  confirmation_letter_via_correspondence_address: Post, aber an eine andere Adresse
+  ensure_correspondence_address: Bitte geben Sie unten eine Korrespondenzadresse an.
+
+  permanent_address_street1: 'Ständige Wohnadresse: Strasse, Nr.'
+  permanent_address_city: 'Ständige Wohnadresse: Ort'
+  permanent_address_postal_code: 'Ständige Wohnadresse: Postleitzahl'
+  permanent_address_state: 'Ständige Wohnadresse: Kanton/Provinz/Bundesland'
+  permanent_address_country_id: 'Ständige Wohnadresse: Land'
+  permanent_address_other_country: 'Ständige Wohnadresse: Anderes Land'
+
+  addresses: 'Ständige Wohnadresse'
+
+  postal_code: Postleitzahl
+  state: Kanton/Provinz/Bundesland
+  valid_until: 'Gültig bis'
+
   other_please_specify: Andere, bitte angeben
   fax: Fax
+  email_confirmation: E-Mail Adresse (bitte wiederholen)
   cellphone: Mobiltelefon
   firstname: Vorname
   other: Anderes
@@ -91,3 +116,43 @@ de:
   form_unavailable_html: "Sehr geehrte Damen und Herren,<p>Vielen Dank für Ihr Interesse an unserem Anmeldeformular. Das online Anmeldeformular ist zurzeit nicht verfügbar. Wenn Sie eine E-Mail an das Konferenzsekretariat confsec@caux.ch senden werden Sie informiert sobald das Anmeldeformular online ist.<p>Freundliche Grüsse,<p>Das Konferenzsekretariat Team"
 
   submitted_intro_part_2: "Ihre Anmeldung wurde noch nicht akzeptiert"
+
+  intro_part_1_html: "Bitte füllen Sie das Formular möglichst vollständig aus. Die mit einem Stern (<span class=\"af_star\">*</span>) markierten Felder sind obligatorisch. Wenn das Formular nicht richtig funktioniert, senden Sie uns bitte <b>eine Beschreibung des Problems und wenn möglich die Fehlermeldung, die Sie erhalten</b>, an"
+  intro_part_2_html: "Wenn Sie eine Fehlermeldung erhalten haben, Ihr Browser werde nicht unterstützt, <a href=\"http://www.mozilla.org/firefox/\" target=\"new\"><b>installieren Sie bitte einen neuen Browser</b></a> und versuchen Sie es noch einmal, bevor Sie uns kontaktieren."
+  intro_part_3: "Bitte melden Sie sich bis spätestens sechs Wochen vor Ihrer Ankunft in Caux an."
+  language_name: "Sprache"
+
+  data_protection_consent_error: "Wenn Sie nicht damit einverstanden sind, dass Ihre persönlichen Angebane von der Stiftung Caux aufbewahrt werden, können wir mit Ihrer Anmeldung nicht fortfahren!"
+  sponsors_nights: "Nächte"
+  child: Kind
+  interpreter: Dolmetscher
+  passport_issue_date: Ausstellungsdatum des Passes
+  practical_life: "Da alle Konferenzteilnehmenden auch Teil einer Gemeinschaftsgruppe sein werden, mit der sie während der Konferenz kleinere Aufgaben im Haus übernehmen, werden Sie leider nicht an allen Sitzungen und Versammlungen teilnehmen können. Wir bitten Sie dafür um Ihr Verständnis! Sie werden der Gemeinschaftsgruppe vor Ort vor Beginn der Konferenz zugeteilt um einem Departement wie Küche, Service, Abwasch, Haushaltung, Gemüse Zubereitung oder Konferenz Logistik zugeteilt."
+  other_country: Anderes Land
+  previous_visit_yes: Ja
+  previous_visit_no: Nein
+
+  team: Teammitglied
+  speaker: Redner
+  participant: Teilnehmer
+
+  badge_firstname: 'Namensschild: Vorname'
+  badge_surname: 'Namensschild: Name'
+  badge_country: 'Namensschild: Land'
+
+  other_reason: "Ich möchte aus einem anderen Grund nach Caux kommen"
+
+  must_be_at_least_6_weeks_in_the_future: ' muss mindestens sechs Wochen in der Zukunft liegen'
+  may_not_be_in_the_future: darf nicht in der Zukunft liegen
+  must_be_valid_for_3_months_beyond_departure_date: muss mindestens drei Monate hinter Ihrer Abreise aus Caux liegen
+  diet_detail: 'Eine vegetarische Variante wird bei jeder Mahlzeit angeboten. Zusätzlich kann die Küche in Caux folgende Wünsche berücksichtigen. Bitte kreuzen Sie gemäss Ihren Bedürfnissen an: '
+  phone_number_invalid: muss mit dem Zeichen + beginnen, gefolgt vom Code Ihres Landes (z.B. +49 fur Deutschland) und dem Rest der Nummer.
+
+  confirm_read_documents_text_html: Ich/Wir bestätige/n hiermit, die <a href="http://www.caux.iofc.org/de/2012" target="_new">Dokumente</a> betreffend die Konferenzen in Caux gelesen zu haben und möchte/n an der Konferenz teilnehmen.
+
+  telephone: Telefonnummer (z.B. +41...)
+  nightly_contribution_html: "Falls Sie nicht <a href=\"http://www.caux.iofc.org/de/2012-fees\">92 CHF pro Nacht (Erwachsene)</a> selber bezahlen, geben Sie bitte den Namen der Person oder der Organisation an, die für den Restbetrag aufkommt sowie den genauen Betrag, den diese Person oder Organisation für Sie pro Nacht bezahlt:"
+
+
+
+  base: ''
