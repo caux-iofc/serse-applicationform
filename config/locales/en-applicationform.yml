@@ -182,6 +182,8 @@ en:
   interpreter: "Interpreter"
   volunteer: "Volunteer"
   other_reason_please_specify: "Other reason, please specify:"
+  please_specify_your_reason: "please specify your reason"
+  other_reason_detail: "Other reason: "
   please_choose_preferred_workshops: "Please choose your preferred workshops"
   please_indicate_conference_role: "Please indicate your role(s) during the conference"
   please_complete_all_required_fields: "Please complete all required fields"
@@ -190,6 +192,8 @@ en:
   choose_one: "Choose one"
   first_choice: "First choice"
   second_choice: "Second choice"
+
+  please_indicate_other_reason: "If you don't come to Caux for a specific session or training programme, please select <strong>Other reason</strong> and specify your reasons"
 
   # This is a hack; for some reason adding to error[:base] makes Rails look for a translation of ':base'
   base: ''

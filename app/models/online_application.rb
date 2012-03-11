@@ -102,6 +102,16 @@ class OnlineApplication < ActiveRecord::Base
     end
   end 
 
+  validate :must_select_reason_for_coming
+
+  validates :other_reason_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_reason) } , :if => :other_reason
+
+  def must_select_reason_for_coming
+    if online_application_conferences.empty? and online_application_training_programs.empty? and not interpreter and not volunteer and other_reason_detail == '' then
+      errors.add :other_reason, I18n.t(:please_indicate_other_reason).html_safe
+    end
+  end
+
   validates :email, :confirmation => true,
                     :presence => true,
                     :email => true, :if => "relation == 'primary applicant'"
@@ -178,11 +188,15 @@ class OnlineApplication < ActiveRecord::Base
         end
       end
       # Exclude HS 2012, as well as conferences marked as 'special' from this validation
+      @real_locale = I18n.locale
+      I18n.locale = 'en'
       if oac.conference.name != 'Fifth annual Caux Forum for Human Security' and 
          not oac.conference.special and
          not oac.role_participant and not oac.role_speaker and not oac.role_team then
+         I18n.locale = @real_locale
         errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_indicate_conference_role)
       end
+      I18n.locale = @real_locale
       oac.variables.each do |k,v|
         # Please note that checkboxes are *NOT* caught by this rule
         if v.nil? or v == '' then

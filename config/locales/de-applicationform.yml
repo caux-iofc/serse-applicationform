@@ -176,5 +176,7 @@ de:
   training_participation: 'Ich möchte gerne an folgendem Trainingsprogramm teilnehmen:'
 
   I_will_come_as: Ich komme als
+  please_indicate_other_reason: "Wenn Sie nicht für eine bestimmte Konferenz oder Trainingsprogramm nach Caux kommen, wählen Sie bitte <strong>Andere Aufenthaltsgründe</strong> und nennen Sie diese Gründe
+  "
 
   base: ''

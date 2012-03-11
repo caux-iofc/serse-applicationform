@@ -180,4 +180,6 @@ fr:
   first_choice: "Atelier préféré"
   second_choice: "Second choix"
 
+  please_indicate_other_reason: "Si vous ne venez pas à Caux pour une session ou un programme spécifique, veuillez sélectionner <strong>Autres raison</strong> et préciser vos raisons"
+
   base: ""
