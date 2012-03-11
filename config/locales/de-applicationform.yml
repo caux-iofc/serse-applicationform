@@ -91,6 +91,7 @@ de:
   sponsors_name: "Sponsor"
   sponsors_amount: Beitrag pro Nacht
   sponsors_currency: "W\xC3\xA4hrung"
+  sponsors_currency_name: CHF
   confirmation_letter_via_email: E-mail
   proficiency_good: Gut
   permanent_address: "St\xC3\xA4ndige Wohnadresse"
@@ -146,13 +147,34 @@ de:
   may_not_be_in_the_future: darf nicht in der Zukunft liegen
   must_be_valid_for_3_months_beyond_departure_date: muss mindestens drei Monate hinter Ihrer Abreise aus Caux liegen
   diet_detail: 'Eine vegetarische Variante wird bei jeder Mahlzeit angeboten. Zusätzlich kann die Küche in Caux folgende Wünsche berücksichtigen. Bitte kreuzen Sie gemäss Ihren Bedürfnissen an: '
+  other_diet_text: Falls Sie andere Bedürfnisse haben, steht Ihnen eine Küche zur Benutzung zur Verfügung. Falls Sie dazu spezielle Zutaten benötigen, bitten wir Sie, diese selber mitzubringen. Wenn Sie von diesem Angebot Gebrauch machen möchten, oder irgendwelche anderen Bedürfnisse haben, melden Sie dies bitte bei Ihrer Ankunft am Empfang.
   phone_number_invalid: muss mit dem Zeichen + beginnen, gefolgt vom Code Ihres Landes (z.B. +49 fur Deutschland) und dem Rest der Nummer.
 
   confirm_read_documents_text_html: Ich/Wir bestätige/n hiermit, die <a href="http://www.caux.iofc.org/de/2012" target="_new">Dokumente</a> betreffend die Konferenzen in Caux gelesen zu haben und möchte/n an der Konferenz teilnehmen.
 
   telephone: Telefonnummer (z.B. +41...)
   nightly_contribution_html: "Falls Sie nicht <a href=\"http://www.caux.iofc.org/de/2012-gebühren\">92 CHF pro Nacht (Erwachsene)</a> selber bezahlen, geben Sie bitte den Namen der Person oder der Organisation an, die für den Restbetrag aufkommt sowie den genauen Betrag, den diese Person oder Organisation für Sie pro Nacht bezahlt:"
+  child_nightly_contribution_html: "Falls Sie nicht <a href=\"http://www.caux.iofc.org/de/2012-gebühren\">0/46/55 CHF pro Nacht (Kind)</a> selber bezahlen, geben Sie bitte den Namen der Person oder der Organisation an, die für den Restbetrag aufkommt sowie den genauen Betrag, den diese Person oder Organisation für Sie pro Nacht bezahlt:"
 
 
+  confirm_read_documents_error: Bitte bestätigen Sie, dass sie die Dokumente zu den Konferenzen in Caux gelesen haben und dass sie an der Konferenz teilnehmen wollen.
+  data_protection_local_info_text: Ja, bitte senden Sie mir regelmässige Informationen über Aktivitäten von Initiativen der Veränderungen in dem Land, in dem ich wohne.
+  data_protection_caux_info_text: Ja, bitte senden Sie mir regelmässige Informationen über zukünftige Konferenzen in Caux (per E-Mail).
+
+  submitted_intro_part_3: Sie erhalten ein Bestätigungsschreiben, sobald ihre Anmeldung akzeptiert ist. Falls Sie bis zwei Wochen vor Ihrer geplanten Ankunft in Caux noch keine Bestätigung erhalten haben, erkundigen Sie sich bitte hier
+
+  volunteer: Freiwilliger Helfer
+  state: Kanton/Provinz/Bundesland
+  country: Land
+  citizenship: Staatsangehörigket
+  data_protection_consent: ""
+
+  conference_fees: Konferenzgebühren
+  other_reason_please_specify: 'Andere Aufenthaltsgründe:'
+
+  conference_participation: 'Ich möchte gerne an folgender/folgenden Konferenz/en teilnehmen'
+  training_participation: 'Ich möchte gerne an folgendem Trainingsprogramm teilnehmen:'
+
+  I_will_come_as: Ich komme als
 
   base: ''

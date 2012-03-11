@@ -1,4 +1,5 @@
 
+<%=t :hs_2012_participation_only_by_personal_invitation %>
 <%= oac.fields_for :variables do |var| -%>
 <p><span class="af_star">*</span><strong><%=t :hs_2012_invited_by %></strong><br/>
 <%= var.text_field :invited_by, :value => oac.object.variables["invited_by"] %>

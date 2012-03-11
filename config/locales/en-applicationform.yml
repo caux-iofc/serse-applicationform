@@ -121,7 +121,7 @@ en:
   badge_explanation: "While the conferences are on, everyone in the conference centre has a name badge that indicates name and country. Please provide your information as you want it to appear on your badge."
   proceed: "Proceed"
   phone_number_invalid: "must start with a plus sign followed by your country code (e.g. +41 for Switzerland, +1 for the USA, etc) followed by the rest of the number."
-  postal_code_invalid: "must be either empty or two or more characters long"
+  postal_code_invalid: "must either be empty or two or more characters long"
   may_not_be_in_the_future: "may not be in the future"
   must_be_valid_for_3_months_beyond_departure_date: "must be at least 3 months beyond your departure date from Caux"
   min_age_16: " is invalid: you must be at least 16 years old to apply independently"

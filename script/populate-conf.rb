@@ -70,6 +70,14 @@ update_ws('Social Practice in the Making','fr','Mise en place d’une pratique s
 update_ws('Media and its responsibilities','fr','La responsabilité des médias',nil,'Anglais')
 update_ws('Anti-discrimination and religious diversity','fr','Diversité religieuse et lutte contre la discrimination',nil,'Anglais')
 
+update_ws('Youth as empowered civil society actors','de','Jugend als aktive Mitglieder einer Zivilgesellschaf',nil,'Englisch')
+update_ws('Empowering Women\'s Leadership within Civil Society','de','Stärkung der Rolle von Frauen in der Zivilgesellschaft und Führung durch Frauen',nil,'Spanisch mit Übersetzung')
+update_ws('Building Trust between Generations, Communities and Cultures','de','Vertrauensbildung zwischen Generationen',nil,'Englisch')
+update_ws('Pedagogy for the Child as Global Citizen','de','Pädagogik für das Kind als Weltbürger',nil,'Englisch')
+update_ws('Social Practice in the Making','de','So entsteht praktisches Handeln',nil,'Englisch')
+update_ws('Media and its responsibilities','de','Die Verantwortung der Medien',nil,'Englisch')
+update_ws('Anti-discrimination and religious diversity','de','Anti-Diskriminierung und religiöse Vielfalt',nil,'Englisch')
+
 @conference_id = Conference.with_translations.where("session_group_id = 12 and name = 'Trust and integrity in the global economy'").first.id
 @sort = 0
 
@@ -94,6 +102,13 @@ update_ws('Authentic Self-Leadership','fr','Vers un « Self Leadership » authen
 update_ws('Integral Economy','fr','Economie intégrante et société intégrante',nil,'Anglais')
 update_ws('Creating the Learning Society','fr','Créer une société de l’apprentissage',nil,'Anglais')
 
+update_ws('Business Work Stream','de','Rückbesinnung auf Grundwerte des Unternehmertums',nil,'Englisch')
+update_ws('Food Sustainability Network','de','Nahrung und das neue Entwicklungsmodell',nil,'Englisch')
+update_ws('Leading change for a Sustainable World','de','Verantwortung übernehmen –für eine nachhaltige Zukunft','Um an diesem Workstream teilzunehmen, lesen Sie bitte <a href="http://www.caux.iofc.org/sites/all/files/LCSW%20application%20form.pdf">folgendes Dokument (PDF - Englisch)</a>','Englisch')
+update_ws('Authentic Self-Leadership','de','Authenthisches "Self-Leadership"',nil,'Englisch')
+update_ws('Integral Economy','de','Integrale Wirtschaft und Integrale Gesellschaft',nil,'Englisch')
+update_ws('Creating the Learning Society','de','Eine lernende Gesellschaft kreieren',nil,'Englisch')
+
 @conference_id = Conference.with_translations.where("session_group_id = 12 and name = 'The dynamics of being a change-maker'").first.id
 @sort = 0
 
@@ -110,6 +125,13 @@ update_ws('Connecting communities through trustbuilding','fr','Rapprocher les co
 update_ws('The heart of effective leadership','fr','Au cœur du leadership effectif',nil,'Anglais')
 update_ws('Foundations for freedom','fr','Fondements de la liberté',nil,'Anglais')
 update_ws('Life matters course','fr','Votre vie à de l\'importance',nil,'Anglais')
+
+update_ws('Creators of Peace - Creators of Peace Circle','de','Creators of Peace: « Peace Circles » erleben ',nil,'Englisch')
+update_ws('Creators of Peace - Facilitating the Circle','de','Creators of Peace: « Peace Circles » moderieren',nil,'Englisch')
+update_ws('Connecting communities through trustbuilding','de','Gesellschaften durch Vertrauen vereinen',nil,'Englisch')
+update_ws('The heart of effective leadership','de','Die Basis erfolgreicher Führung',nil,'Englisch')
+update_ws('Foundations for freedom','de','Grundlagen für die Freiheit',nil,'Englisch')
+update_ws('Life matters course','de','Ihr Leben zählt',nil,'Englisch')
 
 I18n.locale = 'en'
 
