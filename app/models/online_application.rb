@@ -112,6 +112,28 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
+  validate :scholars_interns_interpreters_can_not_select_conferences
+
+  def scholars_interns_interpreters_can_not_select_conferences
+    if interpreter and not online_application_conferences.empty? then
+      errors.add :interpreter, I18n.t(:if_you_come_as_an_interpreter_please_do_not_select_a_conference)
+    end
+    if not online_application_conferences.empty? and not training_programs.empty? then
+      @real_locale = I18n.locale
+      I18n.locale = 'en'
+      training_programs.each do |tp|
+        if tp.name =~ /Caux Interns/ then
+          I18n.locale = @real_locale
+          errors.add :base, I18n.t(:if_you_come_as_a_caux_intern_please_do_not_select_a_conference)
+        end
+        if tp.name =~ /Caux Scholars/ then
+          I18n.locale = @real_locale
+          errors.add :base, I18n.t(:if_you_come_as_a_caux_scholar_please_do_not_select_a_conference)
+        end
+      end
+    end
+  end
+
   validates :email, :confirmation => true,
                     :presence => true,
                     :email => true, :if => "relation == 'primary applicant'"

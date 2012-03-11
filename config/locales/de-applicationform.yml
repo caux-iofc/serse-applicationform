@@ -141,7 +141,7 @@ de:
   badge_surname: 'Namensschild: Name'
   badge_country: 'Namensschild: Land'
 
-  other_reason: "Ich möchte aus einem anderen Grund nach Caux kommen"
+  other_reason_title: "Ich möchte aus einem anderen Grund nach Caux kommen"
 
   must_be_at_least_6_weeks_in_the_future: ' muss mindestens sechs Wochen in der Zukunft liegen'
   may_not_be_in_the_future: darf nicht in der Zukunft liegen
@@ -170,13 +170,15 @@ de:
   data_protection_consent: ""
 
   conference_fees: Konferenzgebühren
-  other_reason_please_specify: 'Andere Aufenthaltsgründe:'
+  other_reason_please_specify: 'Andere Aufenthaltsgründe: '
+  other_reason: 'Andere Aufenthaltsgründe: '
+  other_reason_detail: 'Andere Aufenthaltsgründe: '
+  please_specify_your_reason: 'nennen Sie Ihre Aufenthaltsgründe'
 
   conference_participation: 'Ich möchte gerne an folgender/folgenden Konferenz/en teilnehmen'
   training_participation: 'Ich möchte gerne an folgendem Trainingsprogramm teilnehmen:'
 
   I_will_come_as: Ich komme als
-  please_indicate_other_reason: "Wenn Sie nicht für eine bestimmte Konferenz oder Trainingsprogramm nach Caux kommen, wählen Sie bitte <strong>Andere Aufenthaltsgründe</strong> und nennen Sie diese Gründe
-  "
+  please_indicate_other_reason: "wenn Sie nicht für eine bestimmte Konferenz oder Trainingsprogramm nach Caux kommen, nennen Sie bitte diese Gründe"
 
   base: ''

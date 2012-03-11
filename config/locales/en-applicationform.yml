@@ -168,7 +168,7 @@ en:
   conference_participation: "I will participate in the following conference(s)"
   special_conference_participation: "I will participate in the following ..."
   training_participation: "I will participate in the following training programme"
-  other_reason: "I will come to Caux for another reason"
+  other_reason_title: "I will come to Caux for another reason"
   remarks: "Remarks"
 
   I_will_come_as: "I will come as"
@@ -183,6 +183,7 @@ en:
   volunteer: "Volunteer"
   other_reason_please_specify: "Other reason, please specify:"
   please_specify_your_reason: "please specify your reason"
+  other_reason: "Other reason: "
   other_reason_detail: "Other reason: "
   please_choose_preferred_workshops: "Please choose your preferred workshops"
   please_indicate_conference_role: "Please indicate your role(s) during the conference"
@@ -193,7 +194,11 @@ en:
   first_choice: "First choice"
   second_choice: "Second choice"
 
-  please_indicate_other_reason: "If you don't come to Caux for a specific session or training programme, please select <strong>Other reason</strong> and specify your reasons"
+  please_indicate_other_reason: "if you don't come to Caux for a specific session or training programme, please specify your reason"
+
+  if_you_come_as_an_interpreter_please_do_not_select_a_conference: "if you come as an interpreter please do not select a conference"
+  if_you_come_as_a_caux_intern_please_do_not_select_a_conference: "if you come as a Caux Intern please do not select a conference"
+  if_you_come_as_a_caux_scholar_please_do_not_select_a_conference: "if you come as a Caux Scholar please do not select a conference"
 
   # This is a hack; for some reason adding to error[:base] makes Rails look for a translation of ':base'
   base: ''

@@ -123,10 +123,13 @@ fr:
   conference_participation: "Je participe à la/aux rencontre(s) suivante(s):"
   special_conference_participation: "Autre réunion:"
   training_participation: "Je participe à la formation suivante:"
-  other_reason: "Je viens à Caux pour une autre raison:"
+  other_reason_title: "Je viens à Caux pour une autre raison:"
   interpreter: "Interprétation"
   volunteer: "Bénévolat"
+  other_reason: "Autre raison: "
+  other_reason_detail: "Autre raison: "
   other_reason_please_specify: "Merci de préciser: "
+  please_specify_your_reason: 'veuillez préciser vos raisons'
 
   I_will_come_as: "Je viens en tant que"
   participant: "participant(e)"
@@ -180,6 +183,6 @@ fr:
   first_choice: "Atelier préféré"
   second_choice: "Second choix"
 
-  please_indicate_other_reason: "Si vous ne venez pas à Caux pour une session ou un programme spécifique, veuillez sélectionner <strong>Autres raison</strong> et préciser vos raisons"
+  please_indicate_other_reason: "si vous ne venez pas à Caux pour une session ou un programme spécifique, veuillez préciser vos raisons"
 
   base: ""
