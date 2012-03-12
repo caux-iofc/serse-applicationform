@@ -134,6 +134,52 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
+  validate :arrival_and_departures_match_session_dates
+
+  def arrival_and_departures_match_session_dates
+    # Only complain if they've provided arrival/departure
+    return if arrival.nil?
+    return if departure.nil?
+
+    # Find earliest session start and latest session end
+    @session_start = Time.now() + 30.years
+    @session_stop = Time.now() - 30.years
+    online_application_conferences.each do |oac|
+      @session_start = oac.conference.start if oac.conference.start < @session_start
+      @session_stop = oac.conference.stop if oac.conference.stop > @session_stop
+    end
+    training_programs.each do |tp|
+      @session_start = tp.start if tp.start < @session_start
+      @session_stop = tp.stop if tp.stop > @session_stop
+    end
+
+    # See if they are arriving a day or more early, or leaving a day or more late,
+    # and there is nothing in the remarks field
+    if remarks =~ /^[\r\n]*$/ and (arrival.to_date < @session_start.to_date or departure.to_date > @session_stop.to_date) then
+      errors.add :remarks, I18n.t(:arriving_early_or_leaving_late_html).html_safe
+    end
+
+    # See if they selected a conference outside of their arrival/departure dates
+    online_application_conferences.each do |oac|
+      if (arrival > oac.conference.stop and departure > oac.conference.stop) or
+         (arrival < oac.conference.start and departure < oac.conference.start) then
+        errors.add :arrival, i18n.t(:a_conference_you_selected_does_not_overlap_with_your_stay_in_caux)
+        errors.add :departure, i18n.t(:a_conference_you_selected_does_not_overlap_with_your_stay_in_caux)
+        break
+      end
+    end
+
+    # See if they selected a training program outside of their arrival/departure dates
+    training_programs.each do |tp|
+      if (arrival > tp.stop and departure > tp.stop) or
+         (arrival < tp.start and departure < tp.start) then
+        errors.add :arrival, I18n.t(:a_training_program_you_selected_does_not_overlap_with_your_stay_in_caux)
+        errors.add :departure, I18n.t(:a_training_program_you_selected_does_not_overlap_with_your_stay_in_caux)
+        break
+      end
+    end
+  end
+
   validates :email, :confirmation => true,
                     :presence => true,
                     :email => true, :if => "relation == 'primary applicant'"

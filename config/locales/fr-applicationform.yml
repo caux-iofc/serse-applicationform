@@ -185,4 +185,8 @@ fr:
 
   please_indicate_other_reason: "si vous ne venez pas à Caux pour une session ou un programme spécifique, veuillez préciser vos raisons"
 
+  a_conference_you_selected_does_not_overlap_with_your_stay_in_caux: ": une session que vous avez choisie ne correspond pas aux dates de votre séjour à Caux."
+  a_training_program_you_selected_does_not_overlap_with_your_stay_in_caux: ": un programme que vous avez choisie ne correspond pas aux dates de votre séjour à Caux."
+  arriving_early_or_leaving_late_html: "La date de votre arrivée ne correspond pas à la date du début de la conférence/du programme et/ou la date de votre départ ne correspond pas à la date de la fin de la conférence. Veuillez spécifier la raison pour ce prolongement de votre séjour dans le champ <strong>Remarques</strong>."
+
   base: ""

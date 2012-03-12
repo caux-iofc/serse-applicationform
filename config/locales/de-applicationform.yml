@@ -181,4 +181,8 @@ de:
   I_will_come_as: Ich komme als
   please_indicate_other_reason: "wenn Sie nicht für eine bestimmte Konferenz oder Trainingsprogramm nach Caux kommen, nennen Sie bitte diese Gründe"
 
+  a_conference_you_selected_does_not_overlap_with_your_stay_in_caux: ": eine von Ihnen gewählte Konferenz stimmt nicht mit den Daten Ihres Aufenthalts in Caux überein."
+  a_training_program_you_selected_does_not_overlap_with_your_stay_in_caux: ": ein von Ihnen gewählte Trainingsprogramm stimmt nicht mit den Daten Ihres Aufenthalts in Caux überein."
+  arriving_early_or_leaving_late_html: "Das Datum Ihrer Ankunft entspricht nicht dem Datum des Beginns der Konferenz/des Trainingsprogramms und/oder das Datum Ihrer Abreise entspricht nicht dem Datum des Beginns der Konferenz/des Trainingsprogramms und/oder das Datum Ihrer Abreise entspricht nicht dem Datum des Endes der Konferenz/des Trainingsprogramms. Bitte erläutern Sie im Feld <strong>Bemerkungen</strong>, weshalb Sie Ihren Aufenthalt verlängern möchten."
+
   base: ''
