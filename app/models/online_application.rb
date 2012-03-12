@@ -163,8 +163,8 @@ class OnlineApplication < ActiveRecord::Base
     online_application_conferences.each do |oac|
       if (arrival > oac.conference.stop and departure > oac.conference.stop) or
          (arrival < oac.conference.start and departure < oac.conference.start) then
-        errors.add :arrival, i18n.t(:a_conference_you_selected_does_not_overlap_with_your_stay_in_caux)
-        errors.add :departure, i18n.t(:a_conference_you_selected_does_not_overlap_with_your_stay_in_caux)
+        errors.add :arrival, I18n.t(:a_conference_you_selected_does_not_overlap_with_your_stay_in_caux)
+        errors.add :departure, I18n.t(:a_conference_you_selected_does_not_overlap_with_your_stay_in_caux)
         break
       end
     end
