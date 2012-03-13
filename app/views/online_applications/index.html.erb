@@ -24,14 +24,14 @@
 
 <% @online_applications.each do |online_application| %>
   <tr>
-    <td><%= online_application.relation %></td>
+    <td><%= online_application.relation == 'primary applicant' ? '' : t(online_application.relation) %></td>
     <td><strong><%= online_application.firstname %></strong></td>
     <td><strong><%= online_application.surname %></strong></td>
-    <td><%= online_application.gender == 1 ? 'Female' : 'Male' %></td>
+    <td><%= online_application.gender == 1 ? t(:female) : t(:male) %></td>
     <td><%= online_application.arrival.to_s(:pretty) %></td>
     <td><%= online_application.departure.to_s(:pretty) %></td>
-    <td><%= link_to 'Edit', edit_online_application_path(online_application) %></td>
-    <td><%= link_to 'Remove', online_application, :confirm => t(:are_you_sure), :method => :delete %></td>
+    <td><%= link_to t(:edit), edit_online_application_path(online_application) %></td>
+    <td><%= link_to t(:remove), online_application, :confirm => t(:are_you_sure), :method => :delete %></td>
   </tr>
 <% end %>
 </table>

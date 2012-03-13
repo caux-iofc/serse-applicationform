@@ -190,3 +190,42 @@ fr:
   arriving_early_or_leaving_late_html: "La date de votre arrivée ne correspond pas à la date du début de la conférence/du programme et/ou la date de votre départ ne correspond pas à la date de la fin de la conférence. Veuillez spécifier la raison pour ce prolongement de votre séjour dans le champ <strong>Remarques</strong>."
 
   base: ""
+
+  online_application_languages_proficiency: "comp\xC3\xA9tence linguistique"
+  min_age_16: " non valide: L'\xC3\xA2ge minimum pour venir non-accompagn\xC3\xA9 est de 16 ans "
+  please_indicate_conference_role: Veuillez indiquer votre(vos) statut(s) pendant la rencontre
+  please_complete_all_required_fields: "Veuillez remplir tous les champs n\xC3\xA9cessaires"
+  submitted_intro_part_3: "Vous recevrez une lettre officielle de confirmation d\xC3\xA8s l'acceptation de votre inscription. Si vous ne l'avez pas re\xC3\xA7ue 2 semaines avant votre arriv\xC3\xA9e \xC3\xA0 Caux, veuillez nous contactez."
+  special_meals_at_night: "(horaire de repas adapt\xC3\xA9 le soir)"
+  visa_reference_email: "Adresse E-mail de la personne de r\xC3\xA9f\xC3\xA9rence"
+  can_be_no_earlier_than_today: " La date ne peut \xC3\xAAtre avant aujourd'hui"
+  max_age_110: "non valide: Avez-vous vraiment plus de 110 ans ?"
+  if_you_come_as_a_caux_scholar_please_do_not_select_a_conference: "Si vous participez au Caux Scholar Program, merci de ne pas s\xC3\xA9lectionner de rencontre"
+  must_be_after_valid_from: " doit \xC3\xAAtre valide \xC3\xA0 partir de"
+  postal_code_invalid: "doit \xC3\xAAtre vide ou contenir minimum 2 signes"
+  application_not_yet_submitted_html: "Votre inscription n'a pas encore \xC3\xA9t\xC3\xA9 valid\xC3\xA9e.<br/>Veuillez ajouter une personne ou envoyer votre inscription"
+  only_valid_relations: Veuillez mentionner le lien entre cette personne et le(la) participant(e) principal(e)
+  must_be_before_valid_until: " Doit \xC3\xAAtre valide avant la date"
+  if_you_come_as_an_interpreter_please_do_not_select_a_conference: "Si vous venez comme interpr\xC3\xA8te, merci de ne pas s\xC3\xA9lectionner de rencontre"
+  relation: lien avec le(la) participant(e) principal(e)
+  must_be_before_departure: "doit \xC3\xAAtre avant la date de d\xC3\xA9part"
+  please_confirm_chf_100_registration_fee: "Veuillez confirmer avoir pris connaissance des frais d'inscription de 100.- pour participer \xC3\xA0 la rencontre"
+  previous_visit_unset: ": Veuillez indiquer si vous \xC3\xAAtes d\xC3\xA9j\xC3\xA0 venus \xC3\xA0 Caux"
+  must_be_valid_now: "doit \xC3\xAAtre valide maintenant"
+  duplicate_person_in_application_group: "non valide: une personne avec les m\xC3\xAAmes pr\xC3\xA9nom, nom, date de naissance et sexe est d\xC3\xA9j\xC3\xA0 mentionn\xC3\xA9e dans cette inscription"
+  please_choose_preferred_workshops: "Veuillez choisir votre atelier pr\xC3\xA9f\xC3\xA9r\xC3\xA9"
+  passport_embassy: Dans quelle ambassade demanderez-vous votre visa ?
+  sponsors: Sponsor
+  correspondence_address_valid_from: "Adresse de correspondence : valide \xC3\xA0 partir de la date"
+  choose_one: "Veuillez s\xC3\xA9lectionner un champs"
+  visa_reference_name: "Personne de r\xC3\xA9f\xC3\xA9rence dans Initiatives et Changement"
+  your_application_title: Votre inscription
+  data_protection_consent: ""
+  previous_year_invalid: Veuillez utiliser uniquement des chiffres
+  if_you_come_as_a_caux_intern_please_do_not_select_a_conference: "Si vous participez au Caux Interns Programme, veuillez ne pas s\xC3\xA9lectionner de rencontre"
+
+  submit_this_application: Envoyer l'inscription
+  edit: editer
+  are_you_sure: "Etes-vous s\xC3\xBBr?"
+  remove: supprimer
+  add_a_person_to_this_application: "Ajouter une personne \xC3\xA0 cette inscription"

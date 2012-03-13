@@ -131,7 +131,7 @@ class OnlineApplicationsController < ApplicationController
 
     respond_to do |format|
       if @online_application.save
-        format.html { redirect_to online_applications_url, :notice => 'Online application was successfully created.' }
+        format.html { redirect_to :action => 'index', :locale => params[:locale] }
         format.json { render :json => @online_application, :status => :created, :location => @online_application }
       else
         format.html {
@@ -162,7 +162,7 @@ class OnlineApplicationsController < ApplicationController
 
     respond_to do |format|
       if @online_application.update_attributes(params[:online_application])
-        format.html { redirect_to online_applications_url, :notice => 'Online application was successfully updated.' }
+        format.html { redirect_to :action => 'index', :locale => params[:locale] }
         format.json { head :ok }
       else
         populate_ethereal_variables
