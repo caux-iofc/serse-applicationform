@@ -88,7 +88,7 @@ en:
   ensure_correspondence_address: "Please make sure to fill out the 'Correspondence address' section."
   visa: "Visa for Switzerland"
   visa_needed: "Yes I need a visa"
-  visa_reference_name: "Reference person from IofC"
+  visa_reference_name: "Reference person from Initiatives of Change"
   visa_reference_email: "E-mail address reference person"
   visa_information_html: '<p>Please enquire whether you need a visa by consulting one of the following
                           <ul>
