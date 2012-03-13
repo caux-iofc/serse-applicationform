@@ -186,3 +186,45 @@ de:
   arriving_early_or_leaving_late_html: "Das Datum Ihrer Ankunft entspricht nicht dem Datum des Beginns der Konferenz/des Trainingsprogramms und/oder das Datum Ihrer Abreise entspricht nicht dem Datum des Beginns der Konferenz/des Trainingsprogramms und/oder das Datum Ihrer Abreise entspricht nicht dem Datum des Endes der Konferenz/des Trainingsprogramms. Bitte erläutern Sie im Feld <strong>Bemerkungen</strong>, weshalb Sie Ihren Aufenthalt verlängern möchten."
 
   base: ''
+
+  online_application_languages_proficiency: "Sprachliche F\xC3\xA4higkeiten"
+  min_age_16: " ung\xC3\xBCltig: sie m\xC3\xBCssen mindestens 16 Jahre alt sein f\xC3\xBCr eine unabh\xC3\xA4ngige Anmeldung"
+  ensure_fax_number: Bitte geben Sie bei den 'Kontakt Informationen' eine Fax Nummer an.
+  second_choice: Zweite Wahl
+  please_indicate_conference_role: "Bitte geben Sie alle ihre Aufgaben w\xC3\xA4hrend der Konferenz an"
+  please_complete_all_required_fields: "Bitte f\xC3\xBCllen Sie alle gefragten Felder aus"
+  special_meals_at_night: (Besondere Mahlzeiten in der Nacht)
+  visa_reference_email: Email Adresse einer Referenzperson
+  can_be_no_earlier_than_today: " kann nicht vor heute sein"
+  max_age_110: " ung\xC3\xBCltig: sind Sie wirklich \xC3\xBCber 110 Jahre alt?"
+  passport_expiry_date: "G\xC3\xBCltigkeitsdauer des Reisepasses"
+  language_missing: "W\xC3\xA4hlen Sie bitte mindestens eine Sprache aus"
+  if_you_come_as_a_caux_scholar_please_do_not_select_a_conference: "Wenn Sie als Scholar nach Caux kommen bitte keine Konferenz ausw\xC3\xA4hlen"
+  must_be_after_valid_from: " Muss von diesem Datum an g\xC3\xBCltig sein"
+  visa: "Visa f\xC3\xBCr die Schweiz"
+  postal_code_invalid: Muss entweder leer oder zwei oder mehr Buchstaben lang sein
+  application_not_yet_submitted_html: "Ihr Antrag wurde noch nicht \xC3\xBCbermittelt.<br/>Bitte f\xC3\xBCgen Sie eine Person ein oder senden Sie ihren Antrag."
+  only_valid_relations: Bitte geben Sie die Beziehung dieses Antragstellers zum Vorherigen an
+  must_be_before_valid_until: " Muss mindestens bis zu dem Datum g\xC3\xBCltig sein"
+  if_you_come_as_an_interpreter_please_do_not_select_a_conference: "Wenn Sie als Interpret kommen keine Konferenz ausw\xC3\xA4hlen"
+  relation: Beziehung zum vorherigen Teilnehmer
+  must_be_before_departure: " muss vor der Abreise sein"
+  please_confirm_chf_100_registration_fee: "Bitte best\xC3\xA4tigen Sie dass Sie verstanden haben dass zur Teilnahme an dieser Konferenz eine Anmeldegeb\xC3\xBChr von CHF 100.- erhoben wird."
+  previous_visit_unset: ": bitte geben Sie an ob Sie schon fr\xC3\xBCher in Caux gewesen sind."
+  must_be_valid_now: " Muss nun g\xC3\xBCltig sein"
+  duplicate_person_in_application_group: " Ung\xC3\xBCltig: Eine Person mit gleichem Vornamen, Familiennamen, Geburtsdatum und Geschlecht ist schon Teil dieser Anmeldung"
+  previous_year: Jahr des letzten Besuchs
+  please_choose_preferred_workshops: "Bitte w\xC3\xA4hlen Sie ihren bevorzugten Workshop"
+  passport_embassy: Bei welcher Botschaft werden Sie ihren Visaantrag stellen?
+  first_choice: Erste Wahl
+  special_conference_participation: Ich will teilnehmen in der folgenden ...
+  valid_from: "G\xC3\xBCltig von"
+  sponsors: "Sponsor "
+  welcome_children_html: "Wir freuen uns, Sie in Caux mit ihre/n/m Kind/ern zu begr\xC3\xBCssen. Wie Sie wissen, k\xC3\xB6nnen diese w\xC3\xA4hrend den Meetings in einem Kindergarten beaufsichtigt werden. Damit dies bestm\xC3\xB6glichst abgewickelt werden kann, bitten wir Sie ein Mobiltelefon mitzunehmen</b> damit Sie im Notfall erreicht werden k\xC3\xB6nnen. Dies ist eine Bestimmung der kantonalen Kindergartenbeh\xC3\xB6rde. Danke f\xC3\xBCr ihr Verst\xC3\xA4ndnis."
+  correspondence_address_valid_from: "Korrespondenz Adresse: G\xC3\xBCltig ab dem Datum"
+  choose_one: "W\xC3\xA4hlen Sie einen"
+  visa_reference_name: "Referenz Person von Initiativen der Ver\xC3\xA4nderung"
+  your_application_title: Ihr Antrag
+  previous_year_invalid: " Sieht nich wie ein Jahr aus - bitte ben\xC3\xBCtzen Sie nur Zahlen"
+  must_be_after_arrival: " Muss nach der Ankunft sein"
+  if_you_come_as_a_caux_intern_please_do_not_select_a_conference: "Wenn Sie als Caux Intern kommen bitte keine Konferenz ausw\xC3\xA4hlen"

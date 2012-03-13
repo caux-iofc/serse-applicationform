@@ -204,6 +204,12 @@ en:
   a_training_program_you_selected_does_not_overlap_with_your_stay_in_caux: ": a training program you selected does not overlap with your stay at Caux."
   arriving_early_or_leaving_late_html: "You indicated that you wish to arrive earlier than the conference/training program starts, and/or that you wish to stay on after the end of the conference/training program. Please specify your reasons for that in the <strong>Remarks</strong> field."
 
+  add_a_person_to_this_application: "Add a person to this application"
+  submit_this_application: "Submit this application"
+  edit: Edit
+  remove: Remove
+  are_you_sure: Are you sure?
+
   # This is a hack; for some reason adding to error[:base] makes Rails look for a translation of ':base'
   base: ''
 

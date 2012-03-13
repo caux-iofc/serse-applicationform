@@ -15,9 +15,9 @@
     <th></th>
     <th><%=t :firstname %></th>
     <th><%=t :surname %></th>
-    <th>Gender</th>
-    <th>Arrival</th>
-    <th>Departure</th>
+    <th><%=t :gender %></th>
+    <th><%=t :arrival %></th>
+    <th><%=t :departure %></th>
     <th></th>
     <th></th>
   </tr>
@@ -31,7 +31,7 @@
     <td><%= online_application.arrival.to_s(:pretty) %></td>
     <td><%= online_application.departure.to_s(:pretty) %></td>
     <td><%= link_to 'Edit', edit_online_application_path(online_application) %></td>
-    <td><%= link_to 'Remove', online_application, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Remove', online_application, :confirm => t(:are_you_sure), :method => :delete %></td>
   </tr>
 <% end %>
 </table>
@@ -45,10 +45,10 @@
 <table>
 <tr>
 <td>
-<%= button_to 'Add a person to this application', new_online_application_path, :method => :get %>
+<%= button_to t(:add_a_person_to_this_application), new_online_application_path, :method => :get %>
 </td>
 <td>
-<%= button_to 'Submit this application', submit_application_group_path, :method => :get %>
+<%= button_to t(:submit_this_application), submit_application_group_path, :method => :get %>
 </td>
 </tr>
 </table>
