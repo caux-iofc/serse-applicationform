@@ -71,7 +71,7 @@
            <tr>
              <td colspan="2" align="center"><span class="af_normtitle"><%=t :training_participation %></span></td>
            </tr>
-           <% TrainingProgram.find_all_by_session_group_id(session[:session_group_id]).each do |tp| -%>
+           <% TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).each do |tp| -%>
            <tr>
              <td>
                <%= check_box_tag :training_program_ids, tp.id, @online_application.training_programs.include?(tp), :name => 'online_application[training_program_ids][]', :id => "tp_check_" + (tp.nil? or tp.name.nil? ? '' : tp.name.downcase) %>

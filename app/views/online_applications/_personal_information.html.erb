@@ -80,7 +80,7 @@
                  <tr>
                    <td>
                      <div class="field">
-                       <%= lf.select(:language_id, Language.with_translations.all.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }, {:include_blank => t(:choose_one)}) %>
+                       <%= lf.select(:language_id, Language.with_translations.collect {|p| [ p.name, p.id ] }.sort, {:include_blank => t(:choose_one)}) %>
                      </div>
                    </td>
                    <td>
@@ -115,7 +115,7 @@
            </tr>
            <tr>
              <td colspan="2">
-               <% Diet.order(:priority_sort).each do |diet| -%>
+               <% Diet.with_translations.order(:priority_sort).each do |diet| -%>
                  <div <%= diet.name == 'Ramadan' ? 'id="ramadan" style="display: none"'.html_safe : '' -%>>
                    <% @old_locale = I18n.locale; I18n.locale = 'en' -%>
                    <%= check_box_tag :diet_ids, diet.id, @online_application.diets.include?(diet), :name => 'online_application[diet_ids][]', :id => "diet_check_#{diet.name.downcase}" %>
