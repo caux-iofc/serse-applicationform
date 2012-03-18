@@ -10,7 +10,6 @@ class ApplicationGroupsController < ApplicationController
       end
       @application_group.data_protection_caux_info = true
       @application_group.data_protection_local_info = true
-      @application_group.session_group_id = session[:session_group_id]
     else
       @application_group = nil
       redirect_to :new_online_application
@@ -27,6 +26,8 @@ class ApplicationGroupsController < ApplicationController
     end
 
     @application_group.attributes = params[:application_group]
+    # Just to be sure
+    @application_group.session_group_id = session[:session_group_id]
 
     respond_to do |format|
       if @application_group.valid? then
