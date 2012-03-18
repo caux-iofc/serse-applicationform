@@ -11,7 +11,6 @@ class ApplicationGroupsController < ApplicationController
       @application_group.data_protection_caux_info = true
       @application_group.data_protection_local_info = true
       @application_group.session_group_id = session[:session_group_id]
-      @application_group.save
     else
       @application_group = nil
       redirect_to :new_online_application
