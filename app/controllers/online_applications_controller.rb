@@ -200,6 +200,7 @@ protected
       @ag.session_id = request.session_options[:id]
       @ag.browser = request.env['HTTP_USER_AGENT']
       @ag.remote_ip = request.env['REMOTE_ADDR']
+      @ag.session_group_id = session[:session_group_id] if session.has_key?(:session_group_id)
       @ag.save!
       session[:application_group_id] = @ag.id
     else
