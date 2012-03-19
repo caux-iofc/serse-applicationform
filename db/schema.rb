@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120319033400) do
+ActiveRecord::Schema.define(:version => 20120319041858) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -351,6 +351,7 @@ ActiveRecord::Schema.define(:version => 20120319033400) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "serse_id"
   end
 
   add_index "online_application_conference_workstreams", ["conference_workstream_id"], :name => "index_oa_conf_workstreams_on_conference_workstream_id"
