@@ -122,6 +122,7 @@ de:
   intro_part_2_html: "Wenn Sie eine Fehlermeldung erhalten haben, Ihr Browser werde nicht unterstützt, <a href=\"http://www.mozilla.org/firefox/\" target=\"new\"><b>installieren Sie bitte einen neuen Browser</b></a> und versuchen Sie es noch einmal, bevor Sie uns kontaktieren."
   intro_part_3: "Bitte melden Sie sich bis spätestens sechs Wochen vor Ihrer Ankunft in Caux an."
   language_name: "Sprache"
+  online_application_languages: "Sprache"
 
   data_protection_consent_error: "Wenn Sie nicht damit einverstanden sind, dass Ihre persönlichen Angebane von der Stiftung Caux aufbewahrt werden, können wir mit Ihrer Anmeldung nicht fortfahren!"
   sponsors_nights: "Nächte"

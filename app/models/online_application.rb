@@ -95,6 +95,7 @@ class OnlineApplication < ActiveRecord::Base
   validates :other_citizenship, :presence => true, :if => "citizenship_id == 0"
 
   validate :must_have_one_language
+  validates_associated :online_application_languages
 
   def must_have_one_language
     if online_application_languages.empty? or online_application_languages.all? { |lang| lang.marked_for_destruction? }

@@ -7,4 +7,6 @@ class OnlineApplicationLanguage < ActiveRecord::Base
   validates :language_id, :presence => true
   validates :proficiency, :presence => true
 
+  validates :language_id, :uniqueness => {:scope => [ :online_application_id ] }
+
 end

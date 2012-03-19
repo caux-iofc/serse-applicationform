@@ -17,6 +17,7 @@ fr:
   intro_part_2_html: "Si vous avez des problèmes et avez un message d'erreur ci-dessus, indiquant que votre navigateur n'est pas reconnu, <a href=\"http://www.mozilla.org/firefox/\" target=\"new\"><b>veuillez installer une mise à jour plus récente</b></a> et ré-essayer avant de nous contacter.<p>"
   intro_part_3: "Merci de vous inscrire au plus tard six semaines avant votre arrivée à Caux."
   language_name: "Langue(s)"
+  online_application_languages: "Langue(s)"
 
   confirmation_letter_via_post: Poste
   confirmation_letter_via_correspondence_address: Poste, par adresse de correspondence
