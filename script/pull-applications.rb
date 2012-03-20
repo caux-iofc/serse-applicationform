@@ -24,12 +24,13 @@ require 'pp'
 
 ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 	@conn.transaction {
+STDERR.puts ag.pretty_inspect()
 	  @pg_sql = "insert into tbl_application_groups 
   	                    (epoch,name,spouse_complete,children_complete,other_complete,complete,
 	                       data_protection_consent,data_protection_caux_info,data_protection_local_info,browser,session_group_id) 
 	               values (
 	                 #{ag.updated_at.to_i},
-	                 '#{ag.primary_applicant.surname}, #{ag.primary_applicant.firstname}',
+	                 '#{@conn.escape(ag.primary_applicant.surname)}, #{@conn.escape(ag.primary_applicant.firstname)}',
 	                 1,
 	                 1,
 	                 1,
@@ -37,11 +38,14 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 	                 #{ag.data_protection_consent ? '1' : '0'},
 	                 #{ag.data_protection_caux_info},
 	                 #{ag.data_protection_local_info},
-	                 '#{ag.browser}',
+	                 '#{@conn.escape(ag.browser)}',
 	                 #{ag.session_group_id})"
 	  @res = @conn.exec(@pg_sql)
 
 		ag.online_applications.each do |oa|
+			puts oa.firstname
+			puts oa.surname
+
 			if oa.relation == 'primary applicant' then
         @application_group_sort = 1
 				@relation = 'Primary applicant'
@@ -72,30 +76,30 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 			@values += "#{@application_group_sort},"
 
 			@keys += 'relation_to_master,'
-			@values += "'#{@relation}',"
+			@values += "'" + @conn.escape(@relation) + "',"
 
 			@keys += 'firstname,'
-			@values += "'#{oa.firstname}',"
+			@values += "'" + @conn.escape(oa.firstname) + "',"
 
 			@keys += 'surname,'
-			@values += "'#{oa.surname}',"
+			@values += "'" + @conn.escape(oa.surname) + "',"
 
 			@keys += 'birthdate,'
-			@values += "'#{oa.date_of_birth.strftime("%Y-%m-%d")}',"
+			@values += "'" + @conn.escape(oa.date_of_birth.strftime("%Y-%m-%d")) + "',"
 
 			@keys += 'gender,'
-			@values += "'#{oa.gender}',"
+			@values += "#{oa.gender},"
 
 			if not oa.country.nil? then
 				@keys += 'citizenship_id,'
-				@values += "'#{oa.country.serse_id}',"
+				@values += oa.country.serse_id.to_s + ","
 			else
 				@keys += 'citizenship_id,'
 				@values += "0,"
 			end
 
 			@keys += 'other_citizenship,'
-			@values += "'#{oa.other_citizenship}',"
+			@values += "'" + @conn.escape(oa.other_citizenship) + "',"
 
 			# The form does not prevent duplicate languages from being entered at the moment
 			@languages_seen = Hash.new()
@@ -103,95 +107,95 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 			oa.online_application_languages.each do |l|
 				next if @languages_seen.has_key?(l.language.serse_id)
 				@keys += "language_id#{@language_count},"
-				@values += "'#{l.language.serse_id}',"
+				@values += l.language.serse_id.to_s + ","
 				@keys += "language_id#{@language_count}_proficiency,"
-				@values += "'#{l.proficiency}',"
+				@values += l.proficiency.to_s + ","
 				@language_count += 1
 				@languages_seen[l.language.serse_id] = true
 			end
 
 			@keys += 'profession,'
-			@values += "'#{oa.profession}',"
+			@values += "'" + @conn.escape(oa.profession) + "',"
 
 			@keys += 'employer,'
-			@values += "'#{oa.employer}',"
+			@values += "'" + @conn.escape(oa.employer) + "',"
 
 			@keys += 'email,'
-			@values += "'#{oa.email}',"
+			@values += "'" + @conn.escape(oa.email) + "',"
 
 			@keys += 'telephone,'
-			@values += "'#{oa.telephone}',"
+			@values += "'" + @conn.escape(oa.telephone) + "',"
 
 			@keys += 'cellphone,'
-			@values += "'#{oa.cellphone}',"
+			@values += "'" + @conn.escape(oa.cellphone) + "',"
 
 			@keys += 'fax,'
-			@values += "'#{oa.fax}',"
+			@values += "'" + @conn.escape(oa.fax) + "',"
 
 			@keys += 'work_phone,'
-			@values += "'#{oa.work_telephone}',"
+			@values += "'" + @conn.escape(oa.work_telephone) + "',"
 
 			# Spouse/children have no permanent address
 			if not oa.permanent_address.nil? then
   			@keys += 'street1,'
-  			@values += "'#{oa.permanent_address.street1}',"
+  			@values += "'" + @conn.escape(oa.permanent_address.street1) + "',"
   
   			@keys += 'street2,'
-  			@values += "'#{oa.permanent_address.street2}',"
+  			@values += "'" + @conn.escape(oa.permanent_address.street2) + "',"
   
   			@keys += 'street3,'
-  			@values += "'#{oa.permanent_address.street3}',"
+  			@values += "'" + @conn.escape(oa.permanent_address.street3) + "',"
   
   			@keys += 'city,'
-  			@values += "'#{oa.permanent_address.city}',"
+  			@values += "'" + @conn.escape(oa.permanent_address.city[0,29]) + "',"
   
   			@keys += 'zipcode,'
-  			@values += "'#{oa.permanent_address.postal_code}',"
+  			@values += "'" + @conn.escape(oa.permanent_address.postal_code) + "',"
   
   			@keys += 'state,'
-  			@values += "'#{oa.permanent_address.state}',"
+  			@values += "'" + @conn.escape(oa.permanent_address.state[0,29]) + "',"
   
   			if oa.permanent_address.country_id != 0 then
   				@keys += 'country_id,'
-  				@values += "'#{oa.permanent_address.country.serse_id}',"
+  				@values += oa.permanent_address.country.serse_id.to_s + ","
   			else
   				@keys += 'country_id,'
   				@values += "0,"
   			end
   
   			@keys += 'other_country,'
-  			@values += "'#{oa.permanent_address.other_country}',"
+  			@values += "'" + @conn.escape(oa.permanent_address.other_country) + "',"
 			end
   
 			@keys += 'arrival,'
-			@values += "'#{oa.arrival.to_date.strftime("%Y-%m-%d")}',"
+			@values += "'" + @conn.escape(oa.arrival.to_date.strftime("%Y-%m-%d")) + "',"
 
 			@keys += 'arrival_time,'
-			@values += "'#{oa.arrival.to_time.strftime("%H:%M")}',"
+			@values += "'" + @conn.escape(oa.arrival.to_time.strftime("%H:%M")) + "',"
 
 			@keys += 'departure,'
-			@values += "'#{oa.departure.to_date.strftime("%Y-%m-%d")}',"
+			@values += "'" + @conn.escape(oa.departure.to_date.strftime("%Y-%m-%d")) + "',"
 
 			@keys += 'departure_time,'
-			@values += "'#{oa.departure.to_time.strftime("%H:%M")}',"
+			@values += "'" + @conn.escape(oa.departure.to_time.strftime("%H:%M")) + "',"
 
 			@keys += 'travel_car_train,'
-			@values += "'#{oa.travel_car_train}',"
+			@values += "'" + @conn.escape(oa.travel_car_train) + "',"
 
 			@keys += 'travel_flight,'
-			@values += "'#{oa.travel_flight}',"
+			@values += "'" + @conn.escape(oa.travel_flight) + "',"
 
 			@keys += 'previous_visit,'
-			@values += "'#{oa.previous_visit ? 'yes' : 'no' }',"
+			@values += "'" + @conn.escape(oa.previous_visit ? 'yes' : 'no' ) + "',"
 
 			@keys += 'previous_year,'
-			@values += "'#{oa.previous_year}',"
+			@values += "'" + @conn.escape(oa.previous_year) + "',"
 
 			@keys += 'heard_about,'
-			@values += "'#{oa.heard_about}',"
+			@values += "'" + @conn.escape(oa.heard_about) + "',"
 
 			@keys += 'other_reasons,'
-			@values += "'#{oa.other_reason_detail}',"
+			@values += "'" + @conn.escape(oa.other_reason_detail) + "',"
 
 			@keys += 'diet,'
 			@diets = ''
@@ -202,12 +206,12 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 				@diets.chop!
 				@diets.chop!
 			end
-			@values += "'#{@diets}',"
+			@values += "'" + @conn.escape(@diets) + "',"
 
 			@keys += 'confirmation_letter_via,'
 			@confirmation_letter_via = oa.confirmation_letter_via
 			@confirmation_letter_via = 'postdifferent' if @confirmation_letter_via == 'correspondence_address'
-			@values += "'#{@confirmation_letter_via}',"
+			@values += "'" + @conn.escape(@confirmation_letter_via) + "',"
 
 			@accompanied_by = ''
 			if @relation == 'Primary applicant' and ag.online_applications.size == 1 then
@@ -233,20 +237,20 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 			end
 
 			@keys += 'accompanied_by,'
-			@values += "'#{@accompanied_by}',"
+			@values += "'" + @conn.escape(@accompanied_by) +"',"
 
 			@keys += 'visa,'
 			@values += "#{oa.visa ? 1 : 0},"
 
 			if oa.visa then
 				@keys += 'reference,'
-				@values += "'#{oa.visa_reference_name}',"
+				@values += "'" + @conn.escape(oa.visa_reference_name) + "',"
 				@keys += 'reference_email,'
-				@values += "'#{oa.visa_reference_email}',"
+				@values += "'" + @conn.escape(oa.visa_reference_email) + "',"
 			end
 
 			@keys += 'financial_contribution,'
-			@values += "'#{oa.nightly_contribution}',"
+			@values += oa.nightly_contribution.to_s + ","
 
 			@keys += 'currency,'
 			@values += "'chf',"
@@ -254,82 +258,81 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 			@sponsor_count = 1
 			oa.sponsors.each do |s|
 				@keys += "sponsor_#{@sponsor_count},"
-				@values += "'#{s.name}',"
+				@values += "'" + @conn.escape(s.name) + "',"
 				@keys += "sponsor_#{@sponsor_count}_amount,"
-				@values += "'#{s.amount}',"
+				@values += s.amount.to_s + ","
 				@keys += "sponsor_#{@sponsor_count}_nights,"
-				@values += "'#{s.nights}',"
+				@values += s.nights.to_s + ","
 				@keys += "sponsor_#{@sponsor_count}_currency,"
 				@values += "'chf',"
 				@sponsor_count += 1
 			end
 
 			@keys += 'remarks,'
-			@values += "'#{oa.remarks}',"
+			@values += "'" + @conn.escape(oa.remarks) + "',"
 
 			if not oa.correspondence_address.nil? then
   			@keys += 'correspondence_street1,'
-  			@values += "'#{oa.correspondence_address.street1}',"
+  			@values += "'" + @conn.escape(oa.correspondence_address.street1) + "',"
   
   			@keys += 'correspondence_street2,'
-  			@values += "'#{oa.correspondence_address.street2}',"
+  			@values += "'" + @conn.escape(oa.correspondence_address.street2) + "',"
   
   			@keys += 'correspondence_street3,'
-  			@values += "'#{oa.correspondence_address.street3}',"
+  			@values += "'" + @conn.escape(oa.correspondence_address.street3) + "',"
   
   			@keys += 'correspondence_city,'
-  			@values += "'#{oa.correspondence_address.city}',"
+  			@values += "'" + @conn.escape(oa.correspondence_address.city) + "',"
   
   			@keys += 'correspondence_zipcode,'
-  			@values += "'#{oa.correspondence_address.postal_code}',"
+  			@values += "'" + @conn.escape(oa.correspondence_address.postal_code) + "',"
   
   			@keys += 'correspondence_state,'
-  			@values += "'#{oa.correspondence_address.state}',"
+  			@values += "'" + @conn.escape(oa.correspondence_address.state) + "',"
   
   			if oa.correspondence_address.country_id != 0 then
   				@keys += 'correspondence_country_id,'
-  				@values += "'#{oa.correspondence_address.country.serse_id}',"
+  				@values += "'" + @conn.escape(oa.correspondence_address.country.serse_id) + "',"
   			else
   				@keys += 'correspondence_country_id,'
-  				@values += "'#{oa.correspondence_address.country_id}',"
+  				@values += "'" + @conn.escape(oa.correspondence_address.country_id) + "',"
   			end
   
   			@keys += 'correspondence_other_country,'
-  			@values += "'#{oa.correspondence_address.other_country}',"
+  			@values += "'" + @conn.escape(oa.correspondence_address.other_country) + "',"
   
   			@keys += 'correspondence_valid_from,'
-  			@values += "'#{oa.correspondence_address.valid_from}',"
+  			@values += "'" + @conn.escape(oa.correspondence_address.valid_from) + "',"
 
   			@keys += 'correspondence_valid_until,'
-  			@values += "'#{oa.correspondence_address.valid_until}',"
+  			@values += "'" + @conn.escape(oa.correspondence_address.valid_until) + "',"
       end
   
-			@keys += 'passport_number,'
-			@values += "'#{oa.passport_number}',"
+			if oa.visa then
+				@keys += 'passport_number,'
+				@values += "'" + @conn.escape(oa.passport_number) + "',"
 
-			@keys += 'passport_issue_date,'
-			@values += "'#{oa.passport_issue_date.strftime("%Y-%m-%d")}',"
+				@keys += 'passport_issue_date,'
+				@values += "'" + @conn.escape(oa.passport_issue_date.strftime("%Y-%m-%d")) + "',"
 
-			@keys += 'passport_issue_place,'
-			@values += "'#{oa.passport_issue_place}',"
+				@keys += 'passport_issue_place,'
+				@values += "'" + @conn.escape(oa.passport_issue_place) + "',"
 
-			@keys += 'passport_expiry_date,'
-			@values += "'#{oa.passport_expiry_date.strftime("%Y-%m-%d")}',"
+				@keys += 'passport_expiry_date,'
+				@values += "'" + @conn.escape(oa.passport_expiry_date.strftime("%Y-%m-%d")) + "',"
 
-			@keys += 'passport_embassy,'
-			@values += "'#{oa.passport_embassy}',"
+				@keys += 'passport_embassy,'
+				@values += "'" + @conn.escape(oa.passport_embassy) + "',"
+			end
 
 			@keys += 'badge_firstname,'
-			@values += "'#{oa.badge_firstname}',"
+			@values += "'" + @conn.escape(oa.badge_firstname) + "',"
 
 			@keys += 'badge_surname,'
-			@values += "'#{oa.badge_surname}',"
+			@values += "'" + @conn.escape(oa.badge_surname) + "',"
 
 			@keys += 'badge_country,'
-			@values += "'#{oa.badge_country}',"
-
-#			@keys += ','
-#			@values += "'#{oa.}',"
+			@values += "'" + @conn.escape(oa.badge_country) + "',"
 
 			@keys.chop!
 			@values.chop!
@@ -339,7 +342,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 
 			@pg_sql = "insert into tbl_applications #{@keys} values #{@values}"
 
-      #STDERR.puts @pg_sql.pretty_inspect()
+      STDERR.puts @pg_sql.pretty_inspect()
 		  @res = @conn.exec(@pg_sql)
 
 			####################### SESSIONS ################################
@@ -361,7 +364,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 			####################### SESSION VARIABLES #######################
 			oa.online_application_conferences.each do |oac|
 				@pg_sql = "insert into online_application_conferences (online_application_id,conference_id,selected,variables,priority_sort,role_participant,role_speaker,role_team) 
-                     values (currval('seq_applications_id'),#{oac.conference.serse_id},#{oac.selected},'#{oac.variables}',#{oac.priority_sort},#{oac.role_participant ? true : false },#{oac.role_speaker ? true : false },#{oac.role_team ? true : false})"
+                     values (currval('seq_applications_id'),#{oac.conference.serse_id},#{oac.selected},'#{@conn.escape(oac.variables.to_s)}',#{oac.priority_sort},#{oac.role_participant ? true : false },#{oac.role_speaker ? true : false },#{oac.role_team ? true : false})"
 		  	@res = @conn.exec(@pg_sql)
 				oac.online_application_conference_workstreams.each do |ws|
 					# TODO: once #202 is done, this will need to refer to the serse_id value in the conference_workstreams table!
@@ -370,9 +373,6 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 		  		@res = @conn.exec(@pg_sql)
 				end
 			end
-
-			puts oa.firstname
-			puts oa.surname
 
 			# Mark this application as copied to Serse
 			ag.copied_to_serse = true
