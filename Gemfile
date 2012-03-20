@@ -41,3 +41,6 @@ gem 'therubyracer'
 gem 'i18n-js', :git => "git://github.com/fnando/i18n-js.git"
 
 gem 'date_validator'
+
+# For the pull-applications serse interface script
+gem 'pg'
