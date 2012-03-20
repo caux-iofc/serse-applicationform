@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224190144) do
+ActiveRecord::Schema.define(:version => 20120319041858) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
 
   create_table "application_groups", :force => true do |t|
     t.string   "name"
-    t.string   "session_id",                                                        :null => false
+    t.string   "session_id",                                                           :null => false
     t.boolean  "complete"
     t.boolean  "data_protection_consent"
     t.boolean  "data_protection_caux_info"
@@ -92,14 +92,15 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
     t.integer  "session_group_id"
     t.text     "comment"
     t.string   "browser"
-    t.string   "created_by",                         :limit => 100, :default => "", :null => false
-    t.string   "updated_by",                         :limit => 100, :default => "", :null => false
-    t.integer  "lock_version",                                      :default => 0,  :null => false
+    t.string   "created_by",                         :limit => 100, :default => "",    :null => false
+    t.string   "updated_by",                         :limit => 100, :default => "",    :null => false
+    t.integer  "lock_version",                                      :default => 0,     :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "confirm_read_documents"
     t.string   "remote_ip"
+    t.boolean  "copied_to_serse",                                   :default => false
   end
 
   add_index "application_groups", ["session_group_id"], :name => "index_application_groups_on_session_group_id"
@@ -350,6 +351,7 @@ ActiveRecord::Schema.define(:version => 20120224190144) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "serse_id"
   end
 
   add_index "online_application_conference_workstreams", ["conference_workstream_id"], :name => "index_oa_conf_workstreams_on_conference_workstream_id"
