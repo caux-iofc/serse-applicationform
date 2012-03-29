@@ -1,0 +1,5 @@
+--- 
+de: 
+  date:
+    formats:
+      standard: "%B. %e, %Y"
