@@ -231,10 +231,14 @@ class OnlineApplication < ActiveRecord::Base
   
   validates :passport_expiry_date, :presence => true, 
                                    :date => { :after => :three_months_after_departure, :message => I18n.t(:must_be_valid_for_3_months_beyond_departure_date) },
-                                   :if => :visa
+                                   :if => :visa and :departure
   # We need to use this proc because date_validator can not handle ':departure + 3.months' itself
   def three_months_after_departure
-    departure + 3.months
+    if not departure.nil? then
+      return departure + 3.months
+    else
+      return Time.now()
+    end
   end
                                    
   validates :passport_embassy, :presence => true, :if => :visa
