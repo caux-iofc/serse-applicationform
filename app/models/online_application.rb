@@ -107,7 +107,7 @@ class OnlineApplication < ActiveRecord::Base
   validates :other_reason_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_reason) } , :if => :other_reason
 
   def must_select_reason_for_coming
-    if online_application_conferences.empty? and online_application_training_programs.empty? and not interpreter and not volunteer and other_reason_detail == '' then
+    if online_application_conferences.empty? and training_programs.empty? and not interpreter and not volunteer and other_reason_detail == '' then
       errors.add :other_reason, I18n.t(:please_indicate_other_reason).html_safe
     end
   end
@@ -116,7 +116,7 @@ class OnlineApplication < ActiveRecord::Base
 
   def scholars_interns_interpreters_can_not_select_conferences
     if interpreter and not online_application_conferences.empty? then
-      errors.add :interpreter, I18n.t(:if_you_come_as_an_interpreter_please_do_not_select_a_conference)
+      errors.add :interpreter, I18n.t(:if_you_come_as_an_interpreter_please_do_not_select_a_conference_html).html_safe
     end
     if not online_application_conferences.empty? and not training_programs.empty? then
       @real_locale = I18n.locale
@@ -124,11 +124,14 @@ class OnlineApplication < ActiveRecord::Base
       training_programs.each do |tp|
         if tp.name =~ /Caux Interns/ then
           I18n.locale = @real_locale
-          errors.add :base, I18n.t(:if_you_come_as_a_caux_intern_please_do_not_select_a_conference)
+          errors.add :base, I18n.t(:if_you_come_as_a_caux_intern_please_do_not_select_a_conference_html).html_safe
         end
+STDERR.puts tp.pretty_inspect()        
+STDERR.puts tp.name
         if tp.name =~ /Caux Scholars/ then
+STDERR.puts "MATCH"        
           I18n.locale = @real_locale
-          errors.add :base, I18n.t(:if_you_come_as_a_caux_scholar_please_do_not_select_a_conference)
+          errors.add :base, I18n.t(:if_you_come_as_a_caux_scholar_please_do_not_select_a_conference_html).html_safe
         end
       end
     end

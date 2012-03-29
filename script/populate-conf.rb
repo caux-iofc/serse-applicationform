@@ -146,13 +146,21 @@ c.byline = 'Teilnahme nur auf persönliche Einladung.'
 c.save
 
 I18n.locale = 'en'
-
 c = Conference.with_translations.where("session_group_id = 12 and name = 'ICP'").first
 c.byline = 'Only by invitation'
 I18n.locale = 'fr'
 c.byline = 'Uniquement sur invitation'
 I18n.locale = 'de'
-c.byline 'nur auf Einladung'
+c.byline = 'Teilnahme nur auf persönliche Einladung.'
+c.save
+
+I18n.locale = 'en'
+c = Conference.with_translations.where("session_group_id = 12 and name = 'Caux Round Table'").first
+c.byline = 'Only by invitation'
+I18n.locale = 'fr'
+c.byline = 'Uniquement sur invitation'
+I18n.locale = 'de'
+c.byline = 'Teilnahme nur auf persönliche Einladung.'
 c.save
 
 I18n.locale = 'en'

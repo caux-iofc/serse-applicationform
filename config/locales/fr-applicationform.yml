@@ -19,7 +19,7 @@ fr:
   language_name: "Langue(s)"
 
   confirmation_letter_via_post: Poste
-  confirmation_letter_via_correspondence_address: Poste, par adresse de correspondence
+  confirmation_letter_via_correspondence_address: Correspondance
 
   ensure_fax_number: "S'il vous plaît assurez-vous de fournir un numéro de fax dans la section 'R\xC3\xA9f\xC3\xA9rence'."
   ensure_correspondence_address: "Veuillez remplir la section 'Adresse de correspondence'"
@@ -97,7 +97,7 @@ fr:
 
   previous_year: "Année de votre dernière visite"
 
-  practical_life: "Lors des Rencontres Internationales de Caux, chaque participant s’engage dans un groupe de discussion et de service. Pour cette raison, vous ne pourrez pas assister à toutes les conférences en plénière et sessions d’atelier. Nous vous remercions dès à présent de votre compréhension. Vous serez incorporé à l’un des groupes de discussion lors de votre arrivée à Caux ; et participerez au travail d’un des départements, tel que la cuisine, le service des repas, la vaisselle, les chambres, la préparation des légumes ou la logistique de la rencontre."
+  practical_life: "Les participants aux conférences sont invités à participer à la bonne marche du centre en aidant aux tâches pratiques. Votre équipe de travail (cuisine, service des tables etc.) vous sera indiquée à votre arrivée par les organisateurs de votre session."
 
   visa_needed: "Oui, il me faut un visa"
   visa_information_html: "<p>Renseignez-vous s'il vous faut un visa auprès des endroits suivants
@@ -109,7 +109,7 @@ fr:
                           <strong>IMPORTANT</strong>
                             <ul>
                               <li>S'il vous faut un visa pour entrer en Suisse, votre inscription doit parvenir au secrétariat des conférences <strong>au moins DIX semaines</strong> avant votre arrivée à Caux.
-                              <li>Veuillez prendre note qu'une fois que la lettre pour demande de visa est envoyée (avec copie à l'Ambassade de Suisse) tout changement de dates en dehors de la période indiquée dans la lettre sera très difficile.
+                              <li>Veuillez prendre note qu'une fois que la lettre pour la demande de visa est envoyée (avec copie à l'Ambassade de Suisse) tout changement de dates en dehors de la période indiquée dans la lettre sera très difficile.
                             </ul></p>"
 
 
@@ -128,7 +128,7 @@ fr:
   volunteer: "Bénévolat"
   other_reason: "Autre raison: "
   other_reason_detail: "Autre raison: "
-  other_reason_please_specify: "Merci de préciser: "
+  other_reason_please_specify: "Autre, merci de préciser: "
   please_specify_your_reason: 'veuillez préciser vos raisons'
 
   I_will_come_as: "Je viens en tant que"
@@ -200,13 +200,13 @@ fr:
   visa_reference_email: "Adresse E-mail de la personne de r\xC3\xA9f\xC3\xA9rence"
   can_be_no_earlier_than_today: " La date ne peut \xC3\xAAtre avant aujourd'hui"
   max_age_110: "non valide: Avez-vous vraiment plus de 110 ans ?"
-  if_you_come_as_a_caux_scholar_please_do_not_select_a_conference: "Si vous participez au Caux Scholar Program, merci de ne pas s\xC3\xA9lectionner de rencontre"
+  if_you_come_as_a_caux_scholar_please_do_not_select_a_conference_html: "Si vous participez au <strong>Caux Scholars Program</strong>, merci de ne pas s\xC3\xA9lectionner des rencontres"
   must_be_after_valid_from: " doit \xC3\xAAtre valide \xC3\xA0 partir de"
   postal_code_invalid: "doit \xC3\xAAtre vide ou contenir minimum 2 signes"
   application_not_yet_submitted_html: "Votre inscription n'a pas encore \xC3\xA9t\xC3\xA9 valid\xC3\xA9e.<br/>Veuillez ajouter une personne ou envoyer votre inscription"
   only_valid_relations: Veuillez mentionner le lien entre cette personne et le(la) participant(e) principal(e)
   must_be_before_valid_until: " Doit \xC3\xAAtre valide avant la date"
-  if_you_come_as_an_interpreter_please_do_not_select_a_conference: "Si vous venez comme interpr\xC3\xA8te, merci de ne pas s\xC3\xA9lectionner de rencontre"
+  if_you_come_as_an_interpreter_please_do_not_select_a_conference_html: "Si vous venez comme interpr\xC3\xA8te, merci de ne pas s\xC3\xA9lectionner des rencontres"
   relation: lien avec le(la) participant(e) principal(e)
   must_be_before_departure: "doit \xC3\xAAtre avant la date de d\xC3\xA9part"
   please_confirm_chf_100_registration_fee: "Veuillez confirmer avoir pris connaissance des frais d'inscription de 100.- pour participer \xC3\xA0 la rencontre"
@@ -222,7 +222,7 @@ fr:
   your_application_title: Votre inscription
   data_protection_consent: ""
   previous_year_invalid: Veuillez utiliser uniquement des chiffres
-  if_you_come_as_a_caux_intern_please_do_not_select_a_conference: "Si vous participez au Caux Interns Programme, veuillez ne pas s\xC3\xA9lectionner de rencontre"
+  if_you_come_as_a_caux_intern_please_do_not_select_a_conference_html: "Si vous participez au <strong>Caux Interns Program</strong>, veuillez ne pas s\xC3\xA9lectionner des rencontres"
 
   submit_this_application: Envoyer l'inscription
   edit: editer

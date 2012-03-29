@@ -76,7 +76,7 @@ en:
   previous_visit_unset: ": please indicate if you have visited Caux before."
   previous_year: "Year of last visit"
   previous_year_invalid: " does not look like a year - please use numbers only"
-  practical_life: "Due to the Community Discussion Groups which all participants join during all Caux conferences to help run the house, you will not be able to attend all plenary and workshop sessions. Thank you for your understanding. You will be assigned to a Community Discussion Group upon arrival in Caux to help in a Department such as cooking, dining-room service, wash-up, housekeeping, vegetable preparing and conference logistics."
+  practical_life: "Participants are expected to help in various practical tasks to run the centre. You will be assigned a work group (help in the kitchen, dining room, etc) by the organizers of your session."
 
   heard_about: "If no, how did you hear about the Caux conferences?"
   confirmation_letter_via: "Send confirmation letter via"
@@ -196,9 +196,9 @@ en:
 
   please_indicate_other_reason: "if you don't come to Caux for a specific session or training programme, please specify your reason"
 
-  if_you_come_as_an_interpreter_please_do_not_select_a_conference: "if you come as an interpreter please do not select a conference"
-  if_you_come_as_a_caux_intern_please_do_not_select_a_conference: "if you come as a Caux Intern please do not select a conference"
-  if_you_come_as_a_caux_scholar_please_do_not_select_a_conference: "if you come as a Caux Scholar please do not select a conference"
+  if_you_come_as_an_interpreter_please_do_not_select_a_conference_html: "if you come as an interpreter please do not select a conference"
+  if_you_come_as_a_caux_intern_please_do_not_select_a_conference_html: "if you come as a <strong>Caux Intern</strong> please do not select a conference"
+  if_you_come_as_a_caux_scholar_please_do_not_select_a_conference_html: "if you come as a <strong>Caux Scholar</strong> please do not select a conference"
 
   a_conference_you_selected_does_not_overlap_with_your_stay_in_caux: ": a conference you selected does not overlap with your stay at Caux."
   a_training_program_you_selected_does_not_overlap_with_your_stay_in_caux: ": a training program you selected does not overlap with your stay at Caux."

@@ -128,7 +128,7 @@ de:
   child: Kind
   interpreter: Dolmetscher
   passport_issue_date: Ausstellungsdatum des Passes
-  practical_life: "Da alle Konferenzteilnehmenden auch Teil einer Gemeinschaftsgruppe sein werden, mit der sie während der Konferenz kleinere Aufgaben im Haus übernehmen, werden Sie leider nicht an allen Sitzungen und Versammlungen teilnehmen können. Wir bitten Sie dafür um Ihr Verständnis! Sie werden der Gemeinschaftsgruppe vor Ort vor Beginn der Konferenz zugeteilt um einem Departement wie Küche, Service, Abwasch, Haushaltung, Gemüse Zubereitung oder Konferenz Logistik zugeteilt."
+  practical_life: "Konferenzteilnehmer werden während der Konferenz kleinere Aufgaben im Haus übernehmen. Sie werden bei Ihrer Anreise durch die Organisatoren Ihrer Konferenz in eine Arbeitsgruppe (Küche, Service, ect.) eingeteilt."
   other_country: Anderes Land
   previous_visit_yes: Ja
   previous_visit_no: Nein
@@ -199,14 +199,14 @@ de:
   max_age_110: " ung\xC3\xBCltig: sind Sie wirklich \xC3\xBCber 110 Jahre alt?"
   passport_expiry_date: "G\xC3\xBCltigkeitsdauer des Reisepasses"
   language_missing: "W\xC3\xA4hlen Sie bitte mindestens eine Sprache aus"
-  if_you_come_as_a_caux_scholar_please_do_not_select_a_conference: "Wenn Sie als Scholar nach Caux kommen bitte keine Konferenz ausw\xC3\xA4hlen"
+  if_you_come_as_a_caux_scholar_please_do_not_select_a_conference_html: "Wenn Sie als <strong>Caux Scholar</strong> kommen bitte keine Konferenz ausw\xC3\xA4hlen"
   must_be_after_valid_from: " Muss von diesem Datum an g\xC3\xBCltig sein"
   visa: "Visa f\xC3\xBCr die Schweiz"
   postal_code_invalid: Muss entweder leer oder zwei oder mehr Buchstaben lang sein
   application_not_yet_submitted_html: "Ihr Antrag wurde noch nicht \xC3\xBCbermittelt.<br/>Bitte f\xC3\xBCgen Sie eine Person ein oder senden Sie ihren Antrag."
   only_valid_relations: Bitte geben Sie die Beziehung dieses Antragstellers zum Vorherigen an
   must_be_before_valid_until: " Muss mindestens bis zu dem Datum g\xC3\xBCltig sein"
-  if_you_come_as_an_interpreter_please_do_not_select_a_conference: "Wenn Sie als Interpret kommen keine Konferenz ausw\xC3\xA4hlen"
+  if_you_come_as_an_interpreter_please_do_not_select_a_conference_html: "Wenn Sie als Dolmetscher kommen bitte keine Konferenz ausw\xC3\xA4hlen"
   relation: Beziehung zum vorherigen Teilnehmer
   must_be_before_departure: " muss vor der Abreise sein"
   please_confirm_chf_100_registration_fee: "Bitte best\xC3\xA4tigen Sie dass Sie verstanden haben dass zur Teilnahme an dieser Konferenz eine Anmeldegeb\xC3\xBChr von CHF 100.- erhoben wird."
@@ -227,7 +227,7 @@ de:
   your_application_title: Ihr Antrag
   previous_year_invalid: " Sieht nich wie ein Jahr aus - bitte ben\xC3\xBCtzen Sie nur Zahlen"
   must_be_after_arrival: " Muss nach der Ankunft sein"
-  if_you_come_as_a_caux_intern_please_do_not_select_a_conference: "Wenn Sie als Caux Intern kommen bitte keine Konferenz ausw\xC3\xA4hlen"
+  if_you_come_as_a_caux_intern_please_do_not_select_a_conference_html: "Wenn Sie als <strong>Caux Intern</strong> kommen bitte keine Konferenz ausw\xC3\xA4hlen"
 
 
   submit_this_application: Diesen Antrag senden

@@ -11,7 +11,7 @@
                <%= label_tag :conference_id, oac.object.conference.name %>
              </td>
              <td>
-               <%=t oac.object.conference.start.strftime("%B %e, %Y") %> - <%=t oac.object.conference.stop.strftime("%B %e, %Y") %> 
+               <%=l oac.object.conference.start.to_date, :format => :standard %> - <%=l oac.object.conference.stop.to_date, :format => :standard %>
              </td>
            </tr>
            <% if not oac.object.conference.byline.nil? -%>
@@ -49,7 +49,7 @@
              </td>
              <td>
                <% if oac.object.conference.display_dates -%>
-                 <%=t oac.object.conference.start.strftime("%B %e, %Y") %> - <%=t oac.object.conference.stop.strftime("%B %e, %Y") %> 
+                 <%=l oac.object.conference.start.to_date, :format => :standard %> - <%=l oac.object.conference.stop.to_date, :format => :standard %>
                <% end -%>
              </td>
            </tr>
@@ -79,7 +79,7 @@
              </td>
              <td>
                <% if tp.display_dates -%>
-                 <%=t tp.start.strftime("%B %e, %Y") %> - <%=t tp.stop.strftime("%B %e, %Y") %> 
+                 <%=l tp.start.to_date, :format => :standard %> - <%=l tp.stop.to_date, :format => :standard %>
                <% end -%>
              </td>
            </tr>
