@@ -1,5 +1,12 @@
 jQuery ->
 
+  ## Default the year of arrival/departure to the current year
+  dt = new Date(); 
+  if ($('#online_application_arrival_1i').val() == '')
+    $("#online_application_arrival_1i").val(dt.getYear()+1900)
+  if ($('#online_application_departure_1i').val() == '')
+    $("#online_application_departure_1i").val(dt.getYear()+1900)
+
   ##### handle diet_other ####
 
   ## First the code that will run on document load ##
