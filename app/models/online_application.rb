@@ -253,10 +253,23 @@ class OnlineApplication < ActiveRecord::Base
 
   def sub_forms
     online_application_conferences.each do |oac|
-      oac.online_application_conference_workstreams.each do |oacws|
-        if oacws.conference_workstream_id.nil?
-          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_choose_preferred_workshops)
-          break
+      @workstream_choice_required = true
+
+      # Team members do not have to select workstreams
+      @workstream_choice_required = false if oac.role_team
+
+      # Special for LLWM 2012; people who select the course do not need to select workstreams
+      if oac.variables.has_key?(:llmw_2012_advanced_course_for_young_peacemakers) and 
+         oac.variables['llmw_2012_advanced_course_for_young_peacemakers'] == '1' then
+        @workstream_choice_required = false
+      end
+
+      if @workstream_choice_required then
+        oac.online_application_conference_workstreams.each do |oacws|
+          if oacws.conference_workstream_id.nil?
+            errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_choose_preferred_workshops)
+            break
+          end
         end
       end
       # Exclude HS 2012, as well as conferences marked as 'special' from this validation
