@@ -103,7 +103,7 @@
              <td colspan="2">
                <%= f.check_box :interpreter %> <%=t :interpreter %><br />
                <%= f.check_box :volunteer %> <%=t :volunteer %><br />
-               <%= f.check_box :other_reason %> <%=t :other_reason_please_specify %> <%= f.text_field :other_reason_detail %>
+               <%= f.check_box :other_reason %> <%=t :other_reason_please_specify %> <%= f.text_field :other_reason_detail, :size => 80 %>
              </td>
            </tr>
          </table>

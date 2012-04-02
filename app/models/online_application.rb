@@ -104,7 +104,7 @@ class OnlineApplication < ActiveRecord::Base
 
   validate :must_select_reason_for_coming
 
-  validates :other_reason_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_reason) } , :if => :other_reason
+  validates :other_reason_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_reason) }, :length => { :maximum => 100 } , :if => :other_reason
 
   def must_select_reason_for_coming
     if online_application_conferences.empty? and training_programs.empty? and not interpreter and not volunteer and other_reason_detail == '' then
@@ -126,10 +126,7 @@ class OnlineApplication < ActiveRecord::Base
           I18n.locale = @real_locale
           errors.add :base, I18n.t(:if_you_come_as_a_caux_intern_please_do_not_select_a_conference_html).html_safe
         end
-STDERR.puts tp.pretty_inspect()        
-STDERR.puts tp.name
         if tp.name =~ /Caux Scholars/ then
-STDERR.puts "MATCH"        
           I18n.locale = @real_locale
           errors.add :base, I18n.t(:if_you_come_as_a_caux_scholar_please_do_not_select_a_conference_html).html_safe
         end
