@@ -214,7 +214,7 @@ class OnlineApplication < ActiveRecord::Base
   # cf. http://stackoverflow.com/questions/4112858/radio-buttons-for-boolean-field-how-to-do-a-false
   validates :previous_visit, :inclusion => { :in => [ true, false ], :message => I18n.t(:previous_visit_unset) }
   validates :previous_year, :presence => true, :format => { :with => /^([\d]{4}|)$/, :message => I18n.t(:previous_year_invalid) }, :if => :previous_visit 
-  validates :heard_about, :presence => true, :unless => "previous_visit.nil? or previous_visit or relation != 'primary applicant'"
+  validates :heard_about, :presence => true, :length => { :maximum => 100 }, :unless => "previous_visit.nil? or previous_visit or relation != 'primary applicant'"
 
   validates :visa_reference_name, :presence => true, :if => :visa_reference_needed?
   validates :visa_reference_email, :presence => true, :if => :visa_reference_needed?
