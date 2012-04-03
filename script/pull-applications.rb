@@ -24,7 +24,6 @@ require 'pp'
 
 ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 	@conn.transaction {
-STDERR.puts ag.pretty_inspect()
 	  @pg_sql = "insert into tbl_application_groups 
   	                    (epoch,name,spouse_complete,children_complete,other_complete,complete,
 	                       data_protection_consent,data_protection_caux_info,data_protection_local_info,browser,session_group_id) 
@@ -367,6 +366,8 @@ STDERR.puts ag.pretty_inspect()
                      values (currval('seq_applications_id'),#{oac.conference.serse_id},#{oac.selected},'#{@conn.escape(oac.variables.to_s)}',#{oac.priority_sort},#{oac.role_participant ? true : false },#{oac.role_speaker ? true : false },#{oac.role_team ? true : false})"
 		  	@res = @conn.exec(@pg_sql)
 				oac.online_application_conference_workstreams.each do |ws|
+					# team members need not select a workstream preference. If they do not (ws.conference_workstream_id is null) then do not try to insert the record
+					next if ws.conference_workstream_id.nil?
 					# TODO: once #202 is done, this will need to refer to the serse_id value in the conference_workstreams table!
           @pg_sql = "insert into online_application_conference_workstreams (online_application_conference_id,conference_workstream_id,preference) values " +
                     "(currval('online_application_conferences_id_seq'),#{ws.conference_workstream_id},#{ws.preference == 'first_choice' ? 1 : 2})"
