@@ -188,20 +188,25 @@ class OnlineApplicationsController < ApplicationController
 protected
 
   def ensure_application_group
-    # TODO: FIXME: what if session is null? Force creation of a session? Shouldn't rails do this for us?
     if session.nil? or not session.has_key?(:application_group_id) or session[:application_group_id] == 0 then
-      # new application group
-      @ag = ApplicationGroup.new()
-      # Trigger creation of session id, in case the session is new. We have to do this
-      # because of lazy session loading. 
-      # Cf. https://rails.lighthouseapp.com/projects/8994/tickets/2268-rails-23-session_optionsid-problem
-      # Ward, 2012-02-29
-      request.session_options[:id]
-      @ag.session_id = request.session_options[:id]
-      @ag.browser = request.env['HTTP_USER_AGENT']
-      @ag.remote_ip = request.env['REMOTE_ADDR']
-      @ag.session_group_id = session[:session_group_id] if session.has_key?(:session_group_id)
-      @ag.save!
+      begin
+        # new application group
+        @ag = ApplicationGroup.new()
+        # Trigger creation of session id, in case the session is new. We have to do this
+        # because of lazy session loading. 
+        # Cf. https://rails.lighthouseapp.com/projects/8994/tickets/2268-rails-23-session_optionsid-problem
+        # Ward, 2012-02-29
+        request.session_options[:id]
+        @ag.session_id = request.session_options[:id]
+        @ag.browser = request.env['HTTP_USER_AGENT']
+        @ag.remote_ip = request.env['REMOTE_ADDR']
+        @ag.session_group_id = session[:session_group_id] if session.has_key?(:session_group_id)
+        @ag.save!
+      rescue Exception => e
+        # Most likely, this means there is no session_id. That can happen if cookies are disabled.
+        redirect_to :cookies_disabled
+        return
+      end
       session[:application_group_id] = @ag.id
     else
       @ag = ApplicationGroup.find(session[:application_group_id])

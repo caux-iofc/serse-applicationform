@@ -185,8 +185,6 @@ de:
   a_training_program_you_selected_does_not_overlap_with_your_stay_in_caux: ": ein von Ihnen gewählte Trainingsprogramm stimmt nicht mit den Daten Ihres Aufenthalts in Caux überein."
   arriving_early_or_leaving_late_html: "Das Datum Ihrer Ankunft entspricht nicht dem Datum des Beginns der Konferenz/des Trainingsprogramms und/oder das Datum Ihrer Abreise entspricht nicht dem Datum des Beginns der Konferenz/des Trainingsprogramms und/oder das Datum Ihrer Abreise entspricht nicht dem Datum des Endes der Konferenz/des Trainingsprogramms. Bitte erläutern Sie im Feld <strong>Bemerkungen</strong>, weshalb Sie Ihren Aufenthalt verlängern möchten."
 
-  base: ''
-
   online_application_languages_proficiency: "Sprachliche F\xC3\xA4higkeiten"
   min_age_16: " ung\xC3\xBCltig: sie m\xC3\xBCssen mindestens 16 Jahre alt sein f\xC3\xBCr eine unabh\xC3\xA4ngige Anmeldung"
   ensure_fax_number: Bitte geben Sie bei den 'Kontakt Informationen' eine Fax Nummer an.
@@ -235,3 +233,10 @@ de:
   are_you_sure: Sind sie sicher?
   remove: Entfernen
   add_a_person_to_this_application: "Zu diesem Antrag eine Person hinzuf\xC3\xBCgen"
+
+  cookies_disabled_title: Please enable browser cookies
+  cookies_disabled: "Browser cookies must be enabled to use this form. Please enable cookies to proceed."
+
+  base: ''
+
+

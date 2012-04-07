@@ -65,6 +65,7 @@ SerseApplication::Application.routes.draw do
     match '/application_groups/submit' => 'application_groups#submit', :as => 'submit_application_group'
     resources :application_groups
     match '/form-unavailable' => 'home#form_unavailable', :as => 'form_unavailable'
+    match '/cookies-disabled' => 'home#cookies_disabled', :as => 'cookies_disabled'
   end
   match '/:locale' => 'home#index'
   match '/' => 'home#index', :as => 'home'

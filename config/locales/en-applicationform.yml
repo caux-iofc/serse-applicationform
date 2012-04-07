@@ -210,6 +210,9 @@ en:
   remove: Remove
   are_you_sure: Are you sure?
 
+  cookies_disabled_title: Please enable browser cookies
+  cookies_disabled: "Browser cookies must be enabled to use this form. Please enable cookies to proceed."
+
   # This is a hack; for some reason adding to error[:base] makes Rails look for a translation of ':base'
   base: ''
 

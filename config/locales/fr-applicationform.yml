@@ -189,7 +189,8 @@ fr:
   a_training_program_you_selected_does_not_overlap_with_your_stay_in_caux: ": un programme que vous avez choisie ne correspond pas aux dates de votre séjour à Caux."
   arriving_early_or_leaving_late_html: "La date de votre arrivée ne correspond pas à la date du début de la conférence/du programme et/ou la date de votre départ ne correspond pas à la date de la fin de la conférence. Veuillez spécifier la raison pour ce prolongement de votre séjour dans le champ <strong>Remarques</strong>."
 
-  base: ""
+  cookies_disabled_title: "Veuiller activer les cookies du navigateur"
+  cookies_disabled: "Les cookies du navigateur doivent être activés pour utiliser ce formulaire. Veuiller activer les cookies pour continuer."
 
   online_application_languages_proficiency: "comp\xC3\xA9tence linguistique"
   min_age_16: " non valide: L'\xC3\xA2ge minimum pour venir non-accompagn\xC3\xA9 est de 16 ans "
@@ -229,3 +230,7 @@ fr:
   are_you_sure: "Etes-vous s\xC3\xBBr?"
   remove: supprimer
   add_a_person_to_this_application: "Ajouter une personne \xC3\xA0 cette inscription"
+
+  base: ""
+
+
