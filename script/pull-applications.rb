@@ -363,8 +363,9 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 			####################### SESSION VARIABLES #######################
 			oa.online_application_conferences.each do |oac|
 				@pg_sql = "insert into online_application_conferences (online_application_id,conference_id,selected,variables,priority_sort,role_participant,role_speaker,role_team) 
-                     values (currval('seq_applications_id'),#{oac.conference.serse_id},#{oac.selected},'#{@conn.escape(oac.variables.to_s)}',#{oac.priority_sort},#{oac.role_participant ? true : false },#{oac.role_speaker ? true : false },#{oac.role_team ? true : false})"
-		  	@res = @conn.exec(@pg_sql)
+                     values (currval('seq_applications_id'),#{oac.conference.serse_id},#{oac.selected},$1,#{oac.priority_sort},#{oac.role_participant ? true : false },#{oac.role_speaker ? true : false },#{oac.role_team ? true : false})"
+		  	@res = @conn.exec(@pg_sql,[oac.attributes_before_type_cast["variables"].to_yaml])
+
 				oac.online_application_conference_workstreams.each do |ws|
 					# team members need not select a workstream preference. If they do not (ws.conference_workstream_id is null) then do not try to insert the record
 					next if ws.conference_workstream_id.nil?
