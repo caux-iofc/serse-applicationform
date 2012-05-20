@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120319041858) do
+ActiveRecord::Schema.define(:version => 20120519194800) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -65,15 +65,16 @@ ActiveRecord::Schema.define(:version => 20120319041858) do
     t.string   "name"
     t.string   "session_id"
     t.boolean  "complete"
+    t.boolean  "confirm_read_documents"
     t.boolean  "data_protection_consent"
     t.boolean  "data_protection_caux_info"
-    t.boolean  "data_protection_three_local_events"
     t.boolean  "data_protection_local_info"
     t.integer  "session_group_id"
-    t.text     "comment"
+    t.text     "comment",                    :limit => 16777215
     t.string   "browser"
-    t.string   "created_by",                         :limit => 100, :default => ""
-    t.string   "updated_by",                         :limit => 100, :default => ""
+    t.string   "remote_ip"
+    t.string   "created_by",                 :limit => 100,      :default => ""
+    t.string   "updated_by",                 :limit => 100,      :default => ""
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -83,24 +84,24 @@ ActiveRecord::Schema.define(:version => 20120319041858) do
 
   create_table "application_groups", :force => true do |t|
     t.string   "name"
-    t.string   "session_id",                                                           :null => false
+    t.string   "session_id",                                                        :null => false
     t.boolean  "complete"
+    t.boolean  "confirm_read_documents"
     t.boolean  "data_protection_consent"
     t.boolean  "data_protection_caux_info"
-    t.boolean  "data_protection_three_local_events"
     t.boolean  "data_protection_local_info"
     t.integer  "session_group_id"
-    t.text     "comment"
+    t.text     "comment",                    :limit => 16777215
     t.string   "browser"
-    t.string   "created_by",                         :limit => 100, :default => "",    :null => false
-    t.string   "updated_by",                         :limit => 100, :default => "",    :null => false
-    t.integer  "lock_version",                                      :default => 0,     :null => false
+    t.string   "remote_ip"
+    t.string   "created_by",                 :limit => 100,      :default => "",    :null => false
+    t.string   "updated_by",                 :limit => 100,      :default => "",    :null => false
+    t.integer  "lock_version",                                   :default => 0,     :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "confirm_read_documents"
-    t.string   "remote_ip"
-    t.boolean  "copied_to_serse",                                   :default => false
+    t.boolean  "copied_to_serse",                                :default => false
+    t.integer  "serse_application_group_id"
   end
 
   add_index "application_groups", ["session_group_id"], :name => "index_application_groups_on_session_group_id"
@@ -142,8 +143,8 @@ ActiveRecord::Schema.define(:version => 20120319041858) do
     t.integer  "conference_workstream_id"
     t.string   "locale"
     t.string   "language"
-    t.string   "name"
     t.string   "byline"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -312,13 +313,13 @@ ActiveRecord::Schema.define(:version => 20120319041858) do
     t.integer  "online_application_id"
     t.integer  "conference_id"
     t.boolean  "selected"
-    t.text     "variables"
+    t.text     "variables",                        :limit => 16777215
     t.integer  "priority_sort"
     t.boolean  "role_participant"
     t.boolean  "role_speaker"
     t.boolean  "role_team"
-    t.string   "created_by",                       :limit => 100, :default => ""
-    t.string   "updated_by",                       :limit => 100, :default => ""
+    t.string   "created_by",                       :limit => 100,      :default => ""
+    t.string   "updated_by",                       :limit => 100,      :default => ""
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -361,14 +362,14 @@ ActiveRecord::Schema.define(:version => 20120319041858) do
     t.integer  "online_application_id"
     t.integer  "conference_id"
     t.boolean  "selected"
-    t.text     "variables"
+    t.text     "variables",             :limit => 16777215
     t.integer  "priority_sort"
     t.boolean  "role_participant"
     t.boolean  "role_speaker"
     t.boolean  "role_team"
-    t.string   "created_by",            :limit => 100, :default => "", :null => false
-    t.string   "updated_by",            :limit => 100, :default => "", :null => false
-    t.integer  "lock_version",                         :default => 0,  :null => false
+    t.string   "created_by",            :limit => 100,      :default => "", :null => false
+    t.string   "updated_by",            :limit => 100,      :default => "", :null => false
+    t.integer  "lock_version",                              :default => 0,  :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -500,7 +501,7 @@ ActiveRecord::Schema.define(:version => 20120319041858) do
     t.date     "passport_expiry_date"
     t.string   "passport_embassy"
     t.integer  "nightly_contribution"
-    t.text     "remarks"
+    t.text     "remarks",                 :limit => 16777215
     t.string   "badge_firstname"
     t.string   "badge_surname"
     t.string   "badge_country"
@@ -508,8 +509,8 @@ ActiveRecord::Schema.define(:version => 20120319041858) do
     t.boolean  "volunteer"
     t.boolean  "other_reason"
     t.string   "other_reason_detail"
-    t.string   "created_by",              :limit => 100, :default => ""
-    t.string   "updated_by",              :limit => 100, :default => ""
+    t.string   "created_by",              :limit => 100,      :default => ""
+    t.string   "updated_by",              :limit => 100,      :default => ""
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -552,7 +553,7 @@ ActiveRecord::Schema.define(:version => 20120319041858) do
     t.date     "passport_expiry_date"
     t.string   "passport_embassy"
     t.integer  "nightly_contribution"
-    t.text     "remarks"
+    t.text     "remarks",                 :limit => 16777215
     t.string   "badge_firstname"
     t.string   "badge_surname"
     t.string   "badge_country"
@@ -560,9 +561,9 @@ ActiveRecord::Schema.define(:version => 20120319041858) do
     t.boolean  "volunteer"
     t.boolean  "other_reason"
     t.string   "other_reason_detail"
-    t.string   "created_by",              :limit => 100, :default => "", :null => false
-    t.string   "updated_by",              :limit => 100, :default => "", :null => false
-    t.integer  "lock_version",                           :default => 0,  :null => false
+    t.string   "created_by",              :limit => 100,      :default => "", :null => false
+    t.string   "updated_by",              :limit => 100,      :default => "", :null => false
+    t.integer  "lock_version",                                :default => 0,  :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -630,8 +631,8 @@ ActiveRecord::Schema.define(:version => 20120319041858) do
   end
 
   create_table "sessions", :force => true do |t|
-    t.string   "session_id", :null => false
-    t.text     "data"
+    t.string   "session_id",                     :null => false
+    t.text     "data",       :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
   end

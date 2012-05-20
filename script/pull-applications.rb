@@ -41,6 +41,10 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 	                 #{ag.session_group_id})"
 	  @res = @conn.exec(@pg_sql)
 
+		@pg_sql = "select currval('seq_application_groups_id') as currval"
+		@res = @conn.exec(@pg_sql)
+		@serse_application_group_id = @res[0]['currval']
+
 		ag.online_applications.each do |oa|
 			puts oa.firstname
 			puts oa.surname
@@ -378,6 +382,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 
 			# Mark this application as copied to Serse
 			ag.copied_to_serse = true
+			ag.serse_application_group_id = @serse_application_group_id.to_i
 			ag.save!
 
 		end	
