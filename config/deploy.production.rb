@@ -17,7 +17,7 @@ desc "Clean up old releases"
 set :keep_releases, 5
 before("deploy:cleanup") { set :use_sudo, false }
 
-after "deploy:symlink", "deploy:copy_vendor_bundle_dir", :roles => :app 
+after "deploy:create_symlink", "deploy:copy_vendor_bundle_dir", :roles => :app 
 after "deploy:copy_vendor_bundle_dir", "deploy:copy_files", :roles => :app
 after "deploy:update", "deploy:migrate", :roles => :db
 after :deploy, 'deploy:cleanup', :roles => :app
