@@ -95,6 +95,8 @@ class OnlineApplicationsController < ApplicationController
         @oac_special << @oac
       end
     end
+
+    @languages = Language.with_translations.collect {|p| [ p.name, p.id ] }.sort
   end
 
   # GET /online_applications/1/edit

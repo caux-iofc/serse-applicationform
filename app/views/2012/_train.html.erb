@@ -2,7 +2,7 @@
 
 <ul>
 <table width="100%">
-<% oac.object.conference.conference_workstreams.each do |w| -%>
+<% oac.object.conference.conference_workstreams.with_translations.each do |w| -%>
 <tr>
    <td align="left">
      <li><strong><%=t w.name %></strong>

@@ -80,7 +80,7 @@
                  <tr>
                    <td>
                      <div class="field">
-                       <%= lf.select(:language_id, Language.with_translations.collect {|p| [ p.name, p.id ] }.sort, {:include_blank => t(:choose_one)}) %>
+                       <%= lf.select(:language_id, @languages, {:include_blank => t(:choose_one)}) %>
                      </div>
                    </td>
                    <td>
