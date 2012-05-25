@@ -97,6 +97,11 @@ class OnlineApplicationsController < ApplicationController
     end
 
     @languages = Language.with_translations.collect {|p| [ p.name, p.id ] }.sort
+    @language_proficiencies = [ [t('proficiency_poor'),'110'], [t('proficiency_good'),'120'], [t('proficiency_excellent'),'130'], [t('proficiency_native'),'140'] ]
+
+    @diets = @online_application.diets.collect { |d| d.id }
+
+    @countries = [ [t(:other_please_specify),'0'] ] + Country.with_translations.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }
   end
 
   # GET /online_applications/1/edit

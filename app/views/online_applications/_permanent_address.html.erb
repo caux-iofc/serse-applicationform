@@ -41,7 +41,7 @@
              <td>
                <div class="field">
                  <span class="af_star">*</span><%= af.label :country_id, t(:addresses_country_id) %><br />
-                 <%= af.select(:country_id, [ [t(:other_please_specify),'0'] ] + Country.with_translations.collect {|p| [ p.name, p.id ] }.sort, {:include_blank => t(:choose_one)}) %>
+                 <%= af.select(:country_id, @countries, {:include_blank => t(:choose_one)}) %>
                </div>
              </td>
              <td>
