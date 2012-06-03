@@ -104,7 +104,8 @@ class OnlineApplication < ActiveRecord::Base
 
   validate :must_select_reason_for_coming
 
-  validates :other_reason_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_reason) }, :length => { :maximum => 100 } , :if => :other_reason
+  validates :other_reason_detail, :length => { :maximum => 200 }
+  validates :other_reason_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_reason) }, :if => :other_reason
 
   def must_select_reason_for_coming
     if online_application_conferences.empty? and training_programs.empty? and not interpreter and not volunteer and other_reason_detail == '' then
