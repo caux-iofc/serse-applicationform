@@ -17,7 +17,7 @@ desc "Clean up old releases"
 set :keep_releases, 5
 before("deploy:cleanup") { set :use_sudo, false }
 
-after "deploy:create_symlink", "deploy:copy_vendor_bundle_dir", :roles => :app 
+after "deploy:symlink", "deploy:copy_vendor_bundle_dir", :roles => :app
 after "deploy:copy_vendor_bundle_dir", "deploy:copy_files", :roles => :app
 after "deploy:update", "deploy:migrate", :roles => :db
 after :deploy, 'deploy:cleanup', :roles => :app
@@ -43,7 +43,7 @@ namespace :deploy do
     run "[ ! -d #{current_path}/vendor/bundle ] && mkdir #{current_path}/vendor/bundle || echo 'vendor/bundle exists, good'"
     run "chown www-data:www-data #{current_path}/vendor/bundle"
     run "chown www-data:www-data #{current_path}"
-    run "cd #{current_path}; sudo -u www-data bundle --deployment install"
+    run "cd #{current_path}; bundle --deployment install"
     # Precompile assets -- this is also slow
     run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
   end
