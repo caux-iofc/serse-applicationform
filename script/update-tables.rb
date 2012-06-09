@@ -112,8 +112,8 @@ OnlineForm.all.each do |o|
 end
 
 @objects = Hash.new()
-y = YAML.load_file( "#{Rails.root}/tmp_script/tbl_sessions.yml" )
-y.sort.each do |k,v| 
+y = YAML.load_file( "#{Rails.root}/tmp_script/conferences.yml" )
+y.sort.each do |k,v|
   of = Conference.find_by_serse_id(v['id'])
   if of.nil? then
     of = Conference.new
@@ -125,38 +125,75 @@ y.sort.each do |k,v|
   of.private = v['private']
   of.special = v['special']
   of.display_dates = v['display_dates']
-  of.abbreviation = v['abbrev']
+  of.abbreviation = v['abbreviation']
   dd = DateTime.parse(v['start'])
-  of.template_path = dd.strftime("%Y") + '/' + v['abbrev'].downcase
+  of.template_path = dd.strftime("%Y") + '/' + v['abbreviation'].downcase
 
-  of.created_at = DateTime.strptime(v['epoch'],'%s')
-  of.updated_at = DateTime.strptime(v['epoch'],'%s')
+  of.created_at = v['created_at']
+  of.updated_at = v['updated_at']
   of.save
   @objects[of.id] = true
 end
 
-y = YAML.load_file( "#{Rails.root}/tmp_script/tbl_session_names.yml" )
-y.sort.each do |k,v| 
-  of = Conference.find_by_serse_id(v['session_id'])
+y = YAML.load_file( "#{Rails.root}/tmp_script/conference_translations.yml" )
+y.sort.each do |k,v|
+  of = Conference.find_by_serse_id(v['conference_id'])
   if of.nil? then
     of = Conference.new
   end
-  of.serse_id = v['session_id']
-  if v['language_id'] == '74' then
-    I18n.locale = 'fr'
-    of.name = v['name']
-  elsif v['language_id'] == '89' then
-    I18n.locale = 'de'
-    of.name = v['name']
-  elsif v['language_id'] == '63' then
-    I18n.locale = 'en'
-    of.name = v['name']
-  end
+  I18n.locale = v['locale']
+  of.name = v['name']
+  of.byline = v['byline']
+  of.created_at = v['created_at']
+  of.updated_at = v['updated_at']
   of.save
+  I18n.locale = 'en'
   @objects[of.id] = true
 end
 
 Conference.all.each do |o|
+  if not @objects.has_key?(o.id) then
+    o.destroy!
+  end
+end
+
+@objects = Hash.new()
+y = YAML.load_file( "#{Rails.root}/tmp_script/conference_workstreams.yml" )
+y.sort.each do |k,v|
+  of = ConferenceWorkstream.find_by_serse_id(v['id'])
+  if of.nil? then
+    of = ConferenceWorkstream.new
+  end
+  of.serse_id = v['id']
+  of.conference_id = Conference.find_by_serse_id(v['conference_id']).id
+  of.priority_sort = v['priority_sort']
+  of.created_by = v['created_by']
+  of.updated_by = v['updated_by']
+  of.created_at = v['created_at']
+  of.updated_at = v['updated_at']
+  of.deleted_at = v['deleted_at']
+  of.save
+  @objects[of.id] = true
+end
+
+y = YAML.load_file( "#{Rails.root}/tmp_script/conference_workstream_translations.yml" )
+y.sort.each do |k,v|
+  of = ConferenceWorkstream.find_by_serse_id(v['conference_workstream_id'])
+  if of.nil? then
+    of = ConferenceWorkstream.new
+  end
+  I18n.locale = v['locale']
+  of.name = v['name']
+  of.byline = v['byline']
+  of.language = v['language']
+  of.created_at = v['created_at']
+  of.updated_at = v['updated_at']
+  of.save
+  I18n.locale = 'en'
+  @objects[of.id] = true
+end
+
+ConferenceWorkstream.all.each do |o|
   if not @objects.has_key?(o.id) then
     o.destroy!
   end
