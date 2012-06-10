@@ -375,7 +375,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 					next if ws.conference_workstream_id.nil?
 					# TODO: once #202 is done, this will need to refer to the serse_id value in the conference_workstreams table!
           @pg_sql = "insert into online_application_conference_workstreams (online_application_conference_id,conference_workstream_id,preference) values " +
-                    "(currval('online_application_conferences_id_seq'),#{ws.conference_workstream_id},#{ws.preference == 'first_choice' ? 1 : 2})"
+                    "(currval('online_application_conferences_id_seq'),#{ws.conference_workstream.serse_id},#{ws.preference == 'first_choice' ? 1 : 2})"
 		  		@res = @conn.exec(@pg_sql)
 				end
 			end
