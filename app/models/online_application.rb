@@ -195,7 +195,7 @@ class OnlineApplication < ActiveRecord::Base
   validates :fax, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }
   validates :fax, :presence => true, :if => :fax_needed?
   def fax_needed?
-    (visa or confirmation_letter_via == "fax") and relation == 'primary applicant'
+    (confirmation_letter_via == "fax") and relation == 'primary applicant'
   end
 
   # There appears to be no way to pass two different :date conditions with a unique message for each

@@ -101,20 +101,12 @@ jQuery ->
   ##### fax number is compulsory in certain cases ####
 
   ## First the code that will run on document load ##
-  if ($('#online_application_confirmation_letter_via_fax').is(':checked') or $('#online_application_visa').is(':checked')) and $('#online_application_relation').val() == 'primary applicant'
+  if $('#online_application_confirmation_letter_via_fax').is(':checked') and $('#online_application_relation').val() == 'primary applicant'
     $("#fax_required").show()
   else
     $("#fax_required").hide()
 
   ## And then all the hooks ##
-  $('#online_application_visa').change ->
-    if ($('#online_application_confirmation_letter_via_fax').is(':checked') or $('#online_application_visa').is(':checked')) and $('#online_application_relation').val() == 'primary applicant'
-      $("#fax_required").show()
-    else
-      $("#fax_required").hide()
-    if $('#online_application_visa').is(':checked') and $('#online_application_relation').val() == 'primary applicant'
-      alert(I18n.t("ensure_fax_number"))
-
   $('input:radio[name="online_application[confirmation_letter_via]"]').change ->
     if $('#online_application_confirmation_letter_via_fax').is(':checked') or $('#online_application_visa').is(':checked')
       $("#fax_required").show()
