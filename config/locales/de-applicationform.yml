@@ -106,6 +106,7 @@ de:
   addresses_country_id: Land
   addresses_other_country: Anderes Land
   nightly_contribution: "Mein pers\xC3\xB6nlicher Beitrag an die Konferenzgeb\xC3\xBChren betr\xC3\xA4gt pro Nacht"
+  nightly_contribution_invalid: " ist keine Zahl. Bitte verwenden Sie keine Punkte oder Kommas."
   submitted_intro_part_1: "Danke, wir haben Ihre Anmeldung erhalten. "
   spouse: Partner/in
   email: E-Mail Adresse

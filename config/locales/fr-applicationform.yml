@@ -115,6 +115,7 @@ fr:
 
   nightly_contribution: "Ma propre contribution aux frais de s\xC3\xA9jour par nuit sera de"
   nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/2012-frais\">92 CHF par nuit (adulte)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
+  nightly_contribution_invalid: " n'est pas un nombre. N'utilisez pas de points ou des virgules."
   submitted_intro_part_1: "Merci, votre inscription a \xC3\xA9t\xC3\xA9 re\xC3\xA7ue."
   spouse: Conjoint/Partenaire
   email: "Adresse courriel (e-mail) "

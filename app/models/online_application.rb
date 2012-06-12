@@ -244,7 +244,7 @@ class OnlineApplication < ActiveRecord::Base
                                    
   validates :passport_embassy, :presence => true, :if => :visa
 
-  validates :nightly_contribution, :numericality => { :only_integer => true }
+  validates :nightly_contribution, :numericality => { :only_integer => true , :message => I18n.t(:nightly_contribution_invalid) }
 
   validates :badge_firstname, :presence => true
   validates :badge_surname, :presence => true
