@@ -118,7 +118,7 @@ jQuery ->
   ##### correspondence address is compulsory in certain cases ####
 
   ## First the code that will run on document load ##
-  if $('#online_application_confirmation_letter_via_correspondence_address').is(':checked')
+  if $('#online_application_relation').val() == 'primary applicant' and $('#online_application_confirmation_letter_via_correspondence_address').is(':checked')
     $(".correspondence_address_required").show()
   else
     $(".correspondence_address_required").hide()
