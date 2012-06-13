@@ -186,8 +186,8 @@ class OnlineApplication < ActiveRecord::Base
                     :email => true, :if => "relation == 'primary applicant'"
 
   validates :email_confirmation, :presence => true, :if => "relation == 'primary applicant'"
+  validates :telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }
   validates :telephone, :presence => true,
-                        :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, 
                         :if => "relation == 'primary applicant'"
   validates :cellphone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }
   validates :confirmation_letter_via, :presence => true
