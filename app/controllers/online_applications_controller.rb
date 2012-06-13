@@ -129,6 +129,13 @@ class OnlineApplicationsController < ApplicationController
     @online_application.application_group_id = @ag.id
     @online_application.application_group_order = @ag.online_applications.count + 1
 
+    if @online_application.relation != 'primary applicant' and 
+       (@ag.online_applications.empty? or @ag.online_applications.primary_applicant.first.nil?) then
+      # Something funky is going on here. Most likely, they have already submitted this application.
+      redirect_to :error
+      return
+    end
+
     if @online_application.relation != 'primary applicant' then
       @online_application.arrival = @ag.online_applications.primary_applicant.first.arrival
       @online_application.departure = @ag.online_applications.primary_applicant.first.departure
@@ -154,6 +161,12 @@ class OnlineApplicationsController < ApplicationController
   # PUT /online_applications/1.json
   def update
     @online_application = OnlineApplication.find(params[:id])
+
+    if not @ag.online_applications.include?(@online_application) then
+      # Something funky is going on here. Most likely, they have already submitted this application.
+      redirect_to :error
+      return
+    end
 
     @online_application.the_request = request
 
