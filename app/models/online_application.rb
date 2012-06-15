@@ -156,7 +156,7 @@ class OnlineApplication < ActiveRecord::Base
 
     # See if they are arriving a day or more early, or leaving a day or more late,
     # and there is nothing in the remarks field
-    if remarks =~ /^[\r\n]*$/ and (arrival.to_date < @session_start.to_date or departure.to_date > @session_stop.to_date) then
+    if remarks =~ /\A\s*\Z/ and (arrival.to_date < @session_start.to_date or departure.to_date > @session_stop.to_date) then
       errors.add :remarks, I18n.t(:arriving_early_or_leaving_late_html).html_safe
     end
 
