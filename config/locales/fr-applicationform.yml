@@ -140,7 +140,7 @@ fr:
   follow_us_on: "Suivez notre actualité sur"
 
   form_unavailable_title: "Inscription en ligne hors service"
-  form_unavailable_html: "Cher visiteur,<p>L'inscription en ligne des rencontres de Caux est actuellement hors service.<p>Merci pour votre compréhension.<p>Le secrétariat des rencontres."
+  form_unavailable_html: "Chère participante, cher participant,<p>Merci de votre intérêt. Le formulaire d'inscription sera bientôt en ligne. Si vous envoyez votre email au <a href=\"mailto:confsec@caux.ch\">secrétariat des rencontres</a>, nous pourrons vous prévenir dès que celui-ci est disponible. <p>Meilleures salutations,<br/>le secrétariat des rencontres<p>Pour recevoir les dernières nouvelles de Caux directement, inscrivez-vous à la newsletter, sur notre page Facebook et Twitter"
 
   correspondence_address_country_id: "Adresse de correspondance: Pays"
   correspondence_address_other_country: "Adresse de correspondance: Autre Pays"

@@ -178,7 +178,7 @@ en:
   team: "team"
 
   form_unavailable_title: "Registration form unavailable"
-  form_unavailable_html: "Dear visitor,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the Conference Secretary at confsec@caux.ch you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat."
+  form_unavailable_html: "Dear participant,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the <a href=\"mailto:confsec@caux.ch\">Conference Secretary</a> you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat.<p>To receive Caux latest news, subscribe to our newsletter, our Facebook page and Twitter"
 
   interpreter: "Interpreter"
   volunteer: "Volunteer"
