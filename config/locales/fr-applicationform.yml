@@ -114,7 +114,7 @@ fr:
 
 
   nightly_contribution: "Ma propre contribution aux frais de s\xC3\xA9jour par nuit sera de"
-  nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/2012-frais\">92 CHF par nuit (adulte)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
+  nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/2012-hiver-frais\">85 CHF par nuit (adulte)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
   nightly_contribution_invalid: " n'est pas un nombre. N'utilisez pas de points ou des virgules."
   submitted_intro_part_1: "Merci, votre inscription a \xC3\xA9t\xC3\xA9 re\xC3\xA7ue."
   spouse: Conjoint/Partenaire
@@ -178,7 +178,7 @@ fr:
 
   must_be_at_least_6_weeks_in_the_future: doit être au moins 6 semaines à l'avenir
 
-  child_nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/2012-fees\">0/46/55 CHF par nuit (enfant/jeune)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
+  child_nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/2012-hiver-fees\">0/20 CHF par nuit (enfant/jeune)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
   must_be_after_arrival: " doit être après votre arriv\xC3\xA9e"
 
   first_choice: "Atelier préféré"
