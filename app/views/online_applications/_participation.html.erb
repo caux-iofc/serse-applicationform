@@ -1,7 +1,9 @@
          <table class="af_block">
+           <% if @oac_normal.size > 0 -%>
            <tr>
              <td colspan="2" align="center"><span class="af_normtitle"><%=t :conference_participation %></span></td>
            </tr>
+           <% end -%>
            <%= f.fields_for :online_application_conferences, @oac_normal do |oac| %>
            <%= oac.hidden_field :conference_id, :value => oac.object.conference.id %>
            <%= oac.hidden_field :priority_sort, :value => oac.object.priority_sort %>
@@ -36,9 +38,11 @@
            </tr>
            <% end -%>
            <% end -%>
+           <% if @oac_special.size > 0 -%>
            <tr>
              <td colspan="2" align="center"><span class="af_normtitle"><%=t :special_conference_participation %></span></td>
            </tr>
+           <% end -%>
            <%= f.fields_for :online_application_conferences, @oac_special do |oac| %>
            <%= oac.hidden_field :conference_id, :value => oac.object.conference.id %>
            <%= oac.hidden_field :priority_sort, :value => oac.object.priority_sort %>
@@ -68,9 +72,11 @@
            <% end -%>
 
 
+           <% if @online_application.training_programs.size > 0 -%>
            <tr>
              <td colspan="2" align="center"><span class="af_normtitle"><%=t :training_participation %></span></td>
            </tr>
+           <% end -%>
            <% TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).each do |tp| -%>
            <tr>
              <td>
