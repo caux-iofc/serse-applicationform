@@ -18,17 +18,6 @@ class OnlineApplicationsController < ApplicationController
     end
   end
 
-  # GET /online_applications/1
-  # GET /online_applications/1.json
-  def show
-    @online_application = OnlineApplication.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @online_application }
-    end
-  end
-
   # GET /online_applications/new
   # GET /online_applications/new.json
   def new
