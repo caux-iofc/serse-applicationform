@@ -268,9 +268,12 @@ class OnlineApplication < ActiveRecord::Base
         end
       end
       # Exclude HS 2012, as well as conferences marked as 'special' from this validation
+      # And exclude winter conferencd 2012/2013. TODO: fix this properly with a flag on the conference object.
+      # Cf. redmine #307. Ward, 2012-09-15
       @real_locale = I18n.locale
       I18n.locale = 'en'
       if oac.conference.name != 'Fifth annual Caux Forum for Human Security' and 
+         oac.conference.name != 'Winter gathering 2012/13' and
          not oac.conference.special and
          not oac.role_participant and not oac.role_speaker and not oac.role_team then
          I18n.locale = @real_locale
