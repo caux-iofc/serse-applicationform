@@ -19,6 +19,8 @@ fr:
   intro_part_3: "Merci de vous inscrire au plus tard 6 semaines avant votre arrivée à Caux."
   language_name: "Langue(s)"
 
+  online_application_languages_language_id: "Langue"
+
   confirmation_letter_via_post: "Poste à mon adresse permanente"
   confirmation_letter_via_correspondence_address: "Poste à une autre adresse"
 

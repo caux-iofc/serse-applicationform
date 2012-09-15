@@ -163,6 +163,7 @@ en:
   language_proficiency: "Proficiency"
   online_application_languages_proficiency: "Language proficiency"
   language_missing: "Please choose at least one language"
+  online_application_languages_language_id: "Language"
   proficiency_poor: "Poor"
   proficiency_good: "Good"
   proficiency_excellent: "Excellent"
