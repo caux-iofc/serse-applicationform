@@ -11,17 +11,19 @@ fr:
   submitted_title: Formulaire d'inscription complet
   citizenship: "Nationalit\xC3\xA9"
   citizenship_id: "Nationalit\xC3\xA9"
-  work_telephone: "Num\xC3\xA9ro de t\xC3\xA9l\xC3\xA9phone bureau"
+  work_telephone: "Num\xC3\xA9ro de t\xC3\xA9l\xC3\xA9phone professionel"
   title: Formulaire d'inscription
-  intro_part_1_html: "Veuillez remplir le formulaire de manière aussi complète que possible. Les champs marqués d'une astérisque (<span class=\"af_star\">*</span>) doivent obligatoirement être remplis. Si vous rencontrez des problèmes, veuillez écrire <b>en donnant les détails du problème, y-compris le message d'erreur</b> à"
-  intro_part_2_html: "Si vous avez des problèmes et avez un message d'erreur ci-dessus, indiquant que votre navigateur n'est pas reconnu, <a href=\"http://www.mozilla.org/firefox/\" target=\"new\"><b>veuillez installer une mise à jour plus récente</b></a> et ré-essayer avant de nous contacter.<p>"
-  intro_part_3: "Merci de vous inscrire au plus tard six semaines avant votre arrivée à Caux."
+  intro_part_1_html: "Veuillez remplir le formulaire de manière aussi complète que possible. Les champs marqués d'une astérisque (<span class=\"af_star\">*</span>) doivent obligatoirement être remplis. Si vous rencontrez des problèmes, veuillez écrire <b>en donnant les détails du problème, y-compris le message d'erreur</b> au"
+  intro_part_1b: secrétariat
+  intro_part_2_html: "Si vous voyez un message d'erreur indiquant que votre navigateur n'est pas reconnu, <a href=\"http://www.mozilla.org/firefox/\" target=\"new\"><b>veuillez installer une mise à jour plus récente</b></a> et ré-essayer avant de nous contacter.<p>"
+  intro_part_3: "Merci de vous inscrire au plus tard 6 semaines avant votre arrivée à Caux."
   language_name: "Langue(s)"
 
-  confirmation_letter_via_post: Poste
-  confirmation_letter_via_correspondence_address: Correspondance
+  confirmation_letter_via_post: "Poste à mon adresse permanente"
+  confirmation_letter_via_correspondence_address: "Poste à une autre adresse"
 
-  ensure_fax_number: "S'il vous plaît assurez-vous de fournir un numéro de fax dans la section 'R\xC3\xA9f\xC3\xA9rence'."
+  ensure_fax_number: "S'il vous plaît assurez-vous de fournir un numéro de fax dans la section 'Coordonn\xC3\xA9es'."
+
   ensure_correspondence_address: "Veuillez remplir la section 'Adresse de correspondence'"
 
   proficiency_native: Maternelle
@@ -32,10 +34,10 @@ fr:
   proceed: Continuez
   personal_information: Informations personnelles
   name_badge: Badge
-  contact_information: "R\xC3\xA9f\xC3\xA9rence"
+  contact_information: "Coordonn\xC3\xA9es"
 
   arrival: "Arriv\xC3\xA9e"
-  previous_visit: "S\xC3\xA9jour pr\xC3\xA9c\xC3\xA9dent \xC3\xA0 Caux?"
+  previous_visit: "Êtes-vous déjà venu(e) à Caux?"
   data_protection_consent_text: "J'accepte/nous acceptons que mes/nos donn\xC3\xA9es personnelles soient utilis\xC3\xA9es par le secr\xC3\xA9tariat des rencontres, afin d'\xC3\xAAtre en contact avec moi/nous au sujet de mon/notre inscription de cette ann\xC3\xA9e"
   gender: "Sexe\t"
   special_dietary_requirements: "R\xC3\xA9gime alimentaire particulier"
@@ -97,7 +99,7 @@ fr:
 
   previous_year: "Année de votre dernière visite"
 
-  practical_life: "Les participants aux conférences sont invités à participer à la bonne marche du centre en aidant aux tâches pratiques. Votre équipe de travail (cuisine, service des tables etc.) vous sera indiquée à votre arrivée par les organisateurs de votre session."
+  practical_life: "Les participant(e)s aux rencontres sont invité(e)s à aider à la bonne marche du centre et aux tâches pratiques. Votre équipe de service (cuisine, service des repas etc.) vous sera indiquée à votre arrivée par les organisateurs de la session."
 
   visa_needed: "Oui, il me faut un visa"
   visa_information_html: "<p>Renseignez-vous s'il vous faut un visa auprès des endroits suivants
@@ -108,13 +110,13 @@ fr:
                           </ul>
                           <strong>IMPORTANT</strong>
                             <ul>
-                              <li>S'il vous faut un visa pour entrer en Suisse, votre inscription doit parvenir au secrétariat des conférences <strong>au moins DIX semaines</strong> avant votre arrivée à Caux.
-                              <li>Veuillez prendre note qu'une fois que la lettre pour la demande de visa est envoyée (avec copie à l'Ambassade de Suisse) tout changement de dates en dehors de la période indiquée dans la lettre sera très difficile.
+                              <li>S'il vous faut un visa pour entrer en Suisse, votre inscription doit parvenir au secrétariat des rencontres <strong>au moins 10 semaines</strong> avant votre arrivée à Caux.
+                              <li>Veuillez prendre note qu'une fois que la lettre pour la demande de visa est envoyée (avec copie à l'ambassade de Suisse) tout changement de dates en dehors de la période indiquée dans la lettre sera très difficile.
                             </ul></p>"
 
 
   nightly_contribution: "Ma propre contribution aux frais de s\xC3\xA9jour par nuit sera de"
-  nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/2012-hiver-frais\">85 CHF par nuit (adulte)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
+  nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous soutient si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/2012-hiver-frais\">85 CHF par nuit (adulte)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
   nightly_contribution_invalid: " n'est pas un nombre. N'utilisez pas de points ou des virgules."
   submitted_intro_part_1: "Merci, votre inscription a \xC3\xA9t\xC3\xA9 re\xC3\xA7ue."
   spouse: Conjoint/Partenaire
@@ -167,7 +169,7 @@ fr:
   data_protection_caux_info_text: Oui, j'aimerais bien recevoir des informations régulières sur les futures rencontres de Caux (par couriel).
   data_protection_local_info_text: Oui, j'aimerais bien recevoir des informations régulières sur les activités d'Initiatives et Changement dans mon pays de résidence.
 
-  diet_detail: "Une alternative végétarienne est offerte à chaque repas. En outre, la cuisine de Caux peut adapter les menus si nécessare. Veuillez marquer d'une croix vos éventuels besoins:"
+  diet_detail: "Une option végétarienne est offerte à chaque repas. La cuisine de Caux peut également adapter les menus si nécessare. Veuillez marquer d'une croix vos éventuels besoins:"
 
   other_diet_text: Si vous avez d'autres besoins, nous mettons à votre disposition une cuisine spéciale. Si vous utilisez des produits particuliers, merci de les apporter. Si vous souhaitez utiliser cette option, ou avez d'autres requêtes, adressez-vous à la cuisine de régimes dès votre arrivée.
   conference_fees: Frais de séjour

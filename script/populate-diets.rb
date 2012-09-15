@@ -29,7 +29,7 @@ end
 sort = 0
 new_diet(sort += 1,'Halal')
 new_diet(sort += 1,'Ramadan','Ramadan','Ramadan')
-new_diet(sort += 1,'Kosher','Casher','Koscher')
+new_diet(sort += 1,'Kosher','Kasher','Koscher')
 new_diet(sort += 1,'Lactose free','Sans lactose','Laktosefrei')
 new_diet(sort += 1,'Gluten free','Sans gluten','Glutenfrei')
 new_diet(sort += 1,'Low fat','Sans matière grasse','Fettfrei')

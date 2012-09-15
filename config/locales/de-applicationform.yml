@@ -121,6 +121,7 @@ de:
   submitted_intro_part_2: "Ihre Anmeldung wurde noch nicht akzeptiert"
 
   intro_part_1_html: "Bitte füllen Sie das Formular möglichst vollständig aus. Die mit einem Stern (<span class=\"af_star\">*</span>) markierten Felder sind obligatorisch. Wenn das Formular nicht richtig funktioniert, senden Sie uns bitte <b>eine Beschreibung des Problems und wenn möglich die Fehlermeldung, die Sie erhalten</b>, an"
+  intro_part_1b: confsec
   intro_part_2_html: "Wenn Sie eine Fehlermeldung erhalten haben, Ihr Browser werde nicht unterstützt, <a href=\"http://www.mozilla.org/firefox/\" target=\"new\"><b>installieren Sie bitte einen neuen Browser</b></a> und versuchen Sie es noch einmal, bevor Sie uns kontaktieren."
   intro_part_3: "Bitte melden Sie sich bis spätestens sechs Wochen vor Ihrer Ankunft in Caux an."
   language_name: "Sprache"

@@ -4,6 +4,7 @@
 en:
   title: "Registration Form"
   intro_part_1_html: "Please fill out the form as completely as possible. The fields marked with an asterisk (<span class=\"af_star\">*</span>) are compulsory. If you have any problems with this form, please write <strong>with details of your problem, including the error message you receive</strong> to"
+  intro_part_1b: confsec
   intro_part_2_html: "If you have problems and you see an error message above about your browser being unsupported, <a href=\"http://www.mozilla.org/firefox/\">please upgrade to a newer browser and try again</a> before contacting us."
   intro_part_3: "Thank you for registering as soon as possible, but no later than six weeks before your arrival."
   personal_information: "Personal information"
