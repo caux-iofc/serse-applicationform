@@ -18,3 +18,5 @@
 /config/initializers/secret_token.rb
 /config/environments/*.rb
 
+# Ignore tmp_script dir (used for pushing config data from Serse server
+/tmp_script
