@@ -18,7 +18,8 @@ set :keep_releases, 5
 before("deploy:cleanup") { set :use_sudo, false }
 
 after "deploy:symlink", "deploy:copy_vendor_bundle_dir", :roles => :app
-after "deploy:copy_vendor_bundle_dir", "deploy:copy_files", :roles => :app
+after "deploy:copy_vendor_bundle_dir", "deploy:copy_tmp_script_dir", :roles => :app
+after "deploy:copy_tmp_script_dir", "deploy:copy_files", :roles => :app
 after "deploy:update", "deploy:migrate", :roles => :db
 after :deploy, 'deploy:cleanup', :roles => :app
 
@@ -27,7 +28,12 @@ namespace :deploy do
   task :copy_vendor_bundle_dir, :on_error => :continue do
     prev_uploads_dir = "#{previous_release}/vendor/bundle"
     run "[ -d #{prev_uploads_dir} ] && cp -pr #{prev_uploads_dir} #{current_path}/vendor/"
-  end 
+  end
+  desc "Copy tmp_script to the new directory"
+  task :copy_tmp_script_dir, :on_error => :continue do
+    prev_tmp_script_dir = "#{previous_release}/tmp_script"
+    run "[ -d #{prev_tmp_script_dir} ] && cp -pr #{prev_tmp_script_dir} #{current_path}/"
+  end
   desc "Put a few files in place, ensure correct file ownership"
   task :copy_files, :roles => :app,  :except => { :no_release => true } do
     # Copy a few files/make a few symlinks
