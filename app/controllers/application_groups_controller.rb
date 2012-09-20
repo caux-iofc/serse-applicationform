@@ -44,8 +44,4 @@ class ApplicationGroupsController < ApplicationController
     end
   end
 
-#  def show
-#    redirect_to :controller => :online_applications, :action => :index
-#  end
-
 end

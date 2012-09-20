@@ -3,10 +3,11 @@
 
 en:
   title: "Registration Form"
-  intro_part_1_html: "Please fill out the form as completely as possible. The fields marked with an asterisk (<span class=\"af_star\">*</span>) are compulsory. If you have any problems with this form, please write <strong>with details of your problem, including the error message you receive</strong> to"
-  intro_part_1b: confsec
-  intro_part_2_html: "If you have problems and you see an error message above about your browser being unsupported, <a href=\"http://www.mozilla.org/firefox/\">please upgrade to a newer browser and try again</a> before contacting us."
-  intro_part_3: "Thank you for registering as soon as possible, but no later than six weeks before your arrival."
+  intro_part_1_html: "Please fill out the form as completely as possible. The fields marked with an asterisk (<span class=\"af_star\">*</span>) are compulsory."
+  intro_part_1b_html: "If you have any problems with this form, please write <strong>with details of your problem, including the error message you receive</strong> to"
+  intro_part_1c: "the conference secretariat"
+  intro_part_2_html: "If you have problems and you see an error message about your browser being unsupported, <a href=\"http://www.mozilla.org/firefox/\">please upgrade to a newer browser and try again</a> before contacting us."
+  intro_part_3: "Thank you for registering as soon as possible, but no later than 6 weeks before your arrival."
   personal_information: "Personal information"
   relation: "Relation to primary applicant"
   only_valid_relations: "please indicate the relation of this applicant to the primary applicant"
@@ -99,7 +100,7 @@ en:
                           </ul>
                           <strong>IMPORTANT</strong>
                             <ul>
-                              <li>If you require a Swiss visa your registration needs to reach the conference secretariat <b>at least TEN weeks</b> prior to your arrival at Caux.
+                              <li>If you require a Swiss visa your registration needs to reach the conference secretariat <b>at least 10 weeks</b> prior to your arrival at Caux.
                               <li>Please note that once your visa letter has been issued (copies of which go to the Swiss Embassy) it is very difficult to change your reservation outside the dates of the visa letter.
                             </ul></p>'
   visa_information_2: 'If you have any problems or questions please contact the Conference Secretariat as early as possible at '
@@ -143,7 +144,7 @@ en:
   must_be_valid_now: " must be valid now"
   register: "Register!"
   confirmation: "Confirmation"
-  confirm_read_documents_text_html: "I/we confirm that I/we have read the <a href=\"http://www.caux.iofc.org/en/2012\" target=\"_new\">documents</a> relating to the Caux conferences and would like to take part in the conference."
+  confirm_read_documents_text_html: "I/we confirm that I/we have read the <a href=\"http://www.caux.iofc.org/en/2012-winter\" target=\"_new\">documents</a> relating to the Caux conferences and would like to take part in the conference."
   data_protection_consent_text: "I consent for my/our personal data to be held by the Caux Conference Secretariat for the purpose of communicating with me about my registration this year."
   data_protection_caux_info_text: "Yes, I wish to regularly receive information about future International Caux Conferences (by email)."
   data_protection_local_info_text: "Yes, I wish to regularly receive information about the activities of Initiatives of Change in my country of residence."
@@ -155,6 +156,7 @@ en:
   submitted_intro_part_1: "Thank you, your registration has been received."
   submitted_intro_part_2: "Your registration has not yet been approved."
   submitted_intro_part_3: "You will receive a formal confirmation letter if your registration is approved. If you have not received a confirmation letter 2 weeks prior to your planned arrival in Caux, please enquire via "
+  submitted_intro_part_3b: " the conference secretariat"
   follow_us_on: "Follow us to get the latest about the Caux international conferences"
   your_application_title: "Your application"
   application_not_yet_submitted_html: "Your application has not yet been submitted.<br/>Please add a person or submit your application."
@@ -180,7 +182,7 @@ en:
   team: "team"
 
   form_unavailable_title: "Registration form unavailable"
-  form_unavailable_html: "Dear participant,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the <a href=\"mailto:confsec@caux.ch\">Conference Secretary</a> you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat.<p>To receive Caux latest news, subscribe to our newsletter, our Facebook page and Twitter"
+  form_unavailable_html: "Dear participant,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the <a href=\"mailto:confsec@caux.ch\">Conference Secretariat</a> you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat.<p>To receive Caux latest news, subscribe to our newsletter, our Facebook page and Twitter"
   newsletter_url: "http://www.caux.iofc.org/en/newsletter-registration"
 
   interpreter: "Interpreter"

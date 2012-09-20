@@ -13,8 +13,9 @@ fr:
   citizenship_id: "Nationalit\xC3\xA9"
   work_telephone: "Num\xC3\xA9ro de t\xC3\xA9l\xC3\xA9phone professionel"
   title: Formulaire d'inscription
-  intro_part_1_html: "Veuillez remplir le formulaire de manière aussi complète que possible. Les champs marqués d'une astérisque (<span class=\"af_star\">*</span>) doivent obligatoirement être remplis. Si vous rencontrez des problèmes, veuillez écrire <b>en donnant les détails du problème, y-compris le message d'erreur</b> au"
-  intro_part_1b: secrétariat
+  intro_part_1_html: "Veuillez remplir le formulaire de manière aussi complète que possible. Les champs marqués d'une astérisque (<span class=\"af_star\">*</span>) doivent obligatoirement être remplis."
+  intro_part_1b_html: "Si vous rencontrez des problèmes, veuillez écrire <b>en donnant les détails du problème, y-compris le message d'erreur</b> au"
+  intro_part_1c: secrétariat
   intro_part_2_html: "Si vous voyez un message d'erreur indiquant que votre navigateur n'est pas reconnu, <a href=\"http://www.mozilla.org/firefox/\" target=\"new\"><b>veuillez installer une mise à jour plus récente</b></a> et ré-essayer avant de nous contacter.<p>"
   intro_part_3: "Merci de vous inscrire au plus tard 6 semaines avant votre arrivée à Caux."
   language_name: "Langue(s)"
@@ -166,10 +167,12 @@ fr:
   addresses: Adresse permanente
   email_confirmation: Adresse courriel (confirmation)
   language_missing: "Vous devez préciser au moins une langue"
-  confirm_read_documents_text_html: Je confirme/nous confirmons avoir lu les <a href="http://www.caux.iofc.org/fr/2012" target="_new">documents</a> concernant les rencontres de Caux et je souhaite/nous souhaitons y participer.
-  confirm_read_documents_error: Veuillez confirmer que vous avez lu les documents relatifs aux conférences de Caux et que vous souhaitez prendre part à ces conférences
-  data_protection_caux_info_text: Oui, j'aimerais bien recevoir des informations régulières sur les futures rencontres de Caux (par couriel).
-  data_protection_local_info_text: Oui, j'aimerais bien recevoir des informations régulières sur les activités d'Initiatives et Changement dans mon pays de résidence.
+  confirm_read_documents_text_html: Je confirme/nous confirmons avoir lu les <a href="http://www.caux.iofc.org/fr/2012-hiver" target="_new">documents</a> concernant les rencontres de Caux et je souhaite/nous souhaitons y participer.
+  data_protection_caux_info_text: "J'aimerais recevoir des informations régulières sur les futures rencontres de Caux par couriel."
+  data_protection_local_info_text: "J'aimerais recevoir des informations régulières sur les activités d'Initiatives et Changement dans mon pays de résidence."
+
+  confirm_read_documents_error: "Merci de cocher la case pour confirmer que vous avez lu les informations concernant les rencontres de Caux et que vous voulez y participer."
+  data_protection_consent_error: "Nous ne pouvons traiter votre demande que si vous acceptez que vos données soient utilisées par la fondation CAUX-Initiatives et Changement. Nous ne transmettons pas vos données à des tiers. "
 
   diet_detail: "Une option végétarienne est offerte à chaque repas. La cuisine de Caux peut également adapter les menus si nécessaire. Veuillez marquer d'une croix vos éventuels besoins:"
 
@@ -179,7 +182,6 @@ fr:
   telephone: Téléphone (par ex. +41...)
   child: enfant
   phone_number_invalid: Le numéro doit commencer avec le signe + suivi du code de votre pays (par ex. +41 pour la Suisse, +33 pour la France) suivi du reste du numéro.
-  data_protection_consent_error: Si vous refusez que vos données personnelles soient conservées par la Fondation de Caux, nous ne pouvons pas aller de l'avant avec votre inscription!
 
   must_be_at_least_6_weeks_in_the_future: doit être au moins 6 semaines à l'avenir
 
@@ -202,7 +204,8 @@ fr:
   min_age_16: " non valide: L'\xC3\xA2ge minimum pour venir non-accompagn\xC3\xA9 est de 16 ans "
   please_indicate_conference_role: Veuillez indiquer votre(vos) statut(s) pendant la rencontre
   please_complete_all_required_fields: "Veuillez remplir tous les champs n\xC3\xA9cessaires"
-  submitted_intro_part_3: "Vous recevrez une lettre officielle de confirmation d\xC3\xA8s l'acceptation de votre inscription. Si vous ne l'avez pas re\xC3\xA7ue 2 semaines avant votre arriv\xC3\xA9e \xC3\xA0 Caux, veuillez nous contactez."
+  submitted_intro_part_3: "Vous recevrez une lettre officielle de confirmation d\xC3\xA8s l'acceptation de votre inscription. Si vous ne l'avez pas re\xC3\xA7ue 2 semaines avant votre arriv\xC3\xA9e \xC3\xA0 Caux, veuillez"
+  submitted_intro_part_3b: " nous contactez"
   special_meals_at_night: "(horaire de repas adapt\xC3\xA9 le soir)"
   visa_reference_email: "Adresse E-mail de la personne de r\xC3\xA9f\xC3\xA9rence"
   can_be_no_earlier_than_today: " La date ne peut \xC3\xAAtre avant aujourd'hui"
