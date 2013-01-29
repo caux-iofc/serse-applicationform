@@ -7,7 +7,7 @@
                <div class="field">
                  <span class="af_star">*</span><%= f.label :arrival, t(:arrival) %> <%=t :approximate_time %><br />
                  <% field_with_errors @online_application, :arrival do -%>
-                   <%= f.datetime_select :arrival, :include_blank => :true, :start_year => Time.now.year, :end_year => Time.now.year + 1, :minute_step => 15 %>
+                   <%= f.datetime_select :arrival, :include_blank => :true, :start_year => @earliest_start_year, :end_year => @latest_stop_year, :minute_step => 15 %>
                  <% end -%>
                </div>
              </td>
@@ -17,7 +17,7 @@
                <div class="field">
                  <span class="af_star">*</span><%= f.label :departure, t(:departure) %> <%=t :approximate_time %><br />
                  <% field_with_errors @online_application, :departure do -%>
-                   <%= f.datetime_select :departure, :include_blank => :true, :start_year => Time.now.year, :end_year => Time.now.year + 1, :minute_step => 15 %>
+                   <%= f.datetime_select :departure, :include_blank => :true, :start_year => @earliest_start_year, :end_year => @latest_stop_year, :minute_step => 15 %>
                  <% end -%>
                </div>
              </td>

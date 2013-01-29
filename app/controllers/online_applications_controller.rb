@@ -40,6 +40,9 @@ class OnlineApplicationsController < ApplicationController
 
   def populate_ethereal_variables
 
+    @earliest_start_year = Time.now.year
+    @latest_stop_year = Time.now.year
+
     # Make sure we have exactly two sponsor lines
     while @online_application.sponsors.size < 2 do
       @online_application.sponsors.build
@@ -68,6 +71,8 @@ class OnlineApplicationsController < ApplicationController
 
     @priority_sort = 0
     Conference.normal.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
+      @earliest_start_year = c.start.year if c.start.year < @earliest_start_year
+      @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
       if not @conferences.has_key?(c.id) then
         @oac = @online_application.online_application_conferences.build({ :conference_id => c.id, :priority_sort => @priority_sort += 1 })
         @oac_normal << @oac
@@ -79,6 +84,8 @@ class OnlineApplicationsController < ApplicationController
 
     @priority_sort = 0
     Conference.special.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
+      @earliest_start_year = c.start.year if c.start.year < @earliest_start_year
+      @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
       if not @conferences.has_key?(c.id) then
         @oac = @online_application.online_application_conferences.build({ :conference_id => c.id, :priority_sort => @priority_sort += 1 })
         @oac_special << @oac
@@ -91,6 +98,7 @@ class OnlineApplicationsController < ApplicationController
     @diets = @online_application.diets.collect { |d| d.id }
 
     @countries = [ [t(:other_please_specify),'0'] ] + Country.with_translations.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }
+
   end
 
   # GET /online_applications/1/edit
