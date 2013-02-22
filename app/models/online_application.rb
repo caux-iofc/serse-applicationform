@@ -198,13 +198,16 @@ class OnlineApplication < ActiveRecord::Base
   validates :arrival, :presence => true,
                       :date => { :before_or_equal_to => :departure, :message => I18n.t(:must_be_before_departure) },
                       :if => "relation == 'primary applicant'"
-  validates :arrival, :date => { :after_or_equal_to => Date.today, :message => I18n.t(:can_be_no_earlier_than_today) },
-                      :if => "relation == 'primary applicant'"
   validates :departure, :presence => true,
                         :date => { :after_or_equal_to => :arrival, :message => I18n.t(:must_be_after_arrival) },
                         :if => "relation == 'primary applicant'"
-  validates :departure, :date => { :after_or_equal_to => Date.today, :message => I18n.t(:can_be_no_earlier_than_today) },
+
+  unless ALLOW_RETROACTIVE_REGISTRATION
+    validates :arrival, :date => { :after_or_equal_to => Date.today, :message => I18n.t(:can_be_no_earlier_than_today) },
                         :if => "relation == 'primary applicant'"
+    validates :departure, :date => { :after_or_equal_to => Date.today, :message => I18n.t(:can_be_no_earlier_than_today) },
+                          :if => "relation == 'primary applicant'"
+  end
 
   # Whoa. Serious rough edge, can't use :presence => true here. 
   # cf. http://stackoverflow.com/questions/4112858/radio-buttons-for-boolean-field-how-to-do-a-false

@@ -28,3 +28,10 @@ SerseApplication::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 end
+
+SYSTEM_EMAIL = 'sysadmin@example.com'
+ROOT_URL = 'localhost'
+
+ALLOW_RETROACTIVE_REGISTRATION = false
+
+require 'pp'
