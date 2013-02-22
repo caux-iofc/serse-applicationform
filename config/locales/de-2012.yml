@@ -1,0 +1,33 @@
+
+# Localization file for German -- 2012 conferences.
+
+de:
+  llmw_2012_intro_html: "<p>Lieber Teilnehmer, Liebe Teilnehmerin,</p><p>Bitte wählen Sie Ihren gewünschten Workshop als erste Priorität und eine Alternative als zweite Priorität. Wir bemühen uns sehr, Sie in einen von Ihnen gewählten Workshop einzutragen.</p>"
+
+  llmw_2012_projects_intro_html: "Da wir wieder einen <strong><a href=\"http://www.caux.iofc.org/de/node/56803\">HUB</a></strong> (Video auf Englisch) einplanen, der die aktive Teilnahme aller sowie Netzwerkbildung und das gemeinsame Arbeiten an Projekten ermöglichen wird, möchten wir Sie bitten, uns Informationen über Projekte zu geben, bei denen Sie engagiert sind oder an denen Sie Interesse hätten (in Stichworten):"
+  llmw_2012_projects_involved_in: "Projekte, in denen ich momentan aktive mitwirke:"
+  llmw_2012_projects_interested_in: "Projekte, an denen ich Interesse hätte/aktiv während der Konferenz und evtl. danach mitarbeiten würde:"
+  llmw_2012_others: "Andere"
+  llmw_2012_advanced_course_for_young_peacemakers: "Kurs für Fortgeschrittene : Lernen, ein Friedensstifter zu sein"
+  llmw_2012_advanced_course_for_young_peacemakers_note: "Hinweis: Dieser Kurs ist nur für Teilnehmer welche bereits den Grundkurs besucht haben."
+
+  hs_2012_participation_only_by_personal_invitation: "Teilnahme nur auf persönliche Einladung."
+  hs_2012_invited_by: 'Eingeladen von:'
+  hs_2012_name_and_role: Wie hätten Sie Ihren Namen und Ihre aktuelle Rolle gerne im Programm des Forums publiziert?
+  hs_2012_previous_experience: Bitte erläutern Sie Ihre Erfahrungen welche Ihr Interessen an der Menschlichen Sicherheit geweckt haben und welche Hoffnungen und Erwartungen Sie an das Forum haben. (150 Wörter; Diese Informationen werden für andere Teilnehmer des Forums 2012 zugänglich sein.) 
+
+  hs_2012_themes_intro: "Welche der 5 Themen des Forums stimmen am meisten mit Ihren Interessen und/oder Ihrer Arbeit überein? (mehrere Übereinstimmungen möglich)"
+  hs_2012_theme_just_governance: Gute Regierungsführung
+  hs_2012_theme_inclusive_economics: Chancengleichheit in der Wirtschaft
+  hs_2012_theme_living_sustainably: Nachhaltig leben
+  hs_2012_theme_intercultural_dialogue: Interkultureller Dialog
+  hs_2012_theme_healing_memory: Vergangenheit aufarbeiten
+
+  hs_2012_updates_prior_to_forum: Falls Sie bereits vor dem Forum Informationen von unserem Team erhalten möchten, vergewissern Sie sich, dass der Haken gesetzt ist. 
+  hs_2012_confirm_registration_fee: Ich habe zur Kenntnis genommen, dass ich für die Anmeldung zur Konferenz Caux Forum für Menschliche Sicherheit eine zusätzliche Einschreibegebühr von 100.- CHF zu entrichten habe.
+
+  tige_2012_intro_html: "<p>Lieber Teilnehmer, Liebe Teilnehmerin,</p><p>Bitte wählen Sie Ihren gewünschten Workshop als erste Priorität und eine Alternative als zweite Priorität. Wir bemühen uns sehr, Sie in einen von Ihnen gewählten Workshop einzutragen.</p>"
+
+  train_2012_intro_html: "<p>Lieber Teilnehmer, Liebe Teilnehmerin,</p><p>Bitte wählen Sie Ihren gewünschten Workshop als erste Priorität und eine Alternative als zweite Priorität. Wir bemühen uns sehr, Sie in einen von Ihnen gewählten Workshop einzutragen.</p>"
+
+
