@@ -9,6 +9,7 @@ set :repository,  "ssh://git@git.jhvc.com:2222/serse-applicationform.git"
 set :branch, "master"
 set :rails_env,   "production"
 set :config_files, ['database.yml']
+set :rake, 'bundle exec rake'
 
 ssh_options[:forward_agent] = true
 ssh_options[:user] = 'root'
@@ -17,42 +18,36 @@ desc "Clean up old releases"
 set :keep_releases, 5
 before("deploy:cleanup") { set :use_sudo, false }
 
-after "deploy:symlink", "deploy:copy_vendor_bundle_dir", :roles => :app
-after "deploy:copy_vendor_bundle_dir", "deploy:copy_tmp_script_dir", :roles => :app
-after "deploy:copy_tmp_script_dir", "deploy:copy_files", :roles => :app
+load "deploy/assets"
+before "deploy:assets:precompile", "deploy:copy_files", :roles => :app
+after "deploy:copy_files", "deploy:bundle_install", :roles => :app
 after "deploy:update", "deploy:migrate", :roles => :db
 after :deploy, 'deploy:cleanup', :roles => :app
 
 namespace :deploy do
-  desc "Copy vendor/bundle to the new directory"
-  task :copy_vendor_bundle_dir, :on_error => :continue do
-    prev_uploads_dir = "#{previous_release}/vendor/bundle"
-    run "[ -d #{prev_uploads_dir} ] && cp -pr #{prev_uploads_dir} #{current_path}/vendor/"
-  end
-  desc "Copy tmp_script to the new directory"
-  task :copy_tmp_script_dir, :on_error => :continue do
-    prev_tmp_script_dir = "#{previous_release}/tmp_script"
-    run "[ -d #{prev_tmp_script_dir} ] && cp -pr #{prev_tmp_script_dir} #{current_path}/"
-  end
   desc "Put a few files in place, ensure correct file ownership"
   task :copy_files, :roles => :app,  :except => { :no_release => true } do
     # Copy a few files/make a few symlinks
-    run "cp /home/passenger/database.yml-production #{current_path}/config/database.yml"
-    run "cp /home/passenger/secret_token.rb-production #{current_path}/config/initializers/secret_token.rb"
-    run "cp /home/passenger/hoptoad.rb-production #{current_path}/config/initializers/hoptoad.rb"
-    run "cp /home/passenger/production.rb-production #{current_path}/config/environments/production.rb"
+    run "cp /home/passenger/database.yml-production #{release_path}/config/database.yml"
+    run "cp /home/passenger/secret_token.rb-production #{release_path}/config/initializers/secret_token.rb"
+    run "cp /home/passenger/hoptoad.rb-production #{release_path}/config/initializers/hoptoad.rb"
+    run "cp /home/passenger/production.rb-production #{release_path}/config/environments/production.rb"
     # Ensure correct ownership of a few files
-    run "chown www-data:www-data #{current_path}/config/environment.rb"
-    run "chown www-data:www-data #{current_path}/config.ru"
-    # Do the bundle install thing -- this is ridiculously slow if the :copy_vendor_bundle_dir task
-    # was unable to copy the bundle directory
-    run "[ ! -d #{current_path}/vendor/bundle ] && mkdir #{current_path}/vendor/bundle || echo 'vendor/bundle exists, good'"
-    run "chown www-data:www-data #{current_path}/vendor/bundle"
-    run "chown www-data:www-data #{current_path}"
-    run "cd #{current_path}; bundle --deployment install"
-    # Precompile assets -- this is also slow
-    run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
+    run "chown www-data:www-data #{release_path}/config/environment.rb"
+    run "chown www-data:www-data #{release_path}/config.ru"
+
+    # make sure to symlink the tmp_script directory.
+    run "cd #{release_path}; ln -s #{shared_path}/tmp_script #{release_path}/tmp_script"
+
+    # make sure to symlink the vendor bundle. Cf. http://gembundler.com/rationale.html
+    run "cd #{release_path}; ln -s #{shared_path}/vendor_bundle #{release_path}/vendor/bundle"
   end
+
+  desc "Install new gems if necessary"
+  task :bundle_install, :roles => :app,  :except => { :no_release => true } do
+    run "cd #{release_path} && bundle install --deployment"
+  end
+
   desc "Restarting mod_rails with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
     # Tell passenger to restart.
