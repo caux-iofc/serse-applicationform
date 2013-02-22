@@ -1,0 +1,38 @@
+# Localization file for German -- 2013 conferences.
+
+de:
+  llmw_2013_intro_html: "<p>Sehr geehrte(r) Teilnehmer/In</p><p>Bitte wählen Sie aus den angebotenen Workshops ihre Priorität sowie eine Alternative aus. Wir werden versuchen, Sie einem ihrer zwei bevorzugten Workshops zuzuteilen.</p>"
+  llmw_2013_interest: "Bitte erläutern Sie kurz frühere Erfahrungen, die zu ihrem Interesse am generations- und kulturübergreifenden Dialog und Vertrauensbildung beigetragen haben sowie jegliche Hoffnungen oder Erwartungen die sie bezüglich ihrer Teilnahme an der ‘Gemeinsam Vielfalt leben Konferenz’ haben (150 Wörter):"
+
+  jgov_2013_name_and_role: "Wie möchten Sie, dass ihr Name im Programm erscheint, einschließlich ihrer derzeitigen Funktion?"
+  jgov_2013_previous_experience: "Bitte geben Sie einen Einblick in ihr Engagement im Bereich Landgewinnung sowie ihre Hoffnungen/Erwartungen hinsichtlich des Dialogs. (150 Wörter; diese Informationen werden anderen Teilnehmern zugänglich gemacht)."
+
+  heal_2013_name_and_role: "Wie möchten Sie, dass ihr Name im Programm erscheint, einschließlich ihrer derzeitigen Funktion?"
+  heal_2013_contact_sharing: "Sind Sie bereit anderen Konferenzteilnehmern ihre Kontaktdaten zur Verfügung zu stellen, mit dem Ziel ein globales Netzwerk zur Bekämpfung von Rassismus aufzubauen?"
+  heal_2013_yes: "Ja"
+  heal_2013_no: "Nein"
+  heal_2013_previous_experience: "Bitte teilen Sie uns kurz (höchstens 150 Wörter) ihre Erfahrungen mit, die Sie dazu bewegt haben, einen Beitrag zu leisten, um Rassismus zu überwinden, Gerechtigkeit anzustreben und Gemeinschaft aufzubauen."
+
+  heal_2013_interest_in_header_html: "UND/ODER<br/>Ich interessiere mich besonders für - kreuzen Sie zutreffendes an"
+  heal_2013_interest_narratives: "Integrativere historische Narrative erzielen"
+  heal_2013_interest_trauma: "historische Traumata heilen"
+  heal_2013_interest_health: "Gleichheit im Gesundheitswesen anstreben"
+  heal_2013_interest_education: "Gleichheit im Bildungswesen anstreben"
+  heal_2013_interest_opportunity: "Chancengleichheit in der Wirtschaft anstreben"
+  heal_2013_interest_partnerships: "Partnerschaften in der Gemeinschaft aufbauen"
+
+  land_2013_invited_by: "Eingeladen von:"
+  land_2013_name_and_role: "Wie möchten Sie, dass ihr Name im Programm erscheint, einschließlich ihrer derzeitigen Funktion?"
+  land_2013_hopes: "Bitte geben Sie einen Einblick in ihr Engagement im Bereich Landgewinnung sowie ihre Hoffnungen/Erwartungen hinsichtlich des Dialogs. (150 Wörter; diese Informationen werden anderen Teilnehmern zugänglich gemacht)."
+
+  tige_2013_intro_html: "<p>Lieber Teilnehmer, Liebe Teilnehmerin,</p><p>Bitte wählen Sie Ihren gewünschten Workshop als erste Priorität und eine Alternative als zweite Priorität. Wir bemühen uns sehr, Sie in einen von Ihnen gewählten Workshop einzutragen.</p>"
+
+  chil_2013_intro_html: "<p>Lieber Teilnehmer, Liebe Teilnehmerin,</p><p>Bitte wählen Sie Ihren gewünschten Workshop als erste Priorität und eine Alternative als zweite Priorität. Wir bemühen uns sehr, Sie in einen von Ihnen gewählten Workshop einzutragen.</p>"
+
+  chil_2013_note: "Es werden jeden Morgen Workshops für Kinder angeboten und alle Diskussionsgruppen können sowohl von Erwachsenen als auch von Kindern besucht werden."
+  chil_2013_children: "Reisen Sie mit Kindern an?"
+  chil_2013_yes: "Ja"
+  chil_2013_no: "Nein"
+  chil_2013_please_fill_out: "Bitte füllen Sie für jedes Kind ein Formular aus (Schritt 2 im Formular)"
+
+  seed_2013_offer: "Sollten Sie einen kreativen Workshop, Dialog oder eine andere Aktivität anbieten wollen, geben Sie dies bitte hier kurz an (150 Wörter):"

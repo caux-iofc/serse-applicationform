@@ -27,6 +27,7 @@ def new_diet(sort,en,fr=en,de=en)
 end
 
 sort = 0
+new_diet(sort += 1,'Vegetarian','Végétarien','Vegetarisch')
 new_diet(sort += 1,'Halal')
 new_diet(sort += 1,'Ramadan','Ramadan','Ramadan')
 new_diet(sort += 1,'Kosher','Kasher','Koscher')

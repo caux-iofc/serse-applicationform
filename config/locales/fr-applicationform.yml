@@ -5,13 +5,15 @@ fr:
   diet: "R\xC3\xA9gime"
   remarks: Remarques
   stay_in_caux: "S\xC3\xA9jour \xC3\xA0 Caux"
+  day_visitor: "Visite Journali\xC3\xA8re"
+  overnight_visitor: "S\xC3\xA9jour avec nuit\xC3\xA9e(s)"
   other_citizenship: "Autre nationalit\xC3\xA9"
   confirmation: Confirmation
   travel_flight: "Voyage: no de vol"
   submitted_title: Formulaire d'inscription complet
   citizenship: "Nationalit\xC3\xA9"
   citizenship_id: "Nationalit\xC3\xA9"
-  work_telephone: "Num\xC3\xA9ro de t\xC3\xA9l\xC3\xA9phone professionel"
+  work_telephone: "Num\xC3\xA9ro de t\xC3\xA9l\xC3\xA9phone professionnel"
   title: Formulaire d'inscription
   intro_part_1_html: "Veuillez remplir le formulaire de manière aussi complète que possible. Les champs marqués d'une astérisque (<span class=\"af_star\">*</span>) doivent obligatoirement être remplis."
   intro_part_1b_html: "Si vous rencontrez des problèmes, veuillez écrire <b>en donnant les détails du problème, y-compris le message d'erreur</b> au"
@@ -132,9 +134,14 @@ fr:
   other_reason_title: "Je viens à Caux pour une autre raison:"
   interpreter: "Interprétation"
   volunteer: "Bénévolat"
+  volunteer_please_specify: "merci de spécifier votre départment:"
+  staff: "Staff"
+  staff_please_specify: "merci de spécifier votre poste/ votre départment:"
+  other: "Autre"
+  other_reason_please_specify: "merci de préciser:"
+
   other_reason: "Autre raison: "
   other_reason_detail: "Autre raison: "
-  other_reason_please_specify: "Autre, merci de préciser: "
   please_specify_your_reason: 'veuillez préciser vos raisons'
 
   I_will_come_as: "Je viens en tant que"
@@ -174,9 +181,9 @@ fr:
   confirm_read_documents_error: "Merci de cocher la case pour confirmer que vous avez lu les informations concernant les rencontres de Caux et que vous voulez y participer."
   data_protection_consent_error: "Nous ne pouvons traiter votre demande que si vous acceptez que vos données soient utilisées par la fondation CAUX-Initiatives et Changement. Nous ne transmettons pas vos données à des tiers. "
 
-  diet_detail: "Une option végétarienne est offerte à chaque repas. La cuisine de Caux peut également adapter les menus si nécessaire. Veuillez marquer d'une croix vos éventuels besoins:"
+  diet_detail: "La cuisine de Caux peut également adapter les menus si nécessaire. Veuillez marquer d'une croix vos éventuels besoins:"
 
-  other_diet_text: Si vous avez d'autres besoins, nous mettons à votre disposition une cuisine spéciale. Si vous utilisez des produits particuliers, merci de les apporter. Si vous souhaitez utiliser cette option, ou avez d'autres requêtes, adressez-vous à la cuisine de régimes dès votre arrivée.
+  other_diet_text: Si vous utilisez des produits particuliers, merci de les apporter.
   conference_fees: Frais de séjour
   welcome_children_html: Nous nous réjouissons que vous veniez en famille à Caux. Comme vous le savez, un jardin d'enfants prendra soin de votre/vos enfant(s) pendant les réunions. Afin que tout se déroule bien, nous vous demandons <b>d'apporter un téléphone mobile</b> pour que vous puissiez être atteint à n'importe quel moment. Ceci est un règlement établi par les autorités cantonales pour les jardins d'enfants. Merci.
   telephone: Téléphone (par ex. +41...)

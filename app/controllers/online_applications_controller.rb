@@ -122,6 +122,13 @@ class OnlineApplicationsController < ApplicationController
   # POST /online_applications
   # POST /online_applications.json
   def create
+    # For day visits, the departure date equals the arrival date, always
+    if params[:online_application]['day_visit'] then
+      params[:online_application]['departure(1i)'] = params[:online_application]['arrival(1i)']
+      params[:online_application]['departure(2i)'] = params[:online_application]['arrival(2i)']
+      params[:online_application]['departure(3i)'] = params[:online_application]['arrival(3i)']
+    end
+
     @online_application = OnlineApplication.new(params[:online_application])
     @online_application.application_group_id = @ag.id
     @online_application.application_group_order = @ag.online_applications.count + 1
@@ -175,6 +182,12 @@ class OnlineApplicationsController < ApplicationController
     end
     if not params[:online_application].has_key?('training_program_ids') then
       params[:online_application]['training_program_ids'] = []
+    end
+
+    if params[:day_visit] then
+      params['departure(1i)'] = params['arrival(1i)']
+      params['departure(2i)'] = params['arrival(2i)']
+      params['departure(3i)'] = params['arrival(3i)']
     end
 
     respond_to do |format|

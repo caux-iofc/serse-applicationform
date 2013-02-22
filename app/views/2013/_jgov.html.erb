@@ -1,0 +1,18 @@
+
+<%= oac.fields_for :variables do |var| -%>
+<p><span class="af_star">*</span><strong><%=t :jgov_2013_name_and_role %></strong><br/>
+<%= var.text_field :jgov_2013_name_and_role, :value => oac.object.variables["jgov_2013_name_and_role"], :size => 80 %>
+</p>
+<p><span class="af_star">*</span><strong><%=t :jgov_2013_previous_experience %></strong><br/>
+<%= var.text_area :jgov_2013_previous_experience, :value => oac.object.variables["jgov_2013_previous_experience"], :cols => '80', :rows => '4' %>
+</p>
+
+<p>
+<span class="af_star">*</span><strong><%=t :I_will_come_as %></strong><br/>
+  <%= oac.check_box :role_participant %><%=t 'participant' %>&nbsp;&nbsp;
+  <%= oac.check_box :role_speaker %><%=t 'speaker' %>&nbsp;&nbsp;
+  <%= oac.check_box :role_team %><%=t 'team' %>&nbsp;&nbsp;
+</p>
+
+<% end -%>
+

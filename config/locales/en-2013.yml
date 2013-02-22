@@ -1,0 +1,41 @@
+# Localization file for English -- 2013 conferences.
+
+en:
+  llmw_2013_intro_html: "<p>Dear participant,</p><p>Please select your first priority for the workshops on offer and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
+
+  llmw_2013_interest: "Please outline previous experiences that have contributed to your interest in intergenerational and intercultural dialogue and trustbuilding and any particular hopes or expectations you have for attending the ‘Learning to live in a multicultural world conference’ (150 words):"
+
+  jgov_2013_name_and_role: "How would you like your name to be displayed in the session programme, including your current role?"
+  jgov_2013_previous_experience: "Could you outline experiences that have contributed to your interest in just governance, and any hopes or expectations you have for this session. (150 words; this information will be made available to other participants)."
+
+  heal_2013_name_and_role: "How would you like your name to be displayed in the session programme, including your current role?"
+  heal_2013_contact_sharing: "Are you willing to have your contact information be shared with other conference delegates for the purposes of building a global network dedicated to healing racism?"
+  heal_2013_yes: "Yes"
+  heal_2013_no: "No"
+  heal_2013_previous_experience: "Please share briefly (150 words maximum) your experiences that have contributed to your interest in overcoming racism, seeking equity, and building community."
+
+  heal_2013_interest_in_header_html: "AND/OR<br/>I have special interest in - check any that apply"
+  heal_2013_interest_narratives: "Creating more inclusive historical narratives"
+  heal_2013_interest_trauma: "Healing historical trauma"
+  heal_2013_interest_health: "Seeking equity in health"
+  heal_2013_interest_education: "Seeking equity in education"
+  heal_2013_interest_opportunity: "Seeking equity in economic opportunity"
+  heal_2013_interest_partnerships: "Building community partnerships"
+
+  land_2013_invited_by: "Invited by:"
+  land_2013_name_and_role: "How would you like your name to be displayed in the session programme, including your current role?"
+  land_2013_hopes: "Could you outline your involvement in land restoration issues, and your hopes/expectations for the Dialogue. (150 words; this information will be made available to other participants)."
+
+
+  tige_2013_intro_html: "<p>Dear participant,</p><p>Please select your first priority for the offered workshops and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
+
+  chil_2013_intro_html: "<p>Dear participant,</p><p>Please select your first priority for the offered workshops and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
+
+  chil_2013_note: "There will be workshops for children each morning and all discussion groups are mixed adult/children."
+  chil_2013_children: "Will you bring children?"
+  chil_2013_yes: "Yes"
+  chil_2013_no: "No"
+  chil_2013_please_fill_out: "Please fill out a form for each of them (step 2 of this form)"
+
+  seed_2013_offer: "If you would like to offer a creative workshop, discussion or other activity, please state briefly (150 words):"
+

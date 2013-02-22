@@ -53,6 +53,7 @@ class OnlineApplication < ActiveRecord::Base
   end
 
   attr_accessor :the_request
+  attr_accessor :day_visit
 
   after_validation() do
     # Keep track of validation errors, so that we can improve the user experience

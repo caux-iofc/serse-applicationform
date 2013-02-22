@@ -72,7 +72,7 @@
            <% end -%>
 
 
-           <% if @online_application.training_programs.size > 0 -%>
+           <% if TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).size > 0 -%>
            <tr>
              <td colspan="2" align="center"><span class="af_normtitle"><%=t :training_participation %></span></td>
            </tr>
@@ -107,9 +107,31 @@
            </tr>
            <tr>
              <td colspan="2">
-               <%= f.check_box :interpreter %> <%=t :interpreter %><br />
-               <%= f.check_box :volunteer %> <%=t :volunteer %><br />
-               <%= f.check_box :other_reason %> <%=t :other_reason_please_specify %> <%= f.text_field :other_reason_detail, :size => 80 %>
+               <%= f.check_box :interpreter %> <strong><%=t :interpreter %></strong>
+             </td>
+           </tr>
+           <tr>
+             <td>
+               <%= f.check_box :volunteer %> <strong><%=t :volunteer %></strong>, <%=t :volunteer_please_specify %>
+             </td>
+             <td>
+               <%= f.text_field :volunteer_detail, :size => 40 %>
+             </td>
+           </tr>
+           <tr>
+             <td>
+               <%= f.check_box :staff %> <strong><%=t :staff %></strong>, <%=t :staff_please_specify %>
+             </td>
+             <td>
+               <%= f.text_field :staff_detail, :size => 40 %>
+             </td>
+           </tr>
+           <tr>
+             <td>
+               <%= f.check_box :other_reason %> <strong><%=t :other %></strong>, <%=t :other_reason_please_specify %>
+             </td>
+             <td>
+               <%= f.text_field :other_reason_detail, :size => 40 %>
              </td>
            </tr>
          </table>

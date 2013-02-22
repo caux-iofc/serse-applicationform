@@ -1,0 +1,47 @@
+<%=t :tige_2013_intro_html %>
+
+<ul>
+<table width="100%">
+<% oac.object.conference.conference_workstreams.each do |w| -%>
+<tr>
+   <td align="left">
+     <li><strong><%= w.name %></strong>
+   </td>
+   <td align="right">
+     <% if w.language != '' then -%>
+       <i><%=t w.language %></i>
+     <% end -%>
+   </td>
+</tr>
+<% if not w.byline.nil? then -%>
+<tr>
+<td colspan="2">&nbsp;&nbsp;<%=raw w.byline %></td>
+</tr>
+<% end -%>
+<% end -%>
+</table>
+</ul>
+<p>
+
+  <table>
+     <%= oac.fields_for :online_application_conference_workstreams do |cw| -%>
+     <tr>
+       <td>
+         <span class="af_star">*</span><strong><%=t cw.object.preference %></strong>
+         <%= cw.hidden_field :preference, :value => cw.object.preference %>
+       </td>
+       <td><%= cw.select(:conference_workstream_id, ConferenceWorkstream.with_translations.where('conference_id = ?',oac.object.conference.id).collect {|p| [ p.name, p.id ] }, {:include_blank => t(:choose_one)}) %></td>
+     </tr>
+     <% end -%>
+    <tr><td colspan="2">&nbsp;</td></tr>
+    <tr>
+      <td colspan="2">
+        <span class="af_star">*</span><strong><%=t :I_will_come_as %></strong><br/>
+          <%= oac.check_box :role_participant %><%=t 'participant' %>&nbsp;&nbsp;
+          <%= oac.check_box :role_speaker %><%=t 'speaker' %>&nbsp;&nbsp;
+          <%= oac.check_box :role_team %><%=t 'team' %>&nbsp;&nbsp;
+      </td>
+    </tr>
+  </table>
+</p>
+

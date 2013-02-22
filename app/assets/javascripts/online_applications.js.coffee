@@ -80,7 +80,38 @@ jQuery ->
       $("#correspondence_address_other_country").hide()
     return
 
-  ##### handle previous visit conditional fields ####
+  ##### handle day_visitor choice #####
+
+  ## First the code that will run on document load ##
+  if $('#online_application_day_visit_false').is(':checked')
+    $("#online_application_departure_1i").removeAttr("disabled")
+    $("#online_application_departure_2i").removeAttr("disabled")
+    $("#online_application_departure_3i").removeAttr("disabled")
+    $("#travel_car_train").show()
+    $("#travel_flight").show()
+  if $('#online_application_day_visit_true').is(':checked')
+    $("#online_application_departure_1i").attr("disabled", true)
+    $("#online_application_departure_2i").attr("disabled", true)
+    $("#online_application_departure_3i").attr("disabled", true)
+    $("#travel_car_train").hide()
+    $("#travel_flight").hide()
+
+  ## And then all the hooks ##
+  $('input:radio[name="online_application[day_visit]"]').click ->
+    if $('#online_application_day_visit_false').is(':checked')
+      $("#online_application_departure_1i").removeAttr("disabled")
+      $("#online_application_departure_2i").removeAttr("disabled")
+      $("#online_application_departure_3i").removeAttr("disabled")
+      $("#travel_car_train").show()
+      $("#travel_flight").show()
+    else
+      $("#online_application_departure_1i").attr("disabled", true)
+      $("#online_application_departure_2i").attr("disabled", true)
+      $("#online_application_departure_3i").attr("disabled", true)
+      $("#travel_car_train").hide()
+      $("#travel_flight").hide()
+
+  ##### handle previous visit conditional fields #####
 
   ## First the code that will run on document load ##
   if $('#online_application_previous_visit_false').is(':checked') and $('#online_application_relation').val() == 'primary applicant'
@@ -227,5 +258,20 @@ jQuery ->
   ## And then all the hooks ##
   $("input[class^=oac_checkbox_]").change ->
     $("." + $(this).attr('class') + "_subform").toggle()
+
+  ##### child_2013: put in note about children and the application form #####
+
+  ## First the code that will run on document load ##
+  if $('#online_application_online_application_conferences_attributes_4_variables_chil_2013_children_true').is(':checked')
+    $("#child_2013_please_fill_out").show()
+  else
+    $("#child_2013_please_fill_out").hide()
+
+  ## And then all the hooks ##
+  $('input:radio[name="online_application[online_application_conferences_attributes][4][variables][chil_2013_children]"]').click ->
+    if $('#online_application_online_application_conferences_attributes_4_variables_chil_2013_children_true').is(':checked')
+      $("#child_2013_please_fill_out").show()
+    else
+      $("#child_2013_please_fill_out").hide()
 
 

@@ -5,6 +5,15 @@
            <tr class="show_for_primary_applicant">
              <td colspan="2">
                <div class="field">
+                 <span class="af_star">*</span>
+                 <%= f.radio_button :day_visit, :false, :checked => true %> <%=t :overnight_stay %>
+                 <%= f.radio_button :day_visit, :true %> <%=t :day_visit %>
+               </div>
+             </td>
+           </tr>
+           <tr class="show_for_primary_applicant">
+             <td colspan="2">
+               <div class="field">
                  <span class="af_star">*</span><%= f.label :arrival, t(:arrival) %> <%=t :approximate_time %><br />
                  <% field_with_errors @online_application, :arrival do -%>
                    <%= f.datetime_select :arrival, :include_blank => :true, :start_year => @earliest_start_year, :end_year => @latest_stop_year, :minute_step => 15 %>
@@ -24,13 +33,13 @@
            </tr>
            <tr class="show_for_primary_applicant">
              <td>
-               <div class="field">
+               <div class="field" id="travel_car_train">
                  <%= f.label :travel_car_train, t(:travel_car_train) %><br />
                  <%= f.text_field :travel_car_train%>
                </div>
              </td>
              <td>
-               <div class="field">
+               <div class="field" id="travel_flight">
                  <%= f.label :travel_flight, t(:travel_flight) %><br />
                  <%= f.text_field :travel_flight %>
                </div>

@@ -1,0 +1,38 @@
+# Localization file for French -- 2013 conferences.
+
+fr:
+  llmw_2013_intro_html: "<p>Chère participante, Cher participant,</p><p>Merci de sélectionner votre atelier préféré ainsi qu'un second choix. Nous ferons notre possible pour que vous puissiez participer à l'un des ateliers choisis.</p>"
+  llmw_2013_interest: "Pourriez-vous partager les expériences qui vous ont amené à vous intéresser au dialogue intergénérationnel et interculturel ainsi que vos espoirs et attentes pour cette session? (150 mots):"
+
+  jgov_2013_name_and_role: "Comment aimeriez-vous que votre nom et que votre occupation soient présentés dans le programme de la session?"
+  jgov_2013_previous_experience: "Pourriez-vous partager les expériences qui vous ont amené à vous intéresser au thème de la gouvernance équitable ainsi que vos espoirs et attentes pour cette session? (150 mots, cette information sera communiquée aux autres participants.)"
+
+  heal_2013_name_and_role: "Comment aimeriez-vous que votre nom et que votre occupation soient présentés dans le programme de la session?"
+  heal_2013_contact_sharing: "Vous autorisez-nous à partager vos coordonnées avec les autres participants de la conférence en vue de créer un réseau mondial destiné à surmonter le racisme?"
+  heal_2013_yes: "Oui"
+  heal_2013_no: "Non"
+  heal_2013_previous_experience: "Pourriez-vous partager les expériences qui vous ont amené à vous intéresser aux thèmes de la conférence ainsi que vos espoirs et attentes pour cette session? (150 mots, cette information sera communiquée aux autres participants.)"
+
+  heal_2013_interest_in_header_html: "Je suis particulièrement intéressé(e) par - cocher toutes les options qui conviennent"
+  heal_2013_interest_narratives: "La création de récits historiques plus inclusifs"
+  heal_2013_interest_trauma: "La guérison des traumatismes historiques"
+  heal_2013_interest_health: "La recherche de l'équité dans le domaine de la santé"
+  heal_2013_interest_education: "La recherche de l'équité dans l'éducation"
+  heal_2013_interest_opportunity: "La recherche de l'équité dans l'économie"
+  heal_2013_interest_partnerships: "L'instauration de partenariats entre les communautés"
+
+  land_2013_invited_by: "Invité(e) par:"
+  land_2013_name_and_role: "Comment aimeriez-vous que votre nom et que votre occupation soient présentés dans le programme de la session?"
+  land_2013_hopes: "Pourriez-vous partager les expériences qui vous ont amené à vous intéresser aux problématiques liées à la restauration des terres ainsi que vos espoirs et attentes pour cette session? (150 mots, cette information sera communiquée aux autres participants.)"
+
+  tige_2013_intro_html: "<p>Chère participante, Cher participant,</p><p>Merci de sélectionner votre atelier préféré ainsi qu'un second choix. Nous ferons notre possible pour que vous puissiez participer à l'un des ateliers choisis.</p>"
+
+  chil_2013_intro_html: "<p>Chère participante, Cher participant,</p><p>Merci de sélectionner votre atelier préféré ainsi qu'un second choix. Nous ferons notre possible pour que vous puissiez participer à l'un des ateliers choisis.</p>"
+
+  chil_2013_note: "XXX"
+  chil_2013_children: "Serez-vous accompagné d'enfants?"
+  chil_2013_yes: "Oui"
+  chil_2013_no: "Non"
+  chil_2013_please_fill_out: "Merci de remplir un formulaire d'inscription pour chacun d'entre eux à l'étape 2"
+
+  seed_2013_offer: "Si vous désirez proposer un atelier créatif, une discussion ou une autre activité, merci de les décrire brièvement (150 mots)"
