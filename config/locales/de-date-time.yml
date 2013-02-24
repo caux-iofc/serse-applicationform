@@ -2,4 +2,4 @@
 de: 
   date:
     formats:
-      standard: "%e. %B, %Y"
+      standard: "%e. %B %Y"

@@ -8,7 +8,7 @@
      <li><strong><%= w.name %></strong>
    </td>
    <td align="right">
-     <% if w.language != '' then -%>
+     <% if not w.language.nil? and not w.language.empty? then -%>
        <i><%=t w.language %></i>
      <% end -%>
    </td>

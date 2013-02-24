@@ -7,7 +7,7 @@ de:
   remarks: Bemerkungen
   stay_in_caux: Aufenthalt in Caux
   day_visitor: "Tagesbesucher"
-  overnight_visitor: "\xC3\xDCbernachtung"
+  overnight_visitor: "Übernachtung"
   other_citizenship: "Andere Staatsangeh\xC3\xB6rigkeit"
   confirmation: "Best\xC3\xA4tigung"
   travel_flight: "Anreise mit Flugzeug: Flugnummer"
@@ -154,6 +154,7 @@ de:
   may_not_be_in_the_future: darf nicht in der Zukunft liegen
   must_be_valid_for_3_months_beyond_departure_date: muss mindestens drei Monate hinter Ihrer Abreise aus Caux liegen
   diet_detail: 'Zusätzlich kann die Küche in Caux folgende Wünsche berücksichtigen. Bitte kreuzen Sie gemäss Ihren Bedürfnissen an: '
+  please_specify: "Bitte angeben: "
   other_diet_text: Falls Sie dazu spezielle Zutaten benötigen, bitten wir Sie, diese selber mitzubringen.
   phone_number_invalid: muss mit dem Zeichen + beginnen, gefolgt vom Code Ihres Landes (z.B. +49 fur Deutschland) und dem Rest der Nummer.
 

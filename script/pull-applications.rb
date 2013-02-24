@@ -205,6 +205,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 			oa.diets.each do |d|
 				@diets += "#{d.name}, "
 			end
+			@diets += oa.diet_other_detail + ", " if oa.diet_other_detail
 			if @diets != '' then
 				@diets.chop!
 				@diets.chop!

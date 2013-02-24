@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120519194800) do
+ActiveRecord::Schema.define(:version => 20130219230800) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -65,16 +65,15 @@ ActiveRecord::Schema.define(:version => 20120519194800) do
     t.string   "name"
     t.string   "session_id"
     t.boolean  "complete"
-    t.boolean  "confirm_read_documents"
     t.boolean  "data_protection_consent"
     t.boolean  "data_protection_caux_info"
+    t.boolean  "data_protection_three_local_events"
     t.boolean  "data_protection_local_info"
     t.integer  "session_group_id"
     t.text     "comment"
     t.string   "browser"
-    t.string   "remote_ip"
-    t.string   "created_by",                 :limit => 100, :default => ""
-    t.string   "updated_by",                 :limit => 100, :default => ""
+    t.string   "created_by",                         :limit => 100, :default => ""
+    t.string   "updated_by",                         :limit => 100, :default => ""
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -84,23 +83,24 @@ ActiveRecord::Schema.define(:version => 20120519194800) do
 
   create_table "application_groups", :force => true do |t|
     t.string   "name"
-    t.string   "session_id",                                                   :null => false
+    t.string   "session_id",                                                           :null => false
     t.boolean  "complete"
-    t.boolean  "confirm_read_documents"
     t.boolean  "data_protection_consent"
     t.boolean  "data_protection_caux_info"
+    t.boolean  "data_protection_three_local_events"
     t.boolean  "data_protection_local_info"
     t.integer  "session_group_id"
     t.text     "comment"
     t.string   "browser"
-    t.string   "remote_ip"
-    t.string   "created_by",                 :limit => 100, :default => "",    :null => false
-    t.string   "updated_by",                 :limit => 100, :default => "",    :null => false
-    t.integer  "lock_version",                              :default => 0,     :null => false
+    t.string   "created_by",                         :limit => 100, :default => "",    :null => false
+    t.string   "updated_by",                         :limit => 100, :default => "",    :null => false
+    t.integer  "lock_version",                                      :default => 0,     :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "copied_to_serse",                           :default => false
+    t.boolean  "confirm_read_documents"
+    t.string   "remote_ip"
+    t.boolean  "copied_to_serse",                                   :default => false
     t.integer  "serse_application_group_id"
   end
 
@@ -142,9 +142,9 @@ ActiveRecord::Schema.define(:version => 20120519194800) do
   create_table "conference_workstream_translations", :force => true do |t|
     t.integer  "conference_workstream_id"
     t.string   "locale"
-    t.string   "byline"
     t.string   "language"
     t.string   "name"
+    t.string   "byline"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -175,6 +175,7 @@ ActiveRecord::Schema.define(:version => 20120519194800) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "serse_id"
   end
 
   add_index "conference_workstreams", ["conference_id"], :name => "index_conference_workstreams_on_conference_id"
@@ -561,12 +562,16 @@ ActiveRecord::Schema.define(:version => 20120519194800) do
     t.boolean  "volunteer"
     t.boolean  "other_reason"
     t.string   "other_reason_detail"
-    t.string   "created_by",              :limit => 100, :default => "", :null => false
-    t.string   "updated_by",              :limit => 100, :default => "", :null => false
-    t.integer  "lock_version",                           :default => 0,  :null => false
+    t.string   "created_by",              :limit => 100, :default => "",    :null => false
+    t.string   "updated_by",              :limit => 100, :default => "",    :null => false
+    t.integer  "lock_version",                           :default => 0,     :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "staff",                                  :default => false
+    t.string   "staff_detail",                           :default => ""
+    t.string   "volunteer_detail",                       :default => ""
+    t.string   "diet_other_detail",                      :default => ""
   end
 
   add_index "online_applications", ["application_group_id"], :name => "index_online_applications_on_application_group_id"
