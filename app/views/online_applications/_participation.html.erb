@@ -74,7 +74,7 @@
 
            <% if TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).size > 0 -%>
            <tr>
-             <td colspan="2" align="center"><span class="af_normtitle"><%=t :training_participation %></span></td>
+             <td colspan="2" align="center"><span class="af_normtitle"><%=t :special_conference_participation %></span></td>
            </tr>
            <% end -%>
            <% TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).each do |tp| -%>
