@@ -262,14 +262,20 @@ jQuery ->
   ##### child_2013: put in note about children and the application form #####
 
   ## First the code that will run on document load ##
-  if $('#online_application_online_application_conferences_attributes_4_variables_chil_2013_children_true').is(':checked')
+  if $('.yes_children').is(':checked')
     $("#child_2013_please_fill_out").show()
   else
     $("#child_2013_please_fill_out").hide()
 
   ## And then all the hooks ##
-  $('input:radio[name="online_application[online_application_conferences_attributes][4][variables][chil_2013_children]"]').click ->
-    if $('#online_application_online_application_conferences_attributes_4_variables_chil_2013_children_true').is(':checked')
+  $('.yes_children').click ->
+    #if $('#online_application_online_application_conferences_attributes_4_variables_chil_2013_children_true').is(':checked')
+    if $('.yes_children').is(':checked')
+      $("#child_2013_please_fill_out").show()
+    else
+      $("#child_2013_please_fill_out").hide()
+  $('.no_children').click ->
+    if $('.yes_children').is(':checked')
       $("#child_2013_please_fill_out").show()
     else
       $("#child_2013_please_fill_out").hide()
