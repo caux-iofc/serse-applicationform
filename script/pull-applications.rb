@@ -198,7 +198,15 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 			@values += "'" + @conn.escape(oa.heard_about) + "',"
 
 			@keys += 'other_reasons,'
-			@values += "'" + @conn.escape(oa.other_reason_detail) + "',"
+      @or = ''
+      @or = "Other (" + @conn.escape(oa.other_reason_detail) + "), " if oa.other_reason
+      @or += "Volunteer (" + @conn.escape(oa.volunteer_detail) + "), " if oa.volunteer
+      @or += "Staff (" + @conn.escape(oa.staff_detail) + "), " if oa.staff
+      if @or != '' then
+        @or.chop!
+        @or.chop!
+      end
+      @values += "'" + @or + "',"
 
 			@keys += 'diet,'
 			@diets = ''
