@@ -13,7 +13,7 @@
      <% end -%>
    </td>
 </tr>
-<% if not w.byline.nil? then -%>
+<% if not w.byline.nil? and not w.byline.empty? then -%>
 <tr>
 <td colspan="2">&nbsp;&nbsp;<%=raw w.byline %></td>
 </tr>
@@ -40,8 +40,8 @@
         <%= oac.fields_for :variables do |var| -%>
         <p>
           <span class="af_star">*</span><strong><%=t :chil_2013_children %></strong><br/>
-          <%= var.radio_button :chil_2013_children, :true, { :class => 'yes_children' } %> <%=t :chil_2013_yes %>
-          <%= var.radio_button :chil_2013_children, :false, { :class => 'no_children' } %> <%=t :chil_2013_no %>
+          <%= var.radio_button :chil_2013_children, :true, { :checked => (oac.object.variables["chil_2013_children"] == "true"), :class => 'yes_children' } %> <%=t :chil_2013_yes %>
+          <%= var.radio_button :chil_2013_children, :false, { :checked => (oac.object.variables["chil_2013_children"] == "false"), :class => 'no_children' } %> <%=t :chil_2013_no %>
         </p>
         <% end %>
         <div id="child_2013_please_fill_out" style="display:none">

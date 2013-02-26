@@ -46,7 +46,7 @@
 
 <%= oac.fields_for :variables do |var| -%>
 <p><span class="af_star">*</span><strong><%=t :llmw_2013_interest %></strong><br/>
-<%= var.text_area :interest, :value => oac.object.variables["projects_interested_in"], :cols => '100', :rows => '7' %>
+<%= var.text_area :interest, :value => oac.object.variables["interest"], :cols => '100', :rows => '7' %>
 </p>
 
 <% end -%>

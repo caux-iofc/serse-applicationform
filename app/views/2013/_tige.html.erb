@@ -13,7 +13,7 @@
      <% end -%>
    </td>
 </tr>
-<% if not w.byline.nil? then -%>
+<% if not w.byline.nil? and not w.byline.empty? then -%>
 <tr>
 <td colspan="2">&nbsp;&nbsp;<%=raw w.byline %></td>
 </tr>

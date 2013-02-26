@@ -209,9 +209,9 @@ en:
 
   please_indicate_other_reason: "if you don't come to Caux for a specific session or training programme, please specify your reason"
 
-  if_you_come_as_an_interpreter_please_do_not_select_a_conference_html: "if you come as an interpreter please do not select a conference"
-  if_you_come_as_a_caux_intern_please_do_not_select_a_conference_html: "if you come as a <strong>Caux Intern</strong> please do not select a conference"
-  if_you_come_as_a_caux_scholar_please_do_not_select_a_conference_html: "if you come as a <strong>Caux Scholar</strong> please do not select a conference"
+  if_you_come_as_an_interpreter_please_do_not_select_a_conference_html: "If you come as an <strong>interpreter</strong> please do not select a conference"
+  if_you_come_as_a_caux_intern_please_do_not_select_a_conference_html: "If you come as a <strong>Caux Intern</strong> please do not select a conference"
+  if_you_come_as_a_caux_scholar_please_do_not_select_a_conference_html: "If you come as a <strong>Caux Scholar</strong> please do not select a conference"
 
   a_conference_you_selected_does_not_overlap_with_your_stay_in_caux: ": a conference you selected does not overlap with your stay at Caux."
   a_training_program_you_selected_does_not_overlap_with_your_stay_in_caux: ": a training program you selected does not overlap with your stay at Caux."

@@ -118,7 +118,7 @@ class OnlineApplication < ActiveRecord::Base
 
   def scholars_interns_interpreters_can_not_select_conferences
     if interpreter and not online_application_conferences.empty? then
-      errors.add :interpreter, I18n.t(:if_you_come_as_an_interpreter_please_do_not_select_a_conference_html).html_safe
+      errors.add :base, I18n.t(:if_you_come_as_an_interpreter_please_do_not_select_a_conference_html).html_safe
     end
     if not online_application_conferences.empty? and not training_programs.empty? then
       @real_locale = I18n.locale

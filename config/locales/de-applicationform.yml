@@ -217,7 +217,7 @@ de:
   application_not_yet_submitted_html: "Ihr Antrag wurde noch nicht \xC3\xBCbermittelt.<br/>Bitte f\xC3\xBCgen Sie eine Person ein oder senden Sie ihren Antrag."
   only_valid_relations: Bitte geben Sie die Beziehung dieses Antragstellers zum Vorherigen an
   must_be_before_valid_until: " Muss mindestens bis zu dem Datum g\xC3\xBCltig sein"
-  if_you_come_as_an_interpreter_please_do_not_select_a_conference_html: "Wenn Sie als Dolmetscher kommen bitte keine Konferenz ausw\xC3\xA4hlen"
+  if_you_come_as_an_interpreter_please_do_not_select_a_conference_html: "Wenn Sie als <strong>Dolmetscher</strong> kommen bitte keine Konferenz ausw\xC3\xA4hlen"
   relation: Beziehung zum vorherigen Teilnehmer
   must_be_before_departure: " muss vor der Abreise sein"
   please_confirm_chf_100_registration_fee: "Bitte best\xC3\xA4tigen Sie dass Sie verstanden haben dass zur Teilnahme an dieser Konferenz eine Anmeldegeb\xC3\xBChr von CHF 100.- erhoben wird."

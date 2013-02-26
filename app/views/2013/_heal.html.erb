@@ -5,8 +5,8 @@
 </p>
 
 <p><span class="af_star">*</span><strong><%=t :heal_2013_contact_sharing %></strong><br/>
-  <%= var.radio_button :heal_2013_contact_sharing, :false %> <%=t :heal_2013_no %>
-  <%= var.radio_button :heal_2013_contact_sharing, :true %> <%=t :heal_2013_yes %>
+  <%= var.radio_button :heal_2013_contact_sharing, :false, { :checked => (oac.object.variables["heal_2013_contact_sharing"] == "false") } %> <%=t :heal_2013_no %>
+  <%= var.radio_button :heal_2013_contact_sharing, :true, { :checked => (oac.object.variables["heal_2013_contact_sharing"] == "true") } %> <%=t :heal_2013_yes %>
 </p>
 
 <p><span class="af_star">*</span><strong><%=t :heal_2013_previous_experience %></strong><br/>
@@ -14,12 +14,12 @@
 </p>
 
 <p><strong><%=t :heal_2013_interest_in_header_html %></strong><br/>
-<%= var.check_box :heal_2013_narratives %>&nbsp;&nbsp;<%=t :heal_2013_interest_narratives %></br>
-<%= var.check_box :heal_2013_trauma %>&nbsp;&nbsp;<%=t :heal_2013_interest_trauma %></br>
-<%= var.check_box :heal_2013_health %>&nbsp;&nbsp;<%=t :heal_2013_interest_health %></br>
-<%= var.check_box :heal_2013_education %>&nbsp;&nbsp;<%=t :heal_2013_interest_education %></br>
-<%= var.check_box :heal_2013_opportunity %>&nbsp;&nbsp;<%=t :heal_2013_interest_opportunity %></br>
-<%= var.check_box :heal_2013_partnerships %>&nbsp;&nbsp;<%=t :heal_2013_interest_partnerships %></br>
+<%= var.check_box :heal_2013_narratives, { :checked => (oac.object.variables["heal_2013_narratives"] == "1") } %>&nbsp;&nbsp;<%=t :heal_2013_interest_narratives %></br>
+<%= var.check_box :heal_2013_trauma, { :checked => (oac.object.variables["heal_2013_trauma"] == "1") } %>&nbsp;&nbsp;<%=t :heal_2013_interest_trauma %></br>
+<%= var.check_box :heal_2013_health, { :checked => (oac.object.variables["heal_2013_health"] == "1") } %>&nbsp;&nbsp;<%=t :heal_2013_interest_health %></br>
+<%= var.check_box :heal_2013_education, { :checked => (oac.object.variables["heal_2013_education"] == "1") } %>&nbsp;&nbsp;<%=t :heal_2013_interest_education %></br>
+<%= var.check_box :heal_2013_opportunity, { :checked => (oac.object.variables["heal_2013_opportunity"] == "1") } %>&nbsp;&nbsp;<%=t :heal_2013_interest_opportunity %></br>
+<%= var.check_box :heal_2013_partnerships, { :checked => (oac.object.variables["heal_2013_partnerships"] == "1") } %>&nbsp;&nbsp;<%=t :heal_2013_interest_partnerships %></br>
 </p>
 
 <p><span class="af_star">*</span><strong><%=t :I_will_come_as %></strong><br/>
