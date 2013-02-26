@@ -1,9 +1,6 @@
 # Localization file for French -- 2013 conferences.
 
 fr:
-  llmw_2013_intro_html: "<p>Chère participante, Cher participant,</p><p>Merci de sélectionner votre atelier préféré ainsi qu'un second choix. Nous ferons notre possible pour que vous puissiez participer à l'un des ateliers choisis.</p>"
-  llmw_2013_interest: "Pourriez-vous partager les expériences qui vous ont amené à vous intéresser au dialogue intergénérationnel et interculturel ainsi que vos espoirs et attentes pour cette session? (150 mots):"
-
   jgov_2013_name_and_role: "Comment aimeriez-vous que votre nom et que votre occupation soient présentés dans le programme de la session?"
   jgov_2013_previous_experience: "Pourriez-vous partager les expériences qui vous ont amené à vous intéresser au thème de la gouvernance équitable ainsi que vos espoirs et attentes pour cette session? (150 mots, cette information sera communiquée aux autres participants.)"
 
@@ -34,5 +31,9 @@ fr:
   chil_2013_yes: "Oui"
   chil_2013_no: "Non"
   chil_2013_please_fill_out: "Merci de remplir un formulaire d'inscription pour chacun d'entre eux à l'étape 2"
+
+  llmw_2013_intro_html: "<p>Chère participante, Cher participant,</p><p>Merci de sélectionner votre atelier préféré ainsi qu'un second choix. Nous ferons notre possible pour que vous puissiez participer à l'un des ateliers choisis.</p>"
+  llmw_2013_invited_by: "Invité(e) par:"
+  llmw_2013_interest: "Pourriez-vous partager les expériences qui vous ont amené à vous intéresser au dialogue intergénérationnel et interculturel ainsi que vos espoirs et attentes pour cette session? (150 mots):"
 
   seed_2013_offer: "Si vous désirez proposer un atelier créatif, une discussion ou une autre activité, merci de les décrire brièvement (150 mots)"

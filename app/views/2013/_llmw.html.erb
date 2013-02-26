@@ -1,5 +1,9 @@
 <%=t :llmw_2013_intro_html %>
 
+<p><span class="af_star">*</span><strong><%=t :llmw_2013_invited_by %></strong><br/>
+<%= var.text_field :invited_by, :value => oac.object.variables["invited_by"] %>
+</p>
+
 <ul>
 <table width="100%">
 <% oac.object.conference.conference_workstreams.each do |w| -%>
