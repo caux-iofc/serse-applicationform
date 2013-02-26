@@ -1,9 +1,5 @@
 <%=t :llmw_2013_intro_html %>
 
-<p><span class="af_star">*</span><strong><%=t :llmw_2013_invited_by %></strong><br/>
-<%= var.text_field :invited_by, :value => oac.object.variables["invited_by"] %>
-</p>
-
 <ul>
 <table width="100%">
 <% oac.object.conference.conference_workstreams.each do |w| -%>
@@ -49,6 +45,10 @@
 </p>
 
 <%= oac.fields_for :variables do |var| -%>
+<p><span class="af_star">*</span><strong><%=t :llmw_2013_invited_by %></strong><br/>
+<%= var.text_field :invited_by, :value => oac.object.variables["invited_by"] %>
+</p>
+
 <p><span class="af_star">*</span><strong><%=t :llmw_2013_interest %></strong><br/>
 <%= var.text_area :interest, :value => oac.object.variables["interest"], :cols => '100', :rows => '7' %>
 </p>
