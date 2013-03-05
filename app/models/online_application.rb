@@ -78,6 +78,8 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
+  before_validation :strip_whitespace
+
   validates :relation, :inclusion => { :in => [ 'primary applicant', 'spouse', 'child', 'other' ], :message => I18n.t(:only_valid_relations) }
   validates :firstname, :presence => true
   validates :surname, :presence => true
@@ -300,4 +302,14 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
+private
+  def strip_whitespace
+    # trim whitespace from beginning and end of string attributes
+    attribute_names.each do |name|
+      if send(name).respond_to?(:strip)
+        send("#{name}=", send(name).strip)
+      end
+    end
+  end 
+  
 end
