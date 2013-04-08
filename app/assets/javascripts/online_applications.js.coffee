@@ -280,4 +280,201 @@ jQuery ->
     else
       $("#child_2013_please_fill_out").hide()
 
+  ##### conference fee logic #####
 
+  recalculate_fees = () ->
+    DAY = 1000 * 60 * 60  * 24
+    YEAR = DAY * 365.25
+
+    arrival = new Date($('#online_application_arrival_1i').val() + '/' +  $('#online_application_arrival_2i').val() + '/' + $('#online_application_arrival_3i').val())
+    departure = new Date($('#online_application_departure_1i').val() + '/' +  $('#online_application_departure_2i').val() + '/' + $('#online_application_departure_3i').val())
+    birthdate = new Date($('#online_application_date_of_birth_1i').val() + '/' +  $('#online_application_date_of_birth_2i').val() + '/' + $('#online_application_date_of_birth_3i').val())
+    now = new Date()
+
+    age = -1
+    if !isNaN(birthdate)
+      age = ~~((now.getTime() - birthdate.getTime()) / YEAR)
+
+    nights = 0
+    if (!isNaN(departure) and !isNaN(arrival))
+      nights = Math.round((departure.getTime() - arrival.getTime()) / DAY)
+
+    if nights < 0
+      nights = 0
+
+    if $("#online_application_day_visit_true").is(':checked')
+      # We use nights in the calculations below so it needs to be forced to 1 here.
+      # We force the night_rate and the registration-fee below for the day visitor case.
+      nights = 1
+
+    registration_fee = 100
+    night_rate = 92
+
+    if age >= 0 and age <= 5
+      night_rate = 0
+      registration_fee = 0
+    else if age >= 6 and age <= 17
+      night_rate = 46
+      registration_fee = 100
+    else if age >= 18 and age <= 25
+      night_rate = 55
+      registration_fee = 100
+    else if age >= 26
+      night_rate = 92
+      registration_fee = 100
+
+    if $("#online_application_full_time_volunteer").is(':checked')
+      night_rate = 0
+      registration_fee = 100
+
+    if $("#online_application_family_discount").is(':checked')
+      night_rate = Math.round(night_rate * 0.8)
+
+    if $("#online_application_staff").is(':checked')
+      night_rate = 35
+      registration_fee = 0
+      $("#online_application_sponsors_attributes_0_name").val('IofC Switzerland')
+      $("#online_application_sponsors_attributes_0_nights").val(nights)
+      $("#online_application_sponsors_attributes_0_amount").val(35)
+    else if $("#online_application_volunteer").is(':checked')
+      night_rate = 35
+      registration_fee = 100
+      $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
+      $("#online_application_sponsors_attributes_0_nights").val(nights)
+      $("#online_application_sponsors_attributes_0_amount").val(35)
+    else if $("#online_application_interpreter").is(':checked')
+      night_rate = 35
+      registration_fee = 100
+      $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
+      $("#online_application_sponsors_attributes_0_nights").val(nights)
+      $("#online_application_sponsors_attributes_0_amount").val(35)
+    else if $("[id='tp_check_caux scholars program']").is(':checked')
+      night_rate = 55
+      registration_fee = 50
+      $("#online_application_sponsors_attributes_0_name").val('Caux Scholars Program')
+      $("#online_application_sponsors_attributes_0_nights").val(nights)
+      $("#online_application_sponsors_attributes_0_amount").val(55)
+    else if $("[id='tp_check_caux interns program – session 1']").is(':checked') or
+            $("[id='tp_check_caux interns program – session 2']").is(':checked')
+      night_rate = 55
+      registration_fee = 50
+      $("#online_application_sponsors_attributes_0_name").val('Caux Interns Program')
+      $("#online_application_sponsors_attributes_0_nights").val(nights)
+      $("#online_application_sponsors_attributes_0_amount").val(55)
+    else if $("[id='tp_check_caux artists program']").is(':checked')
+      night_rate = 55
+      registration_fee = 50
+      $("#online_application_sponsors_attributes_0_name").val('Caux Artists Program')
+      $("#online_application_sponsors_attributes_0_nights").val(nights)
+      $("#online_application_sponsors_attributes_0_amount").val(55)
+    else if $("#online_application_sponsors_attributes_0_name").val() == 'IofC Switzerland' or
+            $("#online_application_sponsors_attributes_0_name").val() == 'Caux Scholars Program' or
+            $("#online_application_sponsors_attributes_0_name").val() == 'Caux Interns Program' or
+            $("#online_application_sponsors_attributes_0_name").val() == 'Caux Artists Program' or
+            $("#online_application_sponsors_attributes_0_name").val() == 'Conference Support Fund (CSF)'
+      $("#online_application_sponsors_attributes_0_name").val('')
+      $("#online_application_sponsors_attributes_0_nights").val('')
+      $("#online_application_sponsors_attributes_0_amount").val('')
+
+    if $('input[id$="_speaker"]').is(':checked') or
+       $('input[id$="_team"]').is(':checked')
+      registration_fee = 0
+
+    if $("#online_application_day_visit_true").is(':checked')
+      night_rate = 50
+      registration_fee = 0
+
+    if $("#online_application_support_renovation_fund").is(':checked')
+      night_rate = 150
+
+    $("#rate_per_night_visible").text(night_rate)
+    $("#rate_per_night").val(night_rate)
+    $("#registration_fee_visible").text(registration_fee)
+    $("#registration_fee").val(registration_fee)
+    $("#nights_visible").text(nights)
+    $("#nights").val(nights)
+    $("#total_nights_visible").text(nights * night_rate)
+    $("#total_nights").val(nights * night_rate)
+
+    total = nights * night_rate + registration_fee
+
+    sponsor_1_contribution = $("#online_application_sponsors_attributes_0_nights").val() * $("#online_application_sponsors_attributes_0_amount").val()
+    sponsor_2_contribution = $("#online_application_sponsors_attributes_1_nights").val() * $("#online_application_sponsors_attributes_1_amount").val()
+
+    if ! isNaN(sponsor_1_contribution)
+      sponsor_contribution = sponsor_1_contribution
+
+    if ! isNaN(sponsor_2_contribution)
+      sponsor_contribution += sponsor_2_contribution
+
+    if isNaN(sponsor_contribution)
+      sponsor_contribution = 0
+
+    total_automatic = total - sponsor_contribution
+    if total_automatic < 0
+      total_automatic = 0
+
+    $("#total_automatic").text(total_automatic)
+
+    $("#application_form_calculated_night_rate").val(night_rate)
+    $("#application_form_calculated_reservation_fee").val(registration_fee)
+    $("#application_form_calculated_total_personal_contribution").val(total_automatic)
+    false
+
+  ## First the code that will run on document load ##
+  recalculate_fees()
+
+  $("#online_application_family_discount").change ->
+    recalculate_fees()
+  $("#online_application_support_renovation_fund").change ->
+    recalculate_fees()
+  $("#online_application_full_time_volunteer").change ->
+    recalculate_fees()
+  $("#online_application_staff").change ->
+    recalculate_fees()
+  $("#online_application_volunteer").change ->
+    recalculate_fees()
+  $("#online_application_interpreter").change ->
+    recalculate_fees()
+  $('#online_application_date_of_birth_1i').change ->
+    recalculate_fees()
+  $('#online_application_date_of_birth_2i').change ->
+    recalculate_fees()
+  $('#online_application_date_of_birth_3i').change ->
+    recalculate_fees()
+  $('#online_application_arrival_1i').change ->
+    recalculate_fees()
+  $('#online_application_arrival_2i').change ->
+    recalculate_fees()
+  $('#online_application_arrival_3i').change ->
+    recalculate_fees()
+  $('#online_application_departure_1i').change ->
+    recalculate_fees()
+  $('#online_application_departure_2i').change ->
+    recalculate_fees()
+  $('#online_application_departure_3i').change ->
+    recalculate_fees()
+  $('#online_application_sponsors_attributes_0_nights').change ->
+    recalculate_fees()
+  $('#online_application_sponsors_attributes_0_amount').change ->
+    recalculate_fees()
+  $('#online_application_sponsors_attributes_1_nights').change ->
+    recalculate_fees()
+  $('#online_application_sponsors_attributes_1_amount').change ->
+    recalculate_fees()
+  $('#online_application_day_visit_false').change ->
+    recalculate_fees()
+  $('#online_application_day_visit_true').change ->
+    recalculate_fees()
+  $("[id='tp_check_caux artists program']").change ->
+    recalculate_fees()
+  $("[id='tp_check_caux scholars program']").change ->
+    recalculate_fees()
+  $("[id='tp_check_caux interns program – session 1']").change ->
+    recalculate_fees()
+  $("[id='tp_check_caux interns program – session 2']").change ->
+    recalculate_fees()
+  $('input[id$="_team"]').change ->
+    recalculate_fees()
+  $('input[id$="_speaker"]').change ->
+    recalculate_fees()

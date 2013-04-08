@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219230800) do
+ActiveRecord::Schema.define(:version => 20130406084900) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -562,16 +562,23 @@ ActiveRecord::Schema.define(:version => 20130219230800) do
     t.boolean  "volunteer"
     t.boolean  "other_reason"
     t.string   "other_reason_detail"
-    t.string   "created_by",              :limit => 100, :default => "",    :null => false
-    t.string   "updated_by",              :limit => 100, :default => "",    :null => false
-    t.integer  "lock_version",                           :default => 0,     :null => false
+    t.string   "created_by",                             :limit => 100, :default => "",    :null => false
+    t.string   "updated_by",                             :limit => 100, :default => "",    :null => false
+    t.integer  "lock_version",                                          :default => 0,     :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "staff",                                  :default => false
-    t.string   "staff_detail",                           :default => ""
-    t.string   "volunteer_detail",                       :default => ""
-    t.string   "diet_other_detail",                      :default => ""
+    t.boolean  "staff",                                                 :default => false
+    t.string   "staff_detail",                                          :default => ""
+    t.string   "volunteer_detail",                                      :default => ""
+    t.string   "diet_other_detail",                                     :default => ""
+    t.boolean  "family_discount",                                       :default => false
+    t.boolean  "support_renovation_fund",                               :default => false
+    t.boolean  "full_time_volunteer",                                   :default => false
+    t.boolean  "day_visit",                                             :default => false
+    t.integer  "calculated_registration_fee",                           :default => 0
+    t.integer  "calculated_night_rate",                                 :default => 0
+    t.integer  "calculated_total_personal_contribution",                :default => 0
   end
 
   add_index "online_applications", ["application_group_id"], :name => "index_online_applications_on_application_group_id"

@@ -61,7 +61,7 @@ fr:
   heard_about: Si non, comment avez-vous entendu parler des rencontres de Caux?
   nightly_contribution_currency: CHF
   sponsors_name: ""
-  sponsors_nights: "# Nuits"
+  sponsors_nights: "Nuitées"
   sponsors_currency: Devise
   sponsors_currency_name: "CHF"
   sponsors_amount: Montant par nuit
@@ -121,7 +121,7 @@ fr:
 
 
   nightly_contribution: "Ma propre contribution aux frais de s\xC3\xA9jour par nuit sera de"
-  nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous soutient si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/frais-de-sejour\">92 CHF par nuit (adulte)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
+  nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous soutient si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/frais-de-sejour\">votre prix par nuit</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
   nightly_contribution_invalid: " n'est pas un nombre. N'utilisez pas de points ou des virgules."
   submitted_intro_part_1: "Merci, votre inscription a \xC3\xA9t\xC3\xA9 re\xC3\xA7ue."
   spouse: Conjoint/Partenaire
@@ -143,6 +143,10 @@ fr:
   other_reason: "Autre raison: "
   other_reason_detail: "Autre raison: "
   please_specify_your_reason: 'veuillez préciser vos raisons'
+
+  staff_detail: "Staff: "
+  volunteer_detail: "Bénévolat: "
+  please_specify_your_position_department: "veuillez préciser votre poste/ votre départment"
 
   I_will_come_as: "Je viens en tant que"
   participant: "participant(e)"
@@ -186,6 +190,22 @@ fr:
   please_specify: "Veuillez pr\xC3\xA9ciser: "
   other_diet_text: Si vous utilisez des produits particuliers, merci de les apporter.
   conference_fees: Frais de séjour
+
+  more_information_about_conference_fees_html: 'Informations complémentaires sur les tariffs est disponible <a href="http://www.caux.iofc.org/fr/frais-de-sejour">ici</a>.'
+  i_travel_with_my_family: 'Je viens à Caux en famille'
+  i_want_to_support_the_center_renovation_fund: "Je veux soutenir le fonds de rénovation du Centre (150 CHF par nuit)"
+  i_volunteer_full_time: "Je suis permanent d'I&C"
+
+  cost_of_your_stay: "Cost of your stay"
+
+  rate_per_night: "Prix par nuit"
+  nights: "Nuitées"
+  total: "Total"
+  registration_fee: "Frais d'inscription"
+
+  personal_contribution_html: "<b>Contribution personelle</b>"
+  please_check_total_html: "Merci de prendre note du montant total de votre séjour, calculé automatiquement"
+
   welcome_children_html: Nous nous réjouissons que vous veniez en famille à Caux. Comme vous le savez, un jardin d'enfants prendra soin de votre/vos enfant(s) pendant les réunions. Afin que tout se déroule bien, nous vous demandons <b>d'apporter un téléphone mobile</b> pour que vous puissiez être atteint à n'importe quel moment. Ceci est un règlement établi par les autorités cantonales pour les jardins d'enfants. Merci.
   telephone: Téléphone (par ex. +41...)
   child: enfant

@@ -202,6 +202,33 @@ label {
   border: 1px solid red;
 }
 
+#personalContribution {
+  width: 100%;
+  border: 2px solid #00c;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  text-align: left;
+}
+
+#personalContribution h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 7px;
+  font-size: 12px;
+  margin: -2px;
+  background-color: #00c;
+  color: #fff;
+}
+
+#personalContribution p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+
+
 #errorExplanation {
   width: 400px;
   border: 2px solid #c00;

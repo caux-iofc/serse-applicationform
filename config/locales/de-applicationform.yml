@@ -161,7 +161,7 @@ de:
   confirm_read_documents_text_html: "Ich/Wir bestätige/n hiermit, die <a href=\"http://www.caux.iofc.org/de/2013\" target=\"_new\">Dokumente</a> betreffend die Konferenzen in Caux gelesen zu haben und möchte/n an der Konferenz teilnehmen."
 
   telephone: Telefonnummer (z.B. +41...)
-  nightly_contribution_html: "Falls Sie nicht <a href=\"http://www.caux.iofc.org/de/gebuhren\">92 CHF pro Nacht (Erwachsene)</a> selber bezahlen, geben Sie bitte den Namen der Person oder der Organisation an, die für den Restbetrag aufkommt sowie den genauen Betrag, den diese Person oder Organisation für Sie pro Nacht bezahlt:"
+  nightly_contribution_html: "Falls Sie nicht <a href=\"http://www.caux.iofc.org/de/gebuhren\">Ihre Rate</a> selber bezahlen, geben Sie bitte den Namen der Person oder der Organisation an, die für den Restbetrag aufkommt sowie den genauen Betrag, den diese Person oder Organisation für Sie pro Nacht bezahlt:"
   child_nightly_contribution_html: "Falls Sie nicht <a href=\"http://www.caux.iofc.org/de/gebuhren\">0-55 CHF pro Nacht (Kind)</a> selber bezahlen, geben Sie bitte den Namen der Person oder der Organisation an, die für den Restbetrag aufkommt sowie den genauen Betrag, den diese Person oder Organisation für Sie pro Nacht bezahlt:"
 
 
@@ -178,12 +178,32 @@ de:
   staff_please_specify: "bitte geben Sie ihre Position / Abteilung an:"
   other_reason_please_specify: "bitte geben Sie ihre Position / Abteilung an:"
 
+  staff_detail: "Mitarbeiter: "
+  volunteer_detail: "Freiwilliger Helfer: "
+  please_specify_your_position_department: "bitte geben Sie ihre Position / Abteilung an"
+
   state: Kanton/Provinz/Bundesland
   country: Land
   citizenship: Staatsangehörigket
   data_protection_consent: ""
 
   conference_fees: Konferenzgebühren
+
+  more_information_about_conference_fees_html: 'Weitere Informationen zu den Konferenzkosten finden Sie <a href="http://www.caux.iofc.org/en/conference-fees">hier</a>.'
+  i_travel_with_my_family: 'Ich reise mit meiner Familie an'
+  i_want_to_support_the_center_renovation_fund: "Ich möchte zum Renovationsfond für das Konferenzzentrum beitragen (150 CHF pro Nacht)"
+  i_volunteer_full_time: "Ich arbeite Vollzeit als ehrenamtlicher Mitarbeiter beim IofC"
+
+  cost_of_your_stay: "Cost of your stay"
+
+  rate_per_night: "Beitrag pro Nacht"
+  nights: "Nächte"
+  total: "Total"
+  registration_fee: "Anmeldegebühr"
+
+  personal_contribution_html: "<b>Ihres Beitrags</b>"
+  please_check_total_html: "Bitte überprüfen Sie den automatisch generierten Gesamtbetrag ihres Beitrags:"
+
   other: 'Andere Aufenthaltsgründe'
   other_reason_detail: 'Andere Aufenthaltsgründe: '
   please_specify_your_reason: 'nennen Sie Ihre Aufenthaltsgründe'

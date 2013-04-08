@@ -53,7 +53,7 @@ class OnlineApplication < ActiveRecord::Base
   end
 
   attr_accessor :the_request
-  attr_accessor :day_visit
+  #attr_accessor :day_visit
 
   after_validation() do
     # Keep track of validation errors, so that we can improve the user experience
@@ -109,6 +109,8 @@ class OnlineApplication < ActiveRecord::Base
 
   validates :other_reason_detail, :length => { :maximum => 200 }
   validates :other_reason_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_reason) }, :if => :other_reason
+  validates :staff_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_position_department) }, :if => :staff
+  validates :volunteer_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_position_department) }, :if => :volunteer
 
   def must_select_reason_for_coming
     if online_application_conferences.empty? and training_programs.empty? and not staff and not interpreter and not volunteer and not other_reason then
@@ -217,6 +219,8 @@ class OnlineApplication < ActiveRecord::Base
   validates :previous_year, :presence => true, :format => { :with => /^([\d]{4}|)$/, :message => I18n.t(:previous_year_invalid) }, :if => :previous_visit 
   validates :heard_about, :presence => true, :length => { :maximum => 100 }, :unless => "previous_visit.nil? or previous_visit or relation != 'primary applicant'"
 
+  validates :day_visit, :inclusion => { :in => [ true, false ], :message => I18n.t(:day_visit_unset) }
+
   validates :visa_reference_name, :presence => true, :if => :visa_reference_needed?
   validates :visa_reference_email, :presence => true, :if => :visa_reference_needed?
 
@@ -244,7 +248,9 @@ class OnlineApplication < ActiveRecord::Base
                                    
   validates :passport_embassy, :presence => true, :if => :visa
 
-  validates :nightly_contribution, :numericality => { :only_integer => true , :message => I18n.t(:nightly_contribution_invalid) }
+  #validates :night_rate, :numericality => { :only_integer => true , :message => I18n.t(:night_rate_invalid) }
+  #validates :reservation_fee, :numericality => { :only_integer => true , :message => I18n.t(:reservation_fee_invalid) }
+  #validates :nightly_contribution, :numericality => { :only_integer => true , :message => I18n.t(:nightly_contribution_invalid) }
 
   validates :badge_firstname, :presence => true
   validates :badge_surname, :presence => true

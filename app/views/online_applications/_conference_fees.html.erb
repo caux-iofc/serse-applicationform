@@ -5,20 +5,95 @@
            <tr>
              <td colspan="2">
                <div class="field">
-                 <span class="af_star">*</span><%= f.label :nightly_contribution, t(:nightly_contribution) %><br />
-                 <%= f.text_field :nightly_contribution, :size => 6 %> <%=t :nightly_contribution_currency %><br />
-                 <span class="show_for_children">
-                   <%=t :child_nightly_contribution_html %>
-                 </span>
-                 <span class="hide_for_children">
-                   <%=t :nightly_contribution_html %>
-                 </span>
+                 <%=t :more_information_about_conference_fees_html %><br />
+                 <%= f.check_box :family_discount %> <%= f.label :family_discount, t(:i_travel_with_my_family) %><br />
+                 <%= f.check_box :support_renovation_fund %> <%=f.label :support_renovation_fund, t(:i_want_to_support_the_center_renovation_fund) %><br />
+                 <%= f.check_box :full_time_volunteer %> <%=f.label :full_time_volunteer, t(:i_volunteer_full_time) %><br />
                </div>
              </td>
            </tr>
            <tr>
              <td>
                <table class="sponsors_table">
+                 <tr>
+                   <th>
+                     <div class="field">
+                       <label>&nbsp;</label>
+                     </div>
+                   </th>
+                   <th>
+                     <div class="field">
+                       <label><%=t :sponsors_nights %></label>
+                     </div>
+                   </th>
+                   <th>
+                     <div class="field">
+                       <label><%=t :rate_per_night %></label>
+                     </div>
+                   </th>
+                   <th align="right">
+                     <div class="field">
+                       <label><%=t :total %></label>
+                     </div>
+                   </th>
+                 </tr>
+                 <tr>
+                   <td>
+                     <div class="field">
+                       <%=t :cost_of_your_stay %>
+                     </div>
+                   </td>
+                   <td>
+                     <div class="field">
+                       <div id="nights_visible"></div><input type="hidden" id="nights" name="nights">
+                     </div>
+                   </td>
+                   <td>
+                     <div class="field">
+                       CHF <span id="rate_per_night_visible"></span><input type="hidden" id="rate_per_night" name="rate_per_night">
+                     </div>
+                   </td>
+                   <td align="right">
+                     <div class="field">
+                       CHF <span id="total_nights_visible"></span><input type="hidden" id="total_nights" name="total_nights">
+                     </div>
+                   </td>
+                 </tr>
+                 <tr>
+                   <td>
+                     <div class="field">
+                       <%=t :registration_fee %>
+                     </div>
+                   </td>
+                   <td>
+                     <div class="field">
+                     </div>
+                   </td>
+                   <td>
+                     <div class="field">
+                     </div>
+                   </td>
+                   <td align="right">
+                     <div class="field">
+                       CHF <span id="registration_fee_visible"></span><input type="hidden" id="registration_fee" name="registration_fee">
+                     </div>
+                   </td>
+                 </tr>
+                 <tr>
+                   <td colspan="4">
+                   <hr>
+                   </td>
+                 </tr>
+                 <tr>
+                   <td colspan="4">
+                 <span class="show_for_children">
+                   <%=t :child_nightly_contribution_html %>
+                 </span>
+                 <span class="hide_for_children">
+                   <%=t :nightly_contribution_html %>
+                 </span>
+                   </td>
+                 </tr>
                  <tr>
                    <th>
                      <div class="field">
@@ -30,12 +105,7 @@
                        <label><%=t :sponsors_nights %></label>
                      </div>
                    </th>
-                   <th>
-                     <div class="field">
-                       <label><%=t :sponsors_currency %></label>
-                     </div>
-                   </th>
-                   <th>
+                   <th colspan="2" align="right">
                      <div class="field">
                        <label><%=t :sponsors_amount %></label>
                      </div>
@@ -53,19 +123,47 @@
                        <%= sf.text_field :nights, :size => 3 %>
                      </div>
                    </td>
-                   <td>
+                   <td colspan="2" align="right">
                      <div class="field">
-                       <%=t :sponsors_currency_name %>
-                     </div>
-                   </td>
-                   <td>
-                     <div class="field">
-                       <%= sf.text_field :amount, :size => 3 %>
+                       CHF <%= sf.text_field :amount, :size => 3 %>
                      </div>
                    </td>
                  </tr>
                  <% end -%>
+                 <tr>
+                   <td colspan="4">
+                   <hr>
+                   </td>
+                 </tr>
+                 <tr>
+                   <td colspan="4" align="center">
+                     <div id="personalContribution">
+                       <h2><%=t :please_check_total_html %></h2><br/>
+                       <table width="100%">
+                         <tr>
+                           <td align="left">
+                             <%=t :personal_contribution_html %>
+                           </td>
+                           <td align="right">
+                             <strong>CHF <span id="total_automatic">0</span></strong><br />
+                           </td>
+                         </tr>
+                       </table>
+                     </div>
+                   </td>
+                 </tr>
+
+
+                 </td>
+                 </tr>
                </table>
+             </td>
+           </tr>
+           <tr colspan="2">
+             <td>
+                 <%= f.hidden_field :calculated_night_rate, :size => 6 %><br />
+                 <%= f.hidden_field :calculated_registration_fee, :size => 6 %><br />
+                 <%= f.hidden_field :calculated_total_personal_contribution, :size => 6 %><br />
              </td>
            </tr>
          </table>

@@ -30,6 +30,8 @@ class OnlineApplicationsController < ApplicationController
       @online_application.relation = 'primary applicant'
     end
 
+    @online_application.day_visit = false
+
     populate_ethereal_variables
 
     respond_to do |format|
