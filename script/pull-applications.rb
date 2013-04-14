@@ -286,12 +286,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
       @values += oa.calculated_total_personal_contribution.to_s + ","
 
       @keys += 'calculated_rate_and_fee_details,'
-      @values += oa.calculated_rate_and_fee_details.to_s + ","
-
-      # Note - this field is now unused; supplanted by the calculated_* fields above. Ward, 2013-04-14.
-      # TODO: remove.
-			@keys += 'financial_contribution,'
-			@values += oa.nightly_contribution.to_s + ","
+      @values += "'" + oa.calculated_rate_and_fee_details.to_s + "',"
 
 			@keys += 'currency,'
 			@values += "'chf',"
