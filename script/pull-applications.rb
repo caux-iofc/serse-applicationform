@@ -261,6 +261,35 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 				@values += "'" + @conn.escape(oa.visa_reference_email) + "',"
 			end
 
+      @keys += 'family_discount,'
+      @values += @conn.escape(oa.family_discount ? 'true' : 'false') + ","
+
+      @keys += 'support_renovation_fund,'
+      @values += @conn.escape(oa.support_renovation_fund ? 'true' : 'false') + ","
+
+      @keys += 'full_time_volunteer,'
+      @values += @conn.escape(oa.full_time_volunteer ? 'true' : 'false') + ","
+
+      @keys += 'day_visit,'
+      @values += @conn.escape(oa.day_visit ? 'true' : 'false') + ","
+
+      @keys += 'sent_by_employer,'
+      @values += @conn.escape(oa.sent_by_employer ? 'true' : 'false') + ","
+
+      @keys += 'calculated_registration_fee,'
+      @values += oa.calculated_registration_fee.to_s + ","
+
+      @keys += 'calculated_night_rate,'
+      @values += oa.calculated_night_rate.to_s + ","
+
+      @keys += 'calculated_total_personal_contribution,'
+      @values += oa.calculated_total_personal_contribution.to_s + ","
+
+      @keys += 'calculated_rate_and_fee_details,'
+      @values += oa.calculated_rate_and_fee_details.to_s + ","
+
+      # Note - this field is now unused; supplanted by the calculated_* fields above. Ward, 2013-04-14.
+      # TODO: remove.
 			@keys += 'financial_contribution,'
 			@values += oa.nightly_contribution.to_s + ","
 
