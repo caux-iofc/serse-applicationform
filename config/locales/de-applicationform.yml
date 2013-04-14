@@ -193,16 +193,17 @@ de:
   i_travel_with_my_family: 'Ich reise mit meiner Familie an'
   i_want_to_support_the_center_renovation_fund: "Ich möchte zum Renovationsfond für das Konferenzzentrum beitragen (150 CHF pro Nacht)"
   i_volunteer_full_time: "Ich arbeite Vollzeit als ehrenamtlicher Mitarbeiter beim IofC"
+  i_am_sent_by_my_employer: "I am sent by my company/my organisation"
 
-  cost_of_your_stay: "Cost of your stay"
+  cost_of_your_stay: "Kosten für Ihren Aufenthalt"
 
   rate_per_night: "Beitrag pro Nacht"
   nights: "Nächte"
   total: "Total"
   registration_fee: "Anmeldegebühr"
 
-  personal_contribution_html: "<b>Ihres Beitrags</b>"
-  please_check_total_html: "Bitte überprüfen Sie den automatisch generierten Gesamtbetrag ihres Beitrags:"
+  personal_contribution_html: "<b>Ihre Aufenthaltskosten</b>"
+  please_check_total_html: "Bitte überprüfen Sie den automatisch generierten Gesamtbetrag Ihrer Aufenthaltskosten:"
 
   other: 'Andere Aufenthaltsgründe'
   other_reason_detail: 'Andere Aufenthaltsgründe: '
@@ -242,6 +243,9 @@ de:
   must_be_before_departure: " muss vor der Abreise sein"
   please_confirm_chf_100_registration_fee: "Bitte best\xC3\xA4tigen Sie dass Sie verstanden haben dass zur Teilnahme an dieser Konferenz eine Anmeldegeb\xC3\xBChr von CHF 100.- erhoben wird."
   previous_visit_unset: ": bitte geben Sie an ob Sie schon fr\xC3\xBCher in Caux gewesen sind."
+
+  day_visit_unset: ": bitte geben Sie an ob Sie in Caux übernachten oder nur als Tagesbesucher teilnehmen."
+
   must_be_valid_now: " Muss nun g\xC3\xBCltig sein"
   duplicate_person_in_application_group: " Ung\xC3\xBCltig: Eine Person mit gleichem Vornamen, Familiennamen, Geburtsdatum und Geschlecht ist schon Teil dieser Anmeldung"
   previous_year: Jahr des letzten Besuchs

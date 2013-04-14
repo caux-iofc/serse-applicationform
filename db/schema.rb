@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130406084900) do
+ActiveRecord::Schema.define(:version => 20130414104600) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -579,6 +579,7 @@ ActiveRecord::Schema.define(:version => 20130406084900) do
     t.integer  "calculated_registration_fee",                           :default => 0
     t.integer  "calculated_night_rate",                                 :default => 0
     t.integer  "calculated_total_personal_contribution",                :default => 0
+    t.boolean  "sent_by_employer",                                      :default => false
   end
 
   add_index "online_applications", ["application_group_id"], :name => "index_online_applications_on_application_group_id"

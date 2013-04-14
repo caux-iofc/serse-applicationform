@@ -324,8 +324,8 @@ jQuery ->
       registration_fee = 100
 
     if $("#online_application_full_time_volunteer").is(':checked')
-      night_rate = 0
-      registration_fee = 100
+      night_rate = 55
+      registration_fee = 0
 
     if $("#online_application_family_discount").is(':checked')
       night_rate = Math.round(night_rate * 0.8)
@@ -361,6 +361,12 @@ jQuery ->
       $("#online_application_sponsors_attributes_0_name").val('Caux Interns Program')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(55)
+    else if $("[id='tp_check_week of international community']").is(':checked')
+      night_rate = 35
+      registration_fee = 100
+      $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
+      $("#online_application_sponsors_attributes_0_nights").val(nights)
+      $("#online_application_sponsors_attributes_0_amount").val(35)
     else if $("[id='tp_check_caux artists program']").is(':checked')
       night_rate = 55
       registration_fee = 50
@@ -385,6 +391,9 @@ jQuery ->
       registration_fee = 0
 
     if $("#online_application_support_renovation_fund").is(':checked')
+      night_rate = 150
+
+    if $("#online_application_sent_by_employer").is(':checked')
       night_rate = 150
 
     $("#rate_per_night_visible").text(night_rate)
@@ -427,6 +436,8 @@ jQuery ->
   $("#online_application_family_discount").change ->
     recalculate_fees()
   $("#online_application_support_renovation_fund").change ->
+    recalculate_fees()
+  $("#online_application_sent_by_employer").change ->
     recalculate_fees()
   $("#online_application_full_time_volunteer").change ->
     recalculate_fees()
@@ -473,6 +484,8 @@ jQuery ->
   $("[id='tp_check_caux interns program – session 1']").change ->
     recalculate_fees()
   $("[id='tp_check_caux interns program – session 2']").change ->
+    recalculate_fees()
+  $("[id='tp_check_week of international community']").change ->
     recalculate_fees()
   $('input[id$="_team"]').change ->
     recalculate_fees()
