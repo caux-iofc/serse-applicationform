@@ -51,7 +51,7 @@
                    </td>
                    <td>
                      <div class="field">
-                       <div id="nights_visible"></div><input type="hidden" id="nights" name="nights">
+                       <div id="nights_visible"></div><br />
                      </div>
                    </td>
                    <td>
@@ -162,6 +162,7 @@
            </tr>
            <tr colspan="2">
              <td>
+                 <%= f.hidden_field :calculated_nights %><br />
                  <%= f.hidden_field :calculated_night_rate, :size => 6 %><br />
                  <%= f.hidden_field :calculated_registration_fee, :size => 6 %><br />
                  <%= f.hidden_field :calculated_total_personal_contribution, :size => 6 %><br />

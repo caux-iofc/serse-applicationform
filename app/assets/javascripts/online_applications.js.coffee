@@ -425,7 +425,6 @@ jQuery ->
     $("#registration_fee_visible").text(registration_fee)
     $("#registration_fee").val(registration_fee)
     $("#nights_visible").text(nights)
-    $("#nights").val(nights)
     $("#total_nights_visible").text(nights * night_rate)
     $("#total_nights").val(nights * night_rate)
 
@@ -449,6 +448,7 @@ jQuery ->
 
     $("#total_automatic").text(total_automatic)
 
+    $("#online_application_calculated_nights").val(nights)
     $("#online_application_calculated_night_rate").val(night_rate)
     $("#online_application_calculated_reservation_fee").val(registration_fee)
     $("#online_application_calculated_total_personal_contribution").val(total_automatic)

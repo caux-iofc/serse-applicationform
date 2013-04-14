@@ -282,6 +282,9 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
       @keys += 'calculated_night_rate,'
       @values += oa.calculated_night_rate.to_s + ","
 
+      @keys += 'calculated_nights,'
+      @values += oa.calculated_nights.to_s + ","
+
       @keys += 'calculated_total_personal_contribution,'
       @values += oa.calculated_total_personal_contribution.to_s + ","
 
