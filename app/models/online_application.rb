@@ -92,7 +92,7 @@ class OnlineApplication < ActiveRecord::Base
   # in one validates statement. So we make sure to put each :date condition in a separate validates statement.
   # In this particular case, we had to do that anyway because the age minimum only applies to primary applicants.
   validates :date_of_birth, :date => { :after => Proc.new { Time.now - 110.years }, :message => I18n.t(:max_age_110) }, :if => :date_of_birth
-  validates :date_of_birth, :date => { :before => Proc.new { Time.now - 16.years }, :message => I18n.t(:min_age_16) }, :if => "date_of_birth and relation != 'child'"
+  validates :date_of_birth, :date => { :before => Proc.new { Time.now - 16.years }, :message => I18n.t(:min_age_16) }, :if => "date_of_birth and relation == 'primary applicant'"
 
   validates :citizenship_id, :presence => true
   validates :other_citizenship, :presence => true, :if => "citizenship_id == 0"
@@ -113,7 +113,9 @@ class OnlineApplication < ActiveRecord::Base
   validates :volunteer_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_position_department) }, :if => :volunteer
 
   def must_select_reason_for_coming
-    if online_application_conferences.empty? and training_programs.empty? and not staff and not interpreter and not volunteer and not other_reason then
+    if online_application_conferences.empty? and training_programs.empty? and 
+       not staff and not interpreter and not volunteer and not other_reason and
+       not relation == 'child' then
       errors.add :other_reason, I18n.t(:please_indicate_other_reason).html_safe
     end
   end

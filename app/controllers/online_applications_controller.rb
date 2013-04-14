@@ -101,6 +101,12 @@ class OnlineApplicationsController < ApplicationController
 
     @countries = [ [t(:other_please_specify),'0'] ] + Country.with_translations.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }
 
+    if not @ag.primary_applicant.nil? and @online_application.relation != 'primary applicant' then
+      @family_discount = @ag.primary_applicant.family_discount
+    else
+      @family_discount = false
+    end
+
   end
 
   # GET /online_applications/1/edit

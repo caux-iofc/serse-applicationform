@@ -580,6 +580,7 @@ ActiveRecord::Schema.define(:version => 20130414104600) do
     t.integer  "calculated_night_rate",                                 :default => 0
     t.integer  "calculated_total_personal_contribution",                :default => 0
     t.boolean  "sent_by_employer",                                      :default => false
+    t.text     "calculated_rate_and_fee_details"
   end
 
   add_index "online_applications", ["application_group_id"], :name => "index_online_applications_on_application_group_id"

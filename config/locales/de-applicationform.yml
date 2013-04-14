@@ -206,6 +206,7 @@ de:
   please_check_total_html: "Bitte überprüfen Sie den automatisch generierten Gesamtbetrag Ihrer Aufenthaltskosten:"
 
   other: 'Andere Aufenthaltsgründe'
+  other_reason: 'Andere Aufenthaltsgründe: '
   other_reason_detail: 'Andere Aufenthaltsgründe: '
   please_specify_your_reason: 'nennen Sie Ihre Aufenthaltsgründe'
 

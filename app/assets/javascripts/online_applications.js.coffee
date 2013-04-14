@@ -310,15 +310,20 @@ jQuery ->
     registration_fee = 100
     night_rate = 92
 
+    calculated_rate_and_fee_details = 'Regular: night rate: CHF 92; registration fee: CHF 100\n'
+
     if age >= 0 and age <= 5
       night_rate = 0
       registration_fee = 0
+      calculated_rate_and_fee_details += 'Child 0-5: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if age >= 6 and age <= 17
       night_rate = 46
       registration_fee = 100
+      calculated_rate_and_fee_details += 'Age 6-17: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if age >= 18 and age <= 25
       night_rate = 55
       registration_fee = 100
+      calculated_rate_and_fee_details += 'Age 18-25: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if age >= 26
       night_rate = 92
       registration_fee = 100
@@ -326,9 +331,7 @@ jQuery ->
     if $("#online_application_full_time_volunteer").is(':checked')
       night_rate = 55
       registration_fee = 0
-
-    if $("#online_application_family_discount").is(':checked')
-      night_rate = Math.round(night_rate * 0.8)
+      calculated_rate_and_fee_details += 'Full time volunteer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if $("#online_application_staff").is(':checked')
       night_rate = 35
@@ -336,24 +339,28 @@ jQuery ->
       $("#online_application_sponsors_attributes_0_name").val('IofC Switzerland')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(35)
+      calculated_rate_and_fee_details += 'Staff: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("#online_application_volunteer").is(':checked')
       night_rate = 35
       registration_fee = 100
       $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(35)
+      calculated_rate_and_fee_details += 'Volunteer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("#online_application_interpreter").is(':checked')
       night_rate = 35
       registration_fee = 100
       $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(35)
+      calculated_rate_and_fee_details += 'Interpreter: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("[id='tp_check_caux scholars program']").is(':checked')
       night_rate = 55
       registration_fee = 50
       $("#online_application_sponsors_attributes_0_name").val('Caux Scholars Program')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(55)
+      calculated_rate_and_fee_details += 'Caux Scholars Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("[id='tp_check_caux interns program – session 1']").is(':checked') or
             $("[id='tp_check_caux interns program – session 2']").is(':checked')
       night_rate = 55
@@ -361,18 +368,21 @@ jQuery ->
       $("#online_application_sponsors_attributes_0_name").val('Caux Interns Program')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(55)
+      calculated_rate_and_fee_details += 'Caux Interns Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("[id='tp_check_week of international community']").is(':checked')
       night_rate = 35
       registration_fee = 100
       $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(35)
+      calculated_rate_and_fee_details += 'Work week: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("[id='tp_check_caux artists program']").is(':checked')
       night_rate = 55
       registration_fee = 50
       $("#online_application_sponsors_attributes_0_name").val('Caux Artists Program')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(55)
+      calculated_rate_and_fee_details += 'Caux Artists Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("#online_application_sponsors_attributes_0_name").val() == 'IofC Switzerland' or
             $("#online_application_sponsors_attributes_0_name").val() == 'Caux Scholars Program' or
             $("#online_application_sponsors_attributes_0_name").val() == 'Caux Interns Program' or
@@ -385,16 +395,30 @@ jQuery ->
     if $('input[id$="_speaker"]').is(':checked') or
        $('input[id$="_team"]').is(':checked')
       registration_fee = 0
+      calculated_rate_and_fee_details += 'Speaker: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if $("#online_application_day_visit_true").is(':checked')
       night_rate = 50
       registration_fee = 0
+      calculated_rate_and_fee_details += 'Day visit: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+    if $("#online_application_family_discount").is(':checked')
+      night_rate = Math.round(night_rate * 0.8)
+      calculated_rate_and_fee_details += 'Family discount: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+    if $("#family_discount").val() == 'true'
+      # Only the primary registrant for families pays the registration fee
+      night_rate = Math.round(night_rate * 0.8)
+      registration_fee = 0
+      calculated_rate_and_fee_details += 'Family discount: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if $("#online_application_support_renovation_fund").is(':checked')
       night_rate = 150
+      calculated_rate_and_fee_details += 'Renovation fund: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if $("#online_application_sent_by_employer").is(':checked')
       night_rate = 150
+      calculated_rate_and_fee_details += 'Sent by employer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     $("#rate_per_night_visible").text(night_rate)
     $("#rate_per_night").val(night_rate)
@@ -425,9 +449,10 @@ jQuery ->
 
     $("#total_automatic").text(total_automatic)
 
-    $("#application_form_calculated_night_rate").val(night_rate)
-    $("#application_form_calculated_reservation_fee").val(registration_fee)
-    $("#application_form_calculated_total_personal_contribution").val(total_automatic)
+    $("#online_application_calculated_night_rate").val(night_rate)
+    $("#online_application_calculated_reservation_fee").val(registration_fee)
+    $("#online_application_calculated_total_personal_contribution").val(total_automatic)
+    $("#online_application_calculated_rate_and_fee_details").val(calculated_rate_and_fee_details)
     false
 
   ## First the code that will run on document load ##

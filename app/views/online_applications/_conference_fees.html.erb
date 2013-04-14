@@ -6,10 +6,15 @@
              <td colspan="2">
                <div class="field">
                  <%=t :more_information_about_conference_fees_html %><br />
+                 <input type="hidden" id="family_discount" name="family_discount" value="<%= @family_discount %>">
+                 <div class="show_for_primary_applicant">
                  <%= f.check_box :family_discount %> <%= f.label :family_discount, t(:i_travel_with_my_family) %><br />
+                 </div>
                  <%= f.check_box :support_renovation_fund %> <%=f.label :support_renovation_fund, t(:i_want_to_support_the_center_renovation_fund) %><br />
-                 <%= f.check_box :sent_by_employer %> <%=f.label :sent_by_employer, t(:i_am_sent_by_my_employer) %><br />
-                 <%= f.check_box :full_time_volunteer %> <%=f.label :full_time_volunteer, t(:i_volunteer_full_time) %><br />
+                 <div class="hide_for_children">
+                   <%= f.check_box :sent_by_employer %> <%=f.label :sent_by_employer, t(:i_am_sent_by_my_employer) %><br />
+                   <%= f.check_box :full_time_volunteer %> <%=f.label :full_time_volunteer, t(:i_volunteer_full_time) %><br />
+                 </div>
                </div>
              </td>
            </tr>
@@ -87,12 +92,7 @@
                  </tr>
                  <tr>
                    <td colspan="4">
-                 <span class="show_for_children">
-                   <%=t :child_nightly_contribution_html %>
-                 </span>
-                 <span class="hide_for_children">
-                   <%=t :nightly_contribution_html %>
-                 </span>
+                     <%=t :nightly_contribution_html %>
                    </td>
                  </tr>
                  <tr>
@@ -165,6 +165,7 @@
                  <%= f.hidden_field :calculated_night_rate, :size => 6 %><br />
                  <%= f.hidden_field :calculated_registration_fee, :size => 6 %><br />
                  <%= f.hidden_field :calculated_total_personal_contribution, :size => 6 %><br />
+                 <%= f.hidden_field :calculated_rate_and_fee_details %><br />
              </td>
            </tr>
          </table>
