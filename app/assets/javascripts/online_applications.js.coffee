@@ -428,7 +428,7 @@ jQuery ->
     $("#total_nights_visible").text(nights * night_rate)
     $("#total_nights").val(nights * night_rate)
 
-    total = nights * night_rate + registration_fee
+    total_nights = nights * night_rate
 
     sponsor_1_contribution = $("#online_application_sponsors_attributes_0_nights").val() * $("#online_application_sponsors_attributes_0_amount").val()
     sponsor_2_contribution = $("#online_application_sponsors_attributes_1_nights").val() * $("#online_application_sponsors_attributes_1_amount").val()
@@ -442,9 +442,12 @@ jQuery ->
     if isNaN(sponsor_contribution)
       sponsor_contribution = 0
 
-    total_automatic = total - sponsor_contribution
+    total_automatic = total_nights - sponsor_contribution
     if total_automatic < 0
       total_automatic = 0
+
+    # Sponsors shouldn't pay the registration fee
+    total_automatic += registration_fee
 
     $("#total_automatic").text(total_automatic)
 
