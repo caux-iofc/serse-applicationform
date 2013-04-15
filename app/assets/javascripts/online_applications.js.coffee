@@ -453,7 +453,7 @@ jQuery ->
 
     $("#online_application_calculated_nights").val(nights)
     $("#online_application_calculated_night_rate").val(night_rate)
-    $("#online_application_calculated_reservation_fee").val(registration_fee)
+    $("#online_application_calculated_registration_fee").val(registration_fee)
     $("#online_application_calculated_total_personal_contribution").val(total_automatic)
     $("#online_application_calculated_rate_and_fee_details").val(calculated_rate_and_fee_details)
     false
