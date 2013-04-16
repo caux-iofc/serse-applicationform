@@ -121,7 +121,7 @@ fr:
 
 
   nightly_contribution: "Ma propre contribution aux frais de s\xC3\xA9jour par nuit sera de"
-  nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous soutient si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/frais-de-sejour\">le tarif par nuitée</a> vous-mêmes et montant par nuitée que cette personne ou organisation prendra en charge pour vous:"
+  nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous soutient si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/frais-de-sejour\">le tarif par nuitée</a> vous-même et montant par nuitée que cette personne ou organisation prendra en charge pour vous:"
   nightly_contribution_invalid: " n'est pas un nombre. N'utilisez pas de points ou des virgules."
   submitted_intro_part_1: "Merci, votre inscription a \xC3\xA9t\xC3\xA9 re\xC3\xA7ue."
   spouse: Conjoint/Partenaire
@@ -191,7 +191,7 @@ fr:
   other_diet_text: Si vous utilisez des produits particuliers, merci de les apporter.
   conference_fees: Frais de séjour
 
-  more_information_about_conference_fees_html: 'Des informations complémentaires sur les tariffs sont disponibles <a href="http://www.caux.iofc.org/fr/frais-de-sejour">ici</a>.'
+  more_information_about_conference_fees_html: 'Des informations complémentaires sur les tarifs sont disponibles <a href="http://www.caux.iofc.org/fr/frais-de-sejour">ici</a>.'
   i_travel_with_my_family: 'Je viens à Caux en famille'
   i_want_to_support_the_center_renovation_fund: "Je désire soutenir le fonds de rénovation du Centre (150 CHF par nuit)"
   i_volunteer_full_time: "Je suis permanent d'I&C"
