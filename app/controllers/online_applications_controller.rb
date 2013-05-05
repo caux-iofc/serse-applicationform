@@ -218,6 +218,13 @@ class OnlineApplicationsController < ApplicationController
     @online_application = OnlineApplication.find(params[:id])
     @online_application.destroy
 
+    if @online_application.application_group.online_applications.size == 0 then
+      # Last application from this application group was deleted.
+      @online_application.application_group.destroy
+      # This application group is now void
+      session[:application_group_id] = 0
+    end
+
     respond_to do |format|
       format.html { redirect_to online_applications_url }
       format.json { head :ok }
@@ -227,7 +234,10 @@ class OnlineApplicationsController < ApplicationController
 protected
 
   def ensure_application_group
-    if session.nil? or not session.has_key?(:application_group_id) or session[:application_group_id] == 0 then
+    if session.nil? or
+       not session.has_key?(:application_group_id) or
+       session[:application_group_id] == 0 or
+       ApplicationGroup.where(:id => session[:application_group_id]).first.nil? then
       begin
         # new application group
         @ag = ApplicationGroup.new()
