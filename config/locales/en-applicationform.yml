@@ -118,7 +118,7 @@ en:
   conference_fees: "Conference fees"
 
   more_information_about_conference_fees_html: 'More information about the conference fees is available <a href="http://www.caux.iofc.org/en/conference-fees">here</a>.'
-  i_travel_with_my_family: 'I travel with my family'
+  i_travel_with_my_family: 'I travel with my family (A couple does not count as a family. Minumum 1 child and 1 parent)'
   i_want_to_support_the_center_renovation_fund: "I want to support the Center's renovation fund (150 CHF per night)"
   i_volunteer_full_time: "I volunteer full time with IofC"
   i_am_sent_by_my_employer: "I am sent by my company/my organisation"
@@ -175,6 +175,7 @@ en:
   data_protection_consent_error: "Unless you consent to your personal data being held by the Caux Foundation, we cannot process your application."
   data_protection_consent: ''
   confirm_read_documents: ''
+
   submitted_title: 'Registration Form complete'
   submitted_intro_part_1: "Thank you, your registration has been received."
   submitted_intro_part_2: "Your registration has not yet been approved."
