@@ -409,7 +409,11 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 				oac.online_application_conference_workstreams.each do |ws|
 					# team members need not select a workstream preference. If they do not (ws.conference_workstream_id is null) then do not try to insert the record
 					next if ws.conference_workstream_id.nil?
-					# TODO: once #202 is done, this will need to refer to the serse_id value in the conference_workstreams table!
+          # if a workstream no longer exists, just skip it. This catches a race condition 
+          # where the workstream has been removed from Serse but the form still has it 
+          # (the cron job updating the form has not run yet, or the application was filled 
+          # out in the past and only just now submitted)
+          next if ws.conference_workstream.nil?
           @pg_sql = "insert into online_application_conference_workstreams (online_application_conference_id,conference_workstream_id,preference) values " +
                     "(currval('online_application_conferences_id_seq'),#{ws.conference_workstream.serse_id},#{ws.preference == 'first_choice' ? 1 : 2})"
 		  		@res = @conn.exec(@pg_sql)
