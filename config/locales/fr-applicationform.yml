@@ -3,6 +3,7 @@ fr:
   approximate_time: "+ heure approximative - utilisez le format continental (24h)"
   departure: "D\xC3\xA9part"
   diet: "R\xC3\xA9gime"
+  diet_other_detail: "R\xC3\xA9gime / Autre"
   remarks: Remarques
   stay_in_caux: "S\xC3\xA9jour \xC3\xA0 Caux"
   day_visitor: "Visite Journali\xC3\xA8re"
