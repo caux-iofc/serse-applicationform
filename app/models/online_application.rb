@@ -80,7 +80,7 @@ class OnlineApplication < ActiveRecord::Base
 
   before_validation :strip_whitespace
 
-  validates :diet_other_detail, :length => { :maximum => 250 }
+  validates :diet_other_detail, :length => { :maximum => 240 }
 
   validates :relation, :inclusion => { :in => [ 'primary applicant', 'spouse', 'child', 'other' ], :message => I18n.t(:only_valid_relations) }
   validates :firstname, :presence => true
