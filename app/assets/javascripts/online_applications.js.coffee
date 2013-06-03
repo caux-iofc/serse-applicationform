@@ -349,7 +349,7 @@ jQuery ->
       calculated_rate_and_fee_details += 'Volunteer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("#online_application_interpreter").is(':checked')
       night_rate = 35
-      registration_fee = 100
+      registration_fee = 0
       $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(35)
