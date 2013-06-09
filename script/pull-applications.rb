@@ -296,6 +296,10 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 
 			@sponsor_count = 1
 			oa.sponsors.each do |s|
+				# Skip invalid sponsor lines; this can happen if a sponsor was put in
+				# and the form was submitted, but the sponsor was removed before the 
+				# application was submitted.
+				next if @conn.escape(s.name) == '' or s.amount.nil? or s.nights.nil?
 				@keys += "sponsor_#{@sponsor_count},"
 				@values += "'" + @conn.escape(s.name) + "',"
 				@keys += "sponsor_#{@sponsor_count}_amount,"
