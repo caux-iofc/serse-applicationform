@@ -276,6 +276,15 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
       @keys += 'sent_by_employer,'
       @values += @conn.escape(oa.sent_by_employer ? 'true' : 'false') + ","
 
+      @keys += 'interpreter,'
+      @values += @conn.escape(oa.interpreter ? 'true' : 'false') + ","
+
+      @keys += 'staff,'
+      @values += @conn.escape(oa.staff ? 'true' : 'false') + ","
+
+      @keys += 'volunteer,'
+      @values += @conn.escape(oa.volunteer ? 'true' : 'false') + ","
+
       @keys += 'calculated_registration_fee,'
       @values += oa.calculated_registration_fee.to_s + ","
 
