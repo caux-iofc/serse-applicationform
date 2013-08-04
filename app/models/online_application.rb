@@ -204,10 +204,10 @@ class OnlineApplication < ActiveRecord::Base
   # There appears to be no way to pass two different :date conditions with a unique message for each
   # in one validates statement. So we make sure to put each :date condition in a separate validates statement.
   validates :arrival, :presence => true,
-                      :date => { :before_or_equal_to => :departure, :message => I18n.t(:must_be_before_departure) },
+                      :date => { :before => :departure, :message => I18n.t(:must_be_before_departure) },
                       :if => "relation == 'primary applicant'"
   validates :departure, :presence => true,
-                        :date => { :after_or_equal_to => :arrival, :message => I18n.t(:must_be_after_arrival) },
+                        :date => { :after => :arrival, :message => I18n.t(:must_be_after_arrival) },
                         :if => "relation == 'primary applicant'"
 
   unless ALLOW_RETROACTIVE_REGISTRATION
