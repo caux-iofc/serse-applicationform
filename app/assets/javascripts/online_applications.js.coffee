@@ -412,6 +412,16 @@ jQuery ->
       registration_fee = 0
       calculated_rate_and_fee_details += 'Family discount: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
+    if $("#online_application_relation").val() == 'spouse'
+      # Only the primary registrant for families pays the registration fee
+      registration_fee = 0
+      calculated_rate_and_fee_details += 'Spouse: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+    if $("#online_application_relation").val() == 'child'
+      # Only the primary registrant for families pays the registration fee
+      registration_fee = 0
+      calculated_rate_and_fee_details += 'Child: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
     if $("#online_application_support_renovation_fund").is(':checked')
       night_rate = 150
       calculated_rate_and_fee_details += 'Renovation fund: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
@@ -461,6 +471,8 @@ jQuery ->
   ## First the code that will run on document load ##
   recalculate_fees()
 
+  $("#online_application_relation").change ->
+    recalculate_fees()
   $("#online_application_family_discount").change ->
     recalculate_fees()
   $("#online_application_support_renovation_fund").change ->
