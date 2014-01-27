@@ -33,7 +33,7 @@ gem 'capistrano'
 
 gem 'hoptoad_notifier', "~> 2.3"
 
-gem "globalize3", :git => "git://github.com/svenfuchs/globalize3.git"
+gem 'globalize', '~> 3.1.0'
 
 gem 'execjs'
 gem 'therubyracer'
