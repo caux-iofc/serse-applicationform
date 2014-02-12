@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.11'
+gem 'rails', '3.1.12'
 
-gem 'mysql'
+gem 'mysql2'
 
 gem 'json'
 
@@ -38,7 +38,7 @@ gem 'globalize', '~> 3.1.0'
 gem 'execjs'
 gem 'therubyracer'
 
-gem 'i18n-js', :git => "git://github.com/fnando/i18n-js.git"
+gem 'i18n-js'
 
 gem 'date_validator'
 
