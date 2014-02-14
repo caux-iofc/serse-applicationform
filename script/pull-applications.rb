@@ -62,7 +62,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
         @application_group_sort = 4
 				@relation = 'Other'
 			else
-				STDERR.puts "UNKNOWN relantion: #{oa.relation}\n"
+				STDERR.puts "UNKNOWN relation: #{oa.relation}\n"
 				exit(1)
 			end
 
