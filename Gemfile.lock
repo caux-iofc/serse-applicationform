@@ -43,8 +43,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
-    cure_acts_as_versioned (0.6.1)
-      activerecord (~> 3.1)
+    cure_acts_as_versioned (0.6.2)
+      activerecord (>= 3.0.9)
     cure_rails3_acts_as_paranoid (0.1.1)
       activerecord (~> 3.1)
     date_validator (0.7.0)
@@ -138,7 +138,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano (~> 2.15.5)
   coffee-rails (~> 3.2.2)
-  cure_acts_as_versioned (= 0.6.1)
+  cure_acts_as_versioned (= 0.6.2)
   cure_rails3_acts_as_paranoid
   date_validator
   execjs
