@@ -1,0 +1,63 @@
+<%=t :cats_2014_intro_html %>
+
+<ul>
+<table width="100%">
+<% oac.object.conference.conference_workstreams.each do |w| -%>
+<tr>
+   <td align="left">
+     <li><strong><%= w.name %></strong>
+   </td>
+   <td align="right">
+     <% if not w.language.nil? and not w.language.empty? then -%>
+       <i><%=t w.language %></i>
+     <% end -%>
+   </td>
+</tr>
+<% if not w.byline.nil? and not w.byline.empty? then -%>
+<tr>
+<td colspan="2">&nbsp;&nbsp;<%=raw w.byline %></td>
+</tr>
+<% end -%>
+<% end -%>
+</table>
+</ul>
+<p>
+
+  <table>
+     <%= oac.fields_for :online_application_conference_workstreams do |cw| -%>
+     <tr>
+       <td>
+         <span class="af_star">*</span><strong><%=t cw.object.preference %></strong>
+         <%= cw.hidden_field :preference, :value => cw.object.preference %>
+       </td>
+       <td><%= cw.select(:conference_workstream_id, ConferenceWorkstream.with_translations.where('conference_id = ?',oac.object.conference.id).collect {|p| [ p.name, p.id ] }, {:include_blank => t(:choose_one)}) %></td>
+     </tr>
+     <% end -%>
+    <tr><td colspan="2">&nbsp;</td></tr>
+    <tr>
+      <td colspan="2">
+        <p><%=t :cats_2014_note %></p>
+        <%= oac.fields_for :variables do |var| -%>
+        <p>
+          <span class="af_star">*</span><strong><%=t :cats_2014_children %></strong><br/>
+          <%= var.radio_button :cats_2014_children, :true, { :checked => (oac.object.variables["cats_2014_children"] == "true"), :class => 'yes_children' } %> <%=t :cats_2014_yes %>
+          <%= var.radio_button :cats_2014_children, :false, { :checked => (oac.object.variables["cats_2014_children"] == "false"), :class => 'no_children' } %> <%=t :cats_2014_no %>
+        </p>
+        <% end %>
+        <div id="cats_2014_please_fill_out" style="display:none">
+          <p><%=t :cats_2014_please_fill_out %></p>
+        </div>
+      </td>
+    </tr>
+    <tr><td colspan="2">&nbsp;</td></tr>
+    <tr>
+      <td colspan="2">
+        <span class="af_star">*</span><strong><%=t :I_will_come_as %></strong><br/>
+          <%= oac.check_box :role_participant %><%=t 'participant' %>&nbsp;&nbsp;
+          <%= oac.check_box :role_speaker %><%=t 'speaker' %>&nbsp;&nbsp;
+          <%= oac.check_box :role_team %><%=t 'team' %>&nbsp;&nbsp;
+      </td>
+    </tr>
+  </table>
+</p>
+
