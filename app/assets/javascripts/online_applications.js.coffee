@@ -280,6 +280,65 @@ jQuery ->
     else
       $("#child_2013_please_fill_out").hide()
 
+  ##### cats_2014: put in note about children and the application form #####
+
+  ## First the code that will run on document load ##
+  if $('.yes_children').is(':checked')
+    $("#cats_2014_please_fill_out").show()
+  else
+    $("#cats_2014_please_fill_out").hide()
+
+  ## And then all the hooks ##
+  $('.yes_children').click ->
+    if $('.yes_children').is(':checked')
+      $("#cats_2014_please_fill_out").show()
+    else
+      $("#cats_2014_please_fill_out").hide()
+  $('.no_children').click ->
+    if $('.yes_children').is(':checked')
+      $("#cats_2014_please_fill_out").show()
+    else
+      $("#cats_2014_please_fill_out").hide()
+
+  ##### TIGE 2014 special logic #####
+
+  tige_2014_special_logic = (label,destination) ->
+    if $(label + ' option:selected').text() == 'Programme: EPIC programme for next generation Entrepreneurs, Pathfinders, Innovators and Changemakers'
+      $(destination).html('Please request an application form for this workstream from <a href="mailto:leire.corral89@gmail.com">leire.corral89@gmail.com</a>')
+      $(destination).show()
+    else if $(label + ' option:selected').text() == 'Training: Heart of Effective Leadership'
+      $(destination).html('Please note that HEL training has a schedule slightly different from the rest of the conference, which will be provided by the training leader. The training starts 6 July 9.15 and ends 9 July 18.30. You are also welcome to attend TIGE opening 5 July and outing 10 July. For further details, please contact <a href="mailto:kaypgandhi@gmail.com">kaypgandhi@gmail.com</a>')
+      $(destination).show()
+    else if $(label + ' option:selected').text() == 'Parallel track: Caux Business Leadership Forum on global sustainability issues'
+      $(destination).html('A group of business leaders will meet at Caux 5-8 July to discuss global sustainability issues (by invitation only). The meeting will run parallel with Trust and Integrity in the Global Economy. Arrival 5 July by 16.00, departure 8 July after 13.00.<br/>
+   If you have not received an invitation but are interested in attending this Forum, please contact Mike Smith (Head of Business Programmes IofC UK) at: <a href="mailto:mike.smith@uk.iofc.org">mike.smith@uk.iofc.org</a>')
+      $(destination).show()
+    else
+      $(destination).hide()
+
+  tige_2014_special_logic('#online_application_online_application_conferences_attributes_1_online_application_conference_workstreams_attributes_0_conference_workstream_id','#tige_2014_first_choice_extra')
+  tige_2014_special_logic('#online_application_online_application_conferences_attributes_1_online_application_conference_workstreams_attributes_1_conference_workstream_id','#tige_2014_second_choice_extra')
+
+  $('#online_application_online_application_conferences_attributes_1_online_application_conference_workstreams_attributes_0_conference_workstream_id').change ->
+    tige_2014_special_logic('#online_application_online_application_conferences_attributes_1_online_application_conference_workstreams_attributes_0_conference_workstream_id','#tige_2014_first_choice_extra')
+  $('#online_application_online_application_conferences_attributes_1_online_application_conference_workstreams_attributes_1_conference_workstream_id').change ->
+    tige_2014_special_logic('#online_application_online_application_conferences_attributes_1_online_application_conference_workstreams_attributes_1_conference_workstream_id','#tige_2014_second_choice_extra')
+
+  ##### IPBF exhibitor logic #####
+
+  ## First the code that will run on document load ##
+  if $('.ipbf_role_exhibitor').is(':checked')
+    $("#ipbf_exhibitor_note").show()
+  else
+    $("#ipbf_exhibitor_note").hide()
+
+  ## And then all the hooks ##
+  $('.ipbf_role_exhibitor').change ->
+    if $('.ipbf_role_exhibitor').is(':checked')
+      $("#ipbf_exhibitor_note").show()
+    else
+      $("#ipbf_exhibitor_note").hide()
+
   ##### conference fee logic #####
 
   recalculate_fees = () ->

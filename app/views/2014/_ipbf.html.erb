@@ -1,0 +1,26 @@
+
+<%= oac.fields_for :variables do |var| -%>
+
+<p>
+<span class="af_star">*</span><strong><%=t :I_will_come_as %></strong><br/>
+  <%= oac.check_box :role_participant %><%=t 'participant' %>&nbsp;&nbsp;
+  <%= oac.check_box :role_team %><%=t 'team' %>&nbsp;&nbsp;
+  <%= oac.check_box :role_exhibitor, { :class => 'ipbf_role_exhibitor' } %><%=t 'exhibitor' %>&nbsp;&nbsp;
+</p>
+<div id="ipbf_exhibitor_note" style="display:none">
+  <p><span class="af_star">*</span><strong><%=t :ipbf_2014_exhibitor_org_name %></strong><br/>
+  <%= var.text_field :ipbf_2014_exhibitor_org_name, :value => oac.object.variables["ipbf_2014_exhibitor_org_name"], :size => 80 %>
+  </p>
+  <p><%=t :ipbf_2014_exhibitor_note_html %></p>
+</div>
+
+<p><span class="af_star">*</span><strong><%=t :ipbf_2014_hear_about %></strong><br/>
+<%= var.text_area :ipbf_2014_hear_about, :value => oac.object.variables["ipbf_2014_hear_about"], :cols => '80', :rows => '4' %>
+</p>
+
+<p><span class="af_star">*</span><strong><%=t :ipbf_2014_expectations %></strong><br/>
+<%= var.text_area :ipbf_2014_expectations, :value => oac.object.variables["ipbf_2014_expectations"], :cols => '80', :rows => '4' %>
+</p>
+
+<% end -%>
+

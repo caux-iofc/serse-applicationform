@@ -119,10 +119,11 @@ en:
   conference_fees: "Conference fees"
 
   more_information_about_conference_fees_html: 'More information about the conference fees is available <a href="http://www.caux.iofc.org/en/conference-fees">here</a>.'
-  i_travel_with_my_family: 'I travel with my family (A couple does not count as a family. Minumum 1 child and 1 parent)'
+  i_travel_with_my_family: 'I travel with my family (A couple does not count as a family. Minimum 1 child and 1 parent)'
   i_want_to_support_the_center_renovation_fund: "I want to support the Center's renovation fund (150 CHF per night)"
   i_volunteer_full_time: "I volunteer full time with IofC"
   i_am_sent_by_my_employer: "I am sent by my company/my organisation"
+  i_am_a_student: "I am a student"
 
   cost_of_your_stay: "Cost of your stay"
 
@@ -168,7 +169,7 @@ en:
   must_be_valid_now: " must be valid now"
   register: "Register!"
   confirmation: "Confirmation"
-  confirm_read_documents_text_html: "I/we confirm that I/we have read the <a href=\"http://www.caux.iofc.org/en/2013\" target=\"_new\">documents</a> relating to the Caux conferences and would like to take part in the conference."
+  confirm_read_documents_text_html: "I/we confirm that I/we have read the <a href=\"http://www.caux.iofc.org/en/2014\" target=\"_new\">documents</a> relating to the Caux conferences and would like to take part in the conference."
   data_protection_consent_text: "I consent for my/our personal data to be held by the Caux Conference Secretariat for the purpose of communicating with me about my registration this year."
   data_protection_caux_info_text: "Yes, I wish to regularly receive information about future International Caux Conferences (by email)."
   data_protection_local_info_text: "Yes, I wish to regularly receive information about the activities of Initiatives of Change in my country of residence."
@@ -205,6 +206,7 @@ en:
   participant: "participant"
   speaker: "speaker"
   team: "team"
+  exhibitor: "exhibitor"
 
   form_unavailable_title: "Registration form unavailable"
   form_unavailable_html: "Dear participant,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the <a href=\"mailto:confsec@caux.ch\">Conference Secretariat</a> you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat.<p>To receive the latest news about Caux, subscribe to our newsletter, our Facebook page and Twitter"

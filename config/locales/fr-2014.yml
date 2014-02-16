@@ -1,0 +1,34 @@
+# Localization file for French -- 2014 conferences.
+
+en:
+  llmw_2014_intro_html: "<p>Dear participant,</p><p>Please select your first priority for the workshops on offer and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
+  
+  llmw_2014_invited_by: "Invited by:"
+
+  llmw_2014_interest: "Please outline previous experiences that have contributed to your interest in the area of social/sustainable entrepreneurship and/or civil society work and any particular hopes or expectations you have for attending the ‘Living  in a multicultural world conference’ (150 words):"
+
+  jgov_2014_name_and_role: "How would you like your name and current role to be displayed in the session programme?"
+  jgov_2014_previous_experience: "Could you outline experiences that have contributed to your interest in Just Governance for Human Security, and any hopes or expectations you have for this session. (150 words; this information will be made available to other participants)."
+
+  ipbf_2014_exhibitor_org_name: "Si vous venez en tant qu'exposant, merci de nous indiquer le nom de l'organisation:"
+  ipbf_2014_exhibitor_note_html: "Veuillez noter que les organisations qui exposent doivent préalablement s'enregistrer <a href=\"https://docs.google.com/forms/d/1oMFj9hxGYXoi90aL9SMy9NBRD8GeIqSaDUqCqrUKnAw/viewform\">ici</a>."
+
+  ipbf_2014_hear_about: "Comment avez-vous entendu parler du Forum?"
+  ipbf_2014_expectations: "Qu'attendez-vous du Forum ou de quoi avez-vous besoin pour que ce soit une réussite pour vous?"
+
+  land_2014_invited_by: "Invited by:"
+  land_2014_name_and_role: "How would you like your name to be displayed in the session programme, including your current role?"
+  land_2014_hopes: "Could you outline your involvement in land restoration issues, and your hopes/expectations for the Dialogue. (150 words; this information will be made available to other participants)."
+
+  tige_2014_intro_html: "<p>Dear participant,</p><p>Please specify if you would like to take part in conference outing. You will be offered two choices of a visit to local community or organization (more information will be available in March). The outing is scheduled for 10 July 10.30-15.30 (check out before 10am, come back to Caux for tea and depart after tea). Additional fee (to cover transport and lunch) will constitute between 10 and 20 CHF.<br/>If you do not wish to take part in the outing, you can depart from Caux 10 July after breakfast.</p><p>Please select your first priority for the offered workshops and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
+
+  cats_2014_intro_html: "<p>Dear participant,</p><p>Please select your first priority for the offered workshops and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
+
+  cats_2014_note: "There will be workshops for children each morning and all discussion groups are mixed adult/children."
+  cats_2014_children: "Will you bring children?"
+  cats_2014_yes: "Yes"
+  cats_2014_no: "No"
+  cats_2014_please_fill_out: "Please fill out a form for each of them (step 2 of this form)"
+
+  seed_2014_offer: "If you would like to offer a creative workshop, discussion or other activity, please write YES and give details briefly (150 words) in the box below. If not please write NO or NOT AT PRESENT in the box."
+
