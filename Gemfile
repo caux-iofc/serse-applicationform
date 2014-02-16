@@ -26,7 +26,9 @@ gem 'cure_acts_as_versioned', '0.6.2'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano', '~> 2.15.5'
+gem 'capistrano',  '~> 3.1', require: false, group: :development
+gem 'capistrano-rails', '~> 1.1', require: false, group: :development
+gem 'rvm1-capistrano3', require: false, group: :development
 
 # To use debugger
 # gem 'ruby-debug'
