@@ -1299,9 +1299,9 @@ Nous nous réjouissons que vous veniez en famille à Caux. Comme vous le savez, un
 
 We look forward to welcoming you in Caux with your child/your children. As you know they can be looked after in a kindergarten during the meetings. In order for everything to go smoothly, we ask you <b>to bring a mobile phone</b> so that you can be easily reached if needed. This is a regulation of the cantonal authorities for kindergartens. Thank you in advance. 
 372
-0/46/55 CHF par nuit (enfant/jeune)
-0/46/55 CHF pro Nacht (Kind/Jugendliche)
-0/46/55 CHF per night (child/young person)
+0/50/63 CHF par nuit (enfant/jeune)
+0/50/63 CHF pro Nacht (Kind/Jugendliche)
+0/50/63 CHF per night (child/young person)
 373
 La date de votre arrivée ne correspond pas à la date du début de la conférence/du programme et/ou la date de votre départ ne correspond pas à la date de la fin de la conférence. Veuillez spécifier la raison pour ce prolongement de votre séjour dans le champ <strong>Remarques</strong>.
 Das Datum Ihrer Ankunft entspricht nicht dem Datum des Beginns der Konferenz/des Trainingsprogramms und/oder das Datum Ihrer Abreise entspricht nicht dem Datum des Beginns der Konferenz/des Trainingsprogramms und/oder das Datum Ihrer Abreise entspricht nicht dem Datum des Endes der Konferenz/des Trainingsprogramms. Bitte erläutern Sie im Feld <strong>Bemerkungen</strong>, weshalb Sie Ihren Aufenthalt verlängern möchten.

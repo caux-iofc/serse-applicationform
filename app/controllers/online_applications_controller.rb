@@ -183,13 +183,15 @@ class OnlineApplicationsController < ApplicationController
     @online_application.the_request = request
 
     # If no check boxes are checked, the form does not return those fields.
-    # Handle that here, making sure that any diets, conferences, or
-    # training programs previously selected will be removed.
-    if not params[:online_application].has_key?('diet_ids') then
-      params[:online_application]['diet_ids'] = []
-    end
+    # Handle that here, making sure that any training programs previously 
+    # selected will be removed.
     if not params[:online_application].has_key?('training_program_ids') then
       params[:online_application]['training_program_ids'] = []
+    end
+
+    # Make sure we delete online_application_conferences records that are not selected
+    params[:online_application]['online_application_conferences_attributes'].each do |k,v|
+      v['_destroy'] = true if v['selected'] != '1'
     end
 
     # For day visits, the departure date equals the arrival date, always

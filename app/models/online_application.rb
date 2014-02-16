@@ -115,7 +115,7 @@ class OnlineApplication < ActiveRecord::Base
   validates :volunteer_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_position_department) }, :if => :volunteer
 
   def must_select_reason_for_coming
-    if online_application_conferences.empty? and training_programs.empty? and 
+    if online_application_conferences.select { |oac| oac.selected }.empty? and training_programs.empty? and
        not staff and not interpreter and not volunteer and not other_reason and
        not relation == 'child' then
       errors.add :other_reason, I18n.t(:please_indicate_other_reason).html_safe
@@ -125,10 +125,10 @@ class OnlineApplication < ActiveRecord::Base
   validate :scholars_interns_interpreters_can_not_select_conferences
 
   def scholars_interns_interpreters_can_not_select_conferences
-    if interpreter and not online_application_conferences.empty? then
+    if interpreter and not online_application_conferences.select { |oac| oac.selected }.empty? then
       errors.add :base, I18n.t(:if_you_come_as_an_interpreter_please_do_not_select_a_conference_html).html_safe
     end
-    if not online_application_conferences.empty? and not training_programs.empty? then
+    if not online_application_conferences.select { |oac| oac.selected }.empty? and not training_programs.empty? then
       @real_locale = I18n.locale
       I18n.locale = 'en'
       training_programs.each do |tp|

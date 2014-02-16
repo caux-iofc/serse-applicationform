@@ -216,7 +216,7 @@ fr:
 
   must_be_at_least_6_weeks_in_the_future: doit être au moins 6 semaines à l'avenir
 
-  child_nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/frais-de-sejour\">0-55 CHF par nuit (enfant/jeune)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
+  child_nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/frais-de-sejour\">0-63 CHF par nuit (enfant/jeune)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
   must_be_after_arrival: " doit être après votre arrivée"
 
   first_choice: "Atelier préféré"

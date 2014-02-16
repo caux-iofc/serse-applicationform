@@ -138,7 +138,7 @@ en:
   nightly_contribution: "My personal contribution per night"
   nightly_contribution_currency: "CHF"
   nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.iofc.org/en/conference-fees\">your rate</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
-  child_nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.iofc.org/en/conference-fees\">0-55 CHF per night (child/young person)</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
+  child_nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.iofc.org/en/conference-fees\">0-63 CHF per night (child/young person)</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
   nightly_contribution_invalid: " is not a number. Please do not use dots or commas."
   sponsors_name: "Sponsor"
   sponsors_nights: "Nights"

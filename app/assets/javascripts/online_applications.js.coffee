@@ -367,28 +367,33 @@ jQuery ->
       nights = 1
 
     registration_fee = 100
-    night_rate = 92
+    night_rate = 165
 
     calculated_rate_and_fee_details = 'Regular: night rate: CHF 92; registration fee: CHF 100\n'
+
+    if $("#online_application_student").is(':checked')
+      night_rate = 105
+      registration_fee = 100
+      calculated_rate_and_fee_details += 'Student: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if age >= 0 and age <= 5
       night_rate = 0
       registration_fee = 0
       calculated_rate_and_fee_details += 'Child 0-5: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if age >= 6 and age <= 17
-      night_rate = 46
-      registration_fee = 100
+      night_rate = 50
+      registration_fee = 50
       calculated_rate_and_fee_details += 'Age 6-17: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if age >= 18 and age <= 25
-      night_rate = 55
+      night_rate = 63
       registration_fee = 100
       calculated_rate_and_fee_details += 'Age 18-25: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if age >= 26
-      night_rate = 92
+      night_rate = 105
       registration_fee = 100
 
     if $("#online_application_full_time_volunteer").is(':checked')
-      night_rate = 55
+      night_rate = 63
       registration_fee = 0
       calculated_rate_and_fee_details += 'Full time volunteer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
@@ -414,19 +419,19 @@ jQuery ->
       $("#online_application_sponsors_attributes_0_amount").val(35)
       calculated_rate_and_fee_details += 'Interpreter: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("[id='tp_check_caux scholars program']").is(':checked')
-      night_rate = 55
+      night_rate = 63
       registration_fee = 50
       $("#online_application_sponsors_attributes_0_name").val('Caux Scholars Program')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(55)
+      $("#online_application_sponsors_attributes_0_amount").val(63)
       calculated_rate_and_fee_details += 'Caux Scholars Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("[id='tp_check_caux interns program – session 1']").is(':checked') or
             $("[id='tp_check_caux interns program – session 2']").is(':checked')
-      night_rate = 55
+      night_rate = 63
       registration_fee = 50
       $("#online_application_sponsors_attributes_0_name").val('Caux Interns Program')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(55)
+      $("#online_application_sponsors_attributes_0_amount").val(63)
       calculated_rate_and_fee_details += 'Caux Interns Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("[id='tp_check_week of international community']").is(':checked')
       night_rate = 35
@@ -436,11 +441,11 @@ jQuery ->
       $("#online_application_sponsors_attributes_0_amount").val(35)
       calculated_rate_and_fee_details += 'Work week: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("[id='tp_check_caux artists program']").is(':checked')
-      night_rate = 55
+      night_rate = 63
       registration_fee = 50
       $("#online_application_sponsors_attributes_0_name").val('Caux Artists Program')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(55)
+      $("#online_application_sponsors_attributes_0_amount").val(63)
       calculated_rate_and_fee_details += 'Caux Artists Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("#online_application_sponsors_attributes_0_name").val() == 'IofC Switzerland' or
             $("#online_application_sponsors_attributes_0_name").val() == 'Caux Scholars Program' or
@@ -457,15 +462,15 @@ jQuery ->
       calculated_rate_and_fee_details += 'Speaker: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if $("#online_application_day_visit_true").is(':checked')
-      night_rate = 50
+      night_rate = 100
       registration_fee = 0
       calculated_rate_and_fee_details += 'Day visit: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-    if $("#online_application_family_discount").is(':checked')
+    if $("#online_application_family_discount").is(':checked') and night_rate > 105
       night_rate = Math.round(night_rate * 0.8)
       calculated_rate_and_fee_details += 'Family discount: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-    if $("#family_discount").val() == 'true'
+    if $("#family_discount").val() == 'true' and night_rate > 105
       # Only the primary registrant for families pays the registration fee
       night_rate = Math.round(night_rate * 0.8)
       registration_fee = 0
@@ -482,11 +487,11 @@ jQuery ->
       calculated_rate_and_fee_details += 'Child: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if $("#online_application_support_renovation_fund").is(':checked')
-      night_rate = 150
+      night_rate = 220
       calculated_rate_and_fee_details += 'Renovation fund: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if $("#online_application_sent_by_employer").is(':checked')
-      night_rate = 150
+      night_rate = 220
       calculated_rate_and_fee_details += 'Sent by employer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     $("#rate_per_night_visible").text(night_rate)
@@ -537,6 +542,8 @@ jQuery ->
   $("#online_application_support_renovation_fund").change ->
     recalculate_fees()
   $("#online_application_sent_by_employer").change ->
+    recalculate_fees()
+  $("#online_application_student").change ->
     recalculate_fees()
   $("#online_application_full_time_volunteer").change ->
     recalculate_fees()
