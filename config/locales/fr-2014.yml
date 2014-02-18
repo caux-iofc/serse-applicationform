@@ -1,14 +1,12 @@
 # Localization file for French -- 2014 conferences.
 
-en:
-  llmw_2014_intro_html: "<p>Dear participant,</p><p>Please select your first priority for the workshops on offer and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
-  
-  llmw_2014_invited_by: "Invited by:"
+fr:
+  llmw_2014_invited_by: "Invité par:"
 
-  llmw_2014_interest: "Please outline previous experiences that have contributed to your interest in the area of social/sustainable entrepreneurship and/or civil society work and any particular hopes or expectations you have for attending the ‘Living  in a multicultural world conference’ (150 words):"
+  llmw_2014_interest: "Pourriez-vous partager les expériences dans le domaine de l’entrepreneuriat social/durable,  et/ou dans le travail de la société civile, qui vous ont amené à vous intéresser à cette session ainsi que vos espoirs et attentes (150 mots):"
 
-  jgov_2014_name_and_role: "How would you like your name and current role to be displayed in the session programme?"
-  jgov_2014_previous_experience: "Could you outline experiences that have contributed to your interest in Just Governance for Human Security, and any hopes or expectations you have for this session. (150 words; this information will be made available to other participants)."
+  jgov_2014_name_and_role: "Comment aimeriez-vous que votre nom et votre occupation soient présentés dans le programme de la session?"
+  jgov_2014_previous_experience: "Pourriez-vous partager les expériences qui vous ont amené à vous intéresser au thème de la gouvernance équitable pour une meilleure sécurité humaine ainsi que vos espoirs et attentes pour cette session? (150 mots, cette information sera communiquée aux autres participants.)"
 
   ipbf_2014_exhibitor_org_name: "Si vous venez en tant qu'exposant, merci de nous indiquer le nom de l'organisation:"
   ipbf_2014_exhibitor_note_html: "Veuillez noter que les organisations qui exposent doivent préalablement s'enregistrer <a href=\"https://docs.google.com/forms/d/1oMFj9hxGYXoi90aL9SMy9NBRD8GeIqSaDUqCqrUKnAw/viewform\">ici</a>."
@@ -16,19 +14,22 @@ en:
   ipbf_2014_hear_about: "Comment avez-vous entendu parler du Forum?"
   ipbf_2014_expectations: "Qu'attendez-vous du Forum ou de quoi avez-vous besoin pour que ce soit une réussite pour vous?"
 
-  land_2014_invited_by: "Invited by:"
-  land_2014_name_and_role: "How would you like your name to be displayed in the session programme, including your current role?"
-  land_2014_hopes: "Could you outline your involvement in land restoration issues, and your hopes/expectations for the Dialogue. (150 words; this information will be made available to other participants)."
+  land_2014_invited_by: "Invité(e) par:"
+  land_2014_name_and_role: "Comment aimeriez-vous que votre nom et que votre occupation soient présentés dans le programme de la session?"
+  land_2014_hopes: "Pourriez-vous partager les expériences qui vous ont amené à vous intéresser aux problématiques liées à la restauration des terres ainsi que vos espoirs et attentes pour cette session? (150 mots, cette information sera communiquée aux autres participants.)"
 
-  tige_2014_intro_html: "<p>Dear participant,</p><p>Please specify if you would like to take part in conference outing. You will be offered two choices of a visit to local community or organization (more information will be available in March). The outing is scheduled for 10 July 10.30-15.30 (check out before 10am, come back to Caux for tea and depart after tea). Additional fee (to cover transport and lunch) will constitute between 10 and 20 CHF.<br/>If you do not wish to take part in the outing, you can depart from Caux 10 July after breakfast.</p><p>Please select your first priority for the offered workshops and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
+  tige_2014_intro_html: "<p>Chère participante, cher participant,</p><p>Merci de nous indiquer si vous souhaitez prendre part à la sortie. Deux choix vous seront proposés: soit la visite dans une communauté locale ou de l'organisation (nous vous donnerons plus d'informations courant mars). La sortie est prévue le 10 juillet de 10h30 à 15h30 (check-out avant 10 heures, retour à Caux pour le thé et départ après le thé) .Une taxe additionnelle entre 10 et 20 CHF sera perçue (pour couvrir le transport et le déjeuner).</p><p>Si vous ne souhaitez pas participer à la sortie, vous pouvez partir de Caux le 10 juillet après le petit déjeuner.</p>"
 
-  cats_2014_intro_html: "<p>Dear participant,</p><p>Please select your first priority for the offered workshops and one alternative option with second priority. We will try to assign you to one of your two priorities.</p>"
+  tige_2014_epic_request_invitation_html: 'Veuillez demander un formulaire pour cet atelier à : <a href="mailto:leire.corral89@gmail.com">leire.corral89@gmail.com</a>'
+  tige_2014_hel_info_html: "Veuillez noter que la formation de HEL a un horaire légèrement différent du reste de la conférence, qui sera fourni par le leader de la formation. La formation débutera le 6 juillet à 9h15 et prendra fin le 9 juillet à 18h30. Vous êtes également invités à assister à l'ouverture de TIGE le juillet et 10 juillet sortie. Pour plus de détails, veuillez s'il vous plaît contacter: <a href=\"mailto:kaypgandhi@gmail.com\">kaypgandhi@gmail.com</a>"
+  tige_2014_business_info_html: "Un groupe de chefs d'entreprises se réunira à Caux du 5 au 8 juillet pour discuter des questions de durabilité mondiale (uniquement sur invitation). La réunion se déroulera en parallèle avec Confiance et intégrité dans une économie mondialisée. Arrivée prévue le 5 juillet à 16h00, départ le 8 juillet après 13h00.<br/> Si vous n'avez pas reçu d’invitation, mais êtes intéressé(e)s à participer à ce forum, veuillez contacter Mike Smith (responsable des programmes d’ I&C au Royaume-Uni) : <a href=\"mailto:mike.smith@uk.iofc.org\">mike.smith@uk.iofc.org</a>"
+  cats_2014_intro_html: "<p>Chère participante, cher participant,</p><p>Merci de sélectionner votre atelier préféré ainsi qu'un second choix. Nous ferons notre possible pour que vous puissiez participer à l'un des ateliers choisis.Tous les ateliers sont ouverts aux enfants (dès 11 ans) et aux adultes, qui choisiront soit un atelier soit un comité (dès 6 ans).</p>"
 
-  cats_2014_note: "There will be workshops for children each morning and all discussion groups are mixed adult/children."
-  cats_2014_children: "Will you bring children?"
-  cats_2014_yes: "Yes"
-  cats_2014_no: "No"
-  cats_2014_please_fill_out: "Please fill out a form for each of them (step 2 of this form)"
+  cats_2014_note: "Des ateliers pour les enfants entre 6 et 10 ans auront lieu pendant les sessions plénières. Pour les enfants entre 2 et 6 ans, une crèche surveillée sera mise en place pendant les activités principales, et tous les groupes de discussions mêleront adultes et enfants (dès 6 ans)."
+  cats_2014_children: "Serez-vous accompagné d‘enfants?"
+  cats_2014_yes: "Oui"
+  cats_2014_no: "Non"
+  chil_2014_please_fill_out: "Merci de remplir un formulaire d'inscription pour chacun d'entre eux à l'étape 2"
 
-  seed_2014_offer: "If you would like to offer a creative workshop, discussion or other activity, please write YES and give details briefly (150 words) in the box below. If not please write NO or NOT AT PRESENT in the box."
+  seed_2014_offer: "Si vous désirez proposer un atelier créatif, une discussion ou une autre activité, merci d’inscrire OUI et d’exposer brièvement les détails (150 mots) dans la case ci-dessous.  Si ce n’est pas le cas, inscrivez NON ou PAS MAINTENANT dans la case."
 

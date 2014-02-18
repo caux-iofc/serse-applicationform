@@ -304,14 +304,13 @@ jQuery ->
 
   tige_2014_special_logic = (label,destination) ->
     if $(label + ' option:selected').text() == 'Programme: EPIC programme for next generation Entrepreneurs, Pathfinders, Innovators and Changemakers'
-      $(destination).html('Please request an application form for this workstream from <a href="mailto:leire.corral89@gmail.com">leire.corral89@gmail.com</a>')
+      $(destination).html(I18n.t("tige_2014_epic_request_application_html"))
       $(destination).show()
     else if $(label + ' option:selected').text() == 'Training: Heart of Effective Leadership'
-      $(destination).html('Please note that HEL training has a schedule slightly different from the rest of the conference, which will be provided by the training leader. The training starts 6 July 9.15 and ends 9 July 18.30. You are also welcome to attend TIGE opening 5 July and outing 10 July. For further details, please contact <a href="mailto:kaypgandhi@gmail.com">kaypgandhi@gmail.com</a>')
+      $(destination).html(I18n.t("tige_2014_hel_info_html"))
       $(destination).show()
     else if $(label + ' option:selected').text() == 'Parallel track: Caux Business Leadership Forum on global sustainability issues'
-      $(destination).html('A group of business leaders will meet at Caux 5-8 July to discuss global sustainability issues (by invitation only). The meeting will run parallel with Trust and Integrity in the Global Economy. Arrival 5 July by 16.00, departure 8 July after 13.00.<br/>
-   If you have not received an invitation but are interested in attending this Forum, please contact Mike Smith (Head of Business Programmes IofC UK) at: <a href="mailto:mike.smith@uk.iofc.org">mike.smith@uk.iofc.org</a>')
+      $(destination).html(I18n.t("tige_2014_business_info_html"))
       $(destination).show()
     else
       $(destination).hide()
