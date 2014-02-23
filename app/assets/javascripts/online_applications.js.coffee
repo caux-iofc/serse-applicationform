@@ -303,13 +303,19 @@ jQuery ->
   ##### TIGE 2014 special logic #####
 
   tige_2014_special_logic = (label,destination) ->
-    if $(label + ' option:selected').text() == 'Programme: EPIC programme for next generation Entrepreneurs, Pathfinders, Innovators and Changemakers'
+    if $(label + ' option:selected').text() == 'Programme: EPIC programme for next generation Entrepreneurs, Pathfinders, Innovators and Changemakers' or
+       $(label + ' option:selected').text() == 'Programme EPIC pour la prochaine génération entrepreneurs, pionniers,  innovateurs et initiateurs de changement' or
+       $(label + ' option:selected').text() == 'Programm: EPIC Programm für die nächste Generation von Unternehmern, Innovatoren und Changemakern'
       $(destination).html(I18n.t("tige_2014_epic_request_application_html"))
       $(destination).show()
-    else if $(label + ' option:selected').text() == 'Training: Heart of Effective Leadership'
+    else if $(label + ' option:selected').text() == 'Training: Heart of Effective Leadership' or
+            $(label + ' option:selected').text() == 'Formation : Au cœur d&#x27;un leadership efficace' or
+            $(label + ' option:selected').text() == 'Training: Der Kern eines effektiven Führungsstils'
       $(destination).html(I18n.t("tige_2014_hel_info_html"))
       $(destination).show()
-    else if $(label + ' option:selected').text() == 'Parallel track: Caux Business Leadership Forum on global sustainability issues'
+    else if $(label + ' option:selected').text() == 'Parallel track: Caux Business Leadership Forum on global sustainability issues' or
+            $(label + ' option:selected').text() == 'Forum de Caux Business Leadership sur des questions mondiales de  développement durable (uniquement sur invitation).' or
+            $(label + ' option:selected').text() == 'Parallele Veranstaltung: Caux Business Leadership Forum zu Themen globaler Nachhaltigkeit (nur auf Einladung)'
       $(destination).html(I18n.t("tige_2014_business_info_html"))
       $(destination).show()
     else
