@@ -209,7 +209,7 @@ en:
   exhibitor: "exhibitor"
 
   form_unavailable_title: "Registration form unavailable"
-  form_unavailable_html: "Dear participant,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the <a href=\"mailto:confsec@caux.ch\">Conference Secretariat</a> you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat.<p>To receive the latest news about Caux, subscribe to our newsletter, our Facebook page and Twitter"
+  form_unavailable_html: "Dear participant,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the <a href=\"mailto:registration@caux.ch\">Conference Secretariat</a> you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat.<p>To receive the latest news about Caux, subscribe to our newsletter, our Facebook page and Twitter"
   newsletter_url: "http://www.caux.iofc.org/en/newsletter-registration"
 
   interpreter: "Interpreter"

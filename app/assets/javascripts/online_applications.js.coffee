@@ -387,9 +387,6 @@ jQuery ->
       night_rate = 63
       registration_fee = 100
       calculated_rate_and_fee_details += 'Age 18-25: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-    else if age >= 26
-      night_rate = 105
-      registration_fee = 100
 
     if $("#online_application_full_time_volunteer").is(':checked')
       night_rate = 63
@@ -427,7 +424,7 @@ jQuery ->
     else if $("[id='tp_check_caux interns program – session 1']").is(':checked') or
             $("[id='tp_check_caux interns program – session 2']").is(':checked')
       night_rate = 63
-      registration_fee = 50
+      registration_fee = 150
       $("#online_application_sponsors_attributes_0_name").val('Caux Interns Program')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(63)
@@ -461,17 +458,17 @@ jQuery ->
       calculated_rate_and_fee_details += 'Speaker: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if $("#online_application_day_visit_true").is(':checked')
-      night_rate = 100
+      night_rate = 55
       registration_fee = 0
       calculated_rate_and_fee_details += 'Day visit: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if $("#online_application_family_discount").is(':checked') and night_rate > 105
-      night_rate = Math.round(night_rate * 0.8)
+      night_rate = 105
       calculated_rate_and_fee_details += 'Family discount: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if $("#family_discount").val() == 'true' and night_rate > 105
       # Only the primary registrant for families pays the registration fee
-      night_rate = Math.round(night_rate * 0.8)
+      night_rate = 105
       registration_fee = 0
       calculated_rate_and_fee_details += 'Family discount: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
@@ -491,6 +488,7 @@ jQuery ->
 
     if $("#online_application_sent_by_employer").is(':checked')
       night_rate = 220
+      registration_fee = 100
       calculated_rate_and_fee_details += 'Sent by employer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     $("#rate_per_night_visible").text(night_rate)
