@@ -487,8 +487,12 @@ jQuery ->
       calculated_rate_and_fee_details += 'Renovation fund: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if $("#online_application_sent_by_employer").is(':checked')
-      night_rate = 220
-      registration_fee = 100
+      if $("#online_application_day_visit_true").is(':checked')
+        night_rate = 100
+        registration_fee = 0
+      else
+        night_rate = 220
+        registration_fee = 100
       calculated_rate_and_fee_details += 'Sent by employer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     $("#rate_per_night_visible").text(night_rate)
