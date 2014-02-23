@@ -309,7 +309,7 @@ jQuery ->
       $(destination).html(I18n.t("tige_2014_epic_request_application_html"))
       $(destination).show()
     else if $(label + ' option:selected').text() == 'Training: Heart of Effective Leadership' or
-            $(label + ' option:selected').text() == 'Formation : Au cœur d&#x27;un leadership efficace' or
+            $(label + ' option:selected').text().match(/Formation : Au c.ur d.un leadership efficace/) or
             $(label + ' option:selected').text() == 'Training: Der Kern eines effektiven Führungsstils'
       $(destination).html(I18n.t("tige_2014_hel_info_html"))
       $(destination).show()
