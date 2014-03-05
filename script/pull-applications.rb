@@ -276,6 +276,9 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
       @keys += 'sent_by_employer,'
       @values += @conn.escape(oa.sent_by_employer ? 'true' : 'false') + ","
 
+      @keys += 'student,'
+      @values += @conn.escape(oa.student ? 'true' : 'false') + ","
+
       @keys += 'interpreter,'
       @values += @conn.escape(oa.interpreter ? 'true' : 'false') + ","
 
