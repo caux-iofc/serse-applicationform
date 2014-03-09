@@ -458,10 +458,14 @@ jQuery ->
       $("#online_application_sponsors_attributes_0_nights").val('')
       $("#online_application_sponsors_attributes_0_amount").val('')
 
-    if $('input[id$="_speaker"]').is(':checked') or
-       $('input[id$="_team"]').is(':checked')
+    if $('input[id$="_speaker"]').is(':checked')
       registration_fee = 0
       calculated_rate_and_fee_details += 'Speaker: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+    if $('input[id$="_team"]').is(':checked')
+      registration_fee = 0
+      night_rate = 63
+      calculated_rate_and_fee_details += 'Team: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if $("#online_application_day_visit_true").is(':checked')
       night_rate = 55
