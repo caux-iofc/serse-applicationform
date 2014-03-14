@@ -329,7 +329,7 @@ jQuery ->
   $('#online_application_online_application_conferences_attributes_1_online_application_conference_workstreams_attributes_1_conference_workstream_id').change ->
     tige_2014_special_logic('#online_application_online_application_conferences_attributes_1_online_application_conference_workstreams_attributes_1_conference_workstream_id','#tige_2014_second_choice_extra')
 
-  ##### IPBF exhibitor logic #####
+  ##### IPF exhibitor logic #####
 
   ## First the code that will run on document load ##
   if $('.ipbf_role_exhibitor').is(':checked')
