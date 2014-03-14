@@ -158,7 +158,7 @@ fr:
   follow_us_on: "Suivez notre actualité sur"
 
   form_unavailable_title: "Inscription en ligne hors service"
-  form_unavailable_html: "Chère participante, cher participant,<p>Merci de votre intérêt. Le formulaire d'inscription sera bientôt en ligne. Si vous envoyez votre email au <a href=\"mailto:registration@caux.ch\">secrétariat des rencontres</a>, nous pourrons vous prévenir dès que celui-ci est disponible. <p>Meilleures salutations,<br/>le secrétariat des rencontres<p>Pour recevoir les dernières nouvelles de Caux directement, inscrivez-vous à la newsletter, sur notre page Facebook et Twitter"
+  form_unavailable_html: "Chère participante, cher participant,<p>Merci de votre intérêt. Le formulaire d'inscription sera bientôt en ligne. Si vous envoyez votre email au <a href=\"mailto:reservation@caux.ch\">secrétariat des rencontres</a>, nous pourrons vous prévenir dès que celui-ci est disponible. <p>Meilleures salutations,<br/>le secrétariat des rencontres<p>Pour recevoir les dernières nouvelles de Caux directement, inscrivez-vous à la newsletter, sur notre page Facebook et Twitter"
   newsletter_url: "http://www.caux.iofc.org/fr/newsletter-inscription"
 
   correspondence_address_country_id: "Adresse de correspondance: Pays"
