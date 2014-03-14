@@ -400,25 +400,25 @@ jQuery ->
       calculated_rate_and_fee_details += 'Full time volunteer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
     if $("#online_application_staff").is(':checked')
-      night_rate = 35
+      night_rate = 63
       registration_fee = 0
       $("#online_application_sponsors_attributes_0_name").val('IofC Switzerland')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(35)
+      $("#online_application_sponsors_attributes_0_amount").val(63)
       calculated_rate_and_fee_details += 'Staff: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("#online_application_volunteer").is(':checked')
-      night_rate = 35
+      night_rate = 63
       registration_fee = 0
       $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(35)
+      $("#online_application_sponsors_attributes_0_amount").val(63)
       calculated_rate_and_fee_details += 'Volunteer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("#online_application_interpreter").is(':checked')
-      night_rate = 35
+      night_rate = 63
       registration_fee = 0
       $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(35)
+      $("#online_application_sponsors_attributes_0_amount").val(63)
       calculated_rate_and_fee_details += 'Interpreter: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("[id='tp_check_caux scholars program']").is(':checked')
       night_rate = 63
@@ -427,20 +427,20 @@ jQuery ->
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(63)
       calculated_rate_and_fee_details += 'Caux Scholars Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-    else if $("[id='tp_check_caux interns program – session 1']").is(':checked') or
-            $("[id='tp_check_caux interns program – session 2']").is(':checked')
+    else if $("[id='tp_check_caux interns program - session 1']").is(':checked') or
+            $("[id='tp_check_caux interns program - session 2']").is(':checked')
       night_rate = 63
-      registration_fee = 150
+      registration_fee = 250
       $("#online_application_sponsors_attributes_0_name").val('Caux Interns Program')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(63)
       calculated_rate_and_fee_details += 'Caux Interns Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("[id='tp_check_week of international community']").is(':checked')
-      night_rate = 35
+      night_rate = 63 
       registration_fee = 100
       $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(35)
+      $("#online_application_sponsors_attributes_0_amount").val(63)
       calculated_rate_and_fee_details += 'Work week: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("[id='tp_check_caux artists program']").is(':checked')
       night_rate = 63
@@ -598,9 +598,9 @@ jQuery ->
     recalculate_fees()
   $("[id='tp_check_caux scholars program']").change ->
     recalculate_fees()
-  $("[id='tp_check_caux interns program – session 1']").change ->
+  $("[id='tp_check_caux interns program - session 1']").change ->
     recalculate_fees()
-  $("[id='tp_check_caux interns program – session 2']").change ->
+  $("[id='tp_check_caux interns program - session 2']").change ->
     recalculate_fees()
   $("[id='tp_check_week of international community']").change ->
     recalculate_fees()
