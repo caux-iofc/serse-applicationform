@@ -437,7 +437,7 @@ jQuery ->
       calculated_rate_and_fee_details += 'Caux Interns Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
     else if $("[id='tp_check_week of international community']").is(':checked')
       night_rate = 63 
-      registration_fee = 100
+      registration_fee = 0
       $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(63)
