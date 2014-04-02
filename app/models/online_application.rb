@@ -284,14 +284,16 @@ class OnlineApplication < ActiveRecord::Base
         end
       end
       # Exclude HS 2012, as well as conferences marked as 'special' from this validation
-      # And exclude winter conferencd 2012/2013. TODO: fix this properly with a flag on the conference object.
+      # And exclude winter conference 2012/2013. TODO: fix this properly with a flag on the conference object.
       # Cf. redmine #307. Ward, 2012-09-15
+      # TODO: fix role detection properly; it should probably auto-populate based on what is present 
+      # in the forms.
       @real_locale = I18n.locale
       I18n.locale = 'en'
       if oac.conference.name != 'Fifth annual Caux Forum for Human Security' and 
          oac.conference.name != 'Winter gathering 2012/13' and
          not oac.conference.special and
-         not oac.role_participant and not oac.role_speaker and not oac.role_team then
+         not oac.role_participant and not oac.role_speaker and not oac.role_team and not oac.role_exhibitor then
          I18n.locale = @real_locale
         errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_indicate_conference_role)
       end
@@ -299,6 +301,8 @@ class OnlineApplication < ActiveRecord::Base
       oac.variables.each do |k,v|
         # Please note that checkboxes are *NOT* caught by this rule
         if v.nil? or v == '' then
+          # TODO FIXME properly so that we don't need hardcoded lines like the next one
+          next if k == 'ipbf_2014_exhibitor_org_name' and not oac.role_exhibitor
           errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_complete_all_required_fields)
           break
         end
