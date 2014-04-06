@@ -427,8 +427,8 @@ jQuery ->
       $("#online_application_sponsors_attributes_0_nights").val(nights)
       $("#online_application_sponsors_attributes_0_amount").val(63)
       calculated_rate_and_fee_details += 'Caux Scholars Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-    else if $("[id='tp_check_caux interns program - session 1']").is(':checked') or
-            $("[id='tp_check_caux interns program - session 2']").is(':checked')
+    else if $("[id='tp_check_caux interns program – session 1']").is(':checked') or
+            $("[id='tp_check_caux interns program – session 2']").is(':checked')
       night_rate = 63
       registration_fee = 250
       $("#online_application_sponsors_attributes_0_name").val('Caux Interns Program')
@@ -598,9 +598,9 @@ jQuery ->
     recalculate_fees()
   $("[id='tp_check_caux scholars program']").change ->
     recalculate_fees()
-  $("[id='tp_check_caux interns program - session 1']").change ->
+  $("[id='tp_check_caux interns program – session 1']").change ->
     recalculate_fees()
-  $("[id='tp_check_caux interns program - session 2']").change ->
+  $("[id='tp_check_caux interns program – session 2']").change ->
     recalculate_fees()
   $("[id='tp_check_week of international community']").change ->
     recalculate_fees()
