@@ -374,7 +374,7 @@ jQuery ->
     registration_fee = 100
     night_rate = 165
 
-    calculated_rate_and_fee_details = 'Regular: night rate: CHF 92; registration fee: CHF 100\n'
+    calculated_rate_and_fee_details = 'Regular: night rate: CHF 165; registration fee: CHF 100\n'
 
     if $("#online_application_student").is(':checked')
       night_rate = 105
