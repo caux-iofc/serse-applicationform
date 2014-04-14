@@ -8,6 +8,12 @@ class ApplicationGroupsController < ApplicationController
         redirect_to :action => :submitted
         return
       end
+      if @application_group.online_applications.count == 0 then
+        # This is an empty application group; probably emptied in another window
+        @application_group = nil
+        redirect_to :new_online_application
+        return
+      end
       @application_group.data_protection_caux_info = true
       @application_group.data_protection_local_info = true
     else
