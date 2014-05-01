@@ -1,0 +1,35 @@
+<%=t :aeub_2014_intro_html %>
+
+<%=t :aeub_2014_priority_html %>
+<p>
+  <table>
+     <%= oac.fields_for :online_application_conference_workstreams do |cw| -%>
+     <tr>
+       <td>
+         <span class="af_star">*</span><strong><%=t cw.object.preference %></strong>
+         <%= cw.hidden_field :preference, :value => cw.object.preference %>
+       </td>
+       <td><%= cw.select(:conference_workstream_id, ConferenceWorkstream.with_translations.where('conference_id = ?',oac.object.conference.id).collect {|p| [ p.name, p.id ] }, {:include_blank => t(:choose_one)}) %></td>
+     </tr>
+     <% end -%>
+     <tr>
+       <td colspan="2">
+         <div id="aeub_2014_first_choice_extra" style="display:none; border-style:solid; border-width:1px; padding:5px;"></div>
+         <div id="aeub_2014_second_choice_extra" style="display:none; border-style:solid; border-width:1px; padding:5px;"></div>
+      </td>
+     </tr>
+  </table>
+</p>
+
+<%= oac.fields_for :variables do |var| -%>
+<p><span class="af_star">*</span><strong><%=t :aeub_2014_name_and_role %></strong><br/>
+<%= var.text_field :aeub_2014_name_and_role, :value => oac.object.variables["aeub_2014_name_and_role"], :size => '80' %>
+</p>
+
+<p><strong><%=t :aeub_2014_expectations%></strong><br/>
+<%= var.text_area :aeub_2014_expectations, :value => oac.object.variables["aeub_2014_expectations"], :cols => '80', :rows => '4' %>
+</p>
+
+<% end -%>
+
+

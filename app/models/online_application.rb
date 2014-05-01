@@ -297,6 +297,7 @@ class OnlineApplication < ActiveRecord::Base
       I18n.locale = 'en'
       if oac.conference.name != 'Fifth annual Caux Forum for Human Security' and 
          oac.conference.name != 'Winter gathering 2012/13' and
+         oac.conference.name != "Addressing Europe's Unfinished Business" and
          not oac.conference.special and
          not oac.role_participant and not oac.role_speaker and not oac.role_team and not oac.role_exhibitor then
          I18n.locale = @real_locale
