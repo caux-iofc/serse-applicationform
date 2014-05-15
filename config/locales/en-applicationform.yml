@@ -7,7 +7,7 @@ en:
   intro_part_1b_html: "If you have any problems with this form, please write <strong>with details of your problem, including the error message you receive</strong> to"
   intro_part_1c: "the conference secretariat"
   intro_part_2_html: "If you have problems and you see an error message about your browser being unsupported, <a href=\"http://www.mozilla.org/firefox/\">please upgrade to a newer browser and try again</a> before contacting us."
-  intro_part_3: "Thank you for registering as soon as possible, but no later than 6 weeks before your arrival."
+  intro_part_3: "Thank you for registering as soon as possible."
   personal_information: "Personal information"
   relation: "Relation to primary applicant"
   only_valid_relations: "please indicate the relation of this applicant to the primary applicant"
@@ -85,7 +85,7 @@ en:
 
   previous_year: "Year of last visit"
   previous_year_invalid: " does not look like a year - please use numbers only"
-  practical_life: "Participants are expected to help in various practical tasks to run the centre. You will be assigned a work group (help in the kitchen, dining room, etc) by the organizers of your session."
+  practical_life: "Participants are expected to help in various practical tasks to run the centre. You will be invited to a work group (help in the kitchen, dining room, etc) by the organizers of your session."
 
   heard_about: "If no, how did you hear about the Caux conferences?"
   confirmation_letter_via: "Send confirmation letter via"
