@@ -23,7 +23,14 @@ class ApplicationGroupsController < ApplicationController
   end
 
   def update
-    if session.has_key?(:application_group_id) and session[:application_group_id] != 0 then
+    # Make sure that
+    # a) there's a valid session with an application_group_id
+    # b) that application_group_id is not zero
+    # c) the id parameter passed in the PUT matches the session application_group_id
+    # Option c) protects against re-submission of the final form.
+    if session.has_key?(:application_group_id) and
+       session[:application_group_id] != 0 and
+       session[:application_group_id].to_s == params[:id].to_s then
       @application_group = ApplicationGroup.find(session[:application_group_id])
     else
       @application_group = nil
