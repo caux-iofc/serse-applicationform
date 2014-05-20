@@ -324,7 +324,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 			end
 
 			@keys += 'remarks,'
-			@values += "'" + @conn.escape(oa.remarks) + "',"
+			@values += "'" + @conn.escape(oa.remarks[0,5000]) + "',"
 
 			if not oa.correspondence_address.nil? then
   			@keys += 'correspondence_street1,'
