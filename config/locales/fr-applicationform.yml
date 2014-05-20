@@ -20,7 +20,7 @@ fr:
   intro_part_1b_html: "Si vous rencontrez des problèmes, veuillez écrire <b>en donnant les détails du problème, y compris le message d'erreur</b> au"
   intro_part_1c: secrétariat
   intro_part_2_html: "Si vous voyez un message d'erreur indiquant que votre navigateur n'est pas reconnu, <a href=\"http://www.mozilla.org/firefox/\" target=\"new\"><b>veuillez installer une mise à jour plus récente</b></a> et ré essayer avant de nous contacter.<p>"
-  intro_part_3: "Merci de vous inscrire au plus tard 6 semaines avant votre arrivée à Caux."
+  intro_part_3: "Merci de vous inscrire le plus tôt possible."
   language_name: "Langue(s)"
 
   online_application_languages_language_id: "Langue"
@@ -122,7 +122,7 @@ fr:
 
 
   nightly_contribution: "Ma propre contribution aux frais de séjour par nuit sera de"
-  nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous soutient si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/frais-de-sejour\">le tarif par nuitée</a> vous-même et montant par nuitée que cette personne ou organisation prendra en charge pour vous:"
+  nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous soutient si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/frais-de-sejour-2014\">le tarif par nuitée</a> vous-même et montant par nuitée que cette personne ou organisation prendra en charge pour vous:"
   nightly_contribution_invalid: " n'est pas un nombre. N'utilisez pas de points ou des virgules."
   submitted_intro_part_1: "Merci, votre inscription a été reçue."
   spouse: Conjoint/Partenaire
@@ -158,7 +158,7 @@ fr:
   follow_us_on: "Suivez notre actualité sur"
 
   form_unavailable_title: "Inscription en ligne hors service"
-  form_unavailable_html: "Chère participante, cher participant,<p>Merci de votre intérêt. Le formulaire d'inscription sera bientôt en ligne. Si vous envoyez votre email au <a href=\"mailto:registration@caux.ch\">secrétariat des rencontres</a>, nous pourrons vous prévenir dès que celui-ci est disponible. <p>Meilleures salutations,<br/>le secrétariat des rencontres<p>Pour recevoir les dernières nouvelles de Caux directement, inscrivez-vous à la newsletter, sur notre page Facebook et Twitter"
+  form_unavailable_html: "Chère participante, cher participant,<p>Merci de votre intérêt. Le formulaire d'inscription sera bientôt en ligne. Si vous envoyez votre email au <a href=\"mailto:reservation@caux.ch\">secrétariat des rencontres</a>, nous pourrons vous prévenir dès que celui-ci est disponible. <p>Meilleures salutations,<br/>le secrétariat des rencontres<p>Pour recevoir les dernières nouvelles de Caux directement, inscrivez-vous à la newsletter, sur notre page Facebook et Twitter"
   newsletter_url: "http://www.caux.iofc.org/fr/newsletter-inscription"
 
   correspondence_address_country_id: "Adresse de correspondance: Pays"
@@ -193,12 +193,12 @@ fr:
   other_diet_text: Si vous utilisez des produits particuliers, merci de les apporter.
   conference_fees: Frais de séjour
 
-  more_information_about_conference_fees_html: 'Des informations complémentaires sur les tarifs sont disponibles <a href="http://www.caux.iofc.org/fr/frais-de-sejour">ici</a>.'
+  more_information_about_conference_fees_html: 'Des informations complémentaires sur les tarifs sont disponibles <a href="http://www.caux.iofc.org/fr/frais-de-sejour-2014">ici</a>.'
   i_travel_with_my_family: 'Je viens à Caux en famille (Un couple ne compte pas comme une famille. Minimum 1 enfant et 1 parent)'
   i_want_to_support_the_center_renovation_fund: "Je désire soutenir le fonds de rénovation du Centre (150 CHF par nuit)"
   i_volunteer_full_time: "Je suis permanent d'I&C"
   i_am_sent_by_my_employer: "Full Premium, programme spéciale, Je suis envoyé par mon entreprise/mon institution"
-  i_am_a_student: "Je suis étudiant(e)"
+  i_am_a_student: "Je suis étudiant(e) / Membres 'Amis de Caux' / Membres équipe regional IofC"
 
   cost_of_your_stay: "Prix du séjour"
 
@@ -217,7 +217,7 @@ fr:
 
   must_be_at_least_6_weeks_in_the_future: doit être au moins 6 semaines à l'avenir
 
-  child_nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/frais-de-sejour\">0-63 CHF par nuit (enfant/jeune)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
+  child_nightly_contribution_html: "Nom de la personne ou de l'organisation qui vous aide si vous ne payez pas <a href=\"http://www.caux.iofc.org/fr/frais-de-sejour-2014\">0-63 CHF par nuit (enfant/jeune)</a> vous-mêmes et montant par nuit que cette personne ou organisation va payer pour vous:"
   must_be_after_arrival: " doit être après votre arrivée"
 
   first_choice: "Atelier préféré"

@@ -7,7 +7,7 @@ en:
   intro_part_1b_html: "If you have any problems with this form, please write <strong>with details of your problem, including the error message you receive</strong> to"
   intro_part_1c: "the conference secretariat"
   intro_part_2_html: "If you have problems and you see an error message about your browser being unsupported, <a href=\"http://www.mozilla.org/firefox/\">please upgrade to a newer browser and try again</a> before contacting us."
-  intro_part_3: "Thank you for registering as soon as possible, but no later than 6 weeks before your arrival."
+  intro_part_3: "Thank you for registering as soon as possible."
   personal_information: "Personal information"
   relation: "Relation to primary applicant"
   only_valid_relations: "please indicate the relation of this applicant to the primary applicant"
@@ -85,7 +85,7 @@ en:
 
   previous_year: "Year of last visit"
   previous_year_invalid: " does not look like a year - please use numbers only"
-  practical_life: "Participants are expected to help in various practical tasks to run the centre. You will be assigned a work group (help in the kitchen, dining room, etc) by the organizers of your session."
+  practical_life: "Participants are expected to help in various practical tasks to run the centre. You will be invited to a work group (help in the kitchen, dining room, etc) by the organizers of your session."
 
   heard_about: "If no, how did you hear about the Caux conferences?"
   confirmation_letter_via: "Send confirmation letter via"
@@ -118,12 +118,12 @@ en:
   passport_embassy: "In which embassy will you request your visa?"
   conference_fees: "Conference fees"
 
-  more_information_about_conference_fees_html: 'More information about the conference fees is available <a href="http://www.caux.iofc.org/en/conference-fees">here</a>.'
+  more_information_about_conference_fees_html: 'More information about the conference fees is available <a href="http://www.caux.iofc.org/en/conference-fees-caux-2014">here</a>.'
   i_travel_with_my_family: 'I travel with my family (A couple does not count as a family. Minimum 1 child and 1 parent)'
   i_want_to_support_the_center_renovation_fund: "I want to support the Center's renovation fund (150 CHF per night)"
   i_volunteer_full_time: "I volunteer full time with IofC"
   i_am_sent_by_my_employer: "Full Premium, special Program,  I am sent by my company/my organisation"
-  i_am_a_student: "I am a student"
+  i_am_a_student: "I am a student / Amis de Caux Member / IofC regional team member"
 
   cost_of_your_stay: "Cost of your stay"
 
@@ -137,8 +137,8 @@ en:
 
   nightly_contribution: "My personal contribution per night"
   nightly_contribution_currency: "CHF"
-  nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.iofc.org/en/conference-fees\">your rate</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
-  child_nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.iofc.org/en/conference-fees\">0-63 CHF per night (child/young person)</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
+  nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.iofc.org/en/conference-fees-caux-2014\">your rate</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
+  child_nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.iofc.org/en/conference-fees-caux-2014\">0-63 CHF per night (child/young person)</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
   nightly_contribution_invalid: " is not a number. Please do not use dots or commas."
   sponsors_name: "Sponsor"
   sponsors_nights: "Nights"
@@ -209,7 +209,7 @@ en:
   exhibitor: "exhibitor"
 
   form_unavailable_title: "Registration form unavailable"
-  form_unavailable_html: "Dear participant,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the <a href=\"mailto:registration@caux.ch\">Conference Secretariat</a> you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat.<p>To receive the latest news about Caux, subscribe to our newsletter, our Facebook page and Twitter"
+  form_unavailable_html: "Dear participant,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the <a href=\"mailto:reservation@caux.ch\">Conference Secretariat</a> you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat.<p>To receive the latest news about Caux, subscribe to our newsletter, our Facebook page and Twitter"
   newsletter_url: "http://www.caux.iofc.org/en/newsletter-registration"
 
   interpreter: "Interpreter"
