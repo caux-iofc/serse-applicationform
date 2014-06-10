@@ -321,9 +321,14 @@ class OnlineApplication < ActiveRecord::Base
       end
 
       # Special for AEUB 2014; they have to select a value for 'duration of stay'
-      if not oac.variables.has_key?(:aeub_2014_duration_of_stay)
-        errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:aeub_2014_please_select_the_duration_of_your_stay)
+      @real_locale = I18n.locale
+      I18n.locale = 'en'
+      if oac.conference.name == "Addressing Europe's Unfinished Business"
+        if not oac.variables.has_key?(:aeub_2014_duration_of_stay)
+          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:aeub_2014_please_select_the_duration_of_your_stay)
+        end
       end
+      I18n.locale = @real_locale
 
     end
   end
