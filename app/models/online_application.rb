@@ -319,6 +319,12 @@ class OnlineApplication < ActiveRecord::Base
           errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_confirm_chf_100_registration_fee)
         end
       end
+
+      # Special for AEUB 2014; they have to select a value for 'duration of stay'
+      if not oac.variables.has_key?(:aeub_2014_duration_of_stay)
+        errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:aeub_2014_please_select_the_duration_of_your_stay)
+      end
+
     end
   end
 

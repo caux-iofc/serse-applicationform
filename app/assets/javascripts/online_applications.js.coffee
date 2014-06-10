@@ -505,6 +505,24 @@ jQuery ->
         registration_fee = 100
       calculated_rate_and_fee_details += 'Sent by employer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
+    ##### aeub_2014: complicated messing with finance #####
+    if $('.aeub_2014_two_days_and_one_night').is(':checked')
+      # They wanted 1 day at CHF 165 + 1 day at CHF 55
+      if night_rate < 220
+        night_rate = 220
+      if nights < 1
+        nights = 1
+      calculated_rate_and_fee_details += 'AEUB 2014: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      calculated_rate_and_fee_details += 'AEUB 2014: 2 days and one night\n'
+
+    if $('.aeub_2014_two_days_and_two_nights').is(':checked')
+      if night_rate < 165
+        night_rate = 165
+      if nights < 2
+        nights = 2
+      calculated_rate_and_fee_details += 'AEUB 2014: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      calculated_rate_and_fee_details += 'AEUB 2014: 2 days and 2 nights\n'
+
     $("#rate_per_night_visible").text(night_rate)
     $("#rate_per_night").val(night_rate)
     $("#registration_fee_visible").text(registration_fee)
@@ -607,4 +625,8 @@ jQuery ->
   $('input[id$="_team"]').change ->
     recalculate_fees()
   $('input[id$="_speaker"]').change ->
+    recalculate_fees()
+  $('.aeub_2014_two_days_and_one_night').change ->
+    recalculate_fees()
+  $('.aeub_2014_two_days_and_two_nights').change ->
     recalculate_fees()
