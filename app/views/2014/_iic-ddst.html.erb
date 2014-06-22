@@ -24,12 +24,8 @@
 <%= var.text_field :invited_by, :value => oac.object.variables["invited_by"] %>
 </p>
 
-<p><span class="af_star">*</span><strong><%=t :llmw_2014_interest %></strong><br/>
-<%= var.text_area :interest, :value => oac.object.variables["interest"], :cols => '90', :rows => '7' %>
-</p>
-
-<p><strong><%=t :llmw_2014_special %></strong><br/>
-<a href="<%=t :llmw_2014_special_form_url %>"><%= t :llmw_2014_form %></a>
+<p><strong><%=t :llmw_2014_special_html %></strong>
+<a href="<%=t :llmw_2014_special_form_url %>"><font size="+1"><%= t :llmw_2014_form %></font></a>.
 </p>
 
 <p>
