@@ -8,6 +8,9 @@ en:
   intro_part_1c: "the conference secretariat"
   intro_part_2_html: "If you have problems and you see an error message about your browser being unsupported, <a href=\"http://www.mozilla.org/firefox/\">please upgrade to a newer browser and try again</a> before contacting us."
   intro_part_3: "Thank you for registering as soon as possible."
+
+  intro_part_4_html: "Dear Sir/Madam, Dear Friends,<br/> The Caux Reservation Department won't be able to process your application or answer your email before 20 October 2014. For information about the Winter Gathering please contact <a href='mailto:winter@caux.ch'>winter@caux.ch</a>. Thank you for your understanding.<br/>Reservation Team"
+
   personal_information: "Personal information"
   relation: "Relation to primary applicant"
   only_valid_relations: "please indicate the relation of this applicant to the primary applicant"
