@@ -290,6 +290,7 @@ class OnlineApplication < ActiveRecord::Base
       end
       # Exclude HS 2012, as well as conferences marked as 'special' from this validation
       # And exclude winter conference 2012/2013. TODO: fix this properly with a flag on the conference object.
+      # And exclude winter conference 2014/2015. Sigh.
       # Cf. redmine #307. Ward, 2012-09-15
       # TODO: fix role detection properly; it should probably auto-populate based on what is present 
       # in the forms.
@@ -298,6 +299,7 @@ class OnlineApplication < ActiveRecord::Base
       if oac.conference.name != 'Fifth annual Caux Forum for Human Security' and 
          oac.conference.name != 'Winter gathering 2012/13' and
          oac.conference.name != "Addressing Europe's Unfinished Business" and
+         oac.conference.name != 'Winter gathering 2014/15' and
          not oac.conference.special and
          not oac.role_participant and not oac.role_speaker and not oac.role_team and not oac.role_exhibitor then
          I18n.locale = @real_locale
