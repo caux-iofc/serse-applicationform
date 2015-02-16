@@ -12,9 +12,37 @@ ENV["RAILS_ENV"] = "production" if production
 require File.dirname(__FILE__) + '/../config/boot'
 require File.dirname(__FILE__) + '/../config/environment'
 
+def load_configuration
+  default_config_filepath = File.join(Rails.root, 'config', 'serse.defaults.yml')
+  site_config_filepath = File.join(Rails.root, 'config', 'serse.yml')
+
+  # Load the configuration defaults first
+  if not File.exists?(default_config_filepath)
+    die("Could not find #{default_config_filepath}")
+  end
+
+  default_config = YAML::load(ERB.new(IO.read(default_config_filepath)).result)
+
+  default_config_common = default_config['common']
+  default_config_environment = default_config[::Rails.env.to_s]
+
+  default_config_common ||= {}
+  default_config_environment ||= {}
+
+  if File.exists?(site_config_filepath)
+    site_config_environment = YAML::load(ERB.new(IO.read(site_config_filepath)).result)[::Rails.env.to_s]
+    site_config_environment ||= {}
+    return default_config_common.merge(default_config_environment).merge(site_config_environment)
+  else
+    return default_config_common.merge(default_config_environment)
+  end
+end
+
+APP_CONFIG = load_configuration
+
 def pg_connect
 	require 'pg'
-	conn = PGconn.open(:host => '127.0.0.1', :port => '5432', :dbname => 'serse', :user => '***REMOVED***', :password => '***REMOVED***')
+	conn = PGconn.open(:host => APP_CONFIG['db_host'], :port => APP_CONFIG['db_port'], :dbname => APP_CONFIG['db_name'], :user => APP_CONFIG['db_user'], :password => APP_CONFIG['db_pass'])
 	return conn
 end
 
