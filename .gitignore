@@ -21,3 +21,8 @@
 
 # Ignore tmp_script dir (used for pushing config data from Serse server
 /tmp_script
+
+# Deploy scripts
+Capfile
+config/deploy.rb
+config/deploy
