@@ -21,7 +21,7 @@ fr:
   intro_part_1c: secrétariat
   intro_part_2_html: "Si vous voyez un message d'erreur indiquant que votre navigateur n'est pas reconnu, <a href=\"http://www.mozilla.org/firefox/\" target=\"new\"><b>veuillez installer une mise à jour plus récente</b></a> et ré essayer avant de nous contacter.<p>"
   intro_part_3: "Merci de vous inscrire le plus tôt possible."
-  intro_part_4_html: "Chère Madame, Cher Monsieur , Chers amis, Le département des Réservations de Caux ne sera pas en mesure de traiter votre demande ou de répondre à vos e-mails avant le 20 octobre 2014. Pour plus d'informations sur la rencontre d'hiver, veuillez écrire à <a href='mailto:winter@caux.ch'>winter@caux.ch</a>. Merci de votre compréhension.<br/>L'équipe de Réservations."
+  intro_part_4_html: ""
   language_name: "Langue(s)"
 
   online_application_languages_language_id: "Langue"
