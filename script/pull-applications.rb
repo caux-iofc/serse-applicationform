@@ -428,6 +428,13 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
       STDERR.puts @pg_sql.pretty_inspect()
 		  @res = @conn.exec(@pg_sql)
 
+      ####################### APPLICATION TRANSLATION NEEDS ################################
+      oa.application_translation_needs.each do |t|
+        @pg_sql = "insert into application_translation_needs (language_id,online_application_id)
+                   values (#{t.language_id},currval('seq_applications_id'))"
+        @res = @conn.exec(@pg_sql)
+      end
+
 			####################### SESSIONS ################################
 			# my $pg_sql2 = "insert into tbl_application_sessions (session_id,application_id) values ";
 			# $pg_sql2 .= "($applications{$key}{sessions}{$key2},currval('seq_applications_id'))";
@@ -435,14 +442,14 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 				@pg_sql = "insert into tbl_application_sessions (session_id,application_id) 
                      values (#{c.serse_id},currval('seq_applications_id'))"
 		  	@res = @conn.exec(@pg_sql)
-			end			
+			end
 
 			####################### TRAINING PROGRAMS #######################
 			oa.training_programs.each do |tp|
 				@pg_sql = "insert into tbl_application_training_programs (training_program_id,application_id) 
                      values (#{tp.serse_id},currval('seq_applications_id'))"
 		  	@res = @conn.exec(@pg_sql)
-			end			
+			end
 
 			####################### SESSION VARIABLES #######################
 			oa.online_application_conferences.each do |oac|

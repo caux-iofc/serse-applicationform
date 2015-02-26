@@ -199,6 +199,12 @@ en:
   proficiency_good: "Small Talk"
   proficiency_excellent: "Conference Participation"
   proficiency_native: "Native"
+
+  translation_needed: "Do you need the following languages translated into your mother tongue or another language to be able to follow the conference?"
+  english: English
+  french: French
+  german: German
+
   conference_participation: "I will participate in the following conference(s)"
   special_conference_participation: "I will participate in the following ..."
   training_participation: "I will participate in the following training programme(s)"

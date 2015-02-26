@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140213203300) do
+ActiveRecord::Schema.define(:version => 20150225210300) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -106,6 +106,31 @@ ActiveRecord::Schema.define(:version => 20140213203300) do
   end
 
   add_index "application_groups", ["session_group_id"], :name => "index_application_groups_on_session_group_id"
+
+  create_table "application_translation_need_versions", :force => true do |t|
+    t.integer  "application_translation_need_id"
+    t.integer  "lock_version"
+    t.integer  "online_application_id"
+    t.integer  "language_id"
+    t.string   "created_by",                      :limit => 100, :default => ""
+    t.string   "updated_by",                      :limit => 100, :default => ""
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "application_translation_need_versions", ["application_translation_need_id"], :name => "index_application_translation_need_versions_on_application_tran"
+
+  create_table "application_translation_needs", :force => true do |t|
+    t.integer  "online_application_id"
+    t.integer  "language_id"
+    t.string   "created_by",            :limit => 100, :default => "", :null => false
+    t.string   "updated_by",            :limit => 100, :default => "", :null => false
+    t.integer  "lock_version",                         :default => 0,  :null => false
+    t.datetime "deleted_at"
+    t.datetime "created_at",                                           :null => false
+    t.datetime "updated_at",                                           :null => false
+  end
 
   create_table "conference_translations", :force => true do |t|
     t.integer  "conference_id"

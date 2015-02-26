@@ -155,6 +155,17 @@ class OnlineApplicationsController < ApplicationController
 
     @online_application.the_request = request
 
+    # Create ApplicationTranslationNeed records, if needed
+    if params[:online_application].has_key?('translate_english') and params[:online_application][:translate_english] != 'false' then
+      @online_application.application_translation_needs << ApplicationTranslationNeed.new(:language_id => Language.joins(:translations).with_locales(:en).where("language_translations.name = 'English'").first.id)
+    end
+    if params[:online_application].has_key?('translate_french') and params[:online_application][:translate_french] != 'false' then
+      @online_application.application_translation_needs << ApplicationTranslationNeed.new(:language_id => Language.joins(:translations).with_locales(:en).where("language_translations.name = 'French'").first.id)
+    end
+    if params[:online_application].has_key?('translate_german') and params[:online_application][:translate_german] != 'false' then
+      @online_application.application_translation_needs << ApplicationTranslationNeed.new(:language_id => Language.joins(:translations).with_locales(:en).where("language_translations.name = 'German'").first.id)
+    end
+
     respond_to do |format|
       if @online_application.save
         format.html { redirect_to :action => 'index', :locale => params[:locale] }

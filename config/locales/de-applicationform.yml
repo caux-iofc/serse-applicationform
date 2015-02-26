@@ -20,6 +20,12 @@ de:
   proficiency_native: Fliessend
   proficiency_excellent: Ausgezeichnet
   proficiency_poor: Gering
+
+  translation_needed: "Do you need the following languages translated into your mother tongue or another language to be able to follow the conference?"
+  english: Englisch
+  french: Französisch
+  german: Deutsch
+
   female: Weiblich
   register: Anmelden!
   proceed: Weiter

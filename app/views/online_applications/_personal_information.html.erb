@@ -93,6 +93,55 @@
                </table>
              </td>
            </tr>
+           <tr>
+             <td colspan="2">
+               <table class="languages_table">
+                 <tr>
+                   <th colspan="2">
+                     <div class="field">
+                       <span class="af_star">*</span><label><%=t :translation_needed %></label>
+                     </div>
+                   </th>
+                 </tr>
+                 <tr>
+                   <td>
+                     <div class="field">
+                       <%= t :english %>
+                     </div>
+                   </td>
+                   <td>
+                     <div class="field">
+                       <%= f.select("translate_english", [["No",false], ["Yes",true]]) %>
+                     </div>
+                   </td>
+                 </tr>
+                 <tr>
+                   <td>
+                     <div class="field">
+                       <%= t :french %>
+                     </div>
+                   </td>
+                   <td>
+                     <div class="field">
+                       <%= f.select("translate_french", [["No",false], ["Yes",true]]) %>
+                     </div>
+                   </td>
+                 </tr>
+                 <tr>
+                   <td>
+                     <div class="field">
+                       <%= t :german %>
+                     </div>
+                   </td>
+                   <td>
+                     <div class="field">
+                       <%= f.select("translate_german", [["No",false], ["Yes",true]]) %>
+                     </div>
+                   </td>
+                 </tr>
+               </table>
+             </td>
+           </tr>
            <tr class="hide_for_children">
              <td>
                <div class="field">
