@@ -1,0 +1,33 @@
+# Localization file for English -- 2015 conferences.
+
+en:
+
+  tige_2015_options: "Options"
+  tige_2015_option_1_html: "Option 1:<br/><div style=\"margin-left: 40px\">I will choose among a variety of breakout sessions on leadership, business, economy and education offered by TIGE.</div>"
+  tige_2015_option_2_html: "Option 2:<br/><div style=\"margin-left: 40px\">I will apply to take part in the EPIC programme for next-generation Entrepreneurs, Pathfinders, Innovators, Changemakers (for application, please contact palazzi.progressio@gmail.com). If you have not yet applied, please do so as soon as possible!</div>"
+  tige_2015_option_3_html: "Option 3:<br/><div style=\"margin-left: 40px\">I will apply to take part in Impact Leadership Track (please therefore visit <a href=\"http://ch.amiando.com/UVHYAKA.html\">http://ch.amiando.com/UVHYAKA.html</a>) If you have not yet applied, please do so as soon as possible!</div>"
+  tige_2015_option_4_html: "Option 4:<br/><span style=\"margin-left: 40px\">I will participate in another activity (please specify): </span>"
+
+  tige_2015_intro_html: ""
+
+  jgov_2015_name_and_role: "How would you like your name to be displayed in the session programme, including your current role?"
+
+  cdls_2015_invited_by: "Invited by:"
+  cdls_2015_name_and_role: "How would you like your name to be displayed in the session programme, including your current role?"
+  cdls_2015_hopes: "Could you outline your involvement in land restoration issues, and your hopes/expectations for the Dialogue. (150 words; this information will be made available to other participants)."
+
+  aeub_2015_intro_html: "<p>Dear participant,</p>"
+  aeub_2015_priority_html: "Please select the working group you would ideally like to be assigned to, as well as your second choice. We will do our best to assign you to one of your preferred options:<p/><ul><li><b>Assimilation vs. Multicultural Society</b><br/>How can we live together? - Topics: immigration, cultural and religious minorities</li><li><b>Multiple Identities vs. Separatist Solutions</b><br/>How could we work together? - Topics: interethnic conflict, devolution, armed conflict, autonomy, minority rights</li><li><b>Denial vs. Constructive Acklowledgment of the Past</b><br/>How could we understand each other better and share a common responsibility for the future? - Topics: revenge, victimisation, taboos, condemnation</li><li><b>Recurring Wars within Europe</b><br/>What are we missing? How to help avoid them? – Topics: open conflict areas, peacebuilding</li></ul>"
+  aeub_2015_name_and_role: "How would you like your name and current role to be displayed in the session programme?"
+  aeub_2015_expectations: "What do you expect from the conference or what do you need to make it a success for you? (150 words) (OPTIONAL)"
+  aeub_2015_instrument: "Do you play an instrument and would you consider giving a 5-minute performance? (OPTIONAL)"
+
+  ipf_2015_hear_about: "How did you hear about the IPF?"
+  ipf_2015_expectations: "What do you expect from the IPF or what do you need to make it a success for you?"
+
+  cats_2015_intro_html: "For registering delegations: if you are coming with a delegation please be sure to have contacted the CATS Conference Team before filling in this registration form catsconference.caux@gmail.com"
+
+  cats_2015_note: "Workshops fills up on a first come, first served basis."
+
+  seed_2015_offer: "If you would like to offer a creative workshop, discussion or other activity, please write YES and give details briefly (150 words) in the box below. We want to offer a varied programme and will let you know by early july if yours has been selected."
+

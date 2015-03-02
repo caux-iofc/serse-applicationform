@@ -1,0 +1,22 @@
+
+<%= oac.fields_for :variables do |var| -%>
+<p><span class="af_star">*</span><strong><%=t :cdls_2015_invited_by %></strong><br/>
+<%= var.text_field :invited_by, :value => oac.object.variables["invited_by"] %>
+</p>
+
+<p><span class="af_star">*</span><strong><%=t :cdls_2015_name_and_role %></strong><br/>
+<%= var.text_field :cdls_2015_name_and_role, :value => oac.object.variables["cdls_2015_name_and_role"], :size => '80' %>
+</p>
+
+<p><span class="af_star">*</span><strong><%=t :cdls_2015_hopes %></strong><br/>
+<%= var.text_area :cdls_2015_hopes, :value => oac.object.variables["cdls_2015_hopes"], :cols => '80', :rows => '4' %>
+</p>
+
+<p>
+<span class="af_star">*</span><strong><%=t :I_will_come_as %></strong><br/>
+  <%= oac.check_box :role_participant %><%=t 'participant' %>&nbsp;&nbsp;
+  <%= oac.check_box :role_speaker %><%=t 'speaker' %>&nbsp;&nbsp;
+  <%= oac.check_box :role_team %><%=t 'team' %>&nbsp;&nbsp;
+</p>
+<% end -%>
+
