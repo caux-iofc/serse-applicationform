@@ -430,8 +430,8 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 
       ####################### APPLICATION TRANSLATION NEEDS ################################
       oa.application_translation_needs.each do |t|
-        @pg_sql = "insert into application_translation_needs (language_id,online_application_id)
-                   values (#{t.language_id},currval('seq_applications_id'))"
+        @pg_sql = "insert into application_translation_needs (language_id,online_application_id,updated_at,created_at)
+                   values (#{Language.find(t.language_id).serse_id},currval('seq_applications_id'),now(),now())"
         @res = @conn.exec(@pg_sql)
       end
 
