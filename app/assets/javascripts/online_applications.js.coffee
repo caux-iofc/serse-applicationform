@@ -344,6 +344,21 @@ jQuery ->
     else
       $("#ipbf_exhibitor_note").hide()
 
+  ##### TIGE 2015 logic #####
+
+  ## First the code that will run on document load ##
+  if $('#online_application_online_application_conferences_attributes_0_variables_tige_2015_options_other').is(':checked')
+    $("#tige_2015_other_detail").show()
+  else
+    $("#tige_2015_other_detail").hide()
+
+  ## And then all the hooks ##
+  $('.tige_2015_options').change ->
+    if $('#online_application_online_application_conferences_attributes_0_variables_tige_2015_options_other').is(':checked')
+      $("#tige_2015_other_detail").show()
+    else
+      $("#tige_2015_other_detail").hide()
+
   ##### conference fee logic #####
 
   recalculate_fees = () ->

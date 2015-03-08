@@ -28,10 +28,10 @@
      <tr>
        <td>
 <span class="af_star">*</span><strong><%=t :tige_2015_options %></strong><br/>
-  <%= var.radio_button :tige_2015_options, :false, { :checked => (oac.object.variables["tige_2015_options"] == "TIGE breakout sessions") } %> <%=t :tige_2015_option_1_html %><br/>
-  <%= var.radio_button :tige_2015_options, :false, { :checked => (oac.object.variables["tige_2015_options"] == "EPIC") } %> <%=t :tige_2015_option_2_html %><br/>
-  <%= var.radio_button :tige_2015_options, :false, { :checked => (oac.object.variables["tige_2015_options"] == "Impac Leadership Track") } %> <%=t :tige_2015_option_3_html %><br/>
-  <%= var.radio_button :tige_2015_options, :false, { :checked => (oac.object.variables["tige_2015_options"] == "Other") } %> <%=t :tige_2015_option_4_html -%><%= var.text_field :tige_2015_other_detail -%>
+  <%= var.radio_button :tige_2015_options, "TIGE breakout sessions", { :checked => (oac.object.variables["tige_2015_options"] == "TIGE breakout sessions"), :class => 'tige_2015_options' } %> <%=t :tige_2015_option_1_html %><br/>
+  <%= var.radio_button :tige_2015_options, "EPIC", { :checked => (oac.object.variables["tige_2015_options"] == "EPIC"), :class => 'tige_2015_options' } %> <%=t :tige_2015_option_2_html %><br/>
+  <%= var.radio_button :tige_2015_options, "Impact Leadership Track", { :checked => (oac.object.variables["tige_2015_options"] == "Impact Leadership Track"), :class => 'tige_2015_options' } %> <%=t :tige_2015_option_3_html %><br/>
+  <%= var.radio_button :tige_2015_options, 'Other', { :checked => (oac.object.variables["tige_2015_options"] == "Other"), :class => 'tige_2015_options' } %> <%=t :tige_2015_option_4_html -%><span id="tige_2015_other_detail" style="display:none"><span class="af_star">*</span><%= var.text_field :tige_2015_other_detail, :value => oac.object.variables["tige_2015_other_detail"] -%></span>
        </td>
      </tr>
      <% end -%>

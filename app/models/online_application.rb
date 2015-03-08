@@ -286,6 +286,17 @@ class OnlineApplication < ActiveRecord::Base
         @workstream_choice_required = false
       end
 
+      # Special for TIGE 2015
+      @real_locale = I18n.locale
+      I18n.locale = 'en'
+      if oac.conference.name == "Trust and integrity in the global economy"
+        @workstream_choice_required = false
+        if not oac.variables.has_key?(:tige_2015_options)
+          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_choose_option)
+        end
+      end
+      I18n.locale = @real_locale
+
       if @workstream_choice_required then
         oac.online_application_conference_workstreams.each do |oacws|
           if oacws.conference_workstream_id.nil?
@@ -294,6 +305,7 @@ class OnlineApplication < ActiveRecord::Base
           end
         end
       end
+
       # Exclude HS 2012, as well as conferences marked as 'special' from this validation
       # And exclude winter conference 2012/2013. TODO: fix this properly with a flag on the conference object.
       # And exclude winter conference 2014/2015. Sigh.
@@ -304,7 +316,7 @@ class OnlineApplication < ActiveRecord::Base
       I18n.locale = 'en'
       if oac.conference.name != 'Fifth annual Caux Forum for Human Security' and 
          oac.conference.name != 'Winter gathering 2012/13' and
-         oac.conference.name != "Addressing Europe's Unfinished Business" and
+         oac.conference.name != "Impact Initiatives for Change" and
          oac.conference.name != 'Winter gathering 2014/15' and
          not oac.conference.special and
          not oac.role_participant and not oac.role_speaker and not oac.role_team and not oac.role_exhibitor then
@@ -315,9 +327,11 @@ class OnlineApplication < ActiveRecord::Base
       oac.variables.each do |k,v|
         # Please note that checkboxes are *NOT* caught by this rule
         if v.nil? or v == '' then
-          # TODO FIXME properly so that we don't need hardcoded lines like the next one
+          # TODO FIXME properly so that we don't need hardcoded lines like the next ones
           next if k == 'ipbf_2014_exhibitor_org_name' and not oac.role_exhibitor
-          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_complete_all_required_fields)
+          next if k == 'tige_2015_other_detail' and oac.variables.has_key?(:tige_2015_options) and oac.variables[:tige_2015_options] != 'Other'
+
+          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_complete_all_required_fields) + ' ' + k
           break
         end
       end
@@ -327,17 +341,6 @@ class OnlineApplication < ActiveRecord::Base
           errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_confirm_chf_100_registration_fee)
         end
       end
-
-      # Special for AEUB 2014; they have to select a value for 'duration of stay'
-      @real_locale = I18n.locale
-      I18n.locale = 'en'
-      if oac.conference.name == "Addressing Europe's Unfinished Business"
-        if not oac.variables.has_key?(:aeub_2014_duration_of_stay)
-          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:aeub_2014_please_select_the_duration_of_your_stay)
-        end
-      end
-      I18n.locale = @real_locale
-
     end
   end
 

@@ -266,6 +266,8 @@ en:
 
   application_could_not_be_saved: "This application could not be saved. Please make sure you have a primary applicant defined."
 
+  please_choose_option: "Please choose an option"
+
   # This is a hack; for some reason adding to error[:base] makes Rails look for a translation of ':base'
   base: ''
 
