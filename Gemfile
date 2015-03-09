@@ -46,3 +46,6 @@ gem 'date_validator'
 
 # For the pull-applications serse interface script
 gem 'pg'
+
+# The form wizard
+gem 'wicked'

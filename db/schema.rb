@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150225210300) do
+ActiveRecord::Schema.define(:version => 20150308144300) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -610,6 +610,8 @@ ActiveRecord::Schema.define(:version => 20150225210300) do
     t.integer  "calculated_nights",                                     :default => 0
     t.text     "calculated_rate_and_fee_details"
     t.boolean  "student",                                               :default => false
+    t.string   "status"
+    t.string   "session_id"
   end
 
   add_index "online_applications", ["application_group_id"], :name => "index_online_applications_on_application_group_id"

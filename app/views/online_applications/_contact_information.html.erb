@@ -12,7 +12,11 @@
              <td>
                <div class="field">
                  <span class="af_star show_for_primary_applicant">*</span><%= f.label :email_confirmation, t(:email_confirmation) %><br />
-                 <%= f.text_field :email_confirmation %>
+                 <% if not @online_application.email.nil? and not @online_application.email.empty? -%>
+                   <%= f.text_field :email_confirmation, { :value => @online_application.email } %>
+                 <% else -%>
+                   <%= f.text_field :email_confirmation %>
+                 <% end -%>
                </div>
              </td>
            </tr>

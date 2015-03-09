@@ -1,0 +1,14 @@
+<%= render :layout => 'form' do |f| %>  
+  <%= f.hidden_field :relation, :value => @online_application.relation %>
+
+  <%= f.hidden_field :firstname, :value => @online_application.firstname %>
+  <%= f.hidden_field :surname, :value => @online_application.surname %>
+  <span style="display:none"> 
+    <%= f.select(:citizenship_id, @countries, {:include_blank => t(:choose_one)}) %>
+  </span>
+  <%= f.hidden_field :other_citizenship %>
+
+  <%= render 'online_applications/name_badge', :f => f %>
+  <br/>
+  <%= render 'online_applications/remarks', :f => f %>
+<% end %>

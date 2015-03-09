@@ -1,0 +1,6 @@
+<%= render :layout => 'form' do |f| %>  
+  <%= f.hidden_field :relation, :value => @online_application.relation %>
+  <%= render 'online_applications/stay_in_caux', :f => f %>
+  <br/>
+  <%= render 'online_applications/participation', :f => f %>
+<% end %>

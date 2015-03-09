@@ -7,9 +7,9 @@ class OnlineApplication < ActiveRecord::Base
   has_one :permanent_address, :dependent => :destroy
   has_one :correspondence_address, :dependent => :destroy
 
-  accepts_nested_attributes_for :permanent_address, 
+  accepts_nested_attributes_for :permanent_address,
     :allow_destroy => :true
-  accepts_nested_attributes_for :correspondence_address, 
+  accepts_nested_attributes_for :correspondence_address,
     :allow_destroy => :true
 
   has_many :sponsors, :dependent => :destroy
@@ -41,18 +41,6 @@ class OnlineApplication < ActiveRecord::Base
   end
 
   scope :primary_applicant, where("relation = 'primary applicant'")
-
-  before_validation() do
-    # We only care about the correspondence address if we need it
-    if not self.correspondence_address.nil? and 
-       self.confirmation_letter_via != "correspondence_address" then
-      self.correspondence_address.destroy! 
-    end
-    # permanent address is only required for primary applicants and their 'other' co-applicants
-    if self.relation == 'spouse' or self.relation == 'child' then
-      self.permanent_address.destroy! 
-    end
-  end
 
   attr_accessor :the_request
 
@@ -86,39 +74,87 @@ class OnlineApplication < ActiveRecord::Base
 
   before_validation :strip_whitespace
 
-  validates :diet_other_detail, :length => { :maximum => 240 }
+  validates :relation, :inclusion => { :in => [ 'primary applicant', 'spouse', 'child', 'other' ], :message => I18n.t(:only_valid_relations) }, :if => :personal?
+  validates :firstname, :presence => true, :if => :personal?
+  validates :surname, :presence => true, :if => :personal?
 
-  validates :relation, :inclusion => { :in => [ 'primary applicant', 'spouse', 'child', 'other' ], :message => I18n.t(:only_valid_relations) }
-  validates :firstname, :presence => true
-  validates :surname, :presence => true
+  validates :firstname, :uniqueness => {:scope => [ :surname, :gender, :date_of_birth, :application_group_id ], :message => I18n.t(:duplicate_person_in_application_group) }, :if => :personal?
 
-  validates :firstname, :uniqueness => {:scope => [ :surname, :gender, :date_of_birth, :application_group_id ], :message => I18n.t(:duplicate_person_in_application_group) }
-
-  validates :gender, :presence => true
-  validates :date_of_birth, :presence => true
+  validates :gender, :presence => true, :if => :personal?
+  validates :date_of_birth, :presence => true, :if => :personal?
   # There appears to be no way to pass two different :date conditions with a unique message for each
   # in one validates statement. So we make sure to put each :date condition in a separate validates statement.
   # In this particular case, we had to do that anyway because the age minimum only applies to primary applicants.
-  validates :date_of_birth, :date => { :after => Proc.new { Time.now - 110.years }, :message => I18n.t(:max_age_110) }, :if => :date_of_birth
-  validates :date_of_birth, :date => { :before => Proc.new { Time.now - 16.years }, :message => I18n.t(:min_age_16) }, :if => "date_of_birth and relation == 'primary applicant'"
+  validates :date_of_birth, :date => { :after => Proc.new { Time.now - 110.years }, :message => I18n.t(:max_age_110) }, :if => lambda { |oa| personal? && oa.date_of_birth }
+  validates :date_of_birth, :date => { :before => Proc.new { Time.now - 16.years }, :message => I18n.t(:min_age_16) }, :if => lambda { |oa| personal? && oa.date_of_birth && oa.relation == 'primary applicant' }
 
-  validates :citizenship_id, :presence => true
-  validates :other_citizenship, :presence => true, :if => "citizenship_id == 0"
+  validates :citizenship_id, :presence => true, :if => :personal?
+  validates :other_citizenship, :presence => true, :if => lambda { |oa| personal? && oa.citizenship_id == 0 }
 
-  validate :must_have_one_language
+  validate :must_have_one_language, :if => :personal?
 
   def must_have_one_language
     if online_application_languages.empty? or online_application_languages.all? { |lang| lang.marked_for_destruction? }
       errors.add :base, I18n.t(:language_missing)
     end
-  end 
+  end
 
-  validate :must_select_reason_for_coming
+  validates :diet_other_detail, :length => { :maximum => 240 }, :if => :personal?
 
-  validates :other_reason_detail, :length => { :maximum => 200 }
-  validates :other_reason_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_reason) }, :if => :other_reason
-  validates :staff_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_position_department) }, :if => :staff
-  validates :volunteer_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_position_department) }, :if => :volunteer
+  # /end personal
+  # /begin contact
+
+  validates :email, :confirmation => true,
+                    :presence => true,
+                    :email => true, :if => lambda { |oa| contact? && oa.relation == 'primary applicant' }
+
+  validates :email_confirmation, :presence => true, :if => lambda { |oa| contact? && oa.relation == 'primary applicant' }
+  validates :telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :contact?
+  validates :telephone, :presence => true,
+                        :if => lambda { |oa| contact? && oa.relation == 'primary applicant' }
+  validates :cellphone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :contact?
+  validates :confirmation_letter_via, :presence => true, :if => :contact?
+  validates :work_telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :contact?
+  validates :fax, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :contact?
+  validates :fax, :presence => true, :if => :fax_needed?
+  def fax_needed?
+    contact? and (confirmation_letter_via == "fax") and relation == 'primary applicant'
+  end
+
+  # /end contact
+  # /begin dates_and_events
+
+  # There appears to be no way to pass two different :date conditions with a unique message for each
+  # in one validates statement. So we make sure to put each :date condition in a separate validates statement.
+  validates :arrival, :presence => true,
+                      :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' }
+
+  # Only validate arrival < departure if this is not a day visit!
+  validates :arrival, :date => { :before => :departure, :message => I18n.t(:must_be_before_departure) },
+                      :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' && oa.day_visit == false }
+
+  # Only validate presence of departure, and departure > arrival if this is not a day visit!
+  validates :departure, :presence => true,
+                        :date => { :after => :arrival, :message => I18n.t(:must_be_after_arrival) },
+                        :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' && oa.day_visit == false }
+
+  unless ALLOW_RETROACTIVE_REGISTRATION
+    validates :arrival, :date => { :after_or_equal_to => Date.today, :message => I18n.t(:can_be_no_earlier_than_today) },
+                        :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' }
+    validates :departure, :date => { :after_or_equal_to => Date.today, :message => I18n.t(:can_be_no_earlier_than_today) },
+                          :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' }
+  end
+
+  # Whoa. Serious rough edge, can't use :presence => true here.
+  # cf. http://stackoverflow.com/questions/4112858/radio-buttons-for-boolean-field-how-to-do-a-false
+  validates :previous_visit, :inclusion => { :in => [ true, false ], :message => I18n.t(:previous_visit_unset) }, :if => :dates_and_events?
+  validates :previous_year, :presence => true, :format => { :with => /^([\d]{4}|)$/, :message => I18n.t(:previous_year_invalid) }, :if => lambda { |oa| dates_and_events? && oa.previous_visit }
+
+  validates :heard_about, :presence => true, :length => { :maximum => 100 }, :if => lambda { |oa| dates_and_events? && !oa.previous_visit.nil? && !oa.previous_visit && oa.relation == 'primary applicant' }
+
+  validates :day_visit, :inclusion => { :in => [ true, false ], :message => I18n.t(:day_visit_unset) }, :if => :dates_and_events?
+
+  validate :must_select_reason_for_coming, :if => :dates_and_events?
 
   def must_select_reason_for_coming
     if online_application_conferences.select { |oac| oac.selected }.empty? and training_programs.empty? and
@@ -128,7 +164,13 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
-  validate :scholars_interns_interpreters_can_not_select_conferences
+  validates :other_reason_detail, :length => { :maximum => 200 }, :if => :dates_and_events?
+  validates :other_reason_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_reason) }, :if => lambda { |oa| dates_and_events? && oa.other_reason }
+
+  validates :staff_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_position_department) }, :if => lambda { |oa| dates_and_events? && oa.staff }
+  validates :volunteer_detail, :presence => { :value => true, :message => I18n.t(:please_specify_your_position_department) }, :if => lambda { |oa| dates_and_events? && oa.volunteer }
+
+  validate :scholars_interns_interpreters_can_not_select_conferences, :if => :dates_and_events?
 
   def scholars_interns_interpreters_can_not_select_conferences
     if interpreter and not online_application_conferences.select { |oac| oac.selected }.empty? then
@@ -150,7 +192,7 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
-  validate :arrival_and_departures_match_session_dates
+  validate :arrival_and_departures_match_session_dates, :if => :dates_and_events?
 
   def arrival_and_departures_match_session_dates
     # Only complain if they've provided arrival/departure
@@ -190,88 +232,7 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
-  validates :email, :confirmation => true,
-                    :presence => true,
-                    :email => true, :if => "relation == 'primary applicant'"
-
-  validates :email_confirmation, :presence => true, :if => "relation == 'primary applicant'"
-  validates :telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }
-  validates :telephone, :presence => true,
-                        :if => "relation == 'primary applicant'"
-  validates :cellphone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }
-  validates :confirmation_letter_via, :presence => true
-  validates :work_telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }
-  validates :fax, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }
-  validates :fax, :presence => true, :if => :fax_needed?
-  def fax_needed?
-    (confirmation_letter_via == "fax") and relation == 'primary applicant'
-  end
-
-  # There appears to be no way to pass two different :date conditions with a unique message for each
-  # in one validates statement. So we make sure to put each :date condition in a separate validates statement.
-  validates :arrival, :presence => true,
-                      :if => "relation == 'primary applicant'"
-
-  # Only validate arrival < departure if this is not a day visit!
-  validates :arrival, :date => { :before => :departure, :message => I18n.t(:must_be_before_departure) },
-                      :if => "relation == 'primary applicant' and day_visit == false"
-
-  # Only validate presence of departure, and departure > arrival if this is not a day visit!
-  validates :departure, :presence => true,
-                        :date => { :after => :arrival, :message => I18n.t(:must_be_after_arrival) },
-                        :if => "relation == 'primary applicant' and day_visit == false"
-
-  unless ALLOW_RETROACTIVE_REGISTRATION
-    validates :arrival, :date => { :after_or_equal_to => Date.today, :message => I18n.t(:can_be_no_earlier_than_today) },
-                        :if => "relation == 'primary applicant'"
-    validates :departure, :date => { :after_or_equal_to => Date.today, :message => I18n.t(:can_be_no_earlier_than_today) },
-                          :if => "relation == 'primary applicant'"
-  end
-
-  # Whoa. Serious rough edge, can't use :presence => true here. 
-  # cf. http://stackoverflow.com/questions/4112858/radio-buttons-for-boolean-field-how-to-do-a-false
-  validates :previous_visit, :inclusion => { :in => [ true, false ], :message => I18n.t(:previous_visit_unset) }
-  validates :previous_year, :presence => true, :format => { :with => /^([\d]{4}|)$/, :message => I18n.t(:previous_year_invalid) }, :if => :previous_visit 
-  validates :heard_about, :presence => true, :length => { :maximum => 100 }, :unless => "previous_visit.nil? or previous_visit or relation != 'primary applicant'"
-
-  validates :day_visit, :inclusion => { :in => [ true, false ], :message => I18n.t(:day_visit_unset) }
-
-  validates :visa_reference_name, :presence => true, :if => :visa_reference_needed?
-  validates :visa_reference_email, :presence => true, :if => :visa_reference_needed?
-
-  def visa_reference_needed?
-    visa and relation == 'primary applicant'
-  end
-
-  validates :passport_number, :presence => true, :if => :visa
-  validates :passport_issue_place, :presence => true, :if => :visa
-  validates :passport_issue_date, :presence => true,
-                                  :date => { :before => Date.today, :message => I18n.t(:may_not_be_in_the_future) },
-                                  :if => :visa
-  
-  validates :passport_expiry_date, :presence => true, 
-                                   :date => { :after => :three_months_after_departure, :message => I18n.t(:must_be_valid_for_3_months_beyond_departure_date) },
-                                   :if => :visa and :departure
-  # We need to use this proc because date_validator can not handle ':departure + 3.months' itself
-  def three_months_after_departure
-    if not departure.nil? then
-      return departure + 3.months
-    else
-      return Time.now()
-    end
-  end
-                                   
-  validates :passport_embassy, :presence => true, :if => :visa
-
-  #validates :night_rate, :numericality => { :only_integer => true , :message => I18n.t(:night_rate_invalid) }
-  #validates :reservation_fee, :numericality => { :only_integer => true , :message => I18n.t(:reservation_fee_invalid) }
-  #validates :nightly_contribution, :numericality => { :only_integer => true , :message => I18n.t(:nightly_contribution_invalid) }
-
-  validates :badge_firstname, :presence => true
-  validates :badge_surname, :presence => true
-  validates :badge_country, :presence => true
-
-  validate  :sub_forms
+  validate  :sub_forms, :if => :dates_and_events?
 
   def sub_forms
     online_application_conferences.each do |oac|
@@ -281,7 +242,7 @@ class OnlineApplication < ActiveRecord::Base
       @workstream_choice_required = false if oac.role_team
 
       # Special for LLWM 2012; people who select the course do not need to select workstreams
-      if oac.variables.has_key?(:llmw_2012_advanced_course_for_young_peacemakers) and 
+      if oac.variables.has_key?(:llmw_2012_advanced_course_for_young_peacemakers) and
          oac.variables['llmw_2012_advanced_course_for_young_peacemakers'] == '1' then
         @workstream_choice_required = false
       end
@@ -310,11 +271,11 @@ class OnlineApplication < ActiveRecord::Base
       # And exclude winter conference 2012/2013. TODO: fix this properly with a flag on the conference object.
       # And exclude winter conference 2014/2015. Sigh.
       # Cf. redmine #307. Ward, 2012-09-15
-      # TODO: fix role detection properly; it should probably auto-populate based on what is present 
+      # TODO: fix role detection properly; it should probably auto-populate based on what is present
       # in the forms.
       @real_locale = I18n.locale
       I18n.locale = 'en'
-      if oac.conference.name != 'Fifth annual Caux Forum for Human Security' and 
+      if oac.conference.name != 'Fifth annual Caux Forum for Human Security' and
          oac.conference.name != 'Winter gathering 2012/13' and
          oac.conference.name != "Impact Initiatives for Change" and
          oac.conference.name != 'Winter gathering 2014/15' and
@@ -329,9 +290,11 @@ class OnlineApplication < ActiveRecord::Base
         if v.nil? or v == '' then
           # TODO FIXME properly so that we don't need hardcoded lines like the next ones
           next if k == 'ipbf_2014_exhibitor_org_name' and not oac.role_exhibitor
-          next if k == 'tige_2015_other_detail' and oac.variables.has_key?(:tige_2015_options) and oac.variables[:tige_2015_options] != 'Other'
+          next if k == 'tige_2015_other_detail' and
+                  ((oac.variables.has_key?(:tige_2015_options) and oac.variables[:tige_2015_options] != 'Other') or
+                   not oac.variables.has_key?(:tige_2015_options))
 
-          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_complete_all_required_fields) + ' ' + k
+          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_complete_all_required_fields)
           break
         end
       end
@@ -344,6 +307,78 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
+  # /end dates_and_events
+  # /begin visa
+
+  validates :visa_reference_name, :presence => true, :if => :visa_reference_needed?
+  validates :visa_reference_email, :presence => true, :if => :visa_reference_needed?
+
+  def visa_reference_needed?
+    visa? and visa and relation == 'primary applicant'
+  end
+
+  validates :passport_number, :presence => true, :if => lambda { |oa| visa? && oa.visa }
+  validates :passport_issue_place, :presence => true, :if => lambda { |oa| visa? && oa.visa }
+  validates :passport_issue_date, :presence => true,
+                                  :date => { :before => Date.today, :message => I18n.t(:may_not_be_in_the_future) },
+                                  :if => lambda { |oa| visa? && oa.visa }
+
+  validates :passport_expiry_date, :presence => true,
+                                   :date => { :after => :three_months_after_departure, :message => I18n.t(:must_be_valid_for_3_months_beyond_departure_date) },
+                                   :if => lambda { |oa| visa? && oa.visa && oa.departure }
+
+  # We need to use this proc because date_validator can not handle ':departure + 3.months' itself
+  def three_months_after_departure
+    if not departure.nil? then
+      return departure + 3.months
+    else
+      return Time.now()
+    end
+  end
+
+  validates :passport_embassy, :presence => true, :if => lambda { |oa| visa? && oa.visa }
+  # /end visa
+
+  # /begin finance
+
+  #validates :night_rate, :numericality => { :only_integer => true , :message => I18n.t(:night_rate_invalid) }
+  #validates :reservation_fee, :numericality => { :only_integer => true , :message => I18n.t(:reservation_fee_invalid) }
+  #validates :nightly_contribution, :numericality => { :only_integer => true , :message => I18n.t(:nightly_contribution_invalid) }
+
+  # /end finance
+
+  # /begin confirmation
+
+  validates :badge_firstname, :presence => true, :if => :confirmation?
+  validates :badge_surname, :presence => true, :if => :confirmation?
+  validates :badge_country, :presence => true, :if => :confirmation?
+
+  # /end confirmation
+
+  def personal?
+    not status.nil? and status.include?('personal')
+  end
+
+  def contact?
+    not status.nil? and status.include?('contact')
+  end
+
+  def dates_and_events?
+    not status.nil? and status.include?('dates_and_events')
+  end
+
+  def visa?
+    not status.nil? and status.include?('visa')
+  end
+
+  def finances?
+    not status.nil? and status.include?('finances')
+  end
+
+  def confirmation?
+    not status.nil? and status.include?('confirmation')
+  end
+
 private
   def strip_whitespace
     # trim whitespace from beginning and end of string attributes
@@ -352,6 +387,6 @@ private
         send("#{name}=", send(name).strip)
       end
     end
-  end 
-  
+  end
+
 end

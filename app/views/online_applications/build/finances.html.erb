@@ -1,0 +1,15 @@
+<%= render :layout => 'form' do |f| %>  
+  <%= f.hidden_field :relation, :value => @online_application.relation %>
+
+
+  <span style="display:none"> 
+  <!--- TODO FIXME - we use lots of other values from the form on the coffeescript; we should figure out how
+        to access the database object from there, rather than this hack! -->
+  <%= f.date_select :date_of_birth, :include_blank => true, :start_year => Time.now.year - 100, :end_year => Time.now.year %>
+  <%= f.datetime_select :arrival, :include_blank => :true, :start_year => @earliest_start_year, :end_year => @latest_stop_year, :minute_step => 15 %>
+  <%= f.datetime_select :departure, :include_blank => :true, :start_year => @earliest_start_year, :end_year => @latest_stop_year, :minute_step => 15 %>
+  </span>
+ 
+
+  <%= render 'online_applications/conference_fees', :f => f %>
+<% end %>

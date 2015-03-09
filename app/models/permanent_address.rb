@@ -7,7 +7,7 @@ class PermanentAddress < Address
   protected
 
   def set_as_permanent
-    self.kind = 'permanent'
+    self.kind = :permanent
   end
 
 end

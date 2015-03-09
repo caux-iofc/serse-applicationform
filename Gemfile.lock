@@ -138,6 +138,8 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    wicked (1.1.1)
+      rails (>= 3.0.7)
 
 PLATFORMS
   ruby
@@ -162,3 +164,4 @@ DEPENDENCIES
   sass-rails (~> 3.2.6)
   therubyracer
   uglifier (>= 1.0.3)
+  wicked
