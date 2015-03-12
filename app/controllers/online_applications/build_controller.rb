@@ -1,11 +1,14 @@
 class OnlineApplications::BuildController < ApplicationController
-  include Wicked::Wizard
-  steps :personal, :contact, :dates_and_events, :visa, :finances, :confirmation
 
   before_filter :ensure_application_group
 
+  include Wicked::Wizard
+  steps :personal, :contact, :dates_and_events, :visa, :finances, :confirmation
+
   def show
     @online_application = OnlineApplication.find(session[:online_application_id])
+
+    @step = step
 
     # Add a blank address for correspondence address if it is nil
     # The correspondence address can be nil if it was not required on the
@@ -30,11 +33,31 @@ class OnlineApplications::BuildController < ApplicationController
     redirect_to wizard_path(steps.first, :online_application_id => @online_application.id)
   end
 
+  # GET /build
+  # GET /online_applications.json
+  def index
+    @online_applications = OnlineApplication.find_all_by_application_group_id(@ag.id)
+
+    if @online_applications.size == 0 then
+      redirect_to new_build_path
+      return
+    elsif @online_applications.size == 1 and @online_applications.first.status.nil?
+      redirect_to wizard_path(steps.first, :online_application_id => @online_application.id)
+      return
+    elsif @online_applications.first.status != 'confirmation' then
+      redirect_to wizard_path(steps[steps.index(@online_application.status.to_sym)+1], :online_application_id => @online_application.id)
+      return
+    end
+    respond_to do |format|
+      format.html # index.html.erb
+    end
+  end
+
 protected
 
   def finish_wizard_path
-    # TMP FIXME this is the overview page where you can add people to your application
-    online_applications_path
+    # this is the overview page where you can add people to your application
+    build_index_path
   end
 
   def populate_ethereal_variables
@@ -131,6 +154,24 @@ protected
       session[:application_group_id] = @ag.id
     else
       @ag = ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first
+    end
+
+    # Allow selection of a application, if the session id matches
+    if not session.nil? and params[:online_application_id]
+      @online_application = OnlineApplication.where(:id => params[:online_application_id], :session_id => request.session_options[:id]).first
+      if not @online_application.nil?
+        session[:online_application_id] = @online_application.id
+      else
+        STDERR.puts "******* Breakin attempt ********"
+        STDERR.puts "Tried to access application with id #{params[:online_application_id]} with"
+        STDERR.puts "session id #{request.session_options[:id]}, which does not match the session"
+        STDERR.puts "saved in the online application record."
+        require 'pp'
+        STDERR.puts ""
+        STDERR.puts "Request information:"
+        STDERR.puts request.pretty_inspect()
+        STDERR.puts "******* /Breakin attempt ********"
+      end
     end
 
     if session.nil? or

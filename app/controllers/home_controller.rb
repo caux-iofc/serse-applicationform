@@ -3,7 +3,7 @@ class HomeController < ApplicationController
   skip_before_filter :select_online_form, :only => [:form_unavailable]
 
   def index
-    redirect_to "/#{I18n.locale}/online_applications"
+    redirect_to "/#{I18n.locale}/build"
   end
 
   def form_unavailable

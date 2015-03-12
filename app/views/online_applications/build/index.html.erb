@@ -28,8 +28,8 @@
     <td><strong><%= online_application.firstname %></strong></td>
     <td><strong><%= online_application.surname %></strong></td>
     <td><%= online_application.gender == 1 ? t(:female) : t(:male) %></td>
-    <td><%= online_application.arrival.to_s(:pretty) %></td>
-    <td><%= online_application.departure.to_s(:pretty) %></td>
+    <td><%= online_application.arrival ? online_application.arrival.to_s(:pretty) : '' %></td>
+    <td><%= online_application.departure ? online_application.departure.to_s(:pretty) : '' %></td>
     <td><%= link_to t(:edit), build_path(Wicked::FIRST_STEP, :online_application_id => online_application.id) %></td>
     <td><%= link_to t(:remove), online_application, :confirm => t(:are_you_sure), :method => :delete %></td>
   </tr>

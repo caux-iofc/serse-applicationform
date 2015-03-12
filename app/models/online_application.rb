@@ -47,8 +47,6 @@ class OnlineApplication < ActiveRecord::Base
   # we translate these into ApplicationTranslationNeed records
   attr_accessor :translate_english, :translate_french, :translate_german
 
-  #attr_accessor :day_visit
-
   after_validation() do
     # Keep track of validation errors, so that we can improve the user experience
     if not errors.empty? then
@@ -73,6 +71,7 @@ class OnlineApplication < ActiveRecord::Base
   end
 
   before_validation :strip_whitespace
+  before_validation :strip_correspondence_address_if_unnecessary
 
   validates :relation, :inclusion => { :in => [ 'primary applicant', 'spouse', 'child', 'other' ], :message => I18n.t(:only_valid_relations) }, :if => :personal?
   validates :firstname, :presence => true, :if => :personal?
@@ -386,6 +385,21 @@ private
       if send(name).respond_to?(:strip)
         send("#{name}=", send(name).strip)
       end
+    end
+  end
+
+  def strip_correspondence_address_if_unnecessary
+    # Throw away any correspondence address information before validation
+    # if the confirmation letter is not to be sent there. That's the most
+    # reliable way to make sure that we don't validate those fields by
+    # accident (e.g. when an application is changed from having a correspondence
+    # address to not having one; we can't get at the modified online_application
+    # model while doing the correspondence address validations - we only see the 
+    # version of the object as it is saved in the database. That means we can't
+    # add the check for confirmation_letter_via there.
+    # Ward, 2015-03-12
+    if self.confirmation_letter_via != 'correspondence_address'
+      self.correspondence_address = nil
     end
   end
 

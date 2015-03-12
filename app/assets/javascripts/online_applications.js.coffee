@@ -227,6 +227,10 @@ jQuery ->
     $(".show_for_primary_applicant").show()
   else
     $(".show_for_primary_applicant").hide()
+  if $('#online_application_relation').val() == 'primary applicant'
+    $(".show_for_all_but_primary_applicant").hide()
+  else
+    $(".show_for_all_but_primary_applicant").show()
 
 
   ## And then all the hooks ##

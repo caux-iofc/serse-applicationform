@@ -51,7 +51,11 @@ document.write ('caux.ch"><%=t :intro_part_1c %></a>.')
       <tr>
         <td colspan="2" align="center">
           <div class="actions">
-            <%= link_to "Back", previous_wizard_path %>
+            <% if @step != :personal -%>
+              <%= link_to "Back", previous_wizard_path %>
+            <% else -%>
+              <%= link_to "Back", online_applications_path %>
+            <% end -%>
             <%= f.submit t(:proceed) %>
           </div>
         </td>

@@ -18,14 +18,6 @@ class CorrespondenceAddress < Address
   validates :valid_until, :date => { :after_or_equal_to => Date.today + 6.weeks, :message => I18n.t(:must_be_at_least_6_weeks_in_the_future) },
                           :if => lambda { |a| contact? && a.valid_until }
 
-  def contact?
-    if self.kind == :correspondence or self.kind == 'correspondence'
-      not online_application.status.nil? and online_application.status.include?('contact') and online_application.confirmation_letter_via == "correspondence_address"
-    else
-      not online_application.status.nil? and online_application.status.include?('contact')
-    end
-  end
-
  protected
 
  def set_as_correspondence
