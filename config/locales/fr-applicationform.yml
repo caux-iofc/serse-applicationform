@@ -285,6 +285,10 @@ fr:
   please_choose_option: "Please choose an option"
   back: "Back"
 
+  # For the bootstrap progress bar
+  step: Step
+  out_of: out of
+
   base: ""
 
 

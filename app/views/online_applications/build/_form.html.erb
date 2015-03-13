@@ -1,20 +1,27 @@
 
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="70"
+  aria-valuemin="0" aria-valuemax="100" style="width:<%= ((wizard_steps.index(step) + 1)/wizard_steps.size.to_f*100).round -%>%">
+    <span align="center"><%= t(:step) -%> <%= wizard_steps.index(step) + 1 -%> <%= t(:out_of) -%> <%= wizard_steps.size -%></span>
+  </div>
+</div>
+
 <%= form_for@online_application, url: wizard_path do |f| %>
 
-<table class="tablerow">
+<table class="table-condensed">
 <tr>
-  <td class="pagetitle">
+  <td>
     <h1><%= t(:title) %></h1>
   </td>
 </tr>
 </tr>
 <tr>
-   <td class="af_center">
+   <td>
     <%= error_messages_for :online_application, :header_message => 'Error:', :message => nil %>
    </td>
 </tr>
 <tr>
-  <td class="af_justify">
+  <td>
 <p>
 <%=t :intro_part_1_html %>
 <%=t :intro_part_1b_html %>
@@ -40,7 +47,7 @@ document.write ('caux.ch"><%=t :intro_part_1c %></a>.')
 
 <tr>
   <td valign="top">
-    <table>
+    <table class="table-condensed">
       <tr>
         <td colspan="2">
 

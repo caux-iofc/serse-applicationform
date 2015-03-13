@@ -10,36 +10,18 @@
     I18n.locale = "<%= I18n.locale %>";
   </script>
 </head>
-<body>
-<div id="page-wrapper">
-  <div id="header-wrapper">
-    <div id="logo">
-      <a href="http://www.caux.iofc.org/<%= locale %>/" title="Click to return to the Home page"><img src="/assets/caux_logo_<%= locale %>.jpg" alt="Click to return to the Home page" /></a>
-    </div>
-  </div>
-  <div id="top-menu-wrapper">
-    <table cellpadding="0" cellspacing="0" align="center">
-      <tr><td>  
-      </td></tr>
-    </table>
-  </div>
-  <div id="main-wrapper">
-    <div id="content-region-none">
-      <div class="af_center">
+  <body>
+    <div id="main-container" class="container">
+      <div class="row" align="center">
+        <div id="logo">
+           <a href="http://www.caux.iofc.org/<%= locale %>/" title="Click to return to the Home page"><img src="/assets/caux_logo_<%= locale %>.jpg" alt="Click to return to the Home page" /></a>
+        </div>
+      </div>
+      <div class="row">
+        <div id="content" class="col-xs-12">
 <%= yield %>
+        </div>
       </div>
     </div>
-    <div class="clear"></div>
-  </div>
-  <div id="footer-region">
-    <table cellpadding="10" cellspacing="0" align="center">
-      <tr><td>
-        <div id="feed-icons"></div>
-        <div id="footer-text"></div>
-      </td></tr>
-    </table>
-  </div>
-</div>
-
-</body>
+  </body>
 </html>

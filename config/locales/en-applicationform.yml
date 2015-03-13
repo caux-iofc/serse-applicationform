@@ -270,6 +270,10 @@ en:
 
   back: "Back"
 
+  # For the bootstrap progress bar
+  step: Step
+  out_of: out of
+
   # This is a hack; for some reason adding to error[:base] makes Rails look for a translation of ':base'
   base: ''
 
