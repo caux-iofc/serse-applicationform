@@ -1,12 +1,12 @@
-# Localization file for French -- 2015 conferences.
+﻿# Localization file for French -- 2015 conferences.
 
 fr:
 
   tige_2015_options: "Options"
-  tige_2015_option_1_html: "Option 1:<br/><div style=\"margin-left: 40px\">I will choose among a variety of breakout sessions on leadership, business, economy and education offered by TIGE.</div>"
-  tige_2015_option_2_html: "Option 2:<br/><div style=\"margin-left: 40px\">I will apply to take part in the EPIC programme for next-generation Entrepreneurs, Pathfinders, Innovators, Changemakers (for application, please contact palazzi.progressio@gmail.com). If you have not yet applied, please do so as soon as possible!</div>"
-  tige_2015_option_3_html: "Option 3:<br/><div style=\"margin-left: 40px\">I will apply to take part in Impact Leadership Track (for application, please contact katrin.muff@bsl-lausanne.ch<mailto:katrin.muff@bsl-lausanne.ch>) If you have not yet applied, please do so as soon as possible!</div>"
-  tige_2015_option_4_html: "Option 4:<br/><span style=\"margin-left: 40px\">I will participate in another activity (please specify): </span>"
+  tige_2015_option_1_html: "Option 1:<br/><div style=\"margin-left: 40px\">Je souhaite choisir divers ateliers portant sur le leadership, le monde des affaires, l’économie et l’éducation  proposés par TIGE.</div>"
+  tige_2015_option_2_html: "Option 2:<br/><div style=\"margin-left: 40px\">Je souhaite m’inscrire au programme EPIC pour les entrepreneurs, pionners, innovateurs et artisans du changement de la prochaine génération (pour poser votre candidadure, contactez s’il vous plaît palazzi.progressio@gmail.com). Si vous n’avez pas encore posé votre candidature, faites-le, s’il vous plaît, le plus tôt possible !</div>"
+  tige_2015_option_3_html: "Option 3:<br/><div style=\"margin-left: 40px\">Je souhaite m’inscrire au programme Impact Leadership Track (pour poser votre candidadure, contactez s’il vous plaît katrin.muff@bsl-lausanne.ch) Si vous n’avez pas encore posé votre candidature, faites-le, s’il vous plaît, le plus tôt possible !</div>"
+  tige_2015_option_4_html: "Option 4:<br/><span style=\"margin-left: 40px\">Je souhaite participer à une autre activité (spécifiez, s’il vous plaît):</span>"
 
   tige_2015_intro_html: ""
 
@@ -16,18 +16,17 @@ fr:
   cdls_2015_name_and_role: "How would you like your name to be displayed in the session programme, including your current role?"
   cdls_2015_hopes: "Could you outline your involvement in land restoration issues, and your hopes/expectations for the Dialogue. (150 words; this information will be made available to other participants)."
 
-  aeub_2015_intro_html: "<p>Dear participant,</p>"
-  aeub_2015_priority_html: "Please select the working group you would ideally like to be assigned to, as well as your second choice. We will do our best to assign you to one of your preferred options:<p/><ul><li><b>Assimilation vs. Multicultural Society</b><br/>How can we live together? - Topics: immigration, cultural and religious minorities</li><li><b>Multiple Identities vs. Separatist Solutions</b><br/>How could we work together? - Topics: interethnic conflict, devolution, armed conflict, autonomy, minority rights</li><li><b>Denial vs. Constructive Acklowledgment of the Past</b><br/>How could we understand each other better and share a common responsibility for the future? - Topics: revenge, victimisation, taboos, condemnation</li><li><b>Recurring Wars within Europe</b><br/>What are we missing? How to help avoid them? – Topics: open conflict areas, peacebuilding</li></ul>"
-  aeub_2015_name_and_role: "How would you like your name and current role to be displayed in the session programme?"
-  aeub_2015_expectations: "What do you expect from the conference or what do you need to make it a success for you? (150 words) (OPTIONAL)"
-  aeub_2015_instrument: "Do you play an instrument and would you consider giving a 5-minute performance? (OPTIONAL)"
+  aeub_2015_intro_html: "<p>Chère participante, cher participant,</p>"
+  aeub_2015_priority_html: "Merci de sélectionner votre atelier préféré ainsi qu'un second choix. Nous ferons tout notre possible pour que vous puissiez participer à l'un des ateliers choisis:<p/><ul><li><b>Assimilation ou société multiculturelle?</b><br/>Comment vivre ensemble ? - Sujets : immigration, minorités culturelles  et religieuses</li><li><b>Combiner des identités multiples ou séparer les communautés?</b><br/>Comment avancer ensemble? Comment se côtoyer dans la vie quotidienne ? - Sujets : conflits interethniques/ethniques, décentralisation/régionalisation, conflits armés, autonomie, droits des minorités</li><li><b>Déni ou reconnaissance constructive du passé?</b><br/>Comment mieux se comprendre  et partager la responsabilité de construire l'avenir ? - Sujets : vengeance, victimisation, tabous, condamnation</li><li><b>Ces conflits qui ne finissent jamais en Europe</b><br/>Qu'est ce qui nous échappe ? Comment y mettre un terme ? - Sujets : zones de conflit déclaré/conflits régionaux, consolidation de la paix</li></ul>"
+  aeub_2015_name_and_role: "Comment aimeriez-vous que votre nom et votre occupation soient présentés dans le programme de la  conférence?"
+  aeub_2015_expectations: "Quelles sont vos attentes du séminaire et de quoi avez-vous besoin pour qu’il y réponde ? (150 mots) (FACULTATIF)"
+  aeub_2015_instrument: "Jouez-vous d'un instrument de musique ? Pourriez-vous jouer un morceau de musique de 5 minutes environ? (FACULTATIF)"
 
-  ipf_2015_hear_about: "How did you hear about the IPF?"
   ipf_2015_expectations: "Qu'attendez-vous de l'IPF?"
 
-  cats_2015_intro_html: "For registering delegations: if you are coming with a delegation please be sure to have contacted the CATS Conference Team before filling in this registration form catsconference.caux@gmail.com"
+  cats_2015_intro_html: "Pour les délégations souhaitant s’inscrire : si vous venez avec une délégation, assurez-vous, s’il vous plaît, de contacter l’équipe de la conférence CATS avant de remplir le formulaire suivant catsconference.caux@gmail.com"
 
-  cats_2015_note: "Workshops fills up on a first come, first served basis."
+  cats_2015_note: "Les ateliers se remplissent dans l’ordre des demandes."
 
-  seed_2015_offer: "If you would like to offer a creative workshop, discussion or other activity, please write YES and give details briefly (150 words) in the box below. We want to offer a varied programme and will let you know by early july if yours has been selected."
+  seed_2015_offer: "Si vous souhaitez proposer un atelier créatif, une discussion ou une autre activité, répondez, s’il vous plaît, par l’affirmative et écrivez une brève description (150 mots) ci-dessous. Nous voulons offrir un programme varié et nous vous ferons savoir début juillet si votre proposition a été sélectionnée."
 
