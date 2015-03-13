@@ -272,6 +272,8 @@ en:
 
   please_choose_option: "Please choose an option"
 
+  please_only_regster_if_you_have_been_accepted_beforehand: "Please only register for the following Programs if you have already been accepted:"
+
   # This is a hack; for some reason adding to error[:base] makes Rails look for a translation of ':base'
   base: ''
 

@@ -78,6 +78,13 @@
            </tr>
            <% end -%>
            <% TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).each do |tp| -%>
+           <% if tp.name == 'Caux Artists Program' -%>
+           <tr>
+             <td colspan="2">
+               <i><%=t :please_only_regster_if_you_have_been_accepted_beforehand %></i>
+             </td>
+           </tr>
+           <% end -%>
            <tr>
              <td>
                <%= check_box_tag :training_program_ids, tp.id, @online_application.training_programs.include?(tp), :name => 'online_application[training_program_ids][]', :id => "tp_check_" + (tp.nil? or tp.name.nil? ? '' : tp.name.downcase) %>
