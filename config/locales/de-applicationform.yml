@@ -63,6 +63,8 @@ de:
   travel_car_train: "Anreise mit: Auto/Zug"
   correspondence_address: Korrespondenzadresse
   correspondence_address_street1: 'Korrespondenzadresse: Strasse, Nr.'
+  correspondence_address_street2: 'Korrespondenzadresse: Strasse, Nr.'
+  correspondence_address_street3: 'Korrespondenzadresse: Strasse, Nr.'
   correspondence_address_city: 'Korrespondenzadresse: Ort'
   correspondence_address_postal_code: 'Korrespondenzadresse: Postleitzahl'
   correspondence_address_state: 'Korrespondenzadresse: Kanton/Provinz/Bundesland'
@@ -74,6 +76,8 @@ de:
   ensure_correspondence_address: Bitte geben Sie unten eine Korrespondenzadresse an.
 
   permanent_address_street1: 'Ständige Wohnadresse: Strasse, Nr.'
+  permanent_address_street2: 'Ständige Wohnadresse: Strasse, Nr.'
+  permanent_address_street3: 'Ständige Wohnadresse: Strasse, Nr.'
   permanent_address_city: 'Ständige Wohnadresse: Ort'
   permanent_address_postal_code: 'Ständige Wohnadresse: Postleitzahl'
   permanent_address_state: 'Ständige Wohnadresse: Kanton/Provinz/Bundesland'

@@ -378,17 +378,24 @@ jQuery ->
     if !isNaN(birthdate)
       age = ~~((now.getTime() - birthdate.getTime()) / YEAR)
 
+    day_visit = 0
+
     nights = 0
     if (!isNaN(departure) and !isNaN(arrival))
       nights = Math.round((departure.getTime() - arrival.getTime()) / DAY)
 
     if nights < 0
       nights = 0
+    else if nights == 0
+      # for family/group members, #online_application_day_visit_true will not be set
+      day_visit = 1
+      nights = 1
 
     if $("#online_application_day_visit_true").is(':checked')
       # We use nights in the calculations below so it needs to be forced to 1 here.
       # We force the night_rate and the registration-fee below for the day visitor case.
       nights = 1
+      day_visit = 1
 
     registration_fee = 100
     night_rate = 165
@@ -486,7 +493,7 @@ jQuery ->
       night_rate = 63
       calculated_rate_and_fee_details += 'Team: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-    if $("#online_application_day_visit_true").is(':checked')
+    if day_visit == 1
       night_rate = 55
       registration_fee = 0
       calculated_rate_and_fee_details += 'Day visit: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'

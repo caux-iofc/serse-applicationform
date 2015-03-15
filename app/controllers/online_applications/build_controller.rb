@@ -23,6 +23,36 @@ class OnlineApplications::BuildController < ApplicationController
   def update
     @online_application = OnlineApplication.find(session[:online_application_id])
     @online_application.status = step.to_s
+
+    if not @ag.online_applications.include?(@online_application) then
+      # Something funky is going on here. Most likely, they have already submitted this application.
+      redirect_to :error
+      return
+    end
+
+    @online_application.the_request = request
+
+    # If no check boxes are checked, the form does not return those fields.
+    # Handle that here, making sure that any training programs previously
+    # selected will be removed.
+    if not params[:online_application].has_key?('training_program_ids') then
+      params[:online_application]['training_program_ids'] = []
+    end
+
+    # Make sure we delete online_application_conferences records that are not selected
+    if params[:online_application].has_key?('online_application_conferences_attributes')
+      params[:online_application]['online_application_conferences_attributes'].each do |k,v|
+        v['_destroy'] = true if v['selected'] != '1'
+      end
+    end
+
+    # For day visits, the departure date equals the arrival date, always
+    if params[:online_application].has_key?('day_visit') and params[:online_application][:day_visit] != 'false' then
+      params[:online_application]['departure(1i)'] = params[:online_application]['arrival(1i)']
+      params[:online_application]['departure(2i)'] = params[:online_application]['arrival(2i)']
+      params[:online_application]['departure(3i)'] = params[:online_application]['arrival(3i)']
+    end
+
     @online_application.update_attributes(params[:online_application])
     populate_ethereal_variables
     render_wizard @online_application
@@ -38,13 +68,13 @@ class OnlineApplications::BuildController < ApplicationController
   def index
     @online_applications = OnlineApplication.find_all_by_application_group_id(@ag.id)
 
-    if @online_applications.size == 0 then
+    if @online_applications.size == 0
       redirect_to new_build_path
       return
-    elsif @online_applications.size == 1 and @online_applications.first.status.nil?
+    elsif @online_application.status.nil?
       redirect_to wizard_path(steps.first, :online_application_id => @online_application.id)
       return
-    elsif @online_applications.first.status != 'confirmation' then
+    elsif @online_application.status != 'confirmation' then
       redirect_to wizard_path(steps[steps.index(@online_application.status.to_sym)+1], :online_application_id => @online_application.id)
       return
     end
@@ -79,7 +109,7 @@ protected
     @oac_special = Array.new()
 
     # For some reason @online_application.online_application_conferences.find_by_conference_id(c.id).nil?
-    # does not work on records that were created with 'build' (presumably because they are not saved yet). 
+    # does not work on records that were created with 'build' (presumably because they are not saved yet).
     # So, use this workaround.
     @conferences = Hash.new()
     @online_application.online_application_conferences.each do |oac|
@@ -137,7 +167,7 @@ protected
         # new application group
         @ag = ApplicationGroup.new()
         # Trigger creation of session id, in case the session is new. We have to do this
-        # because of lazy session loading. 
+        # because of lazy session loading.
         # Cf. https://rails.lighthouseapp.com/projects/8994/tickets/2268-rails-23-session_optionsid-problem
         # Ward, 2012-02-29
         request.session_options[:id]
@@ -152,6 +182,7 @@ protected
         return
       end
       session[:application_group_id] = @ag.id
+      session.delete(:online_application_id)
     else
       @ag = ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first
     end
@@ -182,7 +213,7 @@ protected
       begin
         # new application
         # Trigger creation of session id, in case the session is new. We have to do this
-        # because of lazy session loading. 
+        # because of lazy session loading.
         # Cf. https://rails.lighthouseapp.com/projects/8994/tickets/2268-rails-23-session_optionsid-problem
         # Ward, 2012-02-29
         request.session_options[:id]
@@ -205,7 +236,6 @@ protected
 
         # Add a blank address (for permanent/correspondence address)
         @online_application.build_permanent_address
-        @online_application.build_correspondence_address
 
         @online_application.save!
       rescue Exception => e

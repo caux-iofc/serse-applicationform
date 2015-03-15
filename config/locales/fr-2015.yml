@@ -1,0 +1,31 @@
+﻿# Localization file for French -- 2015 conferences.
+
+fr:
+
+  tige_2015_options: "Options"
+  tige_2015_option_1_html: "Option 1:<br/><div style=\"margin-left: 40px\">Je souhaite choisir divers ateliers portant sur le leadership, le monde des affaires, l’économie et l’éducation  proposés par TIGE.</div>"
+  tige_2015_option_2_html: "Option 2:<br/><div style=\"margin-left: 40px\">Je souhaite m’inscrire au programme EPIC pour les entrepreneurs, pionners, innovateurs et artisans du changement de la prochaine génération (pour poser votre candidadure, contactez s’il vous plaît palazzi.progressio@gmail.com). Si vous n’avez pas encore posé votre candidature, faites-le, s’il vous plaît, le plus tôt possible !</div>"
+  tige_2015_option_3_html: "Option 3:<br/><div style=\"margin-left: 40px\">Je souhaite m’inscrire au programme Impact Leadership Track (pour poser votre candidadure, contactez s’il vous plaît katrin.muff@bsl-lausanne.ch) Si vous n’avez pas encore posé votre candidature, faites-le, s’il vous plaît, le plus tôt possible !</div>"
+  tige_2015_option_4_html: "Option 4:<br/><span style=\"margin-left: 40px\">Je souhaite participer à une autre activité (spécifiez, s’il vous plaît):</span>"
+
+  tige_2015_intro_html: ""
+
+  jgov_2015_name_and_role: "Comment aimeriez-vous que votre nom et votre occupation soient présentés dans le programme de la session?"
+
+  cdls_2015_invited_by: "Invité(e) par:"
+  cdls_2015_name_and_role: "Comment aimeriez-vous que votre nom et que votre occupation soient présentés dans le programme de la session?"
+  cdls_2015_hopes: "Pourriez-vous partager les expériences qui vous ont amené à vous intéresser aux problématiques liées à la restauration des terres ainsi que vos espoirs et attentes pour cette session? (150 mots, cette information sera communiquée aux autres participants.)"
+
+  aeub_2015_intro_html: "<p>Chère participante, cher participant,</p>"
+  aeub_2015_priority_html: "Merci de sélectionner votre atelier préféré ainsi qu'un second choix. Nous ferons tout notre possible pour que vous puissiez participer à l'un des ateliers choisis:<p/><ul><li><b>Assimilation ou société multiculturelle?</b><br/>Comment vivre ensemble ? - Sujets : immigration, minorités culturelles  et religieuses</li><li><b>Combiner des identités multiples ou séparer les communautés?</b><br/>Comment avancer ensemble? Comment se côtoyer dans la vie quotidienne ? - Sujets : conflits interethniques/ethniques, décentralisation/régionalisation, conflits armés, autonomie, droits des minorités</li><li><b>Déni ou reconnaissance constructive du passé?</b><br/>Comment mieux se comprendre  et partager la responsabilité de construire l'avenir ? - Sujets : vengeance, victimisation, tabous, condamnation</li><li><b>Ces conflits qui ne finissent jamais en Europe</b><br/>Qu'est ce qui nous échappe ? Comment y mettre un terme ? - Sujets : zones de conflit déclaré/conflits régionaux, consolidation de la paix</li></ul>"
+  aeub_2015_name_and_role: "Comment aimeriez-vous que votre nom et votre occupation soient présentés dans le programme de la  conférence?"
+  aeub_2015_expectations: "Quelles sont vos attentes du séminaire et de quoi avez-vous besoin pour qu’il y réponde ? (150 mots) (FACULTATIF)"
+  aeub_2015_instrument: "Jouez-vous d'un instrument de musique ? Pourriez-vous jouer un morceau de musique de 5 minutes environ? (FACULTATIF)"
+
+  ipf_2015_expectations: "Qu'attendez-vous de l'IPF?"
+
+  cats_2015_intro_html: "Pour les délégations souhaitant s’inscrire : si vous venez avec une délégation, assurez-vous, s’il vous plaît, de contacter l’équipe de la conférence CATS avant de remplir le formulaire suivant catsconference.caux@gmail.com"
+
+  cats_2015_note: "Les ateliers se remplissent dans l’ordre des demandes."
+
+  seed_2015_offer: "Si vous souhaitez proposer un atelier créatif, une discussion ou une autre activité, répondez, s’il vous plaît, par l’affirmative et écrivez une brève description (150 mots) ci-dessous. Nous voulons offrir un programme varié et nous vous ferons savoir début juillet si votre proposition a été sélectionnée."

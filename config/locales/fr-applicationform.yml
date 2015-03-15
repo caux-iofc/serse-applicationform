@@ -101,6 +101,8 @@ fr:
   addresses_country_id: Pays
   addresses_other_country: Autre pays
   permanent_address_street1: Rue/no
+  permanent_address_street2: Rue/no
+  permanent_address_street3: Rue/no
   permanent_address_postal_code: Code postal
   permanent_address_city: Ville
   permanent_address_state: Etat/province
@@ -174,6 +176,8 @@ fr:
   correspondence_address_state: "Adresse de correspondence: Etat/province"
   correspondence_address_city: "Adresse de correspondence: Ville" 
   correspondence_address_street1: "Adresse de correspondence: Rue/no"
+  correspondence_address_street2: "Adresse de correspondence: Rue/no"
+  correspondence_address_street3: "Adresse de correspondence: Rue/no"
   correspondence_address_postal_code: "Adresse de correspondence: Code postale"
 
 

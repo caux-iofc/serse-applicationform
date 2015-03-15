@@ -394,11 +394,13 @@ private
     # reliable way to make sure that we don't validate those fields by
     # accident (e.g. when an application is changed from having a correspondence
     # address to not having one; we can't get at the modified online_application
-    # model while doing the correspondence address validations - we only see the 
+    # model while doing the correspondence address validations - we only see the
     # version of the object as it is saved in the database. That means we can't
     # add the check for confirmation_letter_via there.
     # Ward, 2015-03-12
-    if self.confirmation_letter_via != 'correspondence_address'
+    if self.confirmation_letter_via != 'correspondence_address' and
+       not self.correspondence_address.nil? and
+       not self.correspondence_address.new_record?
       self.correspondence_address = nil
     end
   end

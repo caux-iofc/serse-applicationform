@@ -60,8 +60,6 @@ document.write ('caux.ch"><%=t :intro_part_1c %></a>.')
           <div class="actions">
             <% if @step != :personal -%>
               <%= link_to "Back", previous_wizard_path %>
-            <% else -%>
-              <%= link_to "Back", online_applications_path %>
             <% end -%>
             <%= f.submit t(:proceed) %>
           </div>
