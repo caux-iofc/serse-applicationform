@@ -1,0 +1,67 @@
+
+  <div class="col-md-12" align="center">
+    <h3><%=t :stay_in_caux %></h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="form-group required show_for_primary_applicant">
+      <div class="radio">
+        <label>
+          <%= f.radio_button :day_visit, :false %> <%=t :overnight_visitor %>
+        </label>
+        <label>
+          <%= f.radio_button :day_visit, :true %> <%=t :day_visitor %>
+        </label>
+      </div>
+    </div>
+    <div class="form-group required show_for_primary_applicant">
+      <%= f.label :arrival, t(:arrival), class: 'control-label' %> <%=t :approximate_time %><br />
+      <%= f.datetime_select :arrival, { :include_blank => :true, :start_year => @earliest_start_year, :end_year => @latest_stop_year, :minute_step => 15 }, { class: 'form-control' } %>
+    </div>
+    <div class="form-group required show_for_primary_applicant">
+      <%= f.label :departure, t(:departure), class: 'control-label' %> <%=t :approximate_time %><br />
+      <%= f.datetime_select :departure, { :include_blank => :true, :start_year => @earliest_start_year, :end_year => @latest_stop_year, :minute_step => 15 }, { class: 'form-control' } %>
+    </div>
+
+    <div class="form-group required show_for_all_but_primary_applicant">
+      <%= f.label :arrival, t(:arrival), class: 'control-label' %>
+      <%= @online_application.departure.nil? ? '' : @online_application.arrival.to_s(:db) -%>
+    </div>
+    <div class="form-group required show_for_all_but_primary_applicant">
+      <%= f.label :departure, t(:departure), class: 'control-label' %>
+      <%= @online_application.departure.nil? ? '' : @online_application.departure.to_s(:db) -%>
+    </div>
+
+    <div class="form-group show_for_primary_applicant">
+      <%= f.label :travel_car_train, t(:travel_car_train), class: 'control-label' %>
+      <%= f.text_field :travel_car_train, class: 'form-control' %>
+    </div>
+
+    <div class="form-group show_for_primary_applicant">
+      <%= f.label :travel_flight, t(:travel_flight), class: 'control-label' %>
+      <%= f.text_field :travel_flight, class: 'form-control' %>
+    </div>
+
+    <div class="form-group required show_for_primary_applicant">
+      <%= f.label :previous_visit, t(:previous_visit), class: 'control-label' %><br/>
+      <label class="radio-inline">
+        <%= f.radio_button :previous_visit, :false %> <%=t :previous_visit_no %>
+      </label>
+      <label class="radio-inline">
+        <%= f.radio_button :previous_visit, :true %> <%=t :previous_visit_yes %>
+      </label>
+    </div>
+
+    <div class="form-group required" id="previous_year_div" style="display: none">
+      <%= f.label :previous_year, t(:previous_year), class: 'control-label' %><br />
+      <%= f.text_field :previous_year, { :size => 5, :class => 'form-control' } %>
+    </div>
+
+    <div class="form-group required" id="heard_about_div" style="display: none">
+      <%= f.label :heard_about, t(:heard_about), class: 'control-label' %><br />
+      <%= f.text_field :heard_about, { :size => 80, :class => 'form-control' } %>
+    </div>
+
+    <strong><%=t :practical_life %></strong>
