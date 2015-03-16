@@ -399,8 +399,7 @@ private
     # add the check for confirmation_letter_via there.
     # Ward, 2015-03-12
     if self.confirmation_letter_via != 'correspondence_address' and
-       not self.correspondence_address.nil? and
-       not self.correspondence_address.new_record?
+       not self.correspondence_address.nil?
       self.correspondence_address = nil
     end
   end

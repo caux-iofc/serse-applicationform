@@ -1,0 +1,53 @@
+
+
+
+<%= f.fields_for :correspondence_address do |af| %>
+
+  <div class="col-md-6">
+    <h3><%=t :correspondence_address %></h3>
+
+    <div class="form-group required">
+      <%= af.label :addresses_street1, t(:addresses_street1), class: 'control-label' %>
+      <%= af.text_field :street1, class: 'form-control' %>
+      <%= af.text_field :street2, class: 'form-control' %>
+      <%= af.text_field :street3, class: 'form-control' %>
+    </div>
+
+    <div class="form-group required">
+      <%=af.label :city, t(:addresses_city), class: 'control-label' %>
+      <%= af.text_field :city, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= af.label :postal_code, t(:postal_code) %>
+      <%= af.text_field :postal_code, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= af.label :state, t(:state) %>
+      <%= af.text_field :state, class: 'form-control' %>
+    </div>
+
+    <div class="form-group required">
+      <%= af.label :country_id, t(:addresses_country_id), class: 'control-label' %><br />
+      <%= af.select(:country_id, @countries, {:include_blank => t(:choose_one)}, {:class => 'form-control'}) %>
+    </div>
+
+    <div class="form-group required" id="correspondence_address_other_country" style="display: none">
+      <%= af.label :other_country, t(:other_country), class: 'control-label' %>
+      <%= af.text_field :other_country, :class => 'form-control' %>
+    </div>
+
+    <div class="form-group required">
+      <%= af.label :valid_from, t(:valid_from), class: 'control-label' %><br/>
+      <%= af.date_select :valid_from, { :include_blank => :true, :start_year => Time.now.year, :end_year => Time.now.year + 1 }, {:class => 'form-control'} %>
+    </div>
+
+    <div class="form-group required">
+      <%= af.label :valid_until, t(:valid_until), class: 'control-label' %><br/>
+      <%= af.date_select :valid_until, { :include_blank => :true, :start_year => Time.now.year, :end_year => Time.now.year + 1 }, {:class => 'form-control'} %>
+    </div>
+
+  </div> 
+
+<% end %>

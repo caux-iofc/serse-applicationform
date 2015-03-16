@@ -133,16 +133,16 @@ jQuery ->
 
   ## First the code that will run on document load ##
   if $('#online_application_confirmation_letter_via_fax').is(':checked') and $('#online_application_relation').val() == 'primary applicant'
-    $("#fax_required").show()
+    $("#fax_required").addClass('required');
   else
-    $("#fax_required").hide()
+    $("#fax_required").removeClass('required');
 
   ## And then all the hooks ##
   $('input:radio[name="online_application[confirmation_letter_via]"]').change ->
     if $('#online_application_confirmation_letter_via_fax').is(':checked') or $('#online_application_visa').is(':checked')
-      $("#fax_required").show()
+      $("#fax_required").addClass('required');
     else
-      $("#fax_required").hide()
+      $("#fax_required").removeClass('required');
     if $('#online_application_confirmation_letter_via_fax').is(':checked')
       alert(I18n.t("ensure_fax_number"))
 

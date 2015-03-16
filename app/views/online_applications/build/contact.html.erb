@@ -1,10 +1,10 @@
 <%= render :layout => 'form' do |f| %>  
   <%= f.hidden_field :relation, :value => @online_application.relation %>
-  <%= render 'online_applications/contact_information', :f => f %>
+  <%= render 'contact_information', :f => f %>
   <br/>
-  <%= render 'online_applications/permanent_address', :f => f %>
+  <%= render 'permanent_address', :f => f %>
   <br/>
   <span class="correspondence_address_required" style="display:none">
-    <%= render 'online_applications/correspondence_address', :f => f %>
+    <%= render 'correspondence_address', :f => f %>
   </span>
 <% end %>
