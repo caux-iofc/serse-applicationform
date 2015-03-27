@@ -17,11 +17,12 @@ de:
   work_telephone: "Telefonnummer Büro"
   title: Anmeldeformular
   confirmation_letter_via_post: Post
-  proficiency_native: Fliessend
-  proficiency_excellent: Ausgezeichnet
-  proficiency_poor: Gering
+  proficiency_native: Muttersprache
+  proficiency_excellent: Konferenzteilnahme
+  proficiency_good: Konversation
+  proficiency_poor: Grundkenntnis
 
-  translation_needed: "Do you need the following languages translated into your mother tongue or another language to be able to follow the conference?"
+  translation_needed: "Benötigen Sie die folgenden Sprachen übersetzt in Ihre Muttersprache oder eine andere Sprache, um die Konferenzen verstehen zu können?"
   english: Englisch
   french: Französisch
   german: Deutsch
@@ -106,7 +107,6 @@ de:
   sponsors_currency: "Währung"
   sponsors_currency_name: CHF
   confirmation_letter_via_email: E-mail
-  proficiency_good: Gut
   permanent_address: "Ständige Wohnadresse"
   surname: Name
   badge_explanation: "Während der Konferenzen in Caux trägt jeder Teilnehmende ein Namensschild, das den Namen und das Herkunftsland der Person angibt. Bitte tragen Sie diese Angaben hier so ein, wie sie auf Ihrem Namensschild erscheinen sollen. "
@@ -174,8 +174,8 @@ de:
   confirm_read_documents_text_html: "Ich/Wir bestätige/n hiermit, die <a href=\"http://www.caux.iofc.org/de/2014\" target=\"_new\">Dokumente</a> betreffend die Konferenzen in Caux gelesen zu haben und möchte/n an der Konferenz teilnehmen."
 
   telephone: Telefonnummer (z.B. +41...)
-  nightly_contribution_html: "Falls Sie nicht <a href=\"http://www.caux.iofc.org/de/konferenzgebuehren-caux-2014\">Ihre Rate</a> selber bezahlen, geben Sie bitte den Namen der Person oder der Organisation an, die für den Restbetrag aufkommt sowie den genauen Betrag, den diese Person oder Organisation für Sie pro Nacht bezahlt:"
-  child_nightly_contribution_html: "Falls Sie nicht <a href=\"http://www.caux.iofc.org/de/konferenzgebuehren-caux-2014\">0-63 CHF pro Nacht (Kind)</a> selber bezahlen, geben Sie bitte den Namen der Person oder der Organisation an, die für den Restbetrag aufkommt sowie den genauen Betrag, den diese Person oder Organisation für Sie pro Nacht bezahlt:"
+  nightly_contribution_html: "Falls Sie nicht <a href=\"http://www.caux.ch/de/teilnahmegebuehren\">Ihre Rate</a> selber bezahlen, geben Sie bitte den Namen der Person oder der Organisation an, die für den Restbetrag aufkommt sowie den genauen Betrag, den diese Person oder Organisation für Sie pro Nacht bezahlt:"
+  child_nightly_contribution_html: "Falls Sie nicht <a href=\"http://www.caux.ch/de/teilnahmegebuehren\">0-63 CHF pro Nacht (Kind)</a> selber bezahlen, geben Sie bitte den Namen der Person oder der Organisation an, die für den Restbetrag aufkommt sowie den genauen Betrag, den diese Person oder Organisation für Sie pro Nacht bezahlt:"
 
 
   confirm_read_documents_error: Bitte bestätigen Sie, dass sie die Dokumente zu den Konferenzen in Caux gelesen haben und dass sie an der Konferenz teilnehmen wollen.
@@ -202,7 +202,7 @@ de:
 
   conference_fees: Konferenzgebühren
 
-  more_information_about_conference_fees_html: 'Weitere Informationen zu den Konferenzkosten finden Sie <a href="http://www.caux.iofc.org/de/konferenzgebuehren-caux-2014">hier</a>.'
+  more_information_about_conference_fees_html: 'Weitere Informationen zu den Konferenzkosten finden Sie <a href="http://www.caux.ch/de/teilnahmegebuehren">hier</a>.'
   i_travel_with_my_family: 'Ich reise mit meiner Familie an (Ein Paar wird nicht als Familie gezählt. Mindestens 1 Kind und 1 Elternteil)'
   i_want_to_support_the_center_renovation_fund: "Ich möchte zum Renovationsfond für das Konferenzzentrum beitragen (150 CHF pro Nacht)"
   i_volunteer_full_time: "Ich arbeite Vollzeit als ehrenamtlicher Mitarbeiter beim IofC"
