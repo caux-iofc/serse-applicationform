@@ -133,13 +133,6 @@ de:
 
   submitted_intro_part_2: "Ihre Anmeldung wurde noch nicht akzeptiert"
 
-  intro_part_1_html: "Bitte füllen Sie das Formular möglichst vollständig aus. Die mit einem Stern (<span class=\"af_star\">*</span>) markierten Felder sind obligatorisch."
-  intro_part_1b_html: "Wenn das Formular nicht richtig funktioniert, senden Sie uns bitte <b>eine Beschreibung des Problems und wenn möglich die Fehlermeldung, die Sie erhalten</b>, an"
-  intro_part_1c: confsec
-  intro_part_2_html: "Wenn Sie eine Fehlermeldung erhalten haben, Ihr Browser werde nicht unterstützt, <a href=\"http://www.mozilla.org/firefox/\" target=\"new\"><b>installieren Sie bitte einen neuen Browser</b></a> und versuchen Sie es noch einmal, bevor Sie uns kontaktieren."
-  intro_part_3: "Bitte melden Sie sich so bald wie möglich an."
-  intro_part_4_html: ""
-
   language_name: "Sprache"
   online_application_languages_language_id: "Sprache"
 
