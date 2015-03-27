@@ -46,13 +46,6 @@ class OnlineApplications::BuildController < ApplicationController
       end
     end
 
-    # For day visits, the departure date equals the arrival date, always
-    if params[:online_application].has_key?('day_visit') and params[:online_application][:day_visit] != 'false' then
-      params[:online_application]['departure(1i)'] = params[:online_application]['arrival(1i)']
-      params[:online_application]['departure(2i)'] = params[:online_application]['arrival(2i)']
-      params[:online_application]['departure(3i)'] = params[:online_application]['arrival(3i)']
-    end
-
     @online_application.update_attributes(params[:online_application])
     populate_ethereal_variables
     render_wizard @online_application
@@ -223,11 +216,12 @@ protected
         @online_application.session_id = request.session_options[:id]
         if @ag.online_applications.primary_applicant.size == 0
           @online_application.relation = 'primary applicant'
+          @online_application.day_visit = false
         else
           @online_application.arrival = @ag.online_applications.primary_applicant.first.arrival
           @online_application.departure = @ag.online_applications.primary_applicant.first.departure
+          @online_application.day_visit = @ag.online_applications.primary_applicant.first.day_visit
         end
-        @online_application.day_visit = false
 
         # Save the application so we can refer back to it from the address model,
         # which is needed in the validation step there (i.e. to avoid address

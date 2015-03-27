@@ -375,9 +375,7 @@ jQuery ->
     if nights < 0
       nights = 0
     else if nights == 0
-      # for family/group members, #online_application_day_visit_true will not be set
       day_visit = 1
-      nights = 1
 
     if $("#online_application_day_visit_true").is(':checked')
       # We force the night_rate and the registration-fee below for the day visitor case.
