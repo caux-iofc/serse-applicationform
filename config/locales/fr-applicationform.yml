@@ -34,10 +34,11 @@ fr:
   ensure_correspondence_address: "Veuillez remplir la section 'Adresse de correspondence'"
 
   proficiency_native: Maternelle
-  proficiency_excellent: Excellente
-  proficiency_poor: Rudimentaire
+  proficiency_excellent: Participation aux conférences
+  proficiency_good: Conversation
+  proficiency_poor: Basique
 
-  translation_needed: "Do you need the following languages translated into your mother tongue or another language to be able to follow the conference?"
+  translation_needed: "Est-ce que vous avez besoin d'une traduction des langues suivantes vers votre langue maternelle ou dans une autre langue pour-que vous puissiez suivre les conférences?"
   english: anglais
   french: français
   german: allemand
@@ -54,6 +55,7 @@ fr:
   data_protection_consent_text: "J'accepte/nous acceptons que mes/nos données personnelles soient utilisées par le secrétariat des rencontres, afin d'être en contact avec moi/nous au sujet de mon/notre inscription de cette année"
   gender: "Sexe\t"
   special_dietary_requirements: "Régime alimentaire particulier"
+  diet_detail: "La cuisine de Caux peut également adapter les menus si nécessaire. Le petit-déjeuner et le déjeuner sont toujours végétarien, en soirée une option végétarienne est disponible pour ceux qui se sont inscrits.Veuillez marquer d'une croix vos éventuels besoins:"
   language_proficiency: Niveau
   male: Masculin
   travel_car_train: "Voyage: voiture/train"
@@ -74,7 +76,6 @@ fr:
   sponsors_currency_name: "CHF"
   sponsors_amount: Montant par nuit
   confirmation_letter_via_email: Courriel
-  proficiency_good: Bonne
   permanent_address: Adresse permanente
   surname: Nom de famille
   badge_explanation: Tous les participants aux rencontres de Caux portent un badge indiquant leur nom et pays. Veuillez entrer ces informations telles que vous souhaitez qu'elles apparaissent.
@@ -185,7 +186,7 @@ fr:
   badge_surname: Badge Nom de famille
   badge_country: Badge Pays
   submitted_intro_part_2: "Votre inscription n'a pas encore été acceptée."
-  online_application_language_proficiency: Niveaua
+  online_application_language_proficiency: Niveau
   may_not_be_in_the_future: "ne peut pas être dans l'avenir"
   must_be_valid_for_3_months_beyond_departure_date: "doit être valable au moins trois mois après votre départ de Caux"
   addresses: Adresse permanente
@@ -198,7 +199,6 @@ fr:
   confirm_read_documents_error: "Merci de cocher la case pour confirmer que vous avez lu les informations concernant les rencontres de Caux et que vous voulez y participer."
   data_protection_consent_error: "Nous ne pouvons traiter votre demande que si vous acceptez que vos données soient utilisées par la fondation CAUX-Initiatives et Changement. Nous ne transmettons pas vos données à des tiers. "
 
-  diet_detail: "La cuisine de Caux peut également adapter les menus si nécessaire. Veuillez marquer d'une croix vos éventuels besoins:"
 
   please_specify: "Veuillez préciser: "
   other_diet_text: Si vous utilisez des produits particuliers, merci de les apporter.

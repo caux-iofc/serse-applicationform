@@ -30,7 +30,7 @@ en:
   profession: "Profession"
   employer: "Employer"
   special_dietary_requirements: "Special dietary requirements"
-  diet_detail: "To help meet medical, health and religious needs, the Caux kitchen can provide the following menu adaptations. Please tick the box(es) according to your needs: "
+  diet_detail: "To help meet medical, health and religious needs, the Caux kitchen can provide the following menu adaptations. Breakfast and lunch is always vegetarian, in the evening a vegetarian option is provided for those who have registered. Please tick the box(es) according to your needs: "
   diet: "Diet"
   diet_other_detail: "Diet / Other"
   special_meals_at_night: "(special meals at night)"
@@ -125,7 +125,7 @@ en:
   passport_embassy: "In which embassy will you request your visa?"
   conference_fees: "Conference fees"
 
-  more_information_about_conference_fees_html: 'More information about the conference fees is available <a href="http://www.caux.iofc.org/en/conference-fees-caux-2014">here</a>.'
+  more_information_about_conference_fees_html: 'More information about the conference fees is available <a href="http://www.caux.ch/fees">here</a>.'
   i_travel_with_my_family: 'I travel with my family (A couple does not count as a family. Minimum 1 child and 1 parent)'
   i_want_to_support_the_center_renovation_fund: "I want to support the Center's renovation fund (150 CHF per night)"
   i_volunteer_full_time: "I volunteer full time with IofC"
@@ -144,8 +144,8 @@ en:
 
   nightly_contribution: "My personal contribution per night"
   nightly_contribution_currency: "CHF"
-  nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.iofc.org/en/conference-fees-caux-2014\">your rate</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
-  child_nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.iofc.org/en/conference-fees-caux-2014\">0-63 CHF per night (child/young person)</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
+  nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.ch/fees\">your rate</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
+  child_nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.ch/fees\">0-63 CHF per night (child/young person)</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
   nightly_contribution_invalid: " is not a number. Please do not use dots or commas."
   sponsors_name: "Sponsor"
   sponsors_nights: "Nights"

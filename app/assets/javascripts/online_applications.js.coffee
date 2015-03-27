@@ -84,30 +84,18 @@ jQuery ->
 
   ## First the code that will run on document load ##
   if $('#online_application_day_visit_false').is(':checked')
-    $("#online_application_departure_1i").removeAttr("disabled")
-    $("#online_application_departure_2i").removeAttr("disabled")
-    $("#online_application_departure_3i").removeAttr("disabled")
     $("#travel_car_train").show()
     $("#travel_flight").show()
   if $('#online_application_day_visit_true').is(':checked')
-    $("#online_application_departure_1i").attr("disabled", true)
-    $("#online_application_departure_2i").attr("disabled", true)
-    $("#online_application_departure_3i").attr("disabled", true)
     $("#travel_car_train").hide()
     $("#travel_flight").hide()
 
   ## And then all the hooks ##
   $('input:radio[name="online_application[day_visit]"]').click ->
     if $('#online_application_day_visit_false').is(':checked')
-      $("#online_application_departure_1i").removeAttr("disabled")
-      $("#online_application_departure_2i").removeAttr("disabled")
-      $("#online_application_departure_3i").removeAttr("disabled")
       $("#travel_car_train").show()
       $("#travel_flight").show()
     else
-      $("#online_application_departure_1i").attr("disabled", true)
-      $("#online_application_departure_2i").attr("disabled", true)
-      $("#online_application_departure_3i").attr("disabled", true)
       $("#travel_car_train").hide()
       $("#travel_flight").hide()
 
@@ -380,11 +368,6 @@ jQuery ->
 
     if nights < 0
       nights = 0
-
-    if $("#online_application_day_visit_true").is(':checked')
-      # We use nights in the calculations below so it needs to be forced to 1 here.
-      # We force the night_rate and the registration-fee below for the day visitor case.
-      nights = 1
 
     registration_fee = 100
     night_rate = 165
