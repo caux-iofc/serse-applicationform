@@ -68,7 +68,7 @@ en:
   correspondence_address_valid_from: "Correspondence Address: Valid from date"
   correspondence_address_valid_until: "Correspondence Address: Valid until date"
   stay_in_caux: "Stay in Caux"
-  day_visitor: "Day visitor"
+  day_visitor: "Day visitor / External accommodation"
   overnight_visitor: "Overnight stay"
   arrival: "Arrival"
   approximate_time: "(please provide approximate time in 24h clock)"
