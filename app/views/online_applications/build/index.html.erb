@@ -1,72 +1,72 @@
 
 <div class="row">
-  <div class="col-md-12" align="center">
+  <div class="col-md-12 text-center">
     <h1><%= t(:your_application_title) %></h1>
   </div>
 </div>
 
+<div class="well">
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-2">
+      <label><%=t :firstname %></label>
+    </div>
+    <div class="col-md-2">
+      <label><%=t :surname %></label>
+    </div>
+    <div class="col-md-1">
+      <label><%=t :gender %></label>
+    </div>
+    <div class="col-md-2">
+      <label><%=t :arrival %></label>
+    </div>
+    <div class="col-md-2">
+      <label><%=t :departure %></label>
+    </div>
+    <div class="col-md-1">
+    </div>
+  </div>
 
-<div class="row">
-  <div class="col-md-2">
+  <% @online_applications.each do |online_application| %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= online_application.relation == 'primary applicant' ? '' : t(online_application.relation) %>
+    </div>
+    <div class="col-md-2">
+      <strong><%= online_application.firstname %></strong>
+    </div>
+    <div class="col-md-2">
+      <strong><%= online_application.surname %></strong>
+    </div>
+    <div class="col-md-1">
+      <%= online_application.gender == 1 ? t(:female) : t(:male) %>
+    </div>
+    <div class="col-md-2">
+      <%= online_application.arrival ? online_application.arrival.to_s(:pretty) : '' %>
+    </div>
+    <div class="col-md-2">
+      <%= online_application.departure ? online_application.departure.to_s(:pretty) : '' %>
+    </div>
+    <div class="col-md-1">
+      <%= link_to '', build_path(Wicked::FIRST_STEP, :online_application_id => online_application.id), :class => 'glyphicon glyphicon-pencil' %>
+      <%= link_to '', online_application, :confirm => t(:are_you_sure), :method => :delete, :class => 'glyphicon glyphicon-trash' %>
+    </div>
   </div>
-  <div class="col-md-2">
-    <label><%=t :firstname %></label>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3><%=t :application_not_yet_submitted_html %></h3>
+    </div>
   </div>
-  <div class="col-md-2">
-    <label><%=t :surname %></label>
-  </div>
-  <div class="col-md-1">
-    <label><%=t :gender %></label>
-  </div>
-  <div class="col-md-2">
-    <label><%=t :arrival %></label>
-  </div>
-  <div class="col-md-2">
-    <label><%=t :departure %></label>
-  </div>
-  <div class="col-md-1">
+
+  <div class="row">
+    <span class="col-md-6" align="right">
+      <%= button_to t(:add_a_person_to_this_application), new_build_path, :method => :get %>
+    </span>
+    <span class="col-md-6">
+      <%= button_to t(:submit_this_application), submit_application_group_path, :method => :get %>
+    </span>
   </div>
 </div>
-
-<% @online_applications.each do |online_application| %>
-<div class="row">
-  <div class="col-md-2">
-    <%= online_application.relation == 'primary applicant' ? '' : t(online_application.relation) %>
-  </div>
-  <div class="col-md-2">
-    <strong><%= online_application.firstname %></strong>
-  </div>
-  <div class="col-md-2">
-    <strong><%= online_application.surname %></strong>
-  </div>
-  <div class="col-md-1">
-    <%= online_application.gender == 1 ? t(:female) : t(:male) %>
-  </div>
-  <div class="col-md-2">
-    <%= online_application.arrival ? online_application.arrival.to_s(:pretty) : '' %>
-  </div>
-  <div class="col-md-2">
-    <%= online_application.departure ? online_application.departure.to_s(:pretty) : '' %>
-  </div>
-  <div class="col-md-1">
-    <%= link_to '', build_path(Wicked::FIRST_STEP, :online_application_id => online_application.id), :class => 'glyphicon glyphicon-pencil' %>
-    <%= link_to '', online_application, :confirm => t(:are_you_sure), :method => :delete, :class => 'glyphicon glyphicon-trash' %>
-  </div>
-</div>
-<% end %>
-
-<div class="row">
-  <div class="col-md-12" align="center">
-    <h3><%=t :application_not_yet_submitted_html %></h3>
-  </div>
-</div>
-
-<div class="row">
-  <span class="col-md-6" align="right">
-    <%= button_to t(:add_a_person_to_this_application), new_build_path, :method => :get %>
-  </span>
-  <span class="col-md-6">
-    <%= button_to t(:submit_this_application), submit_application_group_path, :method => :get %>
-  </span>
-</div>
-

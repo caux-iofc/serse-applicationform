@@ -1,5 +1,5 @@
 
-  <div class="col-md-12" align="center">
+  <div class="col-md-12 text-center">
     <h3><%=t :personal_information %></h3>
   </div>
 </div>
@@ -64,21 +64,39 @@
     <div class="form-group required">
       <%= f.label :language_name, t(:language_name), class: 'control-label' %> / <label><%=t :language_proficiency%></label><br/>
       <%= f.fields_for :online_application_languages do |lf| -%>
-        <%= lf.select(:language_id, @languages, {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
-        <%= lf.select(:proficiency, @language_proficiencies, {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
+        <div class="row">
+          <div class="col-md-6">
+            <%= lf.select(:language_id, @languages, {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
+          </div>
+          <div class="col-md-6">
+            <%= lf.select(:proficiency, @language_proficiencies, {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
+          </div>
+        </div>
       <% end -%>
     </div>
     <div class="form-group required">
       <%= f.label :translation_needed, t(:translation_needed), class: 'control-label' %>
       <div class="row">
         <div class="col-md-3">
-          <%= t :english %>:<br/>
-          <%= t :french %>:<br/>
+          <%= t :english %>:
+        </div>
+        <div class="col-md-9">
+          <%= f.select("translate_english", [["No",false], ["Yes",true]], { :class => 'form-control' }) %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <%= t :french %>:
+        </div>
+        <div class="col-md-9">
+          <%= f.select("translate_french", [["No",false], ["Yes",true]], { :class => 'form-control' }) %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
           <%= t :german %>:
         </div>
         <div class="col-md-9">
-          <%= f.select("translate_english", [["No",false], ["Yes",true]], { :class => 'form-control' }) %><br/>
-          <%= f.select("translate_french", [["No",false], ["Yes",true]], { :class => 'form-control' }) %><br/>
           <%= f.select("translate_german", [["No",false], ["Yes",true]], { :class => 'form-control' }) %>
         </div>
       </div>
@@ -98,7 +116,7 @@
       <% end -%>
       <span name="diet_other_text" id="diet_other_text" style="display: none">
         <%=t 'please_specify' %> <%= f.text_field :diet_other_detail, :size => 60 %><br/>
-        <i><%=t 'other_diet_text' %></i>
       </span>
+      <i><%=t 'other_diet_text' %></i>
     </div>
   </div>

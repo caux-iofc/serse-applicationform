@@ -34,12 +34,12 @@
 <%= var.text_area :aeub_2015_instrument, :value => oac.object.variables["aeub_2015_instrument"], :cols => '80', :rows => '4' %>
 </p>
 
-<p>
-<span class="af_star">*</span><strong><%=t :I_will_come_as %></strong><br/>
-  <%= oac.check_box :role_participant %><%=t 'participant' %>&nbsp;&nbsp;
-  <%= oac.check_box :role_speaker %><%=t 'speaker' %>&nbsp;&nbsp;
-  <%= oac.check_box :role_team %><%=t 'team' %>&nbsp;&nbsp;
-</p>
+<div class="form-group required">
+  <%= f.label :role, t(:I_will_come_as), class: 'control-label' %><br />
+  <%= oac.check_box :role_participant %> <%=t 'participant' %>&nbsp;&nbsp;
+  <%= oac.check_box :role_speaker %> <%=t 'speaker' %>&nbsp;&nbsp;
+  <%= oac.check_box :role_team %> <%=t 'team' %>&nbsp;&nbsp;
+</div>
 <% end -%>
 
 

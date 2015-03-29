@@ -4,6 +4,8 @@ class CorrespondenceAddress < Address
   before_create :set_as_correspondence
   before_save :set_as_correspondence
 
+  belongs_to :online_application, :inverse_of => :correspondence_address
+
   # There appears to be no way to pass two different :date conditions with a unique message for each
   # in one validates statement. So we make sure to put each :date condition in a separate validates statement.
   validates :valid_from, :presence => true, :if => :contact?

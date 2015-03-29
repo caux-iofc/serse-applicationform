@@ -15,7 +15,10 @@ class Address < ActiveRecord::Base
   validates :other_country, :length => { :maximum => 100 }, :if => lambda { |a| contact? && a.country_id == 0 }
 
   def contact?
-    not online_application.status.nil? and online_application.status.include?('contact')
+    # This gets the modified, 'dirty' version of online_application thanks to the ':inverse_of' set on
+    # the has_one / belongs_to lines in the online_application, permanent_address and
+    # correspondence_address models. Ward, 2015-03-28
+    not self.online_application.status.nil? and self.online_application.status.include?('contact')
   end
 
 end

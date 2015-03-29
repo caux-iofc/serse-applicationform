@@ -1,47 +1,36 @@
-<table class="tablerow">
-<tr>
-  <td class="pagetitle">
-    <h1><%= t(:submitted_title) %></h1>
-  </td>
-</tr>
-</tr>
-<tr>
-  <td class="af_justify">
-<p align="left">
-<%=t :submitted_intro_part_1 %>
-</p>
-<p>
-<p><strong><%=t :submitted_intro_part_2 %></strong></p>
-<p>
-<%=t :submitted_intro_part_3 %>
-<script language="JavaScript"> 
-<!--
-document.write ('<a href="mai')
-document.write ('lto:confsec')
-document.write ('&#64;')
-document.write ('caux.ch"><%=t :submitted_intro_part_3b %></a>.')
-// -->
-</script>
-</p>
-</td>
-</tr>
 
-<tr>
-  <td valign="top">
-    <table>
-      <tr>
-        <td colspan="2" align="center">
-          <p><%=t :follow_us_on %></p>
-          <%= render 'home/social' %>
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" align="center">
-          <div class="actions">
-          </div>
-        </td>
-      </tr>
-    </table>
-  </td>
-</tr>
-</table>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1><%= t(:submitted_title) %></h1>
+  </div>
+</div>
+
+<div class="well">
+  <div class="row">
+    <div class="center-block" style="width:600px">
+    <p>
+      <%=t :submitted_intro_part_1 %>
+    </p>
+    <p>
+    <p><strong><%=t :submitted_intro_part_2 %></strong></p>
+    <p>
+    <%=t :submitted_intro_part_3 %>
+    <script language="JavaScript">
+    <!--
+    document.write ('<a href="mai')
+    document.write ('lto:confsec')
+    document.write ('&#64;')
+    document.write ('caux.ch"><%=t :submitted_intro_part_3b %></a>.')
+    // -->
+    </script>
+    </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="center-block" style="width:600px">
+      <%=t :follow_us_on %>
+      <%= render 'home/social' %>
+    </div>
+  </div>
+</div>

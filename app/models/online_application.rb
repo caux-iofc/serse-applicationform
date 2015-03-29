@@ -4,8 +4,8 @@ class OnlineApplication < ActiveRecord::Base
   belongs_to :application_group
   belongs_to :country, :foreign_key => :citizenship_id
 
-  has_one :permanent_address, :dependent => :destroy
-  has_one :correspondence_address, :dependent => :destroy
+  has_one :permanent_address, :dependent => :destroy, :inverse_of => :online_application
+  has_one :correspondence_address, :dependent => :destroy, :inverse_of => :online_application
 
   accepts_nested_attributes_for :permanent_address,
     :allow_destroy => :true
@@ -93,7 +93,7 @@ class OnlineApplication < ActiveRecord::Base
   validate :must_have_one_language, :if => :personal?
 
   def must_have_one_language
-    if online_application_languages.empty? or online_application_languages.all? { |lang| lang.marked_for_destruction? }
+    if online_application_languages.empty? or online_application_languages.all? { |lang| lang.marked_for_destruction? } or online_application_languages.all? { |lang| lang.language_id.blank? || lang.proficiency.blank? }
       errors.add :base, I18n.t(:language_missing)
     end
   end
