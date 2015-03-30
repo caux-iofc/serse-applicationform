@@ -292,6 +292,9 @@ class OnlineApplication < ActiveRecord::Base
           next if k == 'tige_2015_other_detail' and
                   ((oac.variables.has_key?(:tige_2015_options) and oac.variables[:tige_2015_options] != 'Other') or
                    not oac.variables.has_key?(:tige_2015_options))
+          next if k == 'aeub_2015_expectations'
+          next if k == 'aeub_2015_instrument'
+          next if k == 'seed_2015_offer'
 
           errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_complete_all_required_fields)
           break
