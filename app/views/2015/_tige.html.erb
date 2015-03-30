@@ -1,51 +1,44 @@
 <%=t :tige_2015_intro_html %>
 
-<ul>
-<table width="100%">
-<% oac.object.conference.conference_workstreams.each do |w| -%>
-<tr>
-   <td align="left">
-     <li><strong><%= w.name %></strong>
-   </td>
-   <td align="right">
-     <% if not w.language.nil? and not w.language.empty? then -%>
-       <i><%=t w.language %></i>
-     <% end -%>
-   </td>
-</tr>
-<% if not w.byline.nil? and not w.byline.empty? then -%>
-<tr>
-<td colspan="2">&nbsp;&nbsp;<%=raw w.byline %></td>
-</tr>
-<% end -%>
-<% end -%>
-</table>
-</ul>
-<p>
-
-  <table>
-     <%= oac.fields_for :variables do |var| -%>
-     <tr>
-       <td>
-<span class="af_star">*</span><strong><%=t :tige_2015_options %></strong><br/>
-  <%= var.radio_button :tige_2015_options, "TIGE breakout sessions", { :checked => (oac.object.variables["tige_2015_options"] == "TIGE breakout sessions"), :class => 'tige_2015_options' } %> <%=t :tige_2015_option_1_html %><br/>
-  <%= var.radio_button :tige_2015_options, "EPIC", { :checked => (oac.object.variables["tige_2015_options"] == "EPIC"), :class => 'tige_2015_options' } %> <%=t :tige_2015_option_2_html %><br/>
-  <%= var.radio_button :tige_2015_options, "Impact Leadership Track", { :checked => (oac.object.variables["tige_2015_options"] == "Impact Leadership Track"), :class => 'tige_2015_options' } %> <%=t :tige_2015_option_3_html %><br/>
-  <%= var.radio_button :tige_2015_options, 'Other', { :checked => (oac.object.variables["tige_2015_options"] == "Other"), :class => 'tige_2015_options' } %> <%=t :tige_2015_option_4_html -%><span id="tige_2015_other_detail" style="display:none"><span class="af_star">*</span><%= var.text_field :tige_2015_other_detail, :value => oac.object.variables["tige_2015_other_detail"] -%></span>
-       </td>
-     </tr>
-     <% end -%>
-    <tr><td colspan="2">&nbsp;</td></tr>
-    <tr>
-      <td colspan="2">
-<div class="form-group required">
-  <%= f.label :role, t(:I_will_come_as), class: 'control-label' %><br />
-          <%= oac.check_box :role_participant %> <%=t 'participant' %>&nbsp;&nbsp;
-          <%= oac.check_box :role_speaker %> <%=t 'speaker' %>&nbsp;&nbsp;
-          <%= oac.check_box :role_team %> <%=t 'team' %>&nbsp;&nbsp;
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group required">
+      <%= f.label :tige_2015_options, t(:tige_2015_options), class: 'control-label' %>
+    </div>
+  </div>
 </div>
-      </td>
-    </tr>
-  </table>
-</p>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= oac.fields_for :variables do |var| -%>
+      <div class="form-group required">
+        <div class="radio">
+          <label>
+            <%= var.radio_button :tige_2015_options, "TIGE breakout sessions", { :checked => (oac.object.variables["tige_2015_options"] == "TIGE breakout sessions"), :class => 'tige_2015_options' } %> <%=t :tige_2015_option_1_html %>
+          </label>
+          <label>
+            <%= var.radio_button :tige_2015_options, "EPIC", { :checked => (oac.object.variables["tige_2015_options"] == "EPIC"), :class => 'tige_2015_options' } %> <%=t :tige_2015_option_2_html %>
+          </label>
+          <label>
+            <%= var.radio_button :tige_2015_options, "Impact Leadership Track", { :checked => (oac.object.variables["tige_2015_options"] == "Impact Leadership Track"), :class => 'tige_2015_options' } %> <%=t :tige_2015_option_3_html %>
+          </label>
+          <label>
+            <%= var.radio_button :tige_2015_options, 'Other', { :checked => (oac.object.variables["tige_2015_options"] == "Other"), :class => 'tige_2015_options' } %> <%=t :tige_2015_option_4_html -%><span id="tige_2015_other_detail" style="display:none"><span class="af_star">*</span><%= var.text_field :tige_2015_other_detail, :value => oac.object.variables["tige_2015_other_detail"] -%></span>
+          </label>
+        </div>
+      </div>
+    <% end -%>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group required">
+      <%= oac.label :role, t(:I_will_come_as), class: 'control-label' %>
+      <%= oac.check_box :role_participant %> <%=t 'participant' %>&nbsp;&nbsp;
+      <%= oac.check_box :role_speaker %> <%=t 'speaker' %>&nbsp;&nbsp;
+      <%= oac.check_box :role_team %> <%=t 'team' %>&nbsp;&nbsp;
+    </div>
+  </div>
+</div>
 
