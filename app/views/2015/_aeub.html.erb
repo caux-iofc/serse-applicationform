@@ -24,7 +24,7 @@
 <%= oac.fields_for :online_application_conference_workstreams do |cw| -%>
 <div class="row">
   <div class="col-md-12">
-    <div class="form-group">
+    <div class="form-group required">
       <%= f.label :preference, t(cw.object.preference), class: 'control-label' %>
       <%= cw.hidden_field :preference, :value => cw.object.preference %>
     </div>
