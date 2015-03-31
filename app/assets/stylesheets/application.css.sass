@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
 
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700)
+
 /* forms */
 .field_with_errors
   @extend .has-error
@@ -31,3 +33,80 @@ select.form-control
 .spacer
   margin-bottom: 40px /* define margin as you see fit */
   margin-top: 20px /* define margin as you see fit */
+
+/* ELFGENPICK 20150331 */
+
+body
+  background-color: #f3f3f3
+  color: #534741
+  font-family: Tahoma,Geneva,sans-serif
+  font-size: 12px
+  line-height: 16px
+  margin: 0 auto
+  max-width: 960px
+  padding: 10px 0
+
+label
+  margin-bottom: 3px
+  display: block
+  font-weight: bold
+  color: #534741
+  font-family: Tahoma,Geneva,sans-serif
+  font-size: 12px
+  line-height: 16px
+
+.form-group.required .control-label::before
+  content: ""
+
+.form-group.required .control-label::after
+  color: red
+  content: "*"
+  font-family: "Glyphicons Halflings"
+  font-size: 7px
+  font-weight: normal
+  position: absolute
+  margin-left: 5px
+
+.well
+  background-color: #e5e2db
+  border: none
+  border-radius: 0
+  box-shadow: none
+  min-height: 20px
+  padding: 19px
+  max-width: 960px
+  margin: 0 auto
+
+.form-control
+  background-color: #fff
+  background-image: none
+  border: none
+  box-shadow: none
+  color: #000
+  display: block
+  font-size: 12px
+  height: inherit
+  line-height: inherit
+  padding: 2px
+  transition: none
+  width: 100%
+  border-radius: 5px
+
+.btn
+  -moz-user-select: none
+  background-image: none
+  background-color: #3caa06
+  border: 0 none
+  border-radius: 3px
+  cursor: pointer
+  display: block
+  font-weight: normal
+  line-height: inherit
+  margin-bottom: 0
+  padding: inherit
+  text-align: center
+  vertical-align: middle
+  white-space: nowrap
+  font-family: "Arvo",Palatino Linotype,Book Antiqua,Palatino,serif
+  font-size: 12px
+  font-weight: bold
