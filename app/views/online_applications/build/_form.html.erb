@@ -35,14 +35,21 @@
 </div>
 
 <div class="row spacer">
-  <div class="col-md-12 text-center">
-    <div class="actions">
-      <% if @step != :personal -%>
+  <% if @step != :personal -%>
+    <div class="col-md-2 col-md-offset-4">
+      <div class="actions">
         <%= link_to "Back", previous_wizard_path, class: 'btn btn-info' %>
-      <% end -%>
+      </div>
+    </div>
+    <div class="col-md-2">
       <%= f.submit t(:proceed), class: 'btn btn-default' %>
     </div>
-  </div>
+    </div>
+  <% else -%>
+    <div class="col-md-2 col-md-offset-5">
+      <%= f.submit t(:proceed), class: 'btn btn-default' %>
+    </div>
+  <% end -%>
 </div>
 
 <% end -%>
