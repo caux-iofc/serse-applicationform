@@ -61,12 +61,18 @@
     </div>
   </div>
 
-  <div class="row">
-    <span class="col-md-6" align="right">
-      <%= button_to t(:add_a_person_to_this_application), new_build_path, :method => :get %>
-    </span>
-    <span class="col-md-6">
-      <%= button_to t(:submit_this_application), submit_application_group_path, :method => :get %>
-    </span>
+</div>
+
+<div class="row spacer">
+  <div class="col-md-3 col-md-offset-3">
+    <div class="actions">
+      <%= link_to t(:add_a_person_to_this_application), new_build_path, class: 'btn btn-info' %>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="actions">
+      <%= link_to t(:submit_this_application), submit_application_group_path, class: 'btn btn-default' %>
+    </div>
   </div>
 </div>
+

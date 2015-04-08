@@ -8,12 +8,6 @@
 <%= form_for @online_application, url: wizard_path, role: 'form' do |f| %>
 
 <div class="row">
-  <div class="col-md-12">
-    <%= error_messages_for :online_application %>
-  </div>
-</div>
-
-<div class="row">
   <div class="col-md-3">
   </div>
   <div class="col-md-6">
@@ -30,6 +24,12 @@
 
 <div class="well">
   <div class="row">
+    <div class="col-md-12">
+      <%= error_messages_for :online_application %>
+    </div>
+  </div>
+
+  <div class="row">
     <%= yield f %>
   </div>
 </div>
@@ -44,6 +44,14 @@
     <div class="col-md-2">
       <%= f.submit t(:proceed), class: 'btn btn-default' %>
     </div>
+  <% elsif @online_application.status == 'complete' -%>
+    <div class="col-md-2 col-md-offset-4">
+      <div class="actions">
+        <%= link_to "Back", build_index_path, class: 'btn btn-info' %>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <%= f.submit t(:proceed), class: 'btn btn-default' %>
     </div>
   <% else -%>
     <div class="col-md-2 col-md-offset-5">

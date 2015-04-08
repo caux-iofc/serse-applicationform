@@ -6,8 +6,6 @@ class OnlineApplications::BuildController < ApplicationController
   steps :personal, :contact, :dates_and_events, :visa, :finances, :confirmation
 
   def show
-    @online_application.status = step.to_s
-
     @step = step
 
     # Add a blank address for correspondence address if it is nil
@@ -21,8 +19,6 @@ class OnlineApplications::BuildController < ApplicationController
   end
 
   def update
-    @online_application.status = step.to_s
-
     if not @ag.online_applications.include?(@online_application) then
       # Something funky is going on here. Most likely, they have already submitted this application.
       redirect_to :error
@@ -45,10 +41,12 @@ class OnlineApplications::BuildController < ApplicationController
       end
     end
 
+    params[:online_application][:status] = step.to_s
+    params[:online_application][:status] = 'complete' if step == steps.last
+
     if not @online_application.update_attributes(params[:online_application])
       populate_ethereal_variables
     end
-    @online_application.status = step.to_s
     render_wizard @online_application
   end
 
@@ -61,14 +59,13 @@ class OnlineApplications::BuildController < ApplicationController
   # GET /online_applications.json
   def index
     @online_applications = OnlineApplication.find_all_by_application_group_id(@ag.id)
-
     if @online_applications.size == 0
       redirect_to new_build_path
       return
     elsif not @online_application.nil? and @online_application.status.nil?
       redirect_to wizard_path(steps.first, :online_application_id => @online_application.id)
       return
-    elsif not @online_application.nil? and @online_application.status != '' then
+    elsif not @online_application.nil? and @online_application.status != '' and @online_application.status != 'complete' then
       redirect_to wizard_path(steps[steps.index(@online_application.status.to_sym)+1], :online_application_id => @online_application.id)
       return
     end
@@ -184,7 +181,6 @@ protected
     # Allow selection of a application, if the session id matches
     if not session.nil? and params[:online_application_id]
       @online_application = OnlineApplication.where(:id => params[:online_application_id], :session_id => request.session_options[:id]).first
-      @online_application.status = step.to_s
       if not @online_application.nil?
         session[:online_application_id] = @online_application.id
       else
@@ -242,7 +238,6 @@ protected
       session[:online_application_id] = @online_application.id
     else
       @online_application = OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first
-      @online_application.status = step.to_s
     end
   end
 end

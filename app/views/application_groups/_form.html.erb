@@ -5,23 +5,23 @@
 </div>
 
 <%= form_for(@application_group) do |f| %>
+<div class="well">
   <div class="row">
     <div class="col-md-12">
       <%= error_messages_for :application_group %>
     </div>
   </div>
 
-  <div class="well">
-    <div class="row">
-      <div class="col-md-12">
-        <%= render 'confirmation', :f => f %>
-      </div>
-    </div>
-
-    <div class="row spacer text-center">
-      <div class="actions">
-        <%= f.submit t(:register), class: 'btn btn-default' %>
-      </div>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'confirmation', :f => f %>
     </div>
   </div>
+</div>
+
+<div class="row spacer">
+  <div class="col-md-12 col-md-offset-5">
+    <%= f.submit t(:register), class: 'btn btn-default' %>
+  </div>
+</div>
 <% end -%>
