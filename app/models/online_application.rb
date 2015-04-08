@@ -112,7 +112,7 @@ class OnlineApplication < ActiveRecord::Base
   validates :telephone, :presence => true,
                         :if => lambda { |oa| contact? && oa.relation == 'primary applicant' }
   validates :cellphone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :contact?
-  validates :confirmation_letter_via, :presence => true, :if => :contact?
+  validates :confirmation_letter_via, :presence => true, :if => lambda { |oa| contact? && oa.relation == 'primary applicant' }
   validates :work_telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :contact?
   validates :fax, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :contact?
   validates :fax, :presence => true, :if => :fax_needed?
@@ -146,7 +146,7 @@ class OnlineApplication < ActiveRecord::Base
 
   # Whoa. Serious rough edge, can't use :presence => true here.
   # cf. http://stackoverflow.com/questions/4112858/radio-buttons-for-boolean-field-how-to-do-a-false
-  validates :previous_visit, :inclusion => { :in => [ true, false ], :message => I18n.t(:previous_visit_unset) }, :if => :dates_and_events?
+  validates :previous_visit, :inclusion => { :in => [ true, false ], :message => I18n.t(:previous_visit_unset) }, :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' }
   validates :previous_year, :presence => true, :format => { :with => /^([\d]{4}|)$/, :message => I18n.t(:previous_year_invalid) }, :if => lambda { |oa| dates_and_events? && oa.previous_visit }
 
   validates :heard_about, :presence => true, :length => { :maximum => 100 }, :if => lambda { |oa| dates_and_events? && !oa.previous_visit.nil? && !oa.previous_visit && oa.relation == 'primary applicant' }
