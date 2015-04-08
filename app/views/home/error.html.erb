@@ -1,14 +1,16 @@
 
-<table class="tablerow">
-<tr>
-  <td class="pagetitle">
-    <h1><%=t :error %></h1>
-  </td>
-</tr>
-</tr>
-<tr>
-  <td class="af_center">
-<%=t :application_could_not_be_saved %>
-  </td>
-</tr>
-</table>
+
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1><%= t(:error) %></h1>
+  </div>
+</div>
+
+<div class="well">
+  <div class="row">
+    <div class="center-block" style="width:600px">
+      <%=t :application_could_not_be_saved %>
+    </div>
+  </div>
+</div>
+

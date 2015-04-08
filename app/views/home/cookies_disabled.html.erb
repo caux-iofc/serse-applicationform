@@ -1,19 +1,22 @@
 
-<table class="tablerow">
-<tr>
-  <td class="pagetitle">
-    <h1><%=t :cookies_disabled_title %></h1>
-  </td>
-</tr>
-</tr>
-<tr>
-   <td class="af_center">
-    <%= error_messages_for :online_application, :header_message => 'Error:', :message => nil %>
-   </td>
-</tr>
-<tr>
-  <td class="af_center">
-<%=t :cookies_disabled %>
-  </td>
-</tr>
-</table>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1><%= t(:cookies_disabled_title) %></h1>
+  </div>
+</div>
+
+<div class="well">
+  <div class="row">
+    <div class="center-block" style="width:600px">
+      <%=t :cookies_disabled %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="center-block" style="width:600px">
+      <%=t :follow_us_on %>
+      <%= render 'home/social' %>
+    </div>
+  </div>
+</div>
+
