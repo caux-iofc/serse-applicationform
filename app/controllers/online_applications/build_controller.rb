@@ -3,7 +3,7 @@ class OnlineApplications::BuildController < ApplicationController
   before_filter :ensure_application_group
 
   include Wicked::Wizard
-  steps :personal, :contact, :dates_and_events, :visa, :finances, :confirmation
+  steps :personal, :detail, :dates_and_events, :visa, :finances, :confirmation
 
   def show
     @step = step
@@ -45,6 +45,7 @@ class OnlineApplications::BuildController < ApplicationController
     params[:online_application][:status] = 'complete' if step == steps.last
 
     if not @online_application.update_attributes(params[:online_application])
+      @online_application.build_correspondence_address if @online_application.correspondence_address.nil?
       populate_ethereal_variables
     end
     render_wizard @online_application

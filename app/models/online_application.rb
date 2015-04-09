@@ -71,7 +71,6 @@ class OnlineApplication < ActiveRecord::Base
   end
 
   before_validation :strip_whitespace
-  before_validation :strip_correspondence_address_if_unnecessary
 
   validates :relation, :inclusion => { :in => [ 'primary applicant', 'spouse', 'child', 'other' ], :message => I18n.t(:only_valid_relations) }, :if => :personal?
   validates :firstname, :presence => true, :if => :personal?
@@ -90,7 +89,27 @@ class OnlineApplication < ActiveRecord::Base
   validates :citizenship_id, :presence => true, :if => :personal?
   validates :other_citizenship, :presence => true, :if => lambda { |oa| personal? && oa.citizenship_id == 0 }
 
-  validate :must_have_one_language, :if => :personal?
+  validates :email, :confirmation => true,
+                    :presence => true,
+                    :email => true, :if => lambda { |oa| personal? && oa.relation == 'primary applicant' }
+
+  validates :email_confirmation, :presence => true, :if => lambda { |oa| personal? && oa.relation == 'primary applicant' }
+  validates :telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
+  validates :telephone, :presence => true,
+                        :if => lambda { |oa| personal? && oa.relation == 'primary applicant' }
+  validates :cellphone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
+  validates :confirmation_letter_via, :presence => true, :if => lambda { |oa| personal? && oa.relation == 'primary applicant' }
+  validates :work_telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
+  validates :fax, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
+  validates :fax, :presence => true, :if => :fax_needed?
+  def fax_needed?
+    personal? and (confirmation_letter_via == "fax") and relation == 'primary applicant'
+  end
+
+  # /end personal
+  # /begin detail
+
+  validate :must_have_one_language, :if => :detail?
 
   def must_have_one_language
     if online_application_languages.empty? or online_application_languages.all? { |lang| lang.marked_for_destruction? } or online_application_languages.all? { |lang| lang.language_id.blank? || lang.proficiency.blank? }
@@ -98,29 +117,11 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
-  validates :diet_other_detail, :length => { :maximum => 240 }, :if => :personal?
+  validates :diet_other_detail, :length => { :maximum => 240 }, :if => :detail?
 
-  # /end personal
-  # /begin contact
 
-  validates :email, :confirmation => true,
-                    :presence => true,
-                    :email => true, :if => lambda { |oa| contact? && oa.relation == 'primary applicant' }
+  # /end detail
 
-  validates :email_confirmation, :presence => true, :if => lambda { |oa| contact? && oa.relation == 'primary applicant' }
-  validates :telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :contact?
-  validates :telephone, :presence => true,
-                        :if => lambda { |oa| contact? && oa.relation == 'primary applicant' }
-  validates :cellphone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :contact?
-  validates :confirmation_letter_via, :presence => true, :if => lambda { |oa| contact? && oa.relation == 'primary applicant' }
-  validates :work_telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :contact?
-  validates :fax, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :contact?
-  validates :fax, :presence => true, :if => :fax_needed?
-  def fax_needed?
-    contact? and (confirmation_letter_via == "fax") and relation == 'primary applicant'
-  end
-
-  # /end contact
   # /begin dates_and_events
 
   # There appears to be no way to pass two different :date conditions with a unique message for each
@@ -361,8 +362,8 @@ class OnlineApplication < ActiveRecord::Base
     not status.nil? and status.include?('personal')
   end
 
-  def contact?
-    not status.nil? and status.include?('contact')
+  def detail?
+    not status.nil? and status.include?('detail')
   end
 
   def dates_and_events?
@@ -388,22 +389,6 @@ private
       if send(name).respond_to?(:strip)
         send("#{name}=", send(name).strip)
       end
-    end
-  end
-
-  def strip_correspondence_address_if_unnecessary
-    # Throw away any correspondence address information before validation
-    # if the confirmation letter is not to be sent there. That's the most
-    # reliable way to make sure that we don't validate those fields by
-    # accident (e.g. when an application is changed from having a correspondence
-    # address to not having one; we can't get at the modified online_application
-    # model while doing the correspondence address validations - we only see the
-    # version of the object as it is saved in the database. That means we can't
-    # add the check for confirmation_letter_via there.
-    # Ward, 2015-03-12
-    if self.confirmation_letter_via != 'correspondence_address' and
-       not self.correspondence_address.nil?
-      self.correspondence_address = nil
     end
   end
 

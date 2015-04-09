@@ -3,22 +3,22 @@ class Address < ActiveRecord::Base
   belongs_to :country
   belongs_to :online_application
 
-  validates :street1, :presence => true, :length => { :maximum => 100 }, :if => :contact?
-  validates :street2, :length => { :maximum => 100 }, :if => :contact?
-  validates :street3, :length => { :maximum => 100 }, :if => :contact?
-  validates :city, :presence => true, :length => { :maximum => 30 }, :if => :contact?
-  validates :state, :length => { :maximum => 30 }, :if => :contact?
-  validates :postal_code, :length => { :maximum => 20 }, :if => :contact?
-  validates :postal_code, :format => { :with => /^(.{2,}|)$/, :message => I18n.t(:postal_code_invalid) }, :if => :contact?
-  validates :country_id, :presence => true, :if => :contact?
-  validates :other_country, :presence => true, :if => lambda { |a| contact? && a.country_id == 0 }
-  validates :other_country, :length => { :maximum => 100 }, :if => lambda { |a| contact? && a.country_id == 0 }
+  validates :street1, :presence => true, :length => { :maximum => 100 }, :if => :personal?
+  validates :street2, :length => { :maximum => 100 }, :if => :personal?
+  validates :street3, :length => { :maximum => 100 }, :if => :personal?
+  validates :city, :presence => true, :length => { :maximum => 30 }, :if => :personal?
+  validates :state, :length => { :maximum => 30 }, :if => :personal?
+  validates :postal_code, :length => { :maximum => 20 }, :if => :personal?
+  validates :postal_code, :format => { :with => /^(.{2,}|)$/, :message => I18n.t(:postal_code_invalid) }, :if => :personal?
+  validates :country_id, :presence => true, :if => :personal?
+  validates :other_country, :presence => true, :if => lambda { |a| personal? && a.country_id == 0 }
+  validates :other_country, :length => { :maximum => 100 }, :if => lambda { |a| personal? && a.country_id == 0 }
 
-  def contact?
+  def personal?
     # This gets the modified, 'dirty' version of online_application thanks to the ':inverse_of' set on
     # the has_one / belongs_to lines in the online_application, permanent_address and
     # correspondence_address models. Ward, 2015-03-28
-    not self.online_application.status.nil? and self.online_application.status.include?('contact')
+    not self.online_application.status.nil? and self.online_application.status.include?('personal')
   end
 
 end

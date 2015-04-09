@@ -4,6 +4,7 @@
 en:
   title: "Registration Form"
   personal_information: "Personal information"
+  detailed_information: "Detailed information"
   relation: "Relation to primary applicant"
   only_valid_relations: "please indicate the relation of this applicant to the primary applicant"
   spouse: "Spouse/Partner"

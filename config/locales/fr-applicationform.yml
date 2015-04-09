@@ -41,6 +41,7 @@ fr:
   register: Soumettre!
   proceed: Continuez
   personal_information: Informations personnelles
+  detailed_information: "Detailed information"
   name_badge: Badge
   contact_information: "Coordonnées"
 

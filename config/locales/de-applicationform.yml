@@ -31,6 +31,7 @@ de:
   register: Anmelden!
   proceed: Weiter
   personal_information: "Persönliche Angaben"
+  detailed_information: "Detailed information"
   name_badge: Namensschild
   contact_information: "Kontaktmöglichkeiten"
   arrival: Ankunft
