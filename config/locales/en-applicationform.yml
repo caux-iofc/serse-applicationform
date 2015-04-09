@@ -93,7 +93,7 @@ en:
   confirmation_letter_via_post: "Post"
   confirmation_letter_via_fax: "Fax"
   confirmation_letter_via_correspondence_address: "Post, but not to my permanent address"
-  ensure_fax_number: "Please make sure to provide a fax number in the 'Contact information' section."
+  ensure_fax_number: "Please make sure to provide a fax number."
   ensure_correspondence_address: "Please make sure to fill out the 'Correspondence address' section."
   visa: "Visa for Switzerland"
   visa_needed: "Yes I need a visa"

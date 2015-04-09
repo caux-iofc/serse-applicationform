@@ -23,7 +23,7 @@ fr:
   confirmation_letter_via_post: "Poste à mon adresse permanente"
   confirmation_letter_via_correspondence_address: "Poste à une autre adresse"
 
-  ensure_fax_number: "S'il vous plaît assurez-vous de fournir un numéro de fax dans la section 'Coordonnées'."
+  ensure_fax_number: "S'il vous plaît assurez-vous de fournir un numéro de fax."
 
   ensure_correspondence_address: "Veuillez remplir la section 'Adresse de correspondence'"
 
