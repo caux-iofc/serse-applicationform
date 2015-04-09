@@ -44,23 +44,25 @@
 
   <div class="col-md-12">
     <div class="show_for_primary_applicant">
-      <div class="form-group required">
-        <%= f.label :confirmation_letter_via, t(:confirmation_letter_via), class: 'control-label' %>
-      </div>
-      <div class="form-group required">
-        <div class="radio">
-        <label>
-          <%= f.radio_button :confirmation_letter_via, 'email' %> <%=t :confirmation_letter_via_email %>
-        </label>
-        <label>
-          <%= f.radio_button :confirmation_letter_via, 'post' %> <%=t :confirmation_letter_via_post %>
-        </label>
-        <label>
-          <%= f.radio_button :confirmation_letter_via, 'fax' %> <%=t :confirmation_letter_via_fax %>
-        </label>
-        <label>
-          <%= f.radio_button :confirmation_letter_via, 'correspondence_address' %> <%=t :confirmation_letter_via_correspondence_address %>
-        </label>
+      <div class="col-md-12">
+        <div class="form-group required">
+          <%= f.label :confirmation_letter_via, t(:confirmation_letter_via), class: 'control-label' %>
+        </div>
+        <div class="form-group required">
+          <div class="radio">
+          <label>
+            <%= f.radio_button :confirmation_letter_via, 'email' %> <%=t :confirmation_letter_via_email %>
+          </label>
+          <label>
+            <%= f.radio_button :confirmation_letter_via, 'post' %> <%=t :confirmation_letter_via_post %>
+          </label>
+          <label>
+            <%= f.radio_button :confirmation_letter_via, 'fax' %> <%=t :confirmation_letter_via_fax %>
+          </label>
+          <label>
+            <%= f.radio_button :confirmation_letter_via, 'correspondence_address' %> <%=t :confirmation_letter_via_correspondence_address %>
+          </label>
+          </div>
         </div>
       </div>
     </div>
