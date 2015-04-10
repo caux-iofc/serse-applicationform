@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<%= form_for @online_application, url: wizard_path, role: 'form' do |f| %>
+<%= form_for @application_group, url: wizard_path, role: 'form' do |f| %>
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -20,7 +20,15 @@
 <div class="well">
   <div class="row">
     <div class="col-md-12">
-      <%= error_messages_for :online_application %>
+      <% if @application_group.errors.any? -%>
+        <div class="panel panel-danger">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <%= t(:the_form_could_not_be_saved_because_it_contains) + " #{pluralize(@application_group.errors.count, t(:error))}" + t(:please_scroll_down_for_details) -%>
+            </h4>
+          </div>
+        </div>
+      <% end -%>
     </div>
   </div>
 

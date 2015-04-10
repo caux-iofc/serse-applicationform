@@ -47,6 +47,9 @@ class OnlineApplication < ActiveRecord::Base
   # we translate these into ApplicationTranslationNeed records
   attr_accessor :translate_english, :translate_french, :translate_german
 
+  attr_accessor :group_registration
+  attr_accessor :group_name
+
   after_validation() do
     # Keep track of validation errors, so that we can improve the user experience
     if not errors.empty? then
@@ -72,28 +75,29 @@ class OnlineApplication < ActiveRecord::Base
 
   before_validation :strip_whitespace
 
+  # /begin personal
+
   validates :relation, :inclusion => { :in => [ 'primary applicant', 'spouse', 'child', 'other' ], :message => I18n.t(:only_valid_relations) }, :if => :personal?
-  validates :firstname, :presence => true, :if => :personal?
-  validates :surname, :presence => true, :if => :personal?
+  validates :firstname, :presence => true, :if => :personal_or_group?
+  validates :surname, :presence => true, :if => :personal_or_group?
 
-  validates :firstname, :uniqueness => {:scope => [ :surname, :gender, :date_of_birth, :application_group_id ], :message => I18n.t(:duplicate_person_in_application_group) }, :if => :personal?
+  validates :firstname, :uniqueness => {:scope => [ :surname, :gender, :date_of_birth, :application_group_id ], :message => I18n.t(:duplicate_person_in_application_group) }, :if => :personal_or_group?
 
-  validates :gender, :presence => true, :if => :personal?
-  validates :date_of_birth, :presence => true, :if => :personal?
+  validates :gender, :presence => true, :if => :personal_or_group?
+  validates :date_of_birth, :presence => true, :if => :personal_or_group?
   # There appears to be no way to pass two different :date conditions with a unique message for each
   # in one validates statement. So we make sure to put each :date condition in a separate validates statement.
   # In this particular case, we had to do that anyway because the age minimum only applies to primary applicants.
-  validates :date_of_birth, :date => { :after => Proc.new { Time.now - 110.years }, :message => I18n.t(:max_age_110) }, :if => lambda { |oa| personal? && oa.date_of_birth }
-  validates :date_of_birth, :date => { :before => Proc.new { Time.now - 16.years }, :message => I18n.t(:min_age_16) }, :if => lambda { |oa| personal? && oa.date_of_birth && oa.relation == 'primary applicant' }
+  validates :date_of_birth, :date => { :after => Proc.new { Time.now - 110.years }, :message => I18n.t(:max_age_110) }, :if => lambda { |oa| personal_or_group? && oa.date_of_birth }
+  validates :date_of_birth, :date => { :before => Proc.new { Time.now - 16.years }, :message => I18n.t(:min_age_16) }, :if => lambda { |oa| personal_or_group? && oa.date_of_birth && oa.relation == 'primary applicant' }
 
-  validates :citizenship_id, :presence => true, :if => :personal?
-  validates :other_citizenship, :presence => true, :if => lambda { |oa| personal? && oa.citizenship_id == 0 }
+  validates :citizenship_id, :presence => true, :if => :personal_or_group?
+  validates :other_citizenship, :presence => true, :if => lambda { |oa| personal_or_group? && oa.citizenship_id == 0 }
 
   validates :email, :confirmation => true,
                     :presence => true,
-                    :email => true, :if => lambda { |oa| personal? && oa.relation == 'primary applicant' }
+                    :email => true, :if => lambda { |oa| personal_or_group? && (oa.relation == 'primary applicant' || oa.relation == 'other') }
 
-  validates :email_confirmation, :presence => true, :if => lambda { |oa| personal? && oa.relation == 'primary applicant' }
   validates :telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
   validates :telephone, :presence => true,
                         :if => lambda { |oa| personal? && oa.relation == 'primary applicant' }
@@ -107,6 +111,7 @@ class OnlineApplication < ActiveRecord::Base
   end
 
   # /end personal
+
   # /begin detail
 
   validate :must_have_one_language, :if => :detail?
@@ -118,7 +123,6 @@ class OnlineApplication < ActiveRecord::Base
   end
 
   validates :diet_other_detail, :length => { :maximum => 240 }, :if => :detail?
-
 
   # /end detail
 
@@ -359,30 +363,71 @@ class OnlineApplication < ActiveRecord::Base
   # /end confirmation
 
   def personal?
-    not status.nil? and status.include?('personal')
+    if relation == 'primary applicant'
+      not status.nil? and status.include?('personal')
+    else
+      not application_group.primary_applicant.status.nil? and application_group.primary_applicant.status.include?('personal')
+    end
+  end
+
+  def group?
+    if relation == 'primary applicant'
+      not status.nil? and status.include?('group')
+    else
+      not application_group.primary_applicant.status.nil? and application_group.primary_applicant.status.include?('personal')
+    end
+  end
+
+  def personal_or_group?
+    if relation == 'primary applicant'
+      not status.nil? and (status.include?('personal') or status.include?('group'))
+    else
+      not application_group.primary_applicant.status.nil? and (application_group.primary_applicant.status.include?('personal') or application_group.primary_applicant.status.include?('group'))
+    end
   end
 
   def detail?
-    not status.nil? and status.include?('detail')
+    if relation == 'primary applicant'
+      not status.nil? and status.include?('detail')
+    else
+      not application_group.primary_applicant.status.nil? and application_group.primary_applicant.status.include?('detail')
+    end
   end
 
   def dates_and_events?
-    not status.nil? and status.include?('dates_and_events')
+    if relation == 'primary applicant'
+      not status.nil? and status.include?('dates_and_events')
+    else
+      not application_group.primary_applicant.status.nil? and application_group.primary_applicant.status.include?('dates_and_events')
+    end
   end
 
   def visa?
-    not status.nil? and status.include?('visa')
+    if relation == 'primary applicant'
+      not status.nil? and status.include?('visa')
+    else
+      not application_group.primary_applicant.status.nil? and application_group.primary_applicant.status.include?('visa')
+    end
   end
 
   def finances?
-    not status.nil? and status.include?('finances')
+    if relation == 'primary applicant'
+      not status.nil? and status.include?('finances')
+    else
+      not application_group.primary_applicant.status.nil? and application_group.primary_applicant.status.include?('finances')
+    end
   end
 
   def confirmation?
-    not status.nil? and status.include?('confirmation')
+    if relation == 'primary applicant'
+      not status.nil? and status.include?('confirmation')
+    else
+      not application_group.primary_applicant.status.nil? and application_group.primary_applicant.status.include?('confirmation')
+    end
   end
 
 private
+
   def strip_whitespace
     # trim whitespace from beginning and end of string attributes
     attribute_names.each do |name|

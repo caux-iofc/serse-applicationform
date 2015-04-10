@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150308144300) do
+ActiveRecord::Schema.define(:version => 20150409122700) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -103,6 +103,9 @@ ActiveRecord::Schema.define(:version => 20150308144300) do
     t.string   "remote_ip"
     t.boolean  "copied_to_serse",                                   :default => false
     t.integer  "serse_application_group_id"
+    t.boolean  "group_registration",                                :default => false, :null => false
+    t.boolean  "family_registration",                               :default => false, :null => false
+    t.string   "group_or_family_name",                              :default => "",    :null => false
   end
 
   add_index "application_groups", ["session_group_id"], :name => "index_application_groups_on_session_group_id"

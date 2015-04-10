@@ -1,9 +1,13 @@
 <%= render :layout => 'form' do |f| %>  
   <%= render 'personal_information', :f => f %>
-
   <%= render 'contact_information', :f => f %>
   <%= render 'permanent_address', :f => f %>
   <span class="correspondence_address_required" style="display:none">
     <%= render 'correspondence_address', :f => f %>
   </span>
+</div>
+<div class="row show_for_primary_applicant">
+  <div class="col-md-12">
+    <%= f.check_box :group_registration %> <label><%=t :register_as_part_of_group %></label>
+  </div>
 <% end %>

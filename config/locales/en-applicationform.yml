@@ -276,3 +276,22 @@ en:
   # This is a hack; for some reason adding to error[:base] makes Rails look for a translation of ':base'
   base: ''
 
+  register_as_part_of_group: "I register as part of a group / delegation"
+  group_name: "Group / delegation name"
+  group_personal_details: "Personal details of group / delegation members"
+  group_member: "Member"
+  group_or_family_name: "Name"
+
+  remove_from_group: "Remove this person from the group"
+
+  online_applications_firstname: "First name"
+  online_applications_surname: "Family name"
+  online_applications_date_of_birth: "Date of birth"
+  online_applications_gender: "Gender"
+  online_applications_citizenship_id: "Citizenship"
+  online_applications_email: "E-mail address"
+  online_applications: "Application"
+
+  the_form_could_not_be_saved_because_it_contains: "The form could not be saved because it contains"
+  error: "error"
+  please_scroll_down_for_details: ", please scroll down for details."

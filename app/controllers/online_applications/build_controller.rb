@@ -3,10 +3,12 @@ class OnlineApplications::BuildController < ApplicationController
   before_filter :ensure_application_group
 
   include Wicked::Wizard
-  steps :personal, :detail, :dates_and_events, :visa, :finances, :confirmation
+  steps :personal, :group, :detail, :dates_and_events, :visa, :finances, :confirmation
 
   def show
     @step = step
+
+    calculate_progress_bar
 
     # Add a blank address for correspondence address if it is nil
     # The correspondence address can be nil if it was not required on the
@@ -14,40 +16,78 @@ class OnlineApplications::BuildController < ApplicationController
     # show up in the form if it becomes needed.
     @online_application.build_correspondence_address if @online_application.correspondence_address.nil?
 
+    # Make sure the 'group registration' checkbox is prepopulated if necessary
+    if @online_application.application_group.group_registration
+      @online_application.group_registration = true
+    end
+
+    if step == :group
+      # Add a blank item; TODO FIXME remove once we have the button to add an entry
+      @application_group.online_applications.build({:relation => 'other'})
+    end
+
+    if step == :group or step == :detail
+      # Because we use the @application_group object for these steps, we need to
+      # make sure to explicitly update the status field which lives on the primary
+      # applicant object.
+      @online_application.status = step.to_s
+      @online_application.save(:validate => false)
+    end
+
     populate_ethereal_variables
     render_wizard
   end
 
   def update
-    if not @ag.online_applications.include?(@online_application) then
+    if not @application_group.online_applications.include?(@online_application) then
       # Something funky is going on here. Most likely, they have already submitted this application.
       redirect_to :error
       return
     end
+    if step != :group and step != :detail
+      @online_application.the_request = request
 
-    @online_application.the_request = request
+      # If no check boxes are checked, the form does not return those fields.
+      # Handle that here, making sure that any training programs previously
+      # selected will be removed.
+      if not params[:online_application].has_key?('training_program_ids') then
+        params[:online_application]['training_program_ids'] = []
+      end
 
-    # If no check boxes are checked, the form does not return those fields.
-    # Handle that here, making sure that any training programs previously
-    # selected will be removed.
-    if not params[:online_application].has_key?('training_program_ids') then
-      params[:online_application]['training_program_ids'] = []
-    end
+      # Make sure we delete online_application_conferences records that are not selected
+      if params[:online_application].has_key?('online_application_conferences_attributes')
+        params[:online_application]['online_application_conferences_attributes'].each do |k,v|
+          v['_destroy'] = true if v['selected'] != '1'
+        end
+      end
 
-    # Make sure we delete online_application_conferences records that are not selected
-    if params[:online_application].has_key?('online_application_conferences_attributes')
-      params[:online_application]['online_application_conferences_attributes'].each do |k,v|
-        v['_destroy'] = true if v['selected'] != '1'
+      params[:online_application][:status] = step.to_s
+      params[:online_application][:status] = 'complete' if step == steps.last
+
+      if not @online_application.update_attributes(params[:online_application])
+        @online_application.build_correspondence_address if @online_application.correspondence_address.nil?
+        populate_ethereal_variables
+      else
+        if step == :personal and @online_application.relation == 'primary applicant'
+          @online_application.application_group.group_registration = @online_application.group_registration
+          # We can't validate the group here yet, because the group name is probably not set yet.
+          # We can't make the group name validation conditional on the step of this form
+          # because we need to consult the primary application online_application for the step
+          # and that record is not accessible yet when the applcation_group object is being validated.
+          # It would be, if inverse_of worked for has_many, which it does not (as of rails 3.2.21)...
+          @online_application.application_group.save(:validate => false)
+        end
+      end
+    else
+      if not @application_group.update_attributes(params[:application_group])
+        # We can't use render_wizard directly here, because @online_application validates fine,
+        # but this step is tied to the validation of application_group. Yes, we're doing silly
+        # things here.
+        show
+        return
       end
     end
 
-    params[:online_application][:status] = step.to_s
-    params[:online_application][:status] = 'complete' if step == steps.last
-
-    if not @online_application.update_attributes(params[:online_application])
-      @online_application.build_correspondence_address if @online_application.correspondence_address.nil?
-      populate_ethereal_variables
-    end
     render_wizard @online_application
   end
 
@@ -59,7 +99,7 @@ class OnlineApplications::BuildController < ApplicationController
   # GET /build
   # GET /online_applications.json
   def index
-    @online_applications = OnlineApplication.find_all_by_application_group_id(@ag.id)
+    @online_applications = OnlineApplication.find_all_by_application_group_id(@application_group.id)
     if @online_applications.size == 0
       redirect_to new_build_path
       return
@@ -92,9 +132,12 @@ protected
       @online_application.sponsors.build
     end
 
-    # Make sure we have at least four online_application_language lines
-    while @online_application.online_application_languages.size < 4 do
-      @online_application.online_application_languages.build
+    # Make sure we have at least four online_application_language lines for each
+    # applicant in the group
+    @application_group.online_applications.each do |oa|
+      while oa.online_application_languages.size < 4 do
+        oa.online_application_languages.build
+      end
     end
 
     @oac_normal = Array.new()
@@ -143,8 +186,8 @@ protected
 
     @countries = [ [t(:other_please_specify),'0'] ] + Country.with_translations.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }
 
-    if not @ag.primary_applicant.nil? and @online_application.relation != 'primary applicant' then
-      @family_discount = @ag.primary_applicant.family_discount
+    if not @application_group.primary_applicant.nil? and @online_application.relation != 'primary applicant' then
+      @family_discount = @application_group.primary_applicant.family_discount
     else
       @family_discount = false
     end
@@ -157,26 +200,26 @@ protected
        ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first.nil? then
       begin
         # new application group
-        @ag = ApplicationGroup.new()
+        @application_group = ApplicationGroup.new()
         # Trigger creation of session id, in case the session is new. We have to do this
         # because of lazy session loading.
         # Cf. https://rails.lighthouseapp.com/projects/8994/tickets/2268-rails-23-session_optionsid-problem
         # Ward, 2012-02-29
         request.session_options[:id]
-        @ag.session_id = request.session_options[:id]
-        @ag.browser = request.env['HTTP_USER_AGENT']
-        @ag.remote_ip = request.env['REMOTE_ADDR']
-        @ag.session_group_id = session[:session_group_id] if session.has_key?(:session_group_id)
-        @ag.save!
+        @application_group.session_id = request.session_options[:id]
+        @application_group.browser = request.env['HTTP_USER_AGENT']
+        @application_group.remote_ip = request.env['REMOTE_ADDR']
+        @application_group.session_group_id = session[:session_group_id] if session.has_key?(:session_group_id)
+        @application_group.save!
       rescue Exception => e
         # Most likely, this means there is no session_id. That can happen if cookies are disabled.
         redirect_to :cookies_disabled
         return
       end
-      session[:application_group_id] = @ag.id
+      session[:application_group_id] = @application_group.id
       session.delete(:online_application_id)
     else
-      @ag = ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first
+      @application_group = ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first
     end
 
     # Allow selection of a application, if the session id matches
@@ -210,16 +253,16 @@ protected
         # Ward, 2012-02-29
         request.session_options[:id]
         @online_application = OnlineApplication.new()
-        @online_application.application_group = @ag
-        @online_application.application_group_order = @ag.online_applications.count + 1
+        @online_application.application_group = @application_group
+        @online_application.application_group_order = @application_group.online_applications.count + 1
         @online_application.session_id = request.session_options[:id]
-        if @ag.online_applications.primary_applicant.size == 0
+        if @application_group.online_applications.primary_applicant.size == 0
           @online_application.relation = 'primary applicant'
           @online_application.day_visit = false
         else
-          @online_application.arrival = @ag.online_applications.primary_applicant.first.arrival
-          @online_application.departure = @ag.online_applications.primary_applicant.first.departure
-          @online_application.day_visit = @ag.online_applications.primary_applicant.first.day_visit
+          @online_application.arrival = @application_group.online_applications.primary_applicant.first.arrival
+          @online_application.departure = @application_group.online_applications.primary_applicant.first.departure
+          @online_application.day_visit = @application_group.online_applications.primary_applicant.first.day_visit
         end
 
         # Save the application so we can refer back to it from the address model,
@@ -241,4 +284,26 @@ protected
       @online_application = OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first
     end
   end
+
+  def calculate_progress_bar
+    if not wizard_steps.index(step).nil?
+      if not @online_application.application_group.group_registration
+        # The group step is only applicable for group registrations
+        if step == :group
+          skip_step
+        end
+        @progress_bar_total_steps = wizard_steps.size - 1
+        if wizard_steps.index(step) <= wizard_steps.index(:group)
+          @progress_bar_current_step = wizard_steps.index(step) + 1
+        else
+          @progress_bar_current_step = wizard_steps.index(step)
+        end
+      else
+        @progress_bar_total_steps = wizard_steps.size
+        @progress_bar_current_step = wizard_steps.index(step) + 1
+      end
+      @progress_bar_with = (@progress_bar_current_step/@progress_bar_total_steps.to_f*100).round
+    end
+  end
+
 end

@@ -1,26 +1,15 @@
-
-  <div class="col-md-12 text-center">
-    <h3><%=t :personal_information %></h3>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-6">
-    <div class="col-md-12">
-      <% if @application_group.online_applications.count > 0 and @online_application.relation != 'primary applicant' then -%>
-        <div class="form-group required">
-          <%= f.label :relation, t(:relation), class: 'control-label' %>
-          <%= f.select(:relation, [ [t('spouse'),'spouse'], [t('child'),'child'], [t('other'),'other'] ], {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
-        </div>
-
-        <div class="show_for_children prominent_text">
-          <%=t :welcome_children_html %>
-        </div>
-      <% else -%>
-        <%= f.hidden_field :relation, :value => 'primary applicant' %>
-      <% end -%>
+  <%= f.hidden_field :relation %>
+  <div class="col-md-12">
+    <div class="col-md-6">
+      <h3><%=t :group_member %> <%= @count -%></h3>
     </div>
-
+    <div class="col-md-6">
+      <div class="form-group" style='margin-top: 30px'>
+        <%= f.check_box :_destroy %> <label><%=t :remove_from_group %></label>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
     <div class="col-md-6">
       <div class="form-group required">
         <%= f.label :firstname, t(:firstname), class: 'control-label' %>
@@ -74,6 +63,24 @@
       <div class="form-group hide_for_children">
         <%= f.label :employer, t(:employer), class: 'control-label' %><br />
         <%= f.text_field :employer, :class => 'form-control' %>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-group required">
+        <%= f.label :email, t(:email), class: 'control-label' %>
+        <%= f.text_field :email, class: 'form-control' %>
+      </div>
+    </div>
+ 
+    <div class="col-md-6">
+      <div class="form-group required">
+        <%= f.label :email_confirmation, t(:email_confirmation), class: 'control-label' %>
+        <% if not online_application.email.nil? and not online_application.email.empty? -%>
+          <%= f.text_field :email_confirmation, { :value => online_application.email, :class => 'form-control' } %>
+        <% else -%>
+          <%= f.text_field :email_confirmation, class: 'form-control' %>
+        <% end -%>
       </div>
     </div>
   </div>

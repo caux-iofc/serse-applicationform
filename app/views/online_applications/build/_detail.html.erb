@@ -4,65 +4,10 @@
   </div>
 </div>
 
+<% @application_group.online_applications.each do |online_application| %>
+  <%= f.fields_for :online_applications, online_application do |builder| %>
+    <%= render 'group_detail', :f => builder, :online_application => online_application %>
+  <% end %>
+<% end -%>
 
 <div class="row">
-  <div class="col-md-6">
-    <div class="form-group required">
-      <%= f.label :language_name, t(:language_name), class: 'control-label' %> / <label><%=t :language_proficiency%></label><br/>
-      <%= f.fields_for :online_application_languages do |lf| -%>
-        <div class="row">
-          <div class="col-md-6">
-            <%= lf.select(:language_id, @languages, {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
-          </div>
-          <div class="col-md-6">
-            <%= lf.select(:proficiency, @language_proficiencies, {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
-          </div>
-        </div>
-      <% end -%>
-    </div>
-    <div class="form-group required">
-      <%= f.label :translation_needed, t(:translation_needed), class: 'control-label' %>
-      <div class="row">
-        <div class="col-md-3">
-          <%= t :english %>:
-        </div>
-        <div class="col-md-9">
-          <%= f.select("translate_english", [["No",false], ["Yes",true]], { :class => 'form-control' }) %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <%= t :french %>:
-        </div>
-        <div class="col-md-9">
-          <%= f.select("translate_french", [["No",false], ["Yes",true]], { :class => 'form-control' }) %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <%= t :german %>:
-        </div>
-        <div class="col-md-9">
-          <%= f.select("translate_german", [["No",false], ["Yes",true]], { :class => 'form-control' }) %>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="form-group">
-      <%= f.label :special_dietary_requirements, t(:special_dietary_requirements) %><br />
-      <%= t(:diet_detail) %><br />
-      <% Diet.with_translations.order(:priority_sort).each do |diet| -%>
-        <div <%= diet.name == 'Ramadan' ? 'id="ramadan" style="display: none"'.html_safe : '' -%>>
-          <% @old_locale = I18n.locale; I18n.locale = 'en' -%>
-          <%= check_box_tag :diet_ids, diet.id, @diets.include?(diet.id), :name => 'online_application[diet_ids][]', :id => "diet_check_#{diet.name.downcase}" %>
-          <% I18n.locale = @old_locale -%>
-          <%= label_tag :diet_ids, diet.name %> <%= diet.name == 'Ramadan' ? t(:special_meals_at_night) : '' -%>
-        </div>
-      <% end -%>
-      <span name="diet_other_text" id="diet_other_text" style="display: none">
-        <%=t 'please_specify' %> <%= f.text_field :diet_other_detail, :size => 60 %><br/>
-      </span>
-      <i><%=t 'other_diet_text' %></i>
-    </div>
-  </div>

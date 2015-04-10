@@ -1,0 +1,31 @@
+
+  <div class="col-md-12 text-center">
+    <h3><%=t :group_personal_details %></h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-6">
+        <div class="form-group required">
+          <%= f.label :group_name, t(:group_name), class: 'control-label' %>
+          <%= f.text_field :group_or_family_name, :class => 'form-control' %>
+        </div>
+    </div>
+  </div>
+
+  <% @count = 2 -%>
+  <% @application_group.online_applications.each do |online_application| %>
+    <% if not online_application.relation == 'primary applicant' %>
+
+    <div class="col-md-12">
+      <hr>
+      <%= error_messages_for_object online_application %>
+    </div>
+      <%= f.fields_for :online_applications, online_application do |builder| %>
+        <%= render 'group_member_personal_information', :f => builder, :count => @count, :online_application => online_application %>
+        <% @count += 1 -%>
+      <% end %>
+    <% end %>
+  <% end %>
+

@@ -3,6 +3,10 @@ module ApplicationHelper
   # Override error_messages_for to make error messages prettier
   def error_messages_for(*params)
     object = params.collect {|object_name| instance_variable_get("@#{object_name}") }.compact.first
+    error_messages_for_object(object)
+  end
+
+  def error_messages_for_object(object)
     if object.errors.any?
       content_tag(:div, class: "panel panel-danger") do
         concat(content_tag(:div, class: "panel-heading") do
