@@ -318,7 +318,9 @@ class OnlineApplication < ActiveRecord::Base
   # /begin visa
 
   validates :visa_reference_name, :presence => true, :if => :visa_reference_needed?
-  validates :visa_reference_email, :presence => true, :if => :visa_reference_needed?
+  validates :visa_reference_email, :presence => true,
+                                   :email => true,
+                                   :if => :visa_reference_needed?
 
   def visa_reference_needed?
     visa? and visa and relation == 'primary applicant'

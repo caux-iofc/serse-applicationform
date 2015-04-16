@@ -153,19 +153,15 @@ jQuery ->
   ##### show visa related fields if a visa is required ####
 
   ## First the code that will run on document load ##
-  if ($('#online_application_visa').is(':checked'))
-    $(".visa_required").show()
-    if $('#online_application_relation').val() == 'primary applicant'
-      $(".visa_required_primary_applicant_only").show()
-  else
-    $(".visa_required").hide()
-    $(".visa_required_primary_applicant_only").hide()
+  $("input[class^=visa_checkbox_]").each ->
+    if $(this).is(':checked')
+      $("." + $(this).attr('class') + "_subform").show()
+    else
+      $("." + $(this).attr('class') + "_subform").hide()
 
   ## And then all the hooks
-  $("#online_application_visa").change ->
-    $(".visa_required").toggle()
-    if $('#online_application_relation').val() == 'primary applicant'
-      $(".visa_required_primary_applicant_only").toggle()
+  $("input[class^=visa_checkbox_]").change ->
+    $("." + $(this).attr('class') + "_subform").toggle()
   
   ##### update name badge fields when changes are made to name/country fields ####
 

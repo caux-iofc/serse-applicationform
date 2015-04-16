@@ -8,8 +8,6 @@ class OnlineApplications::BuildController < ApplicationController
   def show
     @step = step
 
-    calculate_progress_bar
-
     # Add a blank address for correspondence address if it is nil
     # The correspondence address can be nil if it was not required on the
     # previous edit/creation of the online application.  It has to exist if we want it to
@@ -26,7 +24,7 @@ class OnlineApplications::BuildController < ApplicationController
       @application_group.online_applications.build({:relation => 'other'})
     end
 
-    if step == :group or step == :detail
+    if step == :group or step == :detail or step == :visa
       # Because we use the @application_group object for these steps, we need to
       # make sure to explicitly update the status field which lives on the primary
       # applicant object.
@@ -44,7 +42,7 @@ class OnlineApplications::BuildController < ApplicationController
       redirect_to :error
       return
     end
-    if step != :group and step != :detail
+    if step != :group and step != :detail and step != :visa
       @online_application.the_request = request
 
       # If no check boxes are checked, the form does not return those fields.
@@ -123,6 +121,8 @@ protected
   end
 
   def populate_ethereal_variables
+
+    calculate_progress_bar
 
     @earliest_start_year = Time.now.year
     @latest_stop_year = Time.now.year

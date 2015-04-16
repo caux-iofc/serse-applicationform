@@ -3,7 +3,7 @@
 
 <div class="well">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3 col-compact">
       <div class="progress">
         <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:<%= @progress_bar_with -%>%">
           <span><%= t(:step) -%> <%= @progress_bar_current_step -%> <%= t(:out_of) -%> <%= @progress_bar_total_steps -%></span>
@@ -18,7 +18,7 @@
         <div class="panel panel-danger">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <%= t(:the_form_could_not_be_saved_because_it_contains) + " #{pluralize(@application_group.errors.count, t(:error))}" + t(:please_scroll_down_for_details) -%>
+              <%= t(:the_form_could_not_be_saved_because_it_contains) + " #{pluralize(@application_group.errors.count - 1, t(:error))}" + t(:please_scroll_down_for_details) -%>
             </h4>
           </div>
         </div>
