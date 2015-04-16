@@ -74,6 +74,7 @@ class OnlineApplication < ActiveRecord::Base
   end
 
   before_validation :strip_whitespace
+  before_validation :set_name_badge_fields
 
   # /begin personal
 
@@ -439,4 +440,20 @@ private
     end
   end
 
+  # Default name badge fields to the values from the application.
+  def set_name_badge_fields
+    if firstname != '' and badge_firstname.nil?
+      self.badge_firstname = firstname
+    end
+    if surname != '' and badge_surname.nil?
+      self.badge_surname = surname
+    end
+    if not citizenship_id.nil? and citizenship_id != '' and badge_country.nil?
+      if citizenship_id != 0
+        self.badge_country = self.country.name
+      else
+        self.badge_country = other_citizenship
+      end
+    end
+  end
 end

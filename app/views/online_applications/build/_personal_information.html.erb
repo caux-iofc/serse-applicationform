@@ -52,12 +52,12 @@
     <div class="col-md-12">
       <div class="form-group required">
         <%= f.label :citizenship_id, t(:citizenship), class: 'control-label' %><br />
-        <%= f.select(:citizenship_id, @countries, {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
+        <%= f.select(:citizenship_id, @countries, {:include_blank => t(:choose_one)}, { :class => "form-control citizenship_id_#{@online_application.id}" }) %>
       </div>
     </div>
 
     <div class="col-md-12">
-      <div class="form-group required" id="online_application_other_citizenship_div" style="display: none">
+      <div class="form-group required" id="citizenship_id_<%= @online_application.id -%>_subform" style="display: none">
         <%= f.label :other_citizenship, t(:other_citizenship), class: 'control-label' %><br />
         <%= f.text_field :other_citizenship, :class => 'form-control' %>
       </div>

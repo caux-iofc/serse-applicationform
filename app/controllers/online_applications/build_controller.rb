@@ -24,7 +24,7 @@ class OnlineApplications::BuildController < ApplicationController
       @application_group.online_applications.build({:relation => 'other'})
     end
 
-    if step == :group or step == :detail or step == :visa
+    if step == :group or step == :detail or step == :visa or step == :confirmation
       # Because we use the @application_group object for these steps, we need to
       # make sure to explicitly update the status field which lives on the primary
       # applicant object.
@@ -42,7 +42,7 @@ class OnlineApplications::BuildController < ApplicationController
       redirect_to :error
       return
     end
-    if step != :group and step != :detail and step != :visa
+    if step != :group and step != :detail and step != :visa and step != :confirmation
       @online_application.the_request = request
 
       # If no check boxes are checked, the form does not return those fields.

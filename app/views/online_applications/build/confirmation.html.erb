@@ -1,14 +1,21 @@
-<%= render :layout => 'form' do |f| %>  
-  <%= f.hidden_field :relation, :value => @online_application.relation %>
 
-  <%= f.hidden_field :firstname, :value => @online_application.firstname %>
-  <%= f.hidden_field :surname, :value => @online_application.surname %>
-  <span style="display:none"> 
-    <%= f.select(:citizenship_id, @countries, {:include_blank => t(:choose_one)}) %>
-  </span>
-  <%= f.hidden_field :other_citizenship %>
+<%= render :layout => 'form_application_group' do |f| %>
 
-  <%= render 'name_badge', :f => f %>
-  <br/>
-  <%= render 'remarks', :f => f %>
+<div class="col-md-12 text-center">
+    <h3><%=t :name_badge %></h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%=t :badge_explanation %>
+  </div>
+</div>
+
+<% @application_group.online_applications.each do |online_application| %>
+  <%= f.fields_for :online_applications, online_application do |builder| %>
+    <%= render 'group_confirmation', :f => builder, :online_application => online_application %>
+  <% end %>
+<% end -%>
+
 <% end %>

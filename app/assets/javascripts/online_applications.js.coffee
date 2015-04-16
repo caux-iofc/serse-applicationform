@@ -36,17 +36,15 @@ jQuery ->
   ##### handle other_citizenship ####
 
   ## First the code that will run on document load ##
-  if $('#online_application_citizenship_id').val() == '0'
-    $("#online_application_other_citizenship_div").show()
-  else
-    $("#online_application_other_citizenship_div").hide()
+  $("select[class^='form-control citizenship_id_']").each ->
+    if $(this).val() == '0'
+      $("#" + $(this).attr('class').replace('form-control ','') + "_subform").show()
+    else
+      $("#" + $(this).attr('class').replace('form-control ','') + "_subform").hide()
 
   ## And then all the hooks ##
-  $("#online_application_citizenship_id").change ->
-    if $("#online_application_citizenship_id").val() == '0'
-      $("#online_application_other_citizenship_div").show()
-    else
-      $("#online_application_other_citizenship_div").hide()
+  $("select[class^='form-control citizenship_id_']").change ->
+    $("#" + $(this).attr('class').replace('form-control ','') + "_subform").toggle()
 
   ##### handle permanent_address_other_country ####
 
@@ -163,37 +161,6 @@ jQuery ->
   $("input[class^=visa_checkbox_]").change ->
     $("." + $(this).attr('class') + "_subform").toggle()
   
-  ##### update name badge fields when changes are made to name/country fields ####
-
-  ## First the code that will run on document load ##
-  if $("#online_application_firstname").val() != ''
-    $("#online_application_badge_firstname").val($("#online_application_firstname").val())
-
-  if $("#online_application_surname").val() != ''
-    $("#online_application_badge_surname").val($("#online_application_surname").val())
-
-  if $("#online_application_citizenship_id").val() != '0' and $("#online_application_citizenship_id").val() != ''
-    $("#online_application_badge_country").val($("#online_application_citizenship_id option:selected").text())
-
-  if $("#online_application_citizenship_id").val() == '0' and $("#online_application_citizenship_id").val() != ''
-    $("#online_application_badge_country").val($("#online_application_other_citizenship").val())
-
-  ## And then all the hooks ##
-  $("#online_application_firstname").change ->
-    $("#online_application_badge_firstname").val($("#online_application_firstname").val())
-
-  $("#online_application_surname").change ->
-    $("#online_application_badge_surname").val($("#online_application_surname").val())
- 
-  $("#online_application_citizenship_id").change ->
-    if $("#online_application_citizenship_id").val() != 'other'
-      $("#online_application_badge_country").val($("#online_application_citizenship_id option:selected").text())
-    else
-      $("#online_application_badge_country").val($("#online_application_other_citizenship").val())
- 
-  $("#online_application_other_citizenship").change ->
-    $("#online_application_badge_country").val($("#online_application_other_citizenship").val())
-
   ##### handle showing/hiding of certain sections for spouse/children ####
 
   ## First the code that will run on document load ##
