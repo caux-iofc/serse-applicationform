@@ -1,28 +1,19 @@
 
-<div class="row">
-  <div class="col-md-12 text-center">
-    <h1><%= t(:title) %></h1>
-  </div>
-</div>
-
 <%= form_for @online_application, url: wizard_path, role: 'form' do |f| %>
 
-<div class="row">
-  <div class="col-md-3">
-  </div>
-  <div class="col-md-6">
-    <div class="progress">
-      <div class="progress-bar" role="progressbar" aria-valuenow="70"
-      aria-valuemin="0" aria-valuemax="100" style="width:<%= ((wizard_steps.index(step) + 1)/wizard_steps.size.to_f*100).round -%>%">
-        <span align="center"><%= t(:step) -%> <%= wizard_steps.index(step) + 1 -%> <%= t(:out_of) -%> <%= wizard_steps.size -%></span>
+<div class="well">
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="progress">
+        <div class="progress-bar" role="progressbar" aria-valuenow="70"
+        aria-valuemin="0" aria-valuemax="100" style="width:<%= ((wizard_steps.index(step) + 1)/wizard_steps.size.to_f*100).round -%>%">
+          <span align="center"><%= t(:step) -%> <%= wizard_steps.index(step) + 1 -%> <%= t(:out_of) -%> <%= wizard_steps.size -%></span>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-md-3">
-  </div>
-</div>
 
-<div class="well">
   <div class="row">
     <div class="col-md-12">
       <%= error_messages_for :online_application %>
