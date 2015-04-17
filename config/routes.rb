@@ -61,6 +61,8 @@ SerseApplication::Application.routes.draw do
     resources :online_applications do
       resources :addresses
     end
+
+    match '/add_member' => 'online_applications/build#add_member'
     resources :build, controller: 'online_applications/build'
     match '/application_groups/submitted' => 'application_groups#submitted', :as => 'application_group_submitted'
     match '/application_groups/submit' => 'application_groups#submit', :as => 'submit_application_group'

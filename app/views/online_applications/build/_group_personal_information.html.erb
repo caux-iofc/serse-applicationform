@@ -14,18 +14,10 @@
     </div>
   </div>
 
-  <% @count = 2 -%>
-  <% @application_group.online_applications.each do |online_application| %>
-    <% if not online_application.relation == 'primary applicant' %>
+  <div id="members">
+    <%= render 'group_member_worker', :f => f, :child_index => Time.now.to_i %>
+  </div>
+</div>
 
-    <div class="col-md-12">
-      <hr>
-      <%= error_messages_for_object online_application %>
-    </div>
-      <%= f.fields_for :online_applications, online_application do |builder| %>
-        <%= render 'group_member_personal_information', :f => builder, :count => @count, :online_application => online_application %>
-        <% @count += 1 -%>
-      <% end %>
-    <% end %>
-  <% end %>
-
+<div class="row">
+  <%= link_to "Add a person", "#", remote: true, id: "add_member" -%>

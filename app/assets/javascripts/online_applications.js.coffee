@@ -1,5 +1,25 @@
 jQuery ->
 
+  update_member_counters = () ->
+    count = 2
+    $('.member-counter').each ->
+      $(@).html(count)
+      count = count + 1
+
+  # On document load, set the member counter numbers (if we need to)
+  update_member_counters()
+
+  $(document).on "click", "#add_member", (e) ->
+    e.preventDefault();
+    $.ajax
+      url: '/en/add_member'
+      success: (data) ->
+        el_to_add = $(data).html()
+        $('#members').append(el_to_add)
+        update_member_counters()
+      error: (data) ->
+        alert "Sorry, there was an error!"
+
   ## Default the year of arrival/departure to the current year
   dt = new Date(); 
   if ($('#online_application_arrival_1i').val() == '')

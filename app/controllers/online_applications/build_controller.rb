@@ -19,11 +19,6 @@ class OnlineApplications::BuildController < ApplicationController
       @online_application.group_registration = true
     end
 
-    if step == :group
-      # Add a blank item; TODO FIXME remove once we have the button to add an entry
-      @application_group.online_applications.build({:relation => 'other'})
-    end
-
     if step == :group or step == :detail or step == :visa or step == :confirmation
       # Because we use the @application_group object for these steps, we need to
       # make sure to explicitly update the status field which lives on the primary
@@ -34,6 +29,15 @@ class OnlineApplications::BuildController < ApplicationController
 
     populate_ethereal_variables
     render_wizard
+  end
+
+  def add_member
+    @count = @application_group.online_applications.count + 1
+    # Yeah, this is weird.
+    @application_group = ApplicationGroup.new()
+    @application_group.online_applications.build({:relation => 'other'})
+    populate_ethereal_variables
+    render "add_group_member", :layout => false
   end
 
   def update
