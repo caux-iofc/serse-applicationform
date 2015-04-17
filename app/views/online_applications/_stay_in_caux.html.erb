@@ -31,6 +31,22 @@
                </div>
              </td>
            </tr>
+           <tr class="show_for_all_but_primary_applicant">
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :arrival, t(:arrival) %><br />
+                 <%= @online_application.departure.nil? ? '' : @online_application.arrival.to_s(:db) -%>
+               </div>
+             </td>
+           </tr>
+           <tr class="show_for_all_but_primary_applicant">
+             <td colspan="2">
+               <div class="field">
+                 <span class="af_star">*</span><%= f.label :departure, t(:departure) %><br />
+                 <%= @online_application.departure.nil? ? '' : @online_application.departure.to_s(:db) -%>
+               </div>
+             </td>
+           </tr>
            <tr class="show_for_primary_applicant">
              <td>
                <div class="field" id="travel_car_train">

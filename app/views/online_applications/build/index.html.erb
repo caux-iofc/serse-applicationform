@@ -1,0 +1,77 @@
+<div class="well">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3><%= t(:your_application_title) %></h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-2">
+      <label><%=t :firstname %></label>
+    </div>
+    <div class="col-md-2">
+      <label><%=t :surname %></label>
+    </div>
+    <div class="col-md-1">
+      <label><%=t :gender %></label>
+    </div>
+    <div class="col-md-2">
+      <label><%=t :arrival %></label>
+    </div>
+    <div class="col-md-2">
+      <label><%=t :departure %></label>
+    </div>
+    <div class="col-md-1">
+    </div>
+  </div>
+
+  <% @online_applications.each do |online_application| %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= online_application.relation == 'primary applicant' ? '' : t(online_application.relation) %>
+    </div>
+    <div class="col-md-2">
+      <strong><%= online_application.firstname %></strong>
+    </div>
+    <div class="col-md-2">
+      <strong><%= online_application.surname %></strong>
+    </div>
+    <div class="col-md-1">
+      <%= online_application.gender == 1 ? t(:female) : t(:male) %>
+    </div>
+    <div class="col-md-2">
+      <%= online_application.arrival ? online_application.arrival.to_s(:pretty) : '' %>
+    </div>
+    <div class="col-md-2">
+      <%= online_application.departure ? online_application.departure.to_s(:pretty) : '' %>
+    </div>
+    <div class="col-md-1">
+      <%= link_to '', build_path(Wicked::FIRST_STEP, :online_application_id => online_application.id), :class => 'glyphicon glyphicon-pencil' %>
+      <%= link_to '', online_application, :confirm => t(:are_you_sure), :method => :delete, :class => 'glyphicon glyphicon-trash' %>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h3><%=t :application_not_yet_submitted_html %></h3>
+    </div>
+  </div>
+
+</div>
+
+<div class="row spacer">
+  <div class="col-md-3 col-md-offset-2">
+    <div class="actions">
+      <%= link_to t(:add_a_person_to_this_application), new_build_path, class: 'btn btn-info' %>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="actions">
+      <%= link_to t(:submit_this_application), submit_application_group_path, class: 'btn btn-default' %>
+    </div>
+  </div>
+</div>
+

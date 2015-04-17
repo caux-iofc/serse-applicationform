@@ -1,45 +1,81 @@
-<%=t :aeub_2015_intro_html %>
+<div class="row">
+  <div class="col-md-12">
+    <%=t :aeub_2015_intro_html %>
+  </div>
+</div>
 
 <%= oac.fields_for :variables do |var| -%>
-<p><span class="af_star">*</span><strong><%=t :aeub_2015_name_and_role %></strong><br/>
-<%= var.text_field :aeub_2015_name_and_role, :value => oac.object.variables["aeub_2015_name_and_role"], :size => '80' %>
-</p>
 
-<%=t :aeub_2015_priority_html %>
-<p>
-  <table>
-     <%= oac.fields_for :online_application_conference_workstreams do |cw| -%>
-     <tr>
-       <td>
-         <span class="af_star">*</span><strong><%=t cw.object.preference %></strong>
-         <%= cw.hidden_field :preference, :value => cw.object.preference %>
-       </td>
-       <td><%= cw.select(:conference_workstream_id, ConferenceWorkstream.with_translations.where('conference_id = ?',oac.object.conference.id).collect {|p| [ p.name, p.id ] }, {:include_blank => t(:choose_one)}) %></td>
-     </tr>
-     <% end -%>
-     <tr>
-       <td colspan="2">
-         <div id="aeub_2015_first_choice_extra" style="display:none; border-style:solid; border-width:1px; padding:5px;"></div><br/>
-         <div id="aeub_2015_second_choice_extra" style="display:none; border-style:solid; border-width:1px; padding:5px;"></div>
-      </td>
-     </tr>
-  </table>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group required">
+      <%= f.label :aeub_2015_name_and_role, t(:aeub_2015_name_and_role), class: 'control-label' %>
+      <%= var.text_field :name_and_role, { :value => oac.object.variables["name_and_role"], :class => 'form-control' } %>
+    </div>
+  </div>
+</div>
 
-<p><strong><%=t :aeub_2015_expectations%></strong><br/>
-<%= var.text_area :aeub_2015_expectations, :value => oac.object.variables["aeub_2015_expectations"], :cols => '80', :rows => '4' %>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <%=t :aeub_2015_priority_html %>
+  </div>
+</div>
 
-<p><strong><%=t :aeub_2015_instrument%></strong><br/>
-<%= var.text_area :aeub_2015_instrument, :value => oac.object.variables["aeub_2015_instrument"], :cols => '80', :rows => '4' %>
-</p>
+<%= oac.fields_for :online_application_conference_workstreams do |cw| -%>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group required">
+      <%= f.label :preference, t(cw.object.preference), class: 'control-label' %>
+      <%= cw.hidden_field :preference, :value => cw.object.preference %>
+    </div>
+  </div>
+</div>
 
-<p>
-<span class="af_star">*</span><strong><%=t :I_will_come_as %></strong><br/>
-  <%= oac.check_box :role_participant %><%=t 'participant' %>&nbsp;&nbsp;
-  <%= oac.check_box :role_speaker %><%=t 'speaker' %>&nbsp;&nbsp;
-  <%= oac.check_box :role_team %><%=t 'team' %>&nbsp;&nbsp;
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group required">
+      <%= cw.select(:conference_workstream_id, ConferenceWorkstream.with_translations.where('conference_id = ?',oac.object.conference.id).collect {|p| [ p.name, p.id ] }, {:include_blank => t(:choose_one), :class => 'form-control'}) %>
+    </div>
+  </div>
+</div>
 <% end -%>
 
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group required">
+       <div id="aeub_2015_first_choice_extra" style="display:none; border-style:solid; border-width:1px; padding:5px;"></div><br/>
+       <div id="aeub_2015_second_choice_extra" style="display:none; border-style:solid; border-width:1px; padding:5px;"></div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.label :aeub_2015_expectations, t(:aeub_2015_expectations), class: 'control-label' %>
+      <%= var.text_area :aeub_2015_expectations, { :value => oac.object.variables["aeub_2015_expectations"], :rows => '4', :class => 'form-control' } %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group">
+      <%= f.label :aeub_2015_instrument, t(:aeub_2015_instrument), class: 'control-label' %>
+      <%= var.text_area :aeub_2015_instrument, { :value => oac.object.variables["aeub_2015_instrument"], :rows => '4', :class => 'form-control' } %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group required">
+      <%= f.label :role, t(:I_will_come_as), class: 'control-label' %>
+      <%= oac.check_box :role_participant %> <%=t 'participant' %>&nbsp;&nbsp;
+      <%= oac.check_box :role_speaker %> <%=t 'speaker' %>&nbsp;&nbsp;
+      <%= oac.check_box :role_team %> <%=t 'team' %>&nbsp;&nbsp;
+    </div>
+  </div>
+</div>
+<% end -%>
 

@@ -5,8 +5,8 @@ class ApplicationGroup < ActiveRecord::Base
 
   has_many :online_applications
 
-  validates :data_protection_consent, :acceptance => { :accept => true, :message => I18n.t(:confirm_read_documents_error) }
-  validates :confirm_read_documents, :acceptance => { :accept => true, :message => I18n.t(:data_protection_consent_error) }
+  validates :data_protection_consent, :acceptance => { :accept => true, :message => I18n.t(:data_protection_consent_error) }
+  validates :confirm_read_documents, :acceptance => { :accept => true, :message => I18n.t(:confirm_read_documents_error) }
 
   def primary_applicant
     return self.online_applications.where('relation = ?','primary applicant').first

@@ -1,0 +1,60 @@
+
+  <div class="col-md-12">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h3><%=t :visa %></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <%= f.label :visa, t(:visa) %><br />
+        <%= f.check_box :visa %> <%=t :visa_needed %><br />
+        <%=t :visa_information_html %>
+      </div>
+    </div>
+    <div class="row visa_required_primary_applicant_only" style="display:none">
+      <div class="col-md-12">
+        <div class="form-group required">
+          <%= f.label :visa_reference_name, t(:visa_reference_name), class: 'control-label' %>
+          <%= f.text_field :visa_reference_name, :class => 'form-control' %>
+        </div>
+        <div class="form-group required">
+          <%= f.label :visa_reference_name, t(:visa_reference_email), class: 'control-label' %>
+          <%= f.text_field :visa_reference_email, :class => 'form-control' %>
+        </div>
+        <div class="form-group required">
+          <%= f.label :passport_number, t(:passport_number), class: 'control-label' %>
+          <%= f.text_field :passport_number, :class => 'form-control' %>
+        </div>
+        <div class="form-group required">
+          <%= f.label :passport_issue_place, t(:passport_issue_place), class: 'control-label' %>
+          <%= f.text_field :passport_issue_place, :class => 'form-control' %>
+        </div>
+        <div class="form-group required">
+          <span class="af_star">*</span><%= f.label :passport_issue_date, t(:passport_issue_date), class: 'control-label' %>
+          <%= f.date_select :passport_issue_date, { :include_blank => true, :start_year => Time.now.year - 10, :end_year => Time.now.year + 10 }, { :class => 'form-control' } %>
+        </div>
+        <div class="form-group required">
+          <span class="af_star">*</span><%= f.label :passport_expiry_date, t(:passport_expiry_date), class: 'control-label' %>
+          <%= f.date_select :passport_expiry_date, { :include_blank => true, :start_year => Time.now.year, :end_year => Time.now.year + 15 }, { :class => 'form-control' } %>
+        </div>
+        <div class="form-group required">
+          <%= f.label :passport_embassy, t(:passport_embassy), class: 'control-label' %>
+          <%= f.text_field :passport_embassy, :class => 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%=t :visa_information_2 %>
+          <script language="JavaScript">
+          <!--
+          document.write ('<A HREF="mai')
+          document.write ('lto:reservation')
+          document.write ('&#64;')
+          document.write ('caux.ch">reservation')
+          document.write ('&#64;')
+          document.write ('caux.ch</A>')
+          // -->
+          </script>.
+        </div>
+      </div>
+    </div>
+  </div>

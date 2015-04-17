@@ -1,42 +1,21 @@
 <%= form_for(@application_group) do |f| %>
+<div class="well">
+  <div class="row">
+    <div class="col-md-12">
+      <%= error_messages_for :application_group %>
+    </div>
+  </div>
 
-<table class="tablerow">
-<tr>
-  <td class="pagetitle">
-    <h1><%= t(:title) %></h1>
-  </td>
-</tr>
-</tr>
-<tr>
-   <td class="af_center">
-    <%= error_messages_for :application_group, :header_message => 'Error:', :message => nil %>
-   </td>
-</tr>
-<tr>
-  <td class="af_justify">
-<p align="center">
-<%=t :intro_part_1_html %>
-</p>
-</td>
-</tr>
+  <div class="row">
+    <div class="col-md-12">
+      <%= render 'confirmation', :f => f %>
+    </div>
+  </div>
+</div>
 
-<tr>
-  <td valign="top">
-    <table>
-      <tr>
-        <td colspan="2">
-          <%= render 'confirmation', :f => f %>
-      </td>
-      </tr>
-      <tr>
-        <td colspan="2" align="center">
-          <div class="actions">
-            <%= f.submit t(:register) %>
-          </div>
-        </td>
-      </tr>
-    </table>
-  </td>
-</tr>
-</table>
+<div class="row spacer">
+  <div class="col-md-2 col-md-offset-4">
+    <%= f.submit t(:register), class: 'btn btn-default' %>
+  </div>
+</div>
 <% end -%>

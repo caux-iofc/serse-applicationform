@@ -1,0 +1,158 @@
+
+<div class="col-md-12 text-center">
+    <h3><%=t :conference_fees %></h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group required">
+      <%=t :more_information_about_conference_fees_html %><br />
+      <input type="hidden" id="family_discount" name="family_discount" value="<%= @family_discount %>">
+      <div class="show_for_primary_applicant">
+        <%= f.check_box :family_discount %> <%= f.label :family_discount, t(:i_travel_with_my_family) %><br />
+      </div>
+      <div class="hide_for_children">
+        <%= f.check_box :sent_by_employer %> <%=f.label :sent_by_employer, t(:i_am_sent_by_my_employer) %><br />
+      </div>
+      <%= f.check_box :student %> <%=f.label :student, t(:i_am_a_student) %><br />
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-7">
+    &nbsp;
+  </div>
+  <div class="col-md-1">
+    <label><%=t :sponsors_nights %></label>
+  </div>
+  <div class="col-md-2" align="right">
+    <label><%=t :rate_per_night %></label>
+  </div>
+  <div class="col-md-2" align="right">
+    <label><%=t :total %></label>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-7">
+    <%=t :cost_of_your_stay %>
+  </div>
+  <div class="col-md-1">
+    <div id="nights_visible"></div>
+  </div>
+  <div class="col-md-2" align="right">
+    <div class="col-sm-9 align="right">
+      CHF
+    </div>
+    <div class="col-sm-3 align="right">
+      <span id="rate_per_night_visible"></span><input type="hidden" id="rate_per_night" name="rate_per_night">
+    </div>
+  </div>
+  <div class="col-md-2" align="right">
+    <div class="col-sm-9 align="right">
+      CHF
+    </div>
+    <div class="col-sm-3 align="right">
+      <span id="total_nights_visible"></span><input type="hidden" id="total_nights" name="total_nights">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-7">
+    <%=t :registration_fee %>
+  </div>
+  <div class="col-md-1">
+    &nbsp;
+  </div>
+  <div class="col-md-2" align="right">
+    &nbsp;
+  </div>
+  <div class="col-md-2" align="right">
+    <div class="col-sm-9 align="right">
+      CHF
+    </div>
+    <div class="col-sm-3 align="right">
+      <span id="registration_fee_visible"></span><input type="hidden" id="registration_fee" name="registration_fee">
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%=t :nightly_contribution_html %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-7">
+    <label><%=t :sponsors_name %></label>
+  </div>
+  <div class="col-md-1">
+    <label><%=t :sponsors_nights %></label>
+  </div>
+  <div class="col-md-4" align="right">
+    <label><%=t :sponsors_amount %></label>
+  </div>
+</div>
+
+<%= f.fields_for :sponsors do |sf| -%>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="form-group">
+        <%= sf.text_field :name, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="col-md-1">
+      <div class="form-group">
+        <%= sf.text_field :nights, { :class => 'form-control' } %>
+      </div>
+    </div>
+    <div class="col-md-4" align="right">
+      <div class="form-group col-sm-9">
+        CHF
+      </div>
+      <div class="form-group col-sm-3">
+        <span><%= sf.text_field :amount, { :class => 'form-control' } %></span>
+      </div>
+    </div>
+  </div>
+<% end -%>
+
+<div class="row">
+  <div class="col-md-12">
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div id="personalContribution">
+      <h4><%=t :please_check_total_html %></h4>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-10">
+    <label><%=t :personal_contribution_html %></label>
+  </div>
+  <div class="col-md-2" align="right">
+     <strong>CHF <span id="total_automatic">0</span></strong><br />
+  </div>
+
+  <%= f.hidden_field :calculated_nights %>
+  <%= f.hidden_field :calculated_night_rate, :size => 6 %>
+  <%= f.hidden_field :calculated_registration_fee, :size => 6 %>
+  <%= f.hidden_field :calculated_total_personal_contribution, :size => 6 %>
+  <%= f.hidden_field :calculated_rate_and_fee_details %>
+

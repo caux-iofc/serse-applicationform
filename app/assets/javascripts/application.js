@@ -8,6 +8,7 @@
 //= require jquery_ujs
 //= require i18n
 //= require i18n/translations
+//= require bootstrap-sprockets
 //= require_tree .
 
 // Cf. http://stackoverflow.com/questions/531393/how-to-detect-if-cookies-are-disabled-is-it-possible

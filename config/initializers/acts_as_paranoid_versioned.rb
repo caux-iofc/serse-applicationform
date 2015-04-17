@@ -14,6 +14,9 @@ module ActiveRecord
                 # call the acts_as_paranoid delete function
                 self.class.delete_all(:id => self.id)
 
+                # Skip unsaved records
+                return if self.id.nil?
+
                 # get the 'deleted' object
                 tmp = self.class.unscoped.find(id) 
  

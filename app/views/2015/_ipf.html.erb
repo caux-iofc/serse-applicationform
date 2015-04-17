@@ -1,15 +1,24 @@
 
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group required">
+      <%= oac.label :role, t(:I_will_come_as), class: 'control-label' %>
+      <%= oac.check_box :role_participant %> <%=t 'participant' %>&nbsp;&nbsp;
+      <%= oac.check_box :role_team %> <%=t 'team' %>&nbsp;&nbsp;
+    </div>
+  </div>
+</div>
+
 <%= oac.fields_for :variables do |var| -%>
 
-<p>
-<span class="af_star">*</span><strong><%=t :I_will_come_as %></strong><br/>
-  <%= oac.check_box :role_participant %><%=t 'participant' %>&nbsp;&nbsp;
-  <%= oac.check_box :role_team %><%=t 'team' %>&nbsp;&nbsp;
-</p>
-
-<p><span class="af_star">*</span><strong><%=t :ipf_2015_expectations %></strong><br/>
-<%= var.text_area :ipf_2015_expectations, :value => oac.object.variables["ipf_2015_expectations"], :cols => '80', :rows => '4' %>
-</p>
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group required">
+      <%= var.label :ipf_2015_expectations, t(:ipf_2015_expectations), :class => 'control-label' %>
+      <%= var.text_area :ipf_2015_expectations, { :value => oac.object.variables["ipf_2015_expectations"], :rows => 4, :class => 'form-control' } %>
+    </div>
+  </div>
+</div>
 
 <% end -%>
 

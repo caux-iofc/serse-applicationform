@@ -1,0 +1,4 @@
+<%= render :layout => 'form' do |f| %>  
+  <%= f.hidden_field :relation, :value => @online_application.relation %>
+  <%= render 'visa', :f => f %>
+<% end %>

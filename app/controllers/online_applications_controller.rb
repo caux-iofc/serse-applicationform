@@ -8,10 +8,12 @@ class OnlineApplicationsController < ApplicationController
     @online_applications = OnlineApplication.find_all_by_application_group_id(@ag.id)
 
     if @online_applications.size == 0 then
-      redirect_to :action => :new
+      redirect_to new_build_path
+      return
+    elsif @online_applications.size == 1 and @online_applications.first.status.nil? or @online_applications.first.status != 'confirmation' then
+      redirect_to build_path
       return
     end
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @online_applications }
@@ -222,11 +224,12 @@ class OnlineApplicationsController < ApplicationController
       @online_application.application_group.destroy
       # This application group is now void
       session[:application_group_id] = 0
+    else
+      session[:online_application_id] = @online_application.application_group.online_applications.first
     end
 
     respond_to do |format|
-      format.html { redirect_to online_applications_url }
-      format.json { head :ok }
+      format.html { redirect_to build_index_url }
     end
   end
 

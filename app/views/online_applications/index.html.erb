@@ -30,7 +30,7 @@
     <td><%= online_application.gender == 1 ? t(:female) : t(:male) %></td>
     <td><%= online_application.arrival.to_s(:pretty) %></td>
     <td><%= online_application.departure.to_s(:pretty) %></td>
-    <td><%= link_to t(:edit), edit_online_application_path(online_application) %></td>
+    <td><%= link_to t(:edit), build_path(Wicked::FIRST_STEP, :online_application_id => online_application.id) %></td>
     <td><%= link_to t(:remove), online_application, :confirm => t(:are_you_sure), :method => :delete %></td>
   </tr>
 <% end %>
@@ -45,7 +45,7 @@
 <table>
 <tr>
 <td>
-<%= button_to t(:add_a_person_to_this_application), new_online_application_path, :method => :get %>
+<%= button_to t(:add_a_person_to_this_application), new_build_path, :method => :get %>
 </td>
 <td>
 <%= button_to t(:submit_this_application), submit_application_group_path, :method => :get %>

@@ -121,16 +121,16 @@ jQuery ->
 
   ## First the code that will run on document load ##
   if $('#online_application_confirmation_letter_via_fax').is(':checked') and $('#online_application_relation').val() == 'primary applicant'
-    $("#fax_required").show()
+    $("#fax_required").addClass('required');
   else
-    $("#fax_required").hide()
+    $("#fax_required").removeClass('required');
 
   ## And then all the hooks ##
   $('input:radio[name="online_application[confirmation_letter_via]"]').change ->
     if $('#online_application_confirmation_letter_via_fax').is(':checked') or $('#online_application_visa').is(':checked')
-      $("#fax_required").show()
+      $("#fax_required").addClass('required');
     else
-      $("#fax_required").hide()
+      $("#fax_required").removeClass('required');
     if $('#online_application_confirmation_letter_via_fax').is(':checked')
       alert(I18n.t("ensure_fax_number"))
 
@@ -215,6 +215,10 @@ jQuery ->
     $(".show_for_primary_applicant").show()
   else
     $(".show_for_primary_applicant").hide()
+  if $('#online_application_relation').val() == 'primary applicant'
+    $(".show_for_all_but_primary_applicant").hide()
+  else
+    $(".show_for_all_but_primary_applicant").show()
 
 
   ## And then all the hooks ##
@@ -362,12 +366,20 @@ jQuery ->
     if !isNaN(birthdate)
       age = ~~((now.getTime() - birthdate.getTime()) / YEAR)
 
+    day_visit = 0
+
     nights = 0
     if (!isNaN(departure) and !isNaN(arrival))
       nights = Math.round((departure.getTime() - arrival.getTime()) / DAY)
 
     if nights < 0
       nights = 0
+    else if nights == 0
+      day_visit = 1
+
+    if $("#online_application_day_visit_true").is(':checked')
+      # We force the night_rate and the registration-fee below for the day visitor case.
+      day_visit = 1
 
     registration_fee = 100
     night_rate = 165
@@ -465,7 +477,7 @@ jQuery ->
       night_rate = 63
       calculated_rate_and_fee_details += 'Team: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-    if $("#online_application_day_visit_true").is(':checked')
+    if day_visit == 1
       night_rate = 55
       registration_fee = 0
       calculated_rate_and_fee_details += 'Day visit: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
