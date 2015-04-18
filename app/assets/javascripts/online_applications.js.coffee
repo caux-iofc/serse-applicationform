@@ -1,5 +1,6 @@
 jQuery ->
 
+  # Member counter for the details form
   update_member_counters = () ->
     count = 2
     $('.member-counter').each ->
@@ -30,15 +31,15 @@ jQuery ->
   ##### handle diet_other ####
 
   ## First the code that will run on document load ##
-  if ($('#diet_check_other').is(':checked'))
-    $("#diet_other_text").show()
-  else
-    $("#diet_other_text").hide()
+  $("input[class^=diet_other_]").each ->
+    if $(this).is(':checked')
+      $("." + $(this).attr('class') + "_subform").show()
+    else
+      $("." + $(this).attr('class') + "_subform").hide()
 
-  ## And then all the hooks ##
-  $("#diet_check_other").change ->
-    $("#diet_other_text").toggle()
-    false
+  ## And then all the hooks
+  $("input[class^=diet_other_]").change ->
+    $("." + $(this).attr('class') + "_subform").toggle()
  
   ##### handle ramadan ####
 
