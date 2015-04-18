@@ -1,5 +1,5 @@
 
-  <%= f.fields_for :online_applications, :child_index => child_index do |builder| %>
+  <%= f.fields_for :online_applications, :child_index => (defined?(child_index) ? child_index : nil) do |builder| %>
     <% if not builder.object.relation == 'primary applicant' %>
       <div class="col-md-12">
         <hr>
