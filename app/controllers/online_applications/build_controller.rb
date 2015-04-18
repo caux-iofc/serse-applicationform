@@ -108,7 +108,9 @@ class OnlineApplications::BuildController < ApplicationController
     elsif not @online_application.nil? and @online_application.status.nil?
       redirect_to wizard_path(steps.first, :online_application_id => @online_application.id)
       return
-    elsif not @online_application.nil? and @online_application.status != '' and @online_application.status != 'complete' then
+    elsif not @online_application.nil? and not @online_application.status.nil? and
+          not @online_application.status.empty? and @online_application.status != 'complete' and
+          not steps.index(@online_application.status.to_sym).nil? then
       redirect_to wizard_path(steps[steps.index(@online_application.status.to_sym)+1], :online_application_id => @online_application.id)
       return
     end
