@@ -18,7 +18,7 @@
         <div class="panel panel-danger">
           <div class="panel-heading">
             <h4 class="panel-title">
-              <%= t(:the_form_could_not_be_saved_because_it_contains) + " #{pluralize(@application_group.errors.count - 1, t(:error))}" + t(:please_scroll_down_for_details) -%>
+              <%= t(:the_form_could_not_be_saved_because_it_contains) + " #{pluralize(@application_group.online_applications.inject(0) { |count,oa| count + oa.errors.size }, t(:error))}" + t(:please_scroll_down_for_details) -%>
             </h4>
           </div>
         </div>
