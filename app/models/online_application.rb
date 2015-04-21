@@ -41,6 +41,7 @@ class OnlineApplication < ActiveRecord::Base
   end
 
   scope :primary_applicant, where("relation = 'primary applicant'")
+  scope :other_applicants, where("relation != 'primary applicant'")
 
   attr_accessor :the_request
 

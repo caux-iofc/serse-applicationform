@@ -79,6 +79,12 @@ class OnlineApplications::BuildController < ApplicationController
           # It would be, if inverse_of worked for has_many, which it does not (as of rails 3.2.21)...
           @online_application.application_group.save(:validate => false)
         end
+        if step == :dates_and_events
+          # Save the dates and events information for every participant in the group
+          @application_group.online_applications.other_applicants.each do |oa|
+            oa.update_attributes(params[:online_application])
+          end
+        end
       end
     else
       if not @application_group.update_attributes(params[:application_group])
