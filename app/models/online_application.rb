@@ -282,7 +282,7 @@ class OnlineApplication < ActiveRecord::Base
       I18n.locale = 'en'
       if oac.conference.name != 'Fifth annual Caux Forum for Human Security' and
          oac.conference.name != 'Winter gathering 2012/13' and
-         oac.conference.name != "Impact Initiatives for Change" and
+         oac.conference.name != "Impact Initiatives Challenge" and
          oac.conference.name != 'Winter gathering 2014/15' and
          not oac.conference.special and
          not oac.role_participant and not oac.role_speaker and not oac.role_team and not oac.role_exhibitor then
