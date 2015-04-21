@@ -12,10 +12,8 @@
   </div>
 </div>
 
-<% @application_group.online_applications.each do |online_application| %>
-  <%= f.fields_for :online_applications, online_application do |builder| %>
-    <%= render 'group_confirmation', :f => builder, :online_application => online_application %>
-  <% end %>
-<% end -%>
+<%= f.fields_for :online_applications do |builder| %>
+  <%= render 'group_confirmation', :f => builder, :online_application => builder.object %>
+<% end %>
 
 <% end %>
