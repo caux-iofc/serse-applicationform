@@ -85,6 +85,7 @@ class OnlineApplications::BuildController < ApplicationController
         # We can't use render_wizard directly here, because @online_application validates fine,
         # but this step is tied to the validation of application_group. Yes, we're doing silly
         # things here.
+        populate_ethereal_variables
         show
         return
       end
@@ -196,6 +197,18 @@ protected
       @family_discount = @application_group.primary_applicant.family_discount
     else
       @family_discount = false
+    end
+
+    if step == :confirmation
+      # Just default (force) the info fields to 'yes'. This is sneaky, but
+      # there's no good way to tell if they have never been set: after one failed
+      # validation they are no longer nil...
+      @application_group.data_protection_caux_info = true
+      @application_group.data_protection_local_info = true
+      # the confirmation page needs to store a few fields on the application group object
+      @show_ag_errors = true
+    else
+      @show_ag_errors = false
     end
   end
 

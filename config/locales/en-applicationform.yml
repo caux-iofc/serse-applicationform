@@ -169,7 +169,7 @@ en:
   must_be_valid_now: " must be valid now"
   register: "Register!"
   confirmation: "Confirmation"
-  confirm_read_documents_text_html: "I/we confirm that I/we have read the <a href=\"http://www.caux.iofc.org/en/2014\" target=\"_new\">documents</a> relating to the Caux conferences and would like to take part in the conference."
+  confirm_read_documents_text_html: "I/we confirm that I/we have read the documents relating to the Caux conferences and would like to take part in the conference."
   data_protection_consent_text: "I consent for my/our personal data to be held by the Caux Conference Secretariat for the purpose of communicating with me about my registration this year."
   data_protection_caux_info_text: "Yes, I wish to regularly receive information about future International Caux Conferences (by email)."
   data_protection_local_info_text: "Yes, I wish to regularly receive information about the activities of Initiatives of Change in my country of residence."

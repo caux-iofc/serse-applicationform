@@ -187,7 +187,7 @@ fr:
   addresses: Adresse permanente
   email_confirmation: Adresse courriel (confirmation)
   language_missing: "Vous devez préciser au moins une langue"
-  confirm_read_documents_text_html: "Je confirme/nous confirmons avoir lu les <a href=\"http://www.caux.iofc.org/fr/2014\" target=\"_new\">documents</a> concernant les rencontres de Caux et je souhaite/nous souhaitons y participer."
+  confirm_read_documents_text_html: "Je confirme/nous confirmons avoir lu les documents concernant les rencontres de Caux et je souhaite/nous souhaitons y participer."
   data_protection_caux_info_text: "J'aimerais recevoir des informations régulières sur les futures rencontres de Caux par couriel."
   data_protection_local_info_text: "J'aimerais recevoir des informations régulières sur les activités d'Initiatives et Changement dans mon pays de résidence."
 
