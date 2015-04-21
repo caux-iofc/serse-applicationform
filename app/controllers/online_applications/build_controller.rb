@@ -123,8 +123,7 @@ class OnlineApplications::BuildController < ApplicationController
 protected
 
   def finish_wizard_path
-    # this is the overview page where you can add people to your application
-    build_index_path
+    application_group_submitted_path
   end
 
   def populate_ethereal_variables
