@@ -88,6 +88,10 @@ class OnlineApplications::BuildController < ApplicationController
         populate_ethereal_variables
         show
         return
+      elsif step == :confirmation
+        # We're done
+        @application_group.complete = true
+        @application_group.save
       end
     end
 
@@ -103,7 +107,7 @@ class OnlineApplications::BuildController < ApplicationController
   # GET /online_applications.json
   def index
     @online_applications = OnlineApplication.find_all_by_application_group_id(@application_group.id)
-    if @online_applications.size == 0
+    if @online_applications.size == 0 or @application_group.complete
       redirect_to new_build_path
       return
     elsif not @online_application.nil? and @online_application.status.nil?
@@ -215,7 +219,8 @@ protected
     if session.nil? or
        not session.has_key?(:application_group_id) or
        session[:application_group_id] == 0 or
-       ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first.nil? then
+       ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first.nil? or
+       ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first.complete then
       begin
         # new application group
         @application_group = ApplicationGroup.new()
