@@ -214,8 +214,16 @@ protected
       # validation they are no longer nil...
       @application_group.data_protection_caux_info = true
       @application_group.data_protection_local_info = true
-      # the confirmation page needs to store a few fields on the application group object
+    end
+
+    if step == :group or step == :confirmation
+      # this page needs to store a few fields on the application group object
       @show_ag_errors = true
+      if step == :group
+        @show_only_ag_errors = true
+      else
+        @show_only_ag_errors = false
+      end
     else
       @show_ag_errors = false
     end

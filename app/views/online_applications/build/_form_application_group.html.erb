@@ -23,22 +23,47 @@
               </h4>
             </div>
           <% else -%>
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <%= t(:the_form_could_not_be_saved_because_it_contains) + " #{pluralize(@application_group.errors.size, t(:error))}:" -%>
-              </h4>
-            </div>
-            <div class="panel-body">
-              <ul>
-                <% @application_group.errors.each_with_index.map do |msg| -%>
-                  <% if (I18n.t(msg[0]) != '') then -%>
-                    <li><strong><%= I18n.t(msg[0].to_s.gsub(/\./,'_')) -%></strong><%= msg[1] -%></li>
-                  <% else -%>
-                    <li><%= msg[1] -%></li>
+            <% if @show_only_ag_errors -%>
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <%= t(:the_form_could_not_be_saved_because_it_contains) + " #{t(:error).pluralize(2)}" + t(:please_scroll_down_for_details) -%>
+                </h4>
+              </div>
+              <% if @application_group.errors.each_with_index.reject { |e| puts e[0][0].to_s; e[0][0].to_s =~ /^online_application/ }.size > 0 -%>
+              <div class="panel-body">
+                <ul>
+                  <% @application_group.errors.each_with_index.map do |msg| -%>
+                    <% if (I18n.t(msg[0]) != '') then -%>
+                      <% if (@show_only_ag_errors and not (msg[0].to_s =~ /^online_application/)) or !@show_only_ag_errors -%>
+                        <li><strong><%= I18n.t(msg[0].to_s.gsub(/\./,'_')) -%></strong> <%= msg[1] -%></li>
+                      <% end -%>
+                    <% else -%>
+                      <li><%= msg[1] -%></li>
+                    <% end -%>
                   <% end -%>
-                <% end -%>
-              </ul>
-            </div>
+                </ul>
+              </div>
+              <% end -%>
+            <% else -%>
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <%= t(:the_form_could_not_be_saved_because_it_contains) + " #{pluralize(@application_group.errors.size, t(:error))}:" -%>
+                </h4>
+              </div>
+              <div class="panel-body">
+                <ul>
+                  <% @application_group.errors.each_with_index.map do |msg| -%>
+                    <% if (I18n.t(msg[0]) != '') then -%>
+                      <% if (@show_only_ag_errors and not (msg[0].to_s =~ /^online_application/)) or !@show_only_ag_errors -%>
+                        <li><strong><%= I18n.t(msg[0].to_s.gsub(/\./,'_')) -%></strong> <%= msg[1] -%></li>
+                      <% end -%>
+                    <% else -%>
+                      <li><%= msg[1] -%></li>
+                    <% end -%>
+                  <% end -%>
+                </ul>
+              </div>
+            <% end -%>
           <% end -%>
         </div>
       <% end -%>
