@@ -80,6 +80,7 @@ class OnlineApplications::BuildController < ApplicationController
           @online_application.application_group.save(:validate => false)
         end
         if step == :dates_and_events
+          params[:online_application].delete('relation')
           # Save the dates and events information for every participant in the group
           @application_group.online_applications.other_applicants.each do |oa|
             oa.update_attributes(params[:online_application])
