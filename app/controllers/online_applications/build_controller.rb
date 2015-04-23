@@ -83,6 +83,24 @@ class OnlineApplications::BuildController < ApplicationController
           params[:online_application].delete('relation')
           # Save the dates and events information for every participant in the group
           @application_group.online_applications.other_applicants.each do |oa|
+            # Sub-objects get their own IDs for each participant, so we need to rewrite them for update/delete
+            @online_application_conferences_attributes = params[:online_application]['online_application_conferences_attributes']
+            @online_application_conferences_attributes.each do |index,oac|
+              if oac.has_key?('id') and oa.online_application_conferences.collect { |o| o.conference_id }.include?(oac['conference_id'].to_i)
+                oac['id'] = oa.online_application_conferences.where(:conference_id => oac['conference_id']).first.id
+              end
+              @online_application_conference_workstreams_attributes = oac["online_application_conference_workstreams_attributes"]
+              next if @online_application_conference_workstreams_attributes.nil?
+              next if not oac.has_key?('id') or oac['id'].nil? or oac['id'].to_s.empty?
+              # Unfortunately, we also need to rewrite IDs on sub-sub-objects...
+              @online_application_conference_workstreams_attributes.each do |i,oacw|
+                db_oac = OnlineApplicationConference.find(oac['id'].to_i)
+                if oacw.has_key?('id') and db_oac.online_application_conference_workstreams.collect { |o| o.preference }.include?(oacw['preference'])
+                  oacw['id'] = db_oac.online_application_conference_workstreams.where(:preference => oacw['preference']).first.id
+                end
+              end
+            end
+            params[:online_application]['online_application_conferences_attributes'] = @online_application_conferences_attributes
             oa.update_attributes(params[:online_application])
           end
         end
