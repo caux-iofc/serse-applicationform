@@ -125,6 +125,13 @@ en:
   i_am_sent_by_my_employer: "Full Premium, special Program,  I am sent by my company/my organisation"
   i_am_a_student: "I am a student / Amis de Caux Member / IofC regional team member"
 
+  please_choose_your_rate: "Please choose your payment rate"
+  full_premium: "Full premium"
+  standard: "Standard"
+  student: "Student"
+  amis_de_caux: "amis de Caux"
+  local_iofc_team_member: "local IofC team member"
+
   cost_of_your_stay: "Cost of your stay"
 
   rate_per_night: "Night rate"

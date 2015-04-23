@@ -51,6 +51,19 @@ class OnlineApplication < ActiveRecord::Base
   attr_accessor :group_registration
   attr_accessor :group_name
 
+  attr_accessor :rate_per_night
+  attr_accessor :total_nights
+  attr_accessor :registration_fee
+
+  # these accessors are used in the finance step to pass information to the javascript
+  # that calculates the rates
+  attr_accessor :caux_scholar
+  attr_accessor :caux_intern
+  attr_accessor :caux_artist
+  attr_accessor :conference_team
+  attr_accessor :conference_speaker
+  attr_accessor :week_of_international_community
+
   after_validation() do
     # Keep track of validation errors, so that we can improve the user experience
     if not errors.empty? then

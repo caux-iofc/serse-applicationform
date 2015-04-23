@@ -46,7 +46,7 @@ class OnlineApplications::BuildController < ApplicationController
       redirect_to :error
       return
     end
-    if step != :group and step != :detail and step != :visa and step != :confirmation
+    if step != :group and step != :detail and step != :visa and step != :confirmation and step != :finances
       @online_application.the_request = request
 
       # If no check boxes are checked, the form does not return those fields.
@@ -101,7 +101,7 @@ class OnlineApplications::BuildController < ApplicationController
               end
             end
             params[:online_application]['online_application_conferences_attributes'] = @online_application_conferences_attributes
-            oa.update_attributes(params[:online_application])
+            oa.update_attributes!(params[:online_application])
           end
         end
       end
@@ -245,6 +245,23 @@ protected
       end
     else
       @show_ag_errors = false
+    end
+
+    if step == :finances
+      @application_group.online_applications.each do |oa|
+        if not oa.rate.nil?
+          oa.rate = 'staff' if oa.staff
+          oa.rate = 'volunteer' if oa.volunteer
+          oa.rate = 'interpreter' if oa.interpreter
+        end
+        # these fields are used to pass information to the javascript that calculates the rates
+        oa.caux_scholar = (oa.training_programs.collect { |tp| tp.name }.include?('Caux Scholars Program') ? 1 : 0)
+        oa.caux_intern = ((oa.training_programs.collect { |tp| tp.name }.grep /^Caux Interns Program/).empty? ? 0 : 1)
+        oa.caux_artist = (oa.training_programs.collect { |tp| tp.name }.include?('Caux Artists Program') ? 1 : 0)
+        oa.week_of_international_community = (oa.training_programs.collect { |tp| tp.name }.include?('Week of International Community') ? 1 : 0)
+        oa.conference_team = (oa.online_application_conferences.collect { |oac| oac.role_team }.include?(true) ? 1 : 0)
+        oa.conference_speaker = (oa.online_application_conferences.collect { |oac| oac.role_speaker }.include?(true) ? 1 : 0)
+      end
     end
   end
 

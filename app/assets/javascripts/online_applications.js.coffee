@@ -22,7 +22,7 @@ jQuery ->
         alert "Sorry, there was an error!"
 
   ## Default the year of arrival/departure to the current year
-  dt = new Date(); 
+  dt = new Date();
   if ($('#online_application_arrival_1i').val() == '')
     $("#online_application_arrival_1i").val(dt.getYear()+1900)
   if ($('#online_application_departure_1i').val() == '')
@@ -40,7 +40,7 @@ jQuery ->
   ## And then all the hooks
   $("input[class^=diet_other_]").change ->
     $("." + $(this).attr('class') + "_subform").toggle()
- 
+
   ##### handle ramadan ####
 
   ## First the code that will run on document load ##
@@ -128,7 +128,7 @@ jQuery ->
 
   ## And then all the hooks ##
   $('input:radio[name="online_application[previous_visit]"]').click ->
-    if $('#online_application_previous_visit_false').is(':checked') 
+    if $('#online_application_previous_visit_false').is(':checked')
       if $('#online_application_relation').val() == 'primary applicant'
         $("#heard_about_div").show()
       $("#previous_year_div").hide()
@@ -181,7 +181,7 @@ jQuery ->
   ## And then all the hooks
   $("input[class^=visa_checkbox_]").change ->
     $("." + $(this).attr('class') + "_subform").toggle()
-  
+
   ##### handle showing/hiding of certain sections for spouse/children ####
 
   ## First the code that will run on document load ##
@@ -341,194 +341,231 @@ jQuery ->
     DAY = 1000 * 60 * 60  * 24
     YEAR = DAY * 365.25
 
-    arrival = new Date($('#online_application_arrival_1i').val() + '/' +  $('#online_application_arrival_2i').val() + '/' + $('#online_application_arrival_3i').val())
-    departure = new Date($('#online_application_departure_1i').val() + '/' +  $('#online_application_departure_2i').val() + '/' + $('#online_application_departure_3i').val())
-    birthdate = new Date($('#online_application_date_of_birth_1i').val() + '/' +  $('#online_application_date_of_birth_2i').val() + '/' + $('#online_application_date_of_birth_3i').val())
-    now = new Date()
+    exports = this
 
-    age = -1
-    if !isNaN(birthdate)
-      age = ~~((now.getTime() - birthdate.getTime()) / YEAR)
+    exports.sponsors = []
+    exports.total_automatic = 0
+    exports.total_registration_fee = 0
 
-    day_visit = 0
+    # Walk the applications in the group/family
+    $('.oa-counter').each ->
 
-    nights = 0
-    if (!isNaN(departure) and !isNaN(arrival))
-      nights = Math.round((departure.getTime() - arrival.getTime()) / DAY)
+      # base_id looks like 'application_group_online_applications_attributes_0'
+      base_id = '#' + $(this).attr('id')
 
-    if nights < 0
+      arrival = new Date($(base_id + '_arrival').val())
+      departure = new Date($(base_id + '_departure').val())
+      now = new Date()
+
       nights = 0
-    else if nights == 0
-      day_visit = 1
+      if (!isNaN(departure) and !isNaN(arrival))
+        nights = Math.round((departure.getTime() - arrival.getTime()) / DAY)
 
-    if $("#online_application_day_visit_true").is(':checked')
-      # We force the night_rate and the registration-fee below for the day visitor case.
-      day_visit = 1
+      if nights < 0
+        nights = 0
 
-    registration_fee = 100
-    night_rate = 165
+      date_of_birth = new Date($(base_id + '_date_of_birth').val())
 
-    calculated_rate_and_fee_details = 'Regular: night rate: CHF 165; registration fee: CHF 100\n'
+      age = -1
+      if !isNaN(date_of_birth)
+        age = ~~((now.getTime() - date_of_birth.getTime()) / YEAR)
 
-    if $("#online_application_student").is(':checked')
-      night_rate = 105
+      day_visit = 0
+      if $(base_id + "_day_visit").val() == '1'
+        # We force the night_rate and the registration-fee below for the day visitor case.
+        day_visit = 1
+
+      # These are the standard fees
       registration_fee = 100
-      calculated_rate_and_fee_details += 'Student: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      night_rate = 165
+      calculated_rate_and_fee_details = 'Standard: night rate: CHF 165; registration fee: CHF 100\n'
 
-    if age >= 0 and age <= 5
-      night_rate = 0
-      registration_fee = 0
-      calculated_rate_and_fee_details += 'Child 0-5: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-    else if age >= 6 and age <= 17
-      night_rate = 50
-      registration_fee = 50
-      calculated_rate_and_fee_details += 'Age 6-17: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-    else if age >= 18 and age <= 25
-      night_rate = 63
-      registration_fee = 100
-      calculated_rate_and_fee_details += 'Age 18-25: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
-    if $("#online_application_full_time_volunteer").is(':checked')
-      night_rate = 63
-      registration_fee = 0
-      calculated_rate_and_fee_details += 'Full time volunteer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
-    if $("#online_application_staff").is(':checked')
-      night_rate = 63
-      registration_fee = 0
-      $("#online_application_sponsors_attributes_0_name").val('IofC Switzerland')
-      $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(63)
-      calculated_rate_and_fee_details += 'Staff: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-    else if $("#online_application_volunteer").is(':checked')
-      night_rate = 63
-      registration_fee = 0
-      $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
-      $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(63)
-      calculated_rate_and_fee_details += 'Volunteer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-    else if $("#online_application_interpreter").is(':checked')
-      night_rate = 63
-      registration_fee = 0
-      $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
-      $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(63)
-      calculated_rate_and_fee_details += 'Interpreter: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-    else if $("[id='tp_check_caux scholars program']").is(':checked')
-      night_rate = 63
-      registration_fee = 50
-      $("#online_application_sponsors_attributes_0_name").val('Caux Scholars Program')
-      $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(63)
-      calculated_rate_and_fee_details += 'Caux Scholars Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-    else if $("[id='tp_check_caux interns program – session 1']").is(':checked') or
-            $("[id='tp_check_caux interns program – session 2']").is(':checked')
-      night_rate = 63
-      registration_fee = 250
-      $("#online_application_sponsors_attributes_0_name").val('Caux Interns Program')
-      $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(63)
-      calculated_rate_and_fee_details += 'Caux Interns Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-    else if $("[id='tp_check_week of international community']").is(':checked')
-      night_rate = 63 
-      registration_fee = 0
-      $("#online_application_sponsors_attributes_0_name").val('Conference Support Fund (CSF)')
-      $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(63)
-      calculated_rate_and_fee_details += 'Work week: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-    else if $("[id='tp_check_caux artists program']").is(':checked')
-      night_rate = 63
-      registration_fee = 50
-      $("#online_application_sponsors_attributes_0_name").val('Caux Artists Program')
-      $("#online_application_sponsors_attributes_0_nights").val(nights)
-      $("#online_application_sponsors_attributes_0_amount").val(63)
-      calculated_rate_and_fee_details += 'Caux Artists Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-    else if $("#online_application_sponsors_attributes_0_name").val() == 'IofC Switzerland' or
-            $("#online_application_sponsors_attributes_0_name").val() == 'Caux Scholars Program' or
-            $("#online_application_sponsors_attributes_0_name").val() == 'Caux Interns Program' or
-            $("#online_application_sponsors_attributes_0_name").val() == 'Caux Artists Program' or
-            $("#online_application_sponsors_attributes_0_name").val() == 'Conference Support Fund (CSF)'
-      $("#online_application_sponsors_attributes_0_name").val('')
-      $("#online_application_sponsors_attributes_0_nights").val('')
-      $("#online_application_sponsors_attributes_0_amount").val('')
-
-    if $('input[id$="_speaker"]').is(':checked')
-      registration_fee = 0
-      calculated_rate_and_fee_details += 'Speaker: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
-    if $('input[id$="_team"]').is(':checked')
-      registration_fee = 0
-      night_rate = 63
-      calculated_rate_and_fee_details += 'Team: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
-    if day_visit == 1
-      night_rate = 55
-      registration_fee = 0
-      calculated_rate_and_fee_details += 'Day visit: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
-    if $("#online_application_family_discount").is(':checked') and night_rate > 105
-      night_rate = 105
-      calculated_rate_and_fee_details += 'Family discount: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
-    if $("#family_discount").val() == 'true' and night_rate > 105
-      # Only the primary registrant for families pays the registration fee
-      night_rate = 105
-      registration_fee = 0
-      calculated_rate_and_fee_details += 'Family discount: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
-    if $("#online_application_relation").val() == 'spouse'
-      # Only the primary registrant for families pays the registration fee
-      registration_fee = 0
-      calculated_rate_and_fee_details += 'Spouse: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
-    if $("#online_application_relation").val() == 'child'
-      # Only the primary registrant for families pays the registration fee
-      registration_fee = 0
-      calculated_rate_and_fee_details += 'Child: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
-    if $("#online_application_support_renovation_fund").is(':checked')
-      night_rate = 220
-      calculated_rate_and_fee_details += 'Renovation fund: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
-    if $("#online_application_sent_by_employer").is(':checked')
-      if $("#online_application_day_visit_true").is(':checked')
-        night_rate = 100
-        registration_fee = 0
-      else
-        night_rate = 220
+      if $(base_id + '_rate_student').is(':checked')
+        night_rate = 105
         registration_fee = 100
-      calculated_rate_and_fee_details += 'Sent by employer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+        calculated_rate_and_fee_details += 'Student: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-    ##### aeub_2014: complicated messing with finance #####
-    if $('.aeub_2014_two_days_and_one_night').is(':checked')
-      # They wanted 1 day at CHF 165 + 1 day at CHF 55
-      if night_rate < 220
-        night_rate = 220
-      if nights < 1
-        nights = 1
-      calculated_rate_and_fee_details += 'AEUB 2014: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-      calculated_rate_and_fee_details += 'AEUB 2014: 2 days and one night\n'
+      if $(base_id + '_rate_amis_de_caux').is(':checked')
+        night_rate = 105
+        registration_fee = 100
+        calculated_rate_and_fee_details += 'amis de Caux: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-    if $('.aeub_2014_two_days_and_two_nights').is(':checked')
-      if night_rate < 165
-        night_rate = 165
-      if nights < 2
-        nights = 2
-      calculated_rate_and_fee_details += 'AEUB 2014: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-      calculated_rate_and_fee_details += 'AEUB 2014: 2 days and 2 nights\n'
+      if $(base_id + '_rate_local_iofc_team_member').is(':checked')
+        night_rate = 105
+        registration_fee = 100
+        calculated_rate_and_fee_details += 'local IofC team member: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-    $("#rate_per_night_visible").text(night_rate)
-    $("#rate_per_night").val(night_rate)
-    $("#registration_fee_visible").text(registration_fee)
-    $("#registration_fee").val(registration_fee)
-    $("#nights_visible").text(nights)
-    $("#total_nights_visible").text(nights * night_rate)
-    $("#total_nights").val(nights * night_rate)
+      if $(base_id + '_rate_staff').is(':checked')
+        night_rate = 63
+        registration_fee = 0
+        if typeof exports.sponsors['IofC Switzerland'] is 'undefined'
+          exports.sponsors['IofC Switzerland'] = {}
+          exports.sponsors['IofC Switzerland'].name = 'IofC Switzerland'
+          exports.sponsors['IofC Switzerland'].nights = nights
+          exports.sponsors['IofC Switzerland'].amount = 63
+        else
+          exports.sponsors['IofC Switzerland']['nights'] += nights
+        calculated_rate_and_fee_details += 'Staff: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      else if $(base_id + '_rate_volunteer').is(':checked')
+        night_rate = 63
+        registration_fee = 0
+        if typeof exports.sponsors['Conference Support Fund (CSF)'] is 'undefined'
+          exports.sponsors['Conference Support Fund (CSF)'] = {}
+          exports.sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
+          exports.sponsors['Conference Support Fund (CSF)'].nights = nights
+          exports.sponsors['Conference Support Fund (CSF)'].amount = 63
+        else
+          exports.sponsors['Conference Support Fund (CSF)']['nights'] += nights
+        calculated_rate_and_fee_details += 'Volunteer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      else if $(base_id + '_rate_interpreter').is(':checked')
+        night_rate = 63
+        registration_fee = 0
+        if typeof exports.sponsors['Conference Support Fund (CSF)'] is 'undefined'
+          exports.sponsors['Conference Support Fund (CSF)'] = {}
+          exports.sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
+          exports.sponsors['Conference Support Fund (CSF)'].nights = nights
+          exports.sponsors['Conference Support Fund (CSF)'].amount = 63
+        else
+          exports.sponsors['Conference Support Fund (CSF)']['nights'] += nights
+        calculated_rate_and_fee_details += 'Interpreter: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      else if $(base_id + "_caux_scholar").val() == '1'
+        night_rate = 63
+        registration_fee = 50
+        if typeof exports.sponsors['Caux Scholars Program'] is 'undefined'
+          exports.sponsors['Caux Scholars Program'] = {}
+          exports.sponsors['Caux Scholars Program'].name = 'Caux Scholars Program'
+          exports.sponsors['Caux Scholars Program'].nights = nights
+          exports.sponsors['Caux Scholars Program'].amount = 63
+        else
+          exports.sponsors['Caux Scholars Program']['nights'] += nights
+        calculated_rate_and_fee_details += 'Caux Scholars Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      else if $(base_id + "_caux_intern").val() == '1'
+        night_rate = 63
+        registration_fee = 250
+        if typeof exports.sponsors['Caux Interns Program'] is 'undefined'
+          exports.sponsors['Caux Interns Program'] = {}
+          exports.sponsors['Caux Interns Program'].name = 'Caux Interns Program'
+          exports.sponsors['Caux Interns Program'].nights = nights
+          exports.sponsors['Caux Interns Program'].amount = 63
+        else
+          exports.sponsors['Caux Interns Program']['nights'] += nights
+        calculated_rate_and_fee_details += 'Caux Interns Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      else if $(base_id + "_week_of_international_community").val() == '1'
+        night_rate = 63
+        registration_fee = 0
+        if typeof exports.sponsors['Conference Support Fund (CSF)'] is 'undefined'
+          exports.sponsors['Conference Support Fund (CSF)'] = {}
+          exports.sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
+          exports.sponsors['Conference Support Fund (CSF)'].nights = nights
+          exports.sponsors['Conference Support Fund (CSF)'].amount = 63
+        else
+          exports.sponsors['Conference Support Fund (CSF)']['nights'] += nights
+        calculated_rate_and_fee_details += 'Work week: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      else if $(base_id + "_caux_artist").val() == '1'
+        night_rate = 63
+        registration_fee = 50
+        if typeof exports.sponsors['Caux Artists Program'] is 'undefined'
+          exports.sponsors['Caux Artists Program'] = {}
+          exports.sponsors['Caux Artists Program'].name = 'Caux Artists Program'
+          exports.sponsors['Caux Artists Program'].nights = nights
+          exports.sponsors['Caux Artists Program'].amount = 63
+        else
+          exports.sponsors['Caux Artists Program']['nights'] += nights
+        calculated_rate_and_fee_details += 'Caux Artists Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-    total_nights = nights * night_rate
+      if $(base_id + "_conference_speaker").val() == '1'
+        registration_fee = 0
+        calculated_rate_and_fee_details += 'Speaker: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-    sponsor_1_contribution = $("#online_application_sponsors_attributes_0_nights").val() * $("#online_application_sponsors_attributes_0_amount").val()
-    sponsor_2_contribution = $("#online_application_sponsors_attributes_1_nights").val() * $("#online_application_sponsors_attributes_1_amount").val()
+      if $(base_id + "_conference_team").val() == '1'
+        registration_fee = 0
+        night_rate = 63
+        calculated_rate_and_fee_details += 'Team: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+      if day_visit == 1
+        night_rate = 55
+        registration_fee = 0
+        calculated_rate_and_fee_details += 'Day visit: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+      if $("#online_application_family_discount").is(':checked') and night_rate > 105
+        night_rate = 105
+        calculated_rate_and_fee_details += 'Family discount: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+      if $("#family_discount").val() == 'true' and night_rate > 105
+        # Only the primary registrant for families pays the registration fee
+        night_rate = 105
+        registration_fee = 0
+        calculated_rate_and_fee_details += 'Family discount: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+      if $(base_id + "_relation").val() == 'spouse'
+        # Only the primary registrant for families pays the registration fee
+        registration_fee = 0
+        calculated_rate_and_fee_details += 'Spouse: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+      if $(base_id + "_relation").val() == 'child'
+        # Only the primary registrant for families pays the registration fee
+        registration_fee = 0
+        calculated_rate_and_fee_details += 'Child: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+      if $(base_id + '_rate_full_premium').is(':checked')
+        if $("#online_application_day_visit_true").is(':checked')
+          night_rate = 100
+          registration_fee = 0
+        else
+          night_rate = 220
+          registration_fee = 100 if 100 > registration_fee
+        calculated_rate_and_fee_details += 'Full premium: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+      if age >= 0 and age <= 5
+        night_rate = 0
+        registration_fee = 0
+        calculated_rate_and_fee_details += 'Child 0-5: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      else if age >= 6 and age <= 17
+        night_rate = 50
+        registration_fee = 50
+        calculated_rate_and_fee_details += 'Age 6-17: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      else if age >= 18 and age <= 25
+        night_rate = 63
+        registration_fee = 50
+        calculated_rate_and_fee_details += 'Age 18-25: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+      $(base_id + "_rate_per_night_visible").text(night_rate)
+      $(base_id + "_rate_per_night").val(night_rate)
+      $(base_id + "_registration_fee_visible").text(registration_fee)
+      $(base_id + "_registration_fee").val(registration_fee)
+      $(base_id + "_nights_visible").text(nights)
+      $(base_id + "_total_nights_visible").text(nights * night_rate)
+      $(base_id + "_total_nights").val(nights * night_rate)
+
+      total_nights = nights * night_rate
+
+      exports.total_automatic += total_nights
+      exports.total_registration_fee += registration_fee
+
+      $(base_id + "_calculated_nights").val(nights)
+      $(base_id + "_calculated_night_rate").val(night_rate)
+      $(base_id + "_calculated_registration_fee").val(registration_fee)
+      $(base_id + "_calculated_total_personal_contribution").val(total_automatic)
+      $(base_id + "_calculated_rate_and_fee_details").val(calculated_rate_and_fee_details)
+
+    # Back from walking all the applications
+    # Deal with the sponsor lines
+    exports.count = 0
+    for key,sponsor of exports.sponsors
+      $("#application_group_online_applications_attributes_0_sponsors_attributes_" + exports.count + "_name").val(sponsor.name)
+      $("#application_group_online_applications_attributes_0_sponsors_attributes_" + exports.count + "_nights").val(sponsor.nights)
+      $("#application_group_online_applications_attributes_0_sponsors_attributes_" + exports.count + "_amount").val(sponsor.amount)
+      exports.count += 1
+
+    while exports.count < 2
+      $("#application_group_online_applications_attributes_0_sponsors_attributes_" + exports.count + "_name").val('')
+      $("#application_group_online_applications_attributes_0_sponsors_attributes_" + exports.count + "_nights").val('')
+      $("#application_group_online_applications_attributes_0_sponsors_attributes_" + exports.count + "_amount").val('')
+      exports.count += 1
+
+    # Now calculate the total personal contribution
+    sponsor_1_contribution = $("#application_group_online_applications_attributes_0_sponsors_attributes_0_nights").val() * $("#application_group_online_applications_attributes_0_sponsors_attributes_0_amount").val()
+    sponsor_2_contribution = $("#application_group_online_applications_attributes_0_sponsors_attributes_1_nights").val() * $("#application_group_online_applications_attributes_0_sponsors_attributes_1_amount").val()
 
     if ! isNaN(sponsor_1_contribution)
       sponsor_contribution = sponsor_1_contribution
@@ -539,88 +576,27 @@ jQuery ->
     if isNaN(sponsor_contribution)
       sponsor_contribution = 0
 
-    total_automatic = total_nights - sponsor_contribution
-    if total_automatic < 0
-      total_automatic = 0
+    exports.total_automatic -= sponsor_contribution
+
+    if exports.total_automatic < 0
+      exports.total_automatic = 0
 
     # Sponsors shouldn't pay the registration fee
-    total_automatic += registration_fee
+    exports.total_automatic += exports.total_registration_fee
 
-    $("#total_automatic").text(total_automatic)
-
-    $("#online_application_calculated_nights").val(nights)
-    $("#online_application_calculated_night_rate").val(night_rate)
-    $("#online_application_calculated_registration_fee").val(registration_fee)
-    $("#online_application_calculated_total_personal_contribution").val(total_automatic)
-    $("#online_application_calculated_rate_and_fee_details").val(calculated_rate_and_fee_details)
+    $("#total_automatic").text(exports.total_automatic)
     false
 
   ## First the code that will run on document load ##
   recalculate_fees()
 
-  $("#online_application_relation").change ->
+  $(".rate").change ->
     recalculate_fees()
-  $("#online_application_family_discount").change ->
+  $('#application_group_online_applications_attributes_0_sponsors_attributes_0_nights').change ->
     recalculate_fees()
-  $("#online_application_support_renovation_fund").change ->
+  $('#application_group_online_applications_attributes_0_sponsors_attributes_0_amount').change ->
     recalculate_fees()
-  $("#online_application_sent_by_employer").change ->
+  $('#application_group_online_applications_attributes_0_sponsors_attributes_1_nights').change ->
     recalculate_fees()
-  $("#online_application_student").change ->
-    recalculate_fees()
-  $("#online_application_full_time_volunteer").change ->
-    recalculate_fees()
-  $("#online_application_staff").change ->
-    recalculate_fees()
-  $("#online_application_volunteer").change ->
-    recalculate_fees()
-  $("#online_application_interpreter").change ->
-    recalculate_fees()
-  $('#online_application_date_of_birth_1i').change ->
-    recalculate_fees()
-  $('#online_application_date_of_birth_2i').change ->
-    recalculate_fees()
-  $('#online_application_date_of_birth_3i').change ->
-    recalculate_fees()
-  $('#online_application_arrival_1i').change ->
-    recalculate_fees()
-  $('#online_application_arrival_2i').change ->
-    recalculate_fees()
-  $('#online_application_arrival_3i').change ->
-    recalculate_fees()
-  $('#online_application_departure_1i').change ->
-    recalculate_fees()
-  $('#online_application_departure_2i').change ->
-    recalculate_fees()
-  $('#online_application_departure_3i').change ->
-    recalculate_fees()
-  $('#online_application_sponsors_attributes_0_nights').change ->
-    recalculate_fees()
-  $('#online_application_sponsors_attributes_0_amount').change ->
-    recalculate_fees()
-  $('#online_application_sponsors_attributes_1_nights').change ->
-    recalculate_fees()
-  $('#online_application_sponsors_attributes_1_amount').change ->
-    recalculate_fees()
-  $('#online_application_day_visit_false').change ->
-    recalculate_fees()
-  $('#online_application_day_visit_true').change ->
-    recalculate_fees()
-  $("[id='tp_check_caux artists program']").change ->
-    recalculate_fees()
-  $("[id='tp_check_caux scholars program']").change ->
-    recalculate_fees()
-  $("[id='tp_check_caux interns program – session 1']").change ->
-    recalculate_fees()
-  $("[id='tp_check_caux interns program – session 2']").change ->
-    recalculate_fees()
-  $("[id='tp_check_week of international community']").change ->
-    recalculate_fees()
-  $('input[id$="_team"]').change ->
-    recalculate_fees()
-  $('input[id$="_speaker"]').change ->
-    recalculate_fees()
-  $('.aeub_2014_two_days_and_one_night').change ->
-    recalculate_fees()
-  $('.aeub_2014_two_days_and_two_nights').change ->
+  $('#application_group_online_applications_attributes_0_sponsors_attributes_1_amount').change ->
     recalculate_fees()
