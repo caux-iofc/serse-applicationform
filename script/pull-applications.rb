@@ -250,6 +250,8 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 
 			@keys += 'confirmation_letter_via,'
 			@confirmation_letter_via = oa.confirmation_letter_via
+			# family members can have this set to NULL
+			@confirmation_letter_via = 'email' if @confirmation_letter_via.nil?
 			@confirmation_letter_via = 'postdifferent' if @confirmation_letter_via == 'correspondence_address'
 			@values += "'" + @conn.escape(@confirmation_letter_via) + "',"
 
