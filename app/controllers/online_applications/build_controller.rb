@@ -43,7 +43,9 @@ class OnlineApplications::BuildController < ApplicationController
 
   def add_group_member
     add_member
+    # The form allows setting an alternative permament address for group members
     @application_group.online_applications.build({:relation => 'other'})
+    @application_group.online_applications.first.build_permanent_address if @application_group.online_applications.first.permanent_address.nil?
     render "add_group_member", :layout => false
   end
 
@@ -114,6 +116,12 @@ class OnlineApplications::BuildController < ApplicationController
         end
       end
     else
+      if step == :group
+        # Do not save permanent address information if the 'different address' checkbox is not set
+        params[:application_group]['online_applications_attributes'].each do |key,val|
+          val['permanent_address_attributes']['_destroy'] = true if val['different_address'] != '1'
+        end
+      end
       if not @application_group.update_attributes(params[:application_group])
         # We can't use render_wizard directly here, because @online_application validates fine,
         # but this step is tied to the validation of application_group. Yes, we're doing silly
@@ -247,6 +255,13 @@ protected
       end
     else
       @show_ag_errors = false
+    end
+
+    if step == :group
+      # The form allows setting an alternative permament address for group members
+      @application_group.online_applications.each do |oa|
+        oa.build_permanent_address if oa.permanent_address.nil?
+      end
     end
 
     if step == :finances

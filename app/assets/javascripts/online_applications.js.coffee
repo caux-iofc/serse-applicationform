@@ -39,6 +39,20 @@ jQuery ->
   if ($('#online_application_departure_1i').val() == '')
     $("#online_application_departure_1i").val(dt.getYear()+1900)
 
+  ##### handle other_address for group memmbers ####
+
+  ## First the code that will run on document load ##
+  $("input[class^=different_address_]").each ->
+    if $(this).is(':checked')
+      $("." + $(this).attr('class') + "_subform").show()
+    else
+      $("." + $(this).attr('class') + "_subform").hide()
+
+  # In order to attach to dynamically inserted group members, attach to the form
+  # element with jquery's on()
+  $(".edit_application_group").on "change", "input[class^=different_address_]", ->
+    $("." + $(this).attr('class') + "_subform").toggle()
+
   ##### handle diet_other ####
 
   ## First the code that will run on document load ##
@@ -76,23 +90,32 @@ jQuery ->
 
   ## And then all the hooks ##
   $("select[class^='form-control citizenship_id_']").change ->
-    $("#" + $(this).attr('class').replace('form-control ','') + "_subform").toggle()
+    if $(this).val() == '0'
+      $("#" + $(this).attr('class').replace('form-control ','') + "_subform").toggle()
 
   ##### handle permanent_address_other_country ####
 
   ## First the code that will run on document load ##
-  if $('#online_application_permanent_address_attributes_country_id').val() == '0'
-    $("#permanent_address_other_country").show()
-  else
-    $("#permanent_address_other_country").hide()
-
-  ## And then all the hooks ##
-  $("#online_application_permanent_address_attributes_country_id").change ->
-    if $("#online_application_permanent_address_attributes_country_id").val() == '0'
-      $("#permanent_address_other_country").show()
+  $("select[class^='form-control country_']").each ->
+    if $(this).val() == '0'
+      $("." + $(this).attr('class').replace('form-control ','') + "_subform").show()
     else
-      $("#permanent_address_other_country").hide()
-    return
+      $("." + $(this).attr('class').replace('form-control ','') + "_subform").hide()
+
+  # In order to attach to dynamically inserted group members, attach to the form
+  # element with jquery's on(). Because we use the permanent_address partial on
+  # the personal information and the group page, make sure to attach to either type
+  # of form.
+  $(".edit_online_application").on "change", "select[class^='form-control country_']", ->
+    if $(this).val() == '0'
+      $("." + $(this).attr('class').replace('form-control ','') + "_subform").show()
+    else
+      $("." + $(this).attr('class').replace('form-control ','') + "_subform").hide()
+  $(".edit_application_group").on "change", "select[class^='form-control country_']", ->
+    if $(this).val() == '0'
+      $("." + $(this).attr('class').replace('form-control ','') + "_subform").show()
+    else
+      $("." + $(this).attr('class').replace('form-control ','') + "_subform").hide()
 
   ##### handle correspondence_address_other_country ####
 

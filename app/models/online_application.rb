@@ -55,6 +55,9 @@ class OnlineApplication < ActiveRecord::Base
   attr_accessor :total_nights
   attr_accessor :registration_fee
 
+
+  attr_accessor :different_address
+
   # these accessors are used in the finance step to pass information to the javascript
   # that calculates the rates
   attr_accessor :caux_scholar

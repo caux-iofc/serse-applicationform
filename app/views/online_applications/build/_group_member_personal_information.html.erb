@@ -100,3 +100,19 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <%= f.check_box :different_address, :class => "different_address_#{f.object_name.gsub(/[^0-9]+/,'')}", :checked => (not f.object.permanent_address.empty?) %> <label><%=t :different_address %></label>
+      </div>
+    </div>
+  </div>
+
+  <span class="different_address_<%= f.object_name.gsub(/[^0-9]+/,'') -%>_subform" style="display: none">
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <%= render 'permanent_address', :f => f %>
+    </div>
+  </span>

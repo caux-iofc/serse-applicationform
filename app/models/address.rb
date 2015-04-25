@@ -21,5 +21,9 @@ class Address < ActiveRecord::Base
     not self.online_application.status.nil? and self.online_application.status.include?('personal')
   end
 
+  def empty?
+    street1.nil? and street2.nil? and street3.nil? and city.nil? and state.nil? and postal_code.nil? and country_id.nil? and other_country.nil?
+  end
+
 end
 

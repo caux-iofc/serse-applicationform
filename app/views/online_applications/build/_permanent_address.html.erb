@@ -1,4 +1,3 @@
-
 <%= f.fields_for :permanent_address do |af| %>
 
   <div class="col-md-6">
@@ -27,13 +26,15 @@
 
     <div class="form-group required">
       <%= af.label :country_id, t(:addresses_country_id), class: 'control-label' %><br />
-      <%= af.select(:country_id, @countries, {:include_blank => t(:choose_one)}, {:class => 'form-control'}) %>
+      <%= af.select(:country_id, @countries, {:include_blank => t(:choose_one)}, {:class => "form-control country_#{af.object_name.gsub(/[^0-9]+/,'')}"}) %>
     </div>
 
-    <div class="form-group required" id="permanent_address_other_country" style="display: none">
+    <span class="country_<%= af.object_name.gsub(/[^0-9]+/,'') -%>_subform" style="display: none">
+    <div class="form-group required" id="permanent_address_other_country">
       <%= af.label :other_country, t(:other_country), class: 'control-label' %>
       <%= af.text_field :other_country, :class => 'form-control' %>
     </div>
+    </span>
   </div> 
 
 <% end %>
