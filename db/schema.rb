@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150422121000) do
+ActiveRecord::Schema.define(:version => 20150424222700) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -616,6 +616,7 @@ ActiveRecord::Schema.define(:version => 20150422121000) do
     t.string   "status"
     t.string   "session_id"
     t.string   "rate"
+    t.text     "financial_remarks"
   end
 
   add_index "online_applications", ["application_group_id"], :name => "index_online_applications_on_application_group_id"
