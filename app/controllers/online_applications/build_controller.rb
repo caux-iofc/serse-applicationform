@@ -78,8 +78,8 @@ class OnlineApplications::BuildController < ApplicationController
         populate_ethereal_variables
       else
         if step == :personal and @online_application.relation == 'primary applicant'
-          @online_application.application_group.group_registration = true if @online_application.registration_type == 'group'
-          @online_application.application_group.family_registration = true if @online_application.registration_type == 'family'
+          @online_application.application_group.group_registration = (@online_application.registration_type == 'group' ? true : false)
+          @online_application.application_group.family_registration = (@online_application.registration_type == 'family' ? true: false)
           # We can't validate the group here yet, because the group name is probably not set yet.
           # We can't make the group name validation conditional on the step of this form
           # because we need to consult the primary application online_application for the step
@@ -364,22 +364,21 @@ protected
   def calculate_progress_bar
     if not wizard_steps.index(step).nil?
       if not @online_application.application_group.group_registration and not @online_application.application_group.family_registration
-        # The group step is only applicable for group registrations
         if step == :group or step == :family
           skip_step
         end
-        @progress_bar_total_steps = wizard_steps.size - 1
+        @progress_bar_total_steps = wizard_steps.size - 2
         if wizard_steps.index(step) <= wizard_steps.index(:family)
           @progress_bar_current_step = wizard_steps.index(step) + 1
         else
-          @progress_bar_current_step = wizard_steps.index(step)
+          @progress_bar_current_step = wizard_steps.index(step) - 1
         end
       elsif @online_application.application_group.group_registration
         if step == :family
           skip_step
         end
         @progress_bar_total_steps = wizard_steps.size - 1
-        if wizard_steps.index(step) < wizard_steps.index(:group)
+        if wizard_steps.index(step) <= wizard_steps.index(:group)
           @progress_bar_current_step = wizard_steps.index(step) + 1
         else
           @progress_bar_current_step = wizard_steps.index(step)
