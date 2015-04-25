@@ -49,6 +49,11 @@
           <label>
             <%= builder.radio_button :rate, 'standard', :class => 'rate' %> <%=t :standard %>
           </label>
+          <% if builder.object.application_group.family_registration -%>
+            <label>
+              <%= builder.radio_button :rate, 'family', :class => 'rate' %> <%=t :family %>
+            </label>
+          <% end -%>
           <% if builder.object.volunteer -%>
             <label>
               <%= builder.radio_button :rate, 'volunteer', :class => 'rate' %> <%=t :volunteer %>

@@ -10,10 +10,21 @@ jQuery ->
   # On document load, set the member counter numbers (if we need to)
   update_member_counters()
 
-  $(document).on "click", "#add_member", (e) ->
+  $(document).on "click", "#add_family_member", (e) ->
     e.preventDefault();
     $.ajax
-      url: '/en/add_member'
+      url: '/en/add_family_member'
+      success: (data) ->
+        el_to_add = $(data).html()
+        $('#members').append(el_to_add)
+        update_member_counters()
+      error: (data) ->
+        alert "Sorry, there was an error!"
+
+  $(document).on "click", "#add_group_member", (e) ->
+    e.preventDefault();
+    $.ajax
+      url: '/en/add_group_member'
       success: (data) ->
         el_to_add = $(data).html()
         $('#members').append(el_to_add)
@@ -487,28 +498,22 @@ jQuery ->
         registration_fee = 0
         calculated_rate_and_fee_details += 'Day visit: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-      if $("#online_application_family_discount").is(':checked') and night_rate > 105
-        night_rate = 105
-        calculated_rate_and_fee_details += 'Family discount: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
-      if $("#family_discount").val() == 'true' and night_rate > 105
-        # Only the primary registrant for families pays the registration fee
-        night_rate = 105
-        registration_fee = 0
-        calculated_rate_and_fee_details += 'Family discount: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      if $(base_id + '_rate_family').is(':checked')
+        if day_visit == 1
+          night_rate = 55
+          registration_fee = 0
+        else
+          night_rate = 105
+          registration_fee = 100 if 100 > registration_fee
+        calculated_rate_and_fee_details += 'Family: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if $(base_id + "_relation").val() == 'spouse'
         # Only the primary registrant for families pays the registration fee
         registration_fee = 0
         calculated_rate_and_fee_details += 'Spouse: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-      if $(base_id + "_relation").val() == 'child'
-        # Only the primary registrant for families pays the registration fee
-        registration_fee = 0
-        calculated_rate_and_fee_details += 'Child: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
       if $(base_id + '_rate_full_premium').is(':checked')
-        if $("#online_application_day_visit_true").is(':checked')
+        if day_visit == 1
           night_rate = 100
           registration_fee = 0
         else
@@ -524,10 +529,15 @@ jQuery ->
         night_rate = 50
         registration_fee = 50
         calculated_rate_and_fee_details += 'Age 6-17: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-      else if age >= 18 and age <= 25
+      else if age >= 18 and age <= 25 and day_visit == 0
         night_rate = 63
         registration_fee = 50
         calculated_rate_and_fee_details += 'Age 18-25: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+      if $(base_id + "_relation").val() == 'child'
+        # Only the primary registrant pays the registration fee for families
+        registration_fee = 0
+        calculated_rate_and_fee_details += 'Child: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       $(base_id + "_rate_per_night_visible").text(night_rate)
       $(base_id + "_rate_per_night").val(night_rate)

@@ -7,18 +7,7 @@
 <div class="row">
   <div class="col-md-6">
     <div class="col-md-12">
-      <% if @application_group.online_applications.count > 0 and @online_application.relation != 'primary applicant' then -%>
-        <div class="form-group required">
-          <%= f.label :relation, t(:relation), class: 'control-label' %>
-          <%= f.select(:relation, [ [t('spouse'),'spouse'], [t('child'),'child'], [t('other'),'other'] ], {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
-        </div>
-
-        <div class="show_for_children prominent_text">
-          <%=t :welcome_children_html %>
-        </div>
-      <% else -%>
-        <%= f.hidden_field :relation, :value => 'primary applicant' %>
-      <% end -%>
+      <%= f.hidden_field :relation, :value => 'primary applicant' %>
     </div>
 
     <div class="col-md-6">

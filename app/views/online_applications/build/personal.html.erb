@@ -6,8 +6,19 @@
     <%= render 'correspondence_address', :f => f %>
   </span>
 </div>
-<div class="row show_for_primary_applicant">
+<div class="row">
   <div class="col-md-12">
-    <%= f.check_box :group_registration %> <label><%=t :register_as_part_of_group %></label>
+
+    <div class="radio">
+      <label>
+        <%= f.radio_button :registration_type, :single %> <%=t :register_as_single_person %>
+      </label><br/>
+      <label>
+        <%= f.radio_button :registration_type, :family %> <%=t :register_as_part_of_family %>
+      </label><br/>
+      <label>
+        <%= f.radio_button :registration_type, :group %> <%=t :register_as_part_of_group %>
+      </label>
+    </div>
   </div>
 <% end %>

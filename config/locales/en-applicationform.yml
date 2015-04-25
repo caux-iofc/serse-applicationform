@@ -289,6 +289,14 @@ en:
   group_member: "Member"
   group_or_family_name: "Name"
 
+  register_as_single_person: "I register by myself"
+  register_as_part_of_family: "I register as part of my family"
+  family_intro_text: "Please note that all the family members will have the same address and contact details as the primary registrant."
+  family_name: "Family name"
+  family_personal_details: "Personal details of family members"
+  remove_from_family: "Remove this person from the application"
+  family_member: "Family member"
+
   add_a_person: "Add a person"
   remove_from_group: "Remove this person from the group"
 

@@ -3,7 +3,7 @@ class OnlineApplications::BuildController < ApplicationController
   before_filter :ensure_application_group
 
   include Wicked::Wizard
-  steps :personal, :group, :detail, :dates_and_events, :visa, :finances, :confirmation
+  steps :personal, :group, :family, :detail, :dates_and_events, :visa, :finances, :confirmation
 
   def show
     @step = step
@@ -14,12 +14,16 @@ class OnlineApplications::BuildController < ApplicationController
     # show up in the form if it becomes needed.
     @online_application.build_correspondence_address if @online_application.correspondence_address.nil?
 
-    # Make sure the 'group registration' checkbox is prepopulated if necessary
+    # Make sure the single/family/group radio button is prepopulated
     if @online_application.application_group.group_registration
-      @online_application.group_registration = true
+      @online_application.registration_type = 'group'
+    elsif @online_application.application_group.family_registration
+      @online_application.registration_type = 'family'
+    else
+      @online_application.registration_type = 'single'
     end
 
-    if step == :group or step == :detail or step == :visa or step == :confirmation
+    if step == :group or step == :family or step == :detail or step == :visa or step == :confirmation
       # Because we use the @application_group object for these steps, we need to
       # make sure to explicitly update the status field which lives on the primary
       # applicant object.
@@ -31,12 +35,15 @@ class OnlineApplications::BuildController < ApplicationController
     render_wizard
   end
 
-  def add_member
-    @count = @application_group.online_applications.count + 1
-    # Yeah, this is weird.
-    @application_group = ApplicationGroup.new()
+  def add_family_member
+    add_member
+    @application_group.online_applications.build()
+    render "add_family_member", :layout => false
+  end
+
+  def add_group_member
+    add_member
     @application_group.online_applications.build({:relation => 'other'})
-    populate_ethereal_variables
     render "add_group_member", :layout => false
   end
 
@@ -46,7 +53,7 @@ class OnlineApplications::BuildController < ApplicationController
       redirect_to :error
       return
     end
-    if step != :group and step != :detail and step != :visa and step != :confirmation and step != :finances
+    if step != :group and step != :family and step != :detail and step != :visa and step != :confirmation and step != :finances
       @online_application.the_request = request
 
       # If no check boxes are checked, the form does not return those fields.
@@ -71,7 +78,8 @@ class OnlineApplications::BuildController < ApplicationController
         populate_ethereal_variables
       else
         if step == :personal and @online_application.relation == 'primary applicant'
-          @online_application.application_group.group_registration = @online_application.group_registration
+          @online_application.application_group.group_registration = true if @online_application.registration_type == 'group'
+          @online_application.application_group.family_registration = true if @online_application.registration_type == 'family'
           # We can't validate the group here yet, because the group name is probably not set yet.
           # We can't make the group name validation conditional on the step of this form
           # because we need to consult the primary application online_application for the step
@@ -123,7 +131,7 @@ class OnlineApplications::BuildController < ApplicationController
     render_wizard @online_application
   end
 
-  # We use this method to reset the application - for example, to add someone to a group.
+  # We use this method to reset the application
   def new
     redirect_to wizard_path(steps.first, :online_application_id => @online_application.id)
   end
@@ -221,12 +229,6 @@ protected
 
     @countries = [ [t(:other_please_specify),'0'] ] + Country.with_translations.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }
 
-    if not @application_group.primary_applicant.nil? and @online_application.relation != 'primary applicant' then
-      @family_discount = @application_group.primary_applicant.family_discount
-    else
-      @family_discount = false
-    end
-
     if step == :confirmation
       # Just default (force) the info fields to 'yes'. This is sneaky, but
       # there's no good way to tell if they have never been set: after one failed
@@ -235,10 +237,10 @@ protected
       @application_group.data_protection_local_info = true
     end
 
-    if step == :group or step == :confirmation
+    if step == :group or step == :family or step == :confirmation
       # this page needs to store a few fields on the application group object
       @show_ag_errors = true
-      if step == :group
+      if step == :group or step == :family
         @show_only_ag_errors = true
       else
         @show_only_ag_errors = false
@@ -253,6 +255,7 @@ protected
           oa.rate = 'staff' if oa.staff
           oa.rate = 'volunteer' if oa.volunteer
           oa.rate = 'interpreter' if oa.interpreter
+          oa.rate = 'family' if @application_group.family_registration
         end
         # these fields are used to pass information to the javascript that calculates the rates
         oa.caux_scholar = (oa.training_programs.collect { |tp| tp.name }.include?('Caux Scholars Program') ? 1 : 0)
@@ -360,23 +363,50 @@ protected
 
   def calculate_progress_bar
     if not wizard_steps.index(step).nil?
-      if not @online_application.application_group.group_registration
+      if not @online_application.application_group.group_registration and not @online_application.application_group.family_registration
         # The group step is only applicable for group registrations
+        if step == :group or step == :family
+          skip_step
+        end
+        @progress_bar_total_steps = wizard_steps.size - 1
+        if wizard_steps.index(step) <= wizard_steps.index(:family)
+          @progress_bar_current_step = wizard_steps.index(step) + 2
+        else
+          @progress_bar_current_step = wizard_steps.index(step)
+        end
+      elsif @online_application.application_group.group_registration
+        if step == :family
+          skip_step
+        end
+        @progress_bar_total_steps = wizard_steps.size - 1
+        if wizard_steps.index(step) < wizard_steps.index(:group)
+          @progress_bar_current_step = wizard_steps.index(step) + 1
+        else
+          @progress_bar_current_step = wizard_steps.index(step)
+        end
+      elsif @online_application.application_group.family_registration
         if step == :group
           skip_step
         end
         @progress_bar_total_steps = wizard_steps.size - 1
-        if wizard_steps.index(step) <= wizard_steps.index(:group)
+        if wizard_steps.index(step) < wizard_steps.index(:family)
           @progress_bar_current_step = wizard_steps.index(step) + 1
         else
           @progress_bar_current_step = wizard_steps.index(step)
         end
       else
-        @progress_bar_total_steps = wizard_steps.size
+        @progress_bar_total_steps = wizard_steps.size - 1
         @progress_bar_current_step = wizard_steps.index(step) + 1
       end
       @progress_bar_with = (@progress_bar_current_step/@progress_bar_total_steps.to_f*100).round
     end
+  end
+
+  def add_member
+    @count = @application_group.online_applications.count + 1
+    # Yeah, this is weird.
+    @application_group = ApplicationGroup.new()
+    populate_ethereal_variables
   end
 
 end

@@ -1,0 +1,11 @@
+
+  <%= f.fields_for :online_applications, :child_index => (defined?(child_index) ? child_index : nil) do |builder| %>
+    <% if not builder.object.relation == 'primary applicant' %>
+      <div class="col-md-12">
+        <hr>
+        <%= error_messages_for_object builder.object %>
+      </div>
+      <%= render 'family_member_personal_information', :f => builder, :online_application => builder.object %>
+    <% end %>
+  <% end %>
+

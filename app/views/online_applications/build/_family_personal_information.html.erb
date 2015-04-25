@@ -1,0 +1,34 @@
+
+  <div class="col-md-12 text-center">
+    <h3><%=t :family_personal_details %></h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%=t :family_intro_text -%>
+    <p/>
+    <div class="text-primary">
+      <%=t :welcome_children_html %>
+    </div>
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-6">
+        <div class="form-group required">
+          <%= f.label :family_name, t(:family_name), class: 'control-label' %>
+          <%= f.text_field :group_or_family_name, :class => 'form-control' %>
+        </div>
+    </div>
+  </div>
+
+  <div id="members">
+    <%= render 'family_member_worker', :f => f %>
+  </div>
+</div>
+
+<div class="row text-center">
+  <%= link_to t(:add_a_person), "#", remote: true, id: "add_family_member" -%>

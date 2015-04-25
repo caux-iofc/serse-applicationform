@@ -48,7 +48,7 @@ class OnlineApplication < ActiveRecord::Base
   # we translate these into ApplicationTranslationNeed records
   attr_accessor :translate_english, :translate_french, :translate_german
 
-  attr_accessor :group_registration
+  attr_accessor :registration_type
   attr_accessor :group_name
 
   attr_accessor :rate_per_night
@@ -92,26 +92,26 @@ class OnlineApplication < ActiveRecord::Base
 
   # /begin personal
 
-  validates :relation, :inclusion => { :in => [ 'primary applicant', 'spouse', 'child', 'other' ], :message => I18n.t(:only_valid_relations) }, :if => :personal?
-  validates :firstname, :presence => true, :if => :personal_or_group?
-  validates :surname, :presence => true, :if => :personal_or_group?
+  validates :relation, :inclusion => { :in => [ 'primary applicant', 'spouse', 'child', 'other' ], :message => I18n.t(:only_valid_relations) }, :if => :personal_or_family? 
+  validates :firstname, :presence => true, :if => :personal_or_group_or_family?
+  validates :surname, :presence => true, :if => :personal_or_group_or_family?
 
-  validates :firstname, :uniqueness => {:scope => [ :surname, :gender, :date_of_birth, :application_group_id ], :message => I18n.t(:duplicate_person_in_application_group) }, :if => :personal_or_group?
+  validates :firstname, :uniqueness => {:scope => [ :surname, :gender, :date_of_birth, :application_group_id ], :message => I18n.t(:duplicate_person_in_application_group) }, :if => :personal_or_group_or_family?
 
-  validates :gender, :presence => true, :if => :personal_or_group?
-  validates :date_of_birth, :presence => true, :if => :personal_or_group?
+  validates :gender, :presence => true, :if => :personal_or_group_or_family?
+  validates :date_of_birth, :presence => true, :if => :personal_or_group_or_family?
   # There appears to be no way to pass two different :date conditions with a unique message for each
   # in one validates statement. So we make sure to put each :date condition in a separate validates statement.
   # In this particular case, we had to do that anyway because the age minimum only applies to primary applicants.
-  validates :date_of_birth, :date => { :after => Proc.new { Time.now - 110.years }, :message => I18n.t(:max_age_110) }, :if => lambda { |oa| personal_or_group? && oa.date_of_birth }
-  validates :date_of_birth, :date => { :before => Proc.new { Time.now - 16.years }, :message => I18n.t(:min_age_16) }, :if => lambda { |oa| personal_or_group? && oa.date_of_birth && oa.relation == 'primary applicant' }
+  validates :date_of_birth, :date => { :after => Proc.new { Time.now - 110.years }, :message => I18n.t(:max_age_110) }, :if => lambda { |oa| personal_or_group_or_family? && oa.date_of_birth }
+  validates :date_of_birth, :date => { :before => Proc.new { Time.now - 16.years }, :message => I18n.t(:min_age_16) }, :if => lambda { |oa| personal_or_group_or_family? && oa.date_of_birth && oa.relation == 'primary applicant' }
 
-  validates :citizenship_id, :presence => true, :if => :personal_or_group?
-  validates :other_citizenship, :presence => true, :if => lambda { |oa| personal_or_group? && oa.citizenship_id == 0 }
+  validates :citizenship_id, :presence => true, :if => :personal_or_group_or_family?
+  validates :other_citizenship, :presence => true, :if => lambda { |oa| personal_or_group_or_family? && oa.citizenship_id == 0 }
 
   validates :email, :confirmation => true,
                     :presence => true,
-                    :email => true, :if => lambda { |oa| personal_or_group? && (oa.relation == 'primary applicant' || oa.relation == 'other') }
+                    :email => true, :if => lambda { |oa| personal_or_group_or_family? && (oa.relation == 'primary applicant' || oa.relation == 'other') }
 
   validates :telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
   validates :telephone, :presence => true,
@@ -387,6 +387,16 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
+  def personal_or_family?
+    if relation == 'primary applicant'
+      not status.nil? and (status.include?('personal') or status.include?('family'))
+    else
+      not application_group.primary_applicant.status.nil? and
+       (application_group.primary_applicant.status.include?('personal') or
+        application_group.primary_applicant.status.include?('family'))
+    end
+  end
+
   def group?
     if relation == 'primary applicant'
       not status.nil? and status.include?('group')
@@ -395,11 +405,14 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
-  def personal_or_group?
+  def personal_or_group_or_family?
     if relation == 'primary applicant'
-      not status.nil? and (status.include?('personal') or status.include?('group'))
+      not status.nil? and (status.include?('personal') or status.include?('group') or status.include?('family'))
     else
-      not application_group.primary_applicant.status.nil? and (application_group.primary_applicant.status.include?('personal') or application_group.primary_applicant.status.include?('group'))
+      not application_group.primary_applicant.status.nil? and
+       (application_group.primary_applicant.status.include?('personal') or
+        application_group.primary_applicant.status.include?('group') or
+        application_group.primary_applicant.status.include?('family'))
     end
   end
 

@@ -82,11 +82,15 @@
         <div class="col-md-5 col-md-offset-7">
           <div class="actions">
             <% if @step == :detail -%>
-              <% if @online_application.group_registration -%>
-                <%= link_to "Back", previous_wizard_path, class: 'btn btn-info' %>
+              <% if @online_application.registration_type == 'group' -%>
+                <%= link_to "Back", wizard_path(:group), class: 'btn btn-info' %>
+              <% elsif @online_application.registration_type == 'family' -%>
+                <%= link_to "Back", wizard_path(:family), class: 'btn btn-info' %>
               <% else -%>
                 <%= link_to "Back", wizard_path(:personal), class: 'btn btn-info' %>
               <% end -%>
+            <% elsif @step == :family -%>
+              <%= link_to "Back", wizard_path(:personal), class: 'btn btn-info' %>
             <% else -%>
               <%= link_to "Back", previous_wizard_path, class: 'btn btn-info' %>
             <% end -%>
