@@ -251,11 +251,11 @@ protected
 
     if step == :finances
       @application_group.online_applications.each do |oa|
-        if not oa.rate.nil?
+        if oa.rate.nil?
           oa.rate = 'staff' if oa.staff
           oa.rate = 'volunteer' if oa.volunteer
           oa.rate = 'interpreter' if oa.interpreter
-          oa.rate = 'family' if @application_group.family_registration
+          oa.rate = 'family' if @application_group.family_registration and oa.relation != 'primary applicant'
         end
         # these fields are used to pass information to the javascript that calculates the rates
         oa.caux_scholar = (oa.training_programs.collect { |tp| tp.name }.include?('Caux Scholars Program') ? 1 : 0)
@@ -370,7 +370,7 @@ protected
         end
         @progress_bar_total_steps = wizard_steps.size - 1
         if wizard_steps.index(step) <= wizard_steps.index(:family)
-          @progress_bar_current_step = wizard_steps.index(step) + 2
+          @progress_bar_current_step = wizard_steps.index(step) + 1
         else
           @progress_bar_current_step = wizard_steps.index(step)
         end
