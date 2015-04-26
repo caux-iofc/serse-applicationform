@@ -3,16 +3,16 @@ class Address < ActiveRecord::Base
   belongs_to :country
   belongs_to :online_application
 
-  validates :street1, :presence => true, :length => { :maximum => 100 }, :if => :personal?
-  validates :street2, :length => { :maximum => 100 }, :if => :personal?
-  validates :street3, :length => { :maximum => 100 }, :if => :personal?
-  validates :city, :presence => true, :length => { :maximum => 30 }, :if => :personal?
-  validates :state, :length => { :maximum => 30 }, :if => :personal?
-  validates :postal_code, :length => { :maximum => 20 }, :if => :personal?
-  validates :postal_code, :format => { :with => /^(.{2,}|)$/, :message => I18n.t(:postal_code_invalid) }, :if => :personal?
-  validates :country_id, :presence => true, :if => :personal?
-  validates :other_country, :presence => true, :if => lambda { |a| personal? && a.country_id == 0 }
-  validates :other_country, :length => { :maximum => 100 }, :if => lambda { |a| personal? && a.country_id == 0 }
+  validates :street1, :presence => true, :length => { :maximum => 100 }, :if => :personal_or_group?
+  validates :street2, :length => { :maximum => 100 }, :if => :personal_or_group?
+  validates :street3, :length => { :maximum => 100 }, :if => :personal_or_group?
+  validates :city, :presence => true, :length => { :maximum => 30 }, :if => :personal_or_group?
+  validates :state, :length => { :maximum => 30 }, :if => :personal_or_group?
+  validates :postal_code, :length => { :maximum => 20 }, :if => :personal_or_group?
+  validates :postal_code, :format => { :with => /^(.{2,}|)$/, :message => I18n.t(:postal_code_invalid) }, :if => :personal_or_group?
+  validates :country_id, :presence => true, :if => :personal_or_group?
+  validates :other_country, :presence => true, :if => lambda { |a| personal_or_group? && a.country_id == 0 }
+  validates :other_country, :length => { :maximum => 100 }, :if => lambda { |a| personal_or_group? && a.country_id == 0 }
 
   def personal?
     # This gets the modified, 'dirty' version of online_application thanks to the ':inverse_of' set on
@@ -21,8 +21,21 @@ class Address < ActiveRecord::Base
     not self.online_application.status.nil? and self.online_application.status.include?('personal')
   end
 
+  def personal_or_group?
+    not self.online_application.status.nil? and
+      (self.online_application.status.include?('personal') or
+       self.online_application.status.include?('group'))
+  end
+
   def empty?
-    street1.nil? and street2.nil? and street3.nil? and city.nil? and state.nil? and postal_code.nil? and country_id.nil? and other_country.nil?
+    (street1.nil? or street1.empty?) and
+    (street2.nil? or street2.empty?) and
+    (street3.nil? or street3.empty?) and
+    (city.nil? or city.empty?) and
+    (state.nil? or state.empty?) and
+    (postal_code.nil? or postal_code.empty?) and
+    country_id.nil? and
+    (other_country.nil? or other_country.empty?)
   end
 
 end
