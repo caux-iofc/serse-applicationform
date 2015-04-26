@@ -279,6 +279,8 @@ protected
         oa.week_of_international_community = (oa.training_programs.collect { |tp| tp.name }.include?('Week of International Community') ? 1 : 0)
         oa.conference_team = (oa.online_application_conferences.collect { |oac| oac.role_team }.include?(true) ? 1 : 0)
         oa.conference_speaker = (oa.online_application_conferences.collect { |oac| oac.role_speaker }.include?(true) ? 1 : 0)
+        # Default to the standard rate
+        oa.rate = 'standard' if oa.rate.nil?
       end
     end
   end
