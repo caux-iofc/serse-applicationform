@@ -155,15 +155,19 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 			@values += "'" + @conn.escape(oa.email) + "',"
 
 			@keys += 'telephone,'
+      oa.telephone = '' if oa.telephone.nil?
 			@values += "'" + @conn.escape(oa.telephone) + "',"
 
 			@keys += 'cellphone,'
+      oa.cellphone = '' if oa.cellphone.nil?
 			@values += "'" + @conn.escape(oa.cellphone) + "',"
 
 			@keys += 'fax,'
+      oa.fax = '' if oa.fax.nil?
 			@values += "'" + @conn.escape(oa.fax) + "',"
 
 			@keys += 'work_phone,'
+      oa.work_telephone = '' if oa.work_telephone.nil?
 			@values += "'" + @conn.escape(oa.work_telephone) + "',"
 
 			# Spouse/children have no permanent address
@@ -234,7 +238,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
         @or.chop!
         @or.chop!
       end
-      @values += "'" + @or + "',"
+      @values += "'" + @or[0..199] + "',"
 
 			@keys += 'diet,'
 			@diets = ''
@@ -329,7 +333,12 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
       @values += oa.calculated_total_personal_contribution.to_s + ","
 
       @keys += 'calculated_rate_and_fee_details,'
-      @values += "'" + oa.calculated_rate_and_fee_details.to_s + "',"
+      if not oa.financial_remarks.nil? and not oa.financial_remarks.empty?
+        @values += "'" + oa.calculated_rate_and_fee_details.to_s + "\n\n"
+        @values += "APPLICANT FINANCIAL REMARKS:\n" + oa.financial_remarks.to_s + "',"
+      else
+        @values += "'" + oa.calculated_rate_and_fee_details.to_s + "',"
+      end
 
 			@keys += 'currency,'
 			@values += "'chf',"
@@ -354,7 +363,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 			@keys += 'remarks,'
 			@values += "'" + @conn.escape(oa.remarks[0,5000]) + "',"
 
-			if not oa.correspondence_address.nil? then
+			if not oa.correspondence_address.nil? and not oa.correspondence_address.empty? then
   			@keys += 'correspondence_street1,'
   			@values += "'" + @conn.escape(oa.correspondence_address.street1) + "',"
   
@@ -424,7 +433,6 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 			@values += ')'
 
 			@pg_sql = "insert into tbl_applications #{@keys} values #{@values}"
-
       STDERR.puts @pg_sql.pretty_inspect()
 		  @res = @conn.exec(@pg_sql)
 
