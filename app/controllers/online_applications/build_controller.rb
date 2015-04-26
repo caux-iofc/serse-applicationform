@@ -116,6 +116,16 @@ class OnlineApplications::BuildController < ApplicationController
         end
       end
     else
+      if step == :finances
+        # The rate radio button should set the student boolean to true if that rate is selected
+        params[:application_group]['online_applications_attributes'].each do |key,val|
+          if val['rate'] == 'student'
+            val['student'] = 1
+          else
+            val['student'] = 0
+          end
+        end
+      end
       if step == :group and params[:application_group].has_key?('online_applications_attributes')
         # Do not save permanent address information if the 'different address' checkbox is not set
         params[:application_group]['online_applications_attributes'].each do |key,val|
