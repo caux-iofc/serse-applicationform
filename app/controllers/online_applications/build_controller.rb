@@ -116,7 +116,7 @@ class OnlineApplications::BuildController < ApplicationController
         end
       end
     else
-      if step == :group
+      if step == :group and params[:application_group].has_key?('online_applications_attributes')
         # Do not save permanent address information if the 'different address' checkbox is not set
         params[:application_group]['online_applications_attributes'].each do |key,val|
           val['permanent_address_attributes']['_destroy'] = true if val['different_address'] != '1'
