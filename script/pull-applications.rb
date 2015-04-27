@@ -54,7 +54,8 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
   @conn.transaction {
     @pg_sql = "insert into tbl_application_groups
                         (epoch,name,spouse_complete,children_complete,other_complete,complete,
-                         data_protection_consent,data_protection_caux_info,data_protection_local_info,browser,session_group_id)
+                         data_protection_consent,data_protection_caux_info,data_protection_local_info,
+                         browser,session_group_id,group_registration,family_registration,group_or_family_name)
                  values (
                    #{ag.updated_at.to_i},
                    '#{@conn.escape(ag.primary_applicant.surname)}, #{@conn.escape(ag.primary_applicant.firstname)}',
@@ -66,7 +67,10 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
                    #{ag.data_protection_caux_info},
                    #{ag.data_protection_local_info},
                    '#{@conn.escape(ag.browser)}',
-                   #{ag.session_group_id})"
+                   #{ag.session_group_id},
+                   #{ag.group_registration},
+                   #{ag.family_registration},
+                   '#{ag.group_or_family_name}')"
     @res = @conn.exec(@pg_sql)
 
     @pg_sql = "select currval('seq_application_groups_id') as currval"
