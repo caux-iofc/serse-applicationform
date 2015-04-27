@@ -39,7 +39,7 @@ jQuery ->
   if ($('#online_application_departure_1i').val() == '')
     $("#online_application_departure_1i").val(dt.getYear()+1900)
 
-  ##### handle other_address for group memmbers ####
+  ##### handle other_address for group members ####
 
   ## First the code that will run on document load ##
   $("input[class^=different_address_]").each ->
@@ -377,7 +377,9 @@ jQuery ->
 
     exports = this
 
+    # exports.sponsors holds the aggregate sponsor information across all group/family members
     exports.sponsors = []
+    sponsors = []
     exports.total_automatic = 0
     exports.total_registration_fee = 0
 
@@ -439,6 +441,10 @@ jQuery ->
           exports.sponsors['IofC Switzerland'].amount = 63
         else
           exports.sponsors['IofC Switzerland']['nights'] += nights
+        sponsors['IofC Switzerland'] = {}
+        sponsors['IofC Switzerland'].name = 'IofC Switzerland'
+        sponsors['IofC Switzerland'].nights = nights
+        sponsors['IofC Switzerland'].amount = 63
         calculated_rate_and_fee_details += 'Staff: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if $(base_id + '_rate_volunteer').is(':checked')
         night_rate = 63
@@ -450,6 +456,10 @@ jQuery ->
           exports.sponsors['Conference Support Fund (CSF)'].amount = 63
         else
           exports.sponsors['Conference Support Fund (CSF)']['nights'] += nights
+        sponsors['Conference Support Fund (CSF)'] = {}
+        sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
+        sponsors['Conference Support Fund (CSF)'].nights = nights
+        sponsors['Conference Support Fund (CSF)'].amount = 63
         calculated_rate_and_fee_details += 'Volunteer: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if $(base_id + '_rate_interpreter').is(':checked')
         night_rate = 63
@@ -461,6 +471,10 @@ jQuery ->
           exports.sponsors['Conference Support Fund (CSF)'].amount = 63
         else
           exports.sponsors['Conference Support Fund (CSF)']['nights'] += nights
+        sponsors['Conference Support Fund (CSF)'] = {}
+        sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
+        sponsors['Conference Support Fund (CSF)'].nights = nights
+        sponsors['Conference Support Fund (CSF)'].amount = 63
         calculated_rate_and_fee_details += 'Interpreter: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if $(base_id + "_caux_scholar").val() == '1'
         night_rate = 63
@@ -472,6 +486,10 @@ jQuery ->
           exports.sponsors['Caux Scholars Program'].amount = 63
         else
           exports.sponsors['Caux Scholars Program']['nights'] += nights
+        sponsors['Caux Scholars Program'] = {}
+        sponsors['Caux Scholars Program'].name = 'Caux Scholars Program'
+        sponsors['Caux Scholars Program'].nights = nights
+        sponsors['Caux Scholars Program'].amount = 63
         calculated_rate_and_fee_details += 'Caux Scholars Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if $(base_id + "_caux_intern").val() == '1'
         night_rate = 63
@@ -483,6 +501,10 @@ jQuery ->
           exports.sponsors['Caux Interns Program'].amount = 63
         else
           exports.sponsors['Caux Interns Program']['nights'] += nights
+        sponsors['Caux Interns Program'] = {}
+        sponsors['Caux Interns Program'].name = 'Caux Interns Program'
+        sponsors['Caux Interns Program'].nights = nights
+        sponsors['Caux Interns Program'].amount = 63
         calculated_rate_and_fee_details += 'Caux Interns Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if $(base_id + "_week_of_international_community").val() == '1'
         night_rate = 63
@@ -494,6 +516,10 @@ jQuery ->
           exports.sponsors['Conference Support Fund (CSF)'].amount = 63
         else
           exports.sponsors['Conference Support Fund (CSF)']['nights'] += nights
+        sponsors['Conference Support Fund (CSF)'] = {}
+        sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
+        sponsors['Conference Support Fund (CSF)'].nights = nights
+        sponsors['Conference Support Fund (CSF)'].amount = 63
         calculated_rate_and_fee_details += 'Work week: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if $(base_id + "_caux_artist").val() == '1'
         night_rate = 63
@@ -505,6 +531,10 @@ jQuery ->
           exports.sponsors['Caux Artists Program'].amount = 63
         else
           exports.sponsors['Caux Artists Program']['nights'] += nights
+        sponsors['Caux Artists Program'] = {}
+        sponsors['Caux Artists Program'].name = 'Caux Artists Program'
+        sponsors['Caux Artists Program'].nights = nights
+        sponsors['Caux Artists Program'].amount = 63
         calculated_rate_and_fee_details += 'Caux Artists Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if $(base_id + "_conference_speaker").val() == '1'
@@ -582,35 +612,44 @@ jQuery ->
       $(base_id + "_calculated_total_personal_contribution").val(total_personal_automatic)
       $(base_id + "_calculated_rate_and_fee_details").val(calculated_rate_and_fee_details)
 
+      # Deal with the sponsor lines
+      sponsor_count = 0
+      for key,sponsor of sponsors
+        $(base_id + "_sponsors_attributes_" + sponsor_count + "_name").val(sponsor.name)
+        $('span' + base_id + "_sponsors_attributes_" + sponsor_count + "_name").text(sponsor.name)
+        $(base_id + "_sponsors_attributes_" + sponsor_count + "_nights").val(sponsor.nights)
+        $('span' + base_id + '_sponsors_attributes_' + sponsor_count + '_nights').text(sponsor.nights)
+        $(base_id + "_sponsors_attributes_" + sponsor_count + "_amount").val(sponsor.amount)
+        $('span' + base_id + "_sponsors_attributes_" + sponsor_count + "_amount").text(sponsor.amount)
+        $('span' + base_id + "_sponsors_attributes_" + sponsor_count + "_total").text(sponsor.amount * sponsor.nights)
+        $(base_id + "_sponsors_attributes_" + sponsor_count).show()
+        sponsor_count += 1
+
+      while sponsor_count < 2
+        $(base_id + "_sponsors_attributes_" + sponsor_count + "_name").val('')
+        $('span' + base_id + "_sponsors_attributes_" + sponsor_count + "_name").text('')
+        $(base_id + "_sponsors_attributes_" + sponsor_count + "_nights").val('')
+        $('span' + base_id + "_sponsors_attributes_" + sponsor_count + "_nights").text('')
+        $(base_id + "_sponsors_attributes_" + sponsor_count + "_amount").val('')
+        $('span' + base_id + "_sponsors_attributes_" + sponsor_count + "_amount").text('')
+        $(base_id + "_sponsors_attributes_" + sponsor_count).hide()
+        sponsor_count += 1
+
     # Back from walking all the applications
-    # Deal with the sponsor lines
-    exports.count = 0
+    # Deal with the totals/sponsor calculation
+    sponsor_contribution = 0
     for key,sponsor of exports.sponsors
-      $("#application_group_online_applications_attributes_0_sponsors_attributes_" + exports.count + "_name").val(sponsor.name)
-      $("#application_group_online_applications_attributes_0_sponsors_attributes_" + exports.count + "_nights").val(sponsor.nights)
-      $("#application_group_online_applications_attributes_0_sponsors_attributes_" + exports.count + "_amount").val(sponsor.amount)
-      exports.count += 1
-
-    while exports.count < 2
-      $("#application_group_online_applications_attributes_0_sponsors_attributes_" + exports.count + "_name").val('')
-      $("#application_group_online_applications_attributes_0_sponsors_attributes_" + exports.count + "_nights").val('')
-      $("#application_group_online_applications_attributes_0_sponsors_attributes_" + exports.count + "_amount").val('')
-      exports.count += 1
-
-    # Now calculate the total personal contribution
-    sponsor_1_contribution = $("#application_group_online_applications_attributes_0_sponsors_attributes_0_nights").val() * $("#application_group_online_applications_attributes_0_sponsors_attributes_0_amount").val()
-    sponsor_2_contribution = $("#application_group_online_applications_attributes_0_sponsors_attributes_1_nights").val() * $("#application_group_online_applications_attributes_0_sponsors_attributes_1_amount").val()
-
-    if ! isNaN(sponsor_1_contribution)
-      sponsor_contribution = sponsor_1_contribution
-
-    if ! isNaN(sponsor_2_contribution)
-      sponsor_contribution += sponsor_2_contribution
-
-    if isNaN(sponsor_contribution)
-      sponsor_contribution = 0
+      sponsor_contribution += sponsor.nights * sponsor.amount
 
     exports.total_automatic -= sponsor_contribution
+
+    $("input[class^='form-control sponsor_field_'][id$=nights]").each ->
+      classname=$(this).attr('class').replace('form-control ','')
+      val = 1
+      $("input[class^='" + $(this).attr('class') + "']").each ->
+        val *= $(this).val()
+      $('span#' + classname).text(val)
+      exports.total_automatic -= val
 
     if exports.total_automatic < 0
       exports.total_automatic = 0
@@ -619,7 +658,9 @@ jQuery ->
     exports.total_automatic += exports.total_registration_fee
 
     $("#total_automatic").text(exports.total_automatic)
+
     false
+
 
   ## First the code that will run on document load ##
   recalculate_fees()
@@ -633,4 +674,9 @@ jQuery ->
   $('#application_group_online_applications_attributes_0_sponsors_attributes_1_nights').change ->
     recalculate_fees()
   $('#application_group_online_applications_attributes_0_sponsors_attributes_1_amount').change ->
+    recalculate_fees()
+  # In order to attach to dynamically inserted group members, attach to the form
+  # element with jquery's on()
+  $(".edit_application_group").on "change", "input[class^='form-control sponsor_field_']", ->
+    #sponsor_recalculate_total($(this))
     recalculate_fees()

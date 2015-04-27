@@ -188,9 +188,12 @@ protected
     @earliest_start_year = Time.now.year
     @latest_stop_year = Time.now.year
 
-    # Make sure we have exactly two sponsor lines
-    while @online_application.sponsors.size < 2 do
-      @online_application.sponsors.build
+    # Make sure we have four sponsor lines; the first two are
+    # auto-calculated (and empty if not needed)
+    @application_group.online_applications.each do |oa|
+      while oa.sponsors.size < 4 do
+        oa.sponsors.build
+      end
     end
 
     # Make sure we have at least four online_application_language lines for each

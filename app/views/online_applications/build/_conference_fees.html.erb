@@ -89,31 +89,6 @@
   <%= builder.hidden_field :calculated_total_personal_contribution, :size => 6 %>
   <%= builder.hidden_field :calculated_rate_and_fee_details %>
 
-  <% if builder.object.relation == 'primary applicant' -%>
-    <% @sponsors =  builder.fields_for :sponsors do |sf| -%>
-      <div class="row">
-        <div class="col-md-7">
-          <div class="form-group">
-            <%= sf.text_field :name, :class => 'form-control' %>
-          </div>
-        </div>
-        <div class="col-md-1">
-          <div class="form-group">
-            <%= sf.text_field :nights, { :class => 'form-control' } %>
-          </div>
-        </div>
-        <div class="col-md-4" align="right">
-          <div class="form-group col-sm-9">
-            CHF
-          </div>
-          <div class="form-group col-sm-3">
-            <span><%= sf.text_field :amount, { :class => 'form-control' } %></span>
-          </div>
-        </div>
-      </div>
-    <% end -%>
-  <% end -%>
-
   <div class="row">
     <div class="col-md-7">
       &nbsp;
@@ -137,10 +112,10 @@
       <div id="application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_nights_visible"></div>
     </div>
     <div class="col-md-2">
-      <div class="col-sm-8 text-right">
+      <div class="col-sm-6 text-right">
         CHF
       </div>
-      <div class="col-sm-4 text-right">
+      <div class="col-sm-6 text-right">
         <span id="application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_rate_per_night_visible"></span><%= builder.hidden_field :rate_per_night %>
       </div>
     </div>
@@ -168,6 +143,86 @@
   </div>
 
   <div class="row">
+    <div class="col-md-7">
+      <label><%=t :sponsors_name %></label>
+    </div>
+    <div class="col-md-1">
+      <label><%=t :sponsors_nights %></label>
+    </div>
+    <div class="col-md-2 text-right">
+      <label><%=t :sponsors_amount %></label>
+    </div>
+  </div>
+
+  <% @sponsor_counter = 0 -%>
+  <%= builder.fields_for :sponsors do |sf| -%>
+    <% if @sponsor_counter < 2 -%>
+      <div class="row" id="application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_sponsors_attributes_<%= sf.object_name.gsub(/^.*([0-9])\]$/,'\1') -%>" style="display: none">
+        <div class="col-md-7">
+          <div class="form-group">
+            <%= sf.hidden_field :name, :class => 'form-control' %>
+            <span id="application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_sponsors_attributes_<%= sf.object_name.gsub(/^.*([0-9])\]$/,'\1') -%>_name"></span>
+          </div>
+        </div>
+        <div class="col-md-1">
+          <div class="form-group">
+            <%= sf.hidden_field :nights, { :class => 'form-control' } %>
+            <span id="application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_sponsors_attributes_<%= sf.object_name.gsub(/^.*([0-9])\]$/,'\1') -%>_nights"></span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="col-sm-6 text-right">
+            CHF
+          </div>
+          <div class="col-sm-6 text-right">
+            <span><%= sf.hidden_field :amount, { :class => 'form-control' } %></span>
+            <span id="application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_sponsors_attributes_<%= sf.object_name.gsub(/^.*([0-9])\]$/,'\1') -%>_amount"></span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="col-sm-8 text-right">
+            CHF
+          </div>
+          <div class="col-sm-4 text-right">
+            <span id="application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_sponsors_attributes_<%= sf.object_name.gsub(/^.*([0-9])\]$/,'\1') -%>_total"></span>
+          </div>
+        </div>
+      </div>
+    <% else -%>
+      <div class="row">
+        <div class="col-md-7">
+          <div class="form-group">
+            <%= sf.text_field :name, { :class => "form-control" } %>
+          </div>
+        </div>
+        <div class="col-md-1">
+          <div class="form-group">
+            <%= sf.text_field :nights, { :class => "form-control sponsor_field_#{sf.object_name.gsub(/[^0-9]+/,'')}" } %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="col-sm-6 text-right">
+            CHF
+          </div>
+          <div class="col-sm-6 text-right">
+            <span><%= sf.text_field :amount, { :class => "form-control sponsor_field_#{sf.object_name.gsub(/[^0-9]+/,'')}" } %></span>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="col-sm-8 text-right">
+            CHF
+          </div>
+          <div class="col-sm-4 text-right">
+            <span id="application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_sponsors_attributes_<%= sf.object_name.gsub(/^.*([0-9])\]$/,'\1') -%>_total"></span>
+            <span id="sponsor_field_<%= sf.object_name.gsub(/[^0-9]+/,'') -%>"></span>
+          </div>
+        </div>
+      </div>
+    <% end -%>
+    <% @sponsor_counter += 1 -%>
+  <% end -%>
+
+  <div class="row">
     <div class="col-md-12">
       <hr>
     </div>
@@ -186,20 +241,7 @@
 </div>
 
 <div class="row">
-  <div class="col-md-7">
-    <label><%=t :sponsors_name %></label>
-  </div>
-  <div class="col-md-1">
-    <label><%=t :sponsors_nights %></label>
-  </div>
-  <div class="col-md-4" align="right">
-    <label><%=t :sponsors_amount %></label>
-  </div>
-</div>
-
-<div class="row">
   <div class="col-md-12">
-    <%= @sponsors -%>
   </div>
 </div>
 <div class="row">
