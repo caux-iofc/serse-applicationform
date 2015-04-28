@@ -22,9 +22,15 @@ class Address < ActiveRecord::Base
   end
 
   def personal_or_group?
-    not self.online_application.status.nil? and
-      (self.online_application.status.include?('personal') or
-       self.online_application.status.include?('group'))
+    if self.online_application.relation == 'primary applicant'
+      not self.online_application.status.nil? and
+        (self.online_application.status.include?('personal') or
+         self.online_application.status.include?('group'))
+    else
+      not self.online_application.application_group.primary_applicant.status.nil? and
+        (self.online_application.application_group.primary_applicant.status.include?('personal') or
+         self.online_application.application_group.primary_applicant.status.include?('group'))
+    end
   end
 
   def empty?
