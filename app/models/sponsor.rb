@@ -10,4 +10,7 @@ class Sponsor < ActiveRecord::Base
   validates :nights, :presence => true, :if => Proc.new { |s| not s.name.blank? or not s.amount.blank? }
   validates :amount, :presence => true, :if => Proc.new { |s| not s.name.blank? or not s.nights.blank? }
 
+  scope :auto, where("auto = ?", true)
+  scope :not_auto, where("auto = ?", false)
+
 end

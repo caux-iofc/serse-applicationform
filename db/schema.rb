@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150424222700) do
+ActiveRecord::Schema.define(:version => 20150427200900) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -711,12 +711,13 @@ ActiveRecord::Schema.define(:version => 20150424222700) do
     t.string   "name"
     t.integer  "nights"
     t.integer  "amount"
-    t.string   "created_by",            :limit => 100, :default => "", :null => false
-    t.string   "updated_by",            :limit => 100, :default => "", :null => false
-    t.integer  "lock_version",                         :default => 0,  :null => false
+    t.string   "created_by",            :limit => 100, :default => "",    :null => false
+    t.string   "updated_by",            :limit => 100, :default => "",    :null => false
+    t.integer  "lock_version",                         :default => 0,     :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "auto",                                 :default => false, :null => false
   end
 
   add_index "sponsors", ["online_application_id"], :name => "index_sponsors_on_online_application_id"

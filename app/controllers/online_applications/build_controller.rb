@@ -191,8 +191,15 @@ protected
     # Make sure we have four sponsor lines; the first two are
     # auto-calculated (and empty if not needed)
     @application_group.online_applications.each do |oa|
-      while oa.sponsors.size < 4 do
-        oa.sponsors.build
+      @count = oa.sponsors.auto.count
+      while @count < 2 do
+        oa.sponsors.build({:auto => true})
+        @count += 1
+      end
+      @count = oa.sponsors.not_auto.count
+      while @count < 2 do
+        oa.sponsors.build({:auto => false})
+        @count += 1
       end
     end
 
