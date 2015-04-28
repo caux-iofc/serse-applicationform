@@ -96,8 +96,20 @@ class OnlineApplications::BuildController < ApplicationController
             # Sub-objects get their own IDs for each participant, so we need to rewrite them for update/delete
             @online_application_conferences_attributes = params[:online_application]['online_application_conferences_attributes']
             @online_application_conferences_attributes.each do |index,oac|
-              if oac.has_key?('id') and oa.online_application_conferences.collect { |o| o.conference_id }.include?(oac['conference_id'].to_i)
-                oac['id'] = oa.online_application_conferences.where(:conference_id => oac['conference_id']).first.id
+              if oac.has_key?('id')
+                if oa.online_application_conferences.collect { |o| o.conference_id }.include?(oac['conference_id'].to_i)
+                  oac['id'] = oa.online_application_conferences.where(:conference_id => oac['conference_id']).first.id
+                else
+                  # this can happen when a new participant is added to a group after dates_and_events has already been saved
+                  # on the next pass through dates_and_events, we need to add the conference to the new participant
+                  oac.delete('id')
+                  @online_application_conference_workstreams_attributes = oac["online_application_conference_workstreams_attributes"]
+                  if not @online_application_conference_workstreams_attributes.nil?
+                    @online_application_conference_workstreams_attributes.each do |i,oacw|
+                      oacw.delete('id')
+                    end
+                  end
+                end
               end
               @online_application_conference_workstreams_attributes = oac["online_application_conference_workstreams_attributes"]
               next if @online_application_conference_workstreams_attributes.nil?
@@ -105,8 +117,12 @@ class OnlineApplications::BuildController < ApplicationController
               # Unfortunately, we also need to rewrite IDs on sub-sub-objects...
               @online_application_conference_workstreams_attributes.each do |i,oacw|
                 db_oac = OnlineApplicationConference.find(oac['id'].to_i)
-                if oacw.has_key?('id') and db_oac.online_application_conference_workstreams.collect { |o| o.preference }.include?(oacw['preference'])
-                  oacw['id'] = db_oac.online_application_conference_workstreams.where(:preference => oacw['preference']).first.id
+                if oacw.has_key?('id')
+                  if db_oac.online_application_conference_workstreams.collect { |o| o.preference }.include?(oacw['preference'])
+                    oacw['id'] = db_oac.online_application_conference_workstreams.where(:preference => oacw['preference']).first.id
+                  else
+                    oacw.delete('id')
+                 end
                 end
               end
             end
