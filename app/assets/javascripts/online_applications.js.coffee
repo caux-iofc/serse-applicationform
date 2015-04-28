@@ -604,7 +604,7 @@ jQuery ->
 
       exports.total_automatic += total_nights
       exports.total_registration_fee += registration_fee
-      total_personal_automatic = total_nights
+      total_personal_automatic = total_nights + registration_fee
 
       $(base_id + "_calculated_nights").val(nights)
       $(base_id + "_calculated_night_rate").val(night_rate)
