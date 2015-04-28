@@ -174,7 +174,7 @@ class OnlineApplications::BuildController < ApplicationController
   # GET /online_applications.json
   def index
     @online_applications = OnlineApplication.find_all_by_application_group_id(@application_group.id)
-    if @online_applications.size == 0 or @application_group.complete
+    if @online_applications.size == 0 or @application_group.complete or @online_application.status == 'confirmation'
       redirect_to new_build_path
       return
     elsif not @online_application.nil? and @online_application.status.nil?
@@ -341,6 +341,10 @@ protected
         @application_group.session_group_id = session[:session_group_id] if session.has_key?(:session_group_id)
         @application_group.save!
       rescue Exception => e
+        STDERR.puts "*******      ERROR      ********"
+        STDERR.puts @application_group.pretty_inspect()
+        STDERR.puts e.pretty_inspect()
+        STDERR.puts "*******     /ERROR      ********"
         # Most likely, this means there is no session_id. That can happen if cookies are disabled.
         redirect_to :cookies_disabled
         return
@@ -404,6 +408,10 @@ protected
 
         @online_application.save!
       rescue Exception => e
+        STDERR.puts "*******      ERROR      ********"
+        STDERR.puts @online_application.pretty_inspect()
+        STDERR.puts e.pretty_inspect()
+        STDERR.puts "*******     /ERROR      ********"
         # Most likely, this means there is no session_id. That can happen if cookies are disabled.
         redirect_to :cookies_disabled
         return
