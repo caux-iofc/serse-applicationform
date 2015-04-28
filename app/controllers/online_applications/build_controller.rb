@@ -322,44 +322,12 @@ protected
   end
 
   def ensure_application_group
-    if session.nil? or
-       not session.has_key?(:application_group_id) or
-       session[:application_group_id] == 0 or
-       ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first.nil? or
-       ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first.complete then
-      begin
-        # new application group
-        @application_group = ApplicationGroup.new()
-        # Trigger creation of session id, in case the session is new. We have to do this
-        # because of lazy session loading.
-        # Cf. https://rails.lighthouseapp.com/projects/8994/tickets/2268-rails-23-session_optionsid-problem
-        # Ward, 2012-02-29
-        request.session_options[:id]
-        @application_group.session_id = request.session_options[:id]
-        @application_group.browser = request.env['HTTP_USER_AGENT']
-        @application_group.remote_ip = request.env['REMOTE_ADDR']
-        @application_group.session_group_id = session[:session_group_id] if session.has_key?(:session_group_id)
-        @application_group.save!
-      rescue Exception => e
-        STDERR.puts "*******      ERROR      ********"
-        STDERR.puts @application_group.pretty_inspect()
-        STDERR.puts e.pretty_inspect()
-        STDERR.puts "*******     /ERROR      ********"
-        # Most likely, this means there is no session_id. That can happen if cookies are disabled.
-        redirect_to :cookies_disabled
-        return
-      end
-      session[:application_group_id] = @application_group.id
-      session.delete(:online_application_id)
-    else
-      @application_group = ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first
-    end
-
     # Allow selection of a application, if the session id matches
     if not session.nil? and params[:online_application_id]
       @online_application = OnlineApplication.where(:id => params[:online_application_id], :session_id => request.session_options[:id]).first
       if not @online_application.nil?
         session[:online_application_id] = @online_application.id
+        session[:application_group_id] = @online_application.application_group.id
       else
         STDERR.puts "******* Breakin attempt ********"
         STDERR.puts "Tried to access application with id #{params[:online_application_id]} with"
@@ -374,17 +342,29 @@ protected
     end
 
     if session.nil? or
+       not session.has_key?(:application_group_id) or
        not session.has_key?(:online_application_id) or
+       session[:application_group_id] == 0 or
        session[:online_application_id] == 0 or
+       ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first.nil? or
+       ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first.complete or
        OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first.nil? or
-       action_name == 'new' then
+       action_name == 'new'
       begin
-        # new application
+        # new application group
+        @application_group = ApplicationGroup.new()
         # Trigger creation of session id, in case the session is new. We have to do this
         # because of lazy session loading.
         # Cf. https://rails.lighthouseapp.com/projects/8994/tickets/2268-rails-23-session_optionsid-problem
         # Ward, 2012-02-29
         request.session_options[:id]
+        @application_group.session_id = request.session_options[:id]
+        @application_group.browser = request.env['HTTP_USER_AGENT']
+        @application_group.remote_ip = request.env['REMOTE_ADDR']
+        @application_group.session_group_id = session[:session_group_id] if session.has_key?(:session_group_id)
+        @application_group.save!
+
+        # new application
         @online_application = OnlineApplication.new()
         @online_application.application_group = @application_group
         @online_application.application_group_order = @application_group.online_applications.count + 1
@@ -409,6 +389,7 @@ protected
         @online_application.save!
       rescue Exception => e
         STDERR.puts "*******      ERROR      ********"
+        STDERR.puts @application_group.pretty_inspect()
         STDERR.puts @online_application.pretty_inspect()
         STDERR.puts e.pretty_inspect()
         STDERR.puts "*******     /ERROR      ********"
@@ -416,8 +397,10 @@ protected
         redirect_to :cookies_disabled
         return
       end
+      session[:application_group_id] = @application_group.id
       session[:online_application_id] = @online_application.id
     else
+      @application_group = ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first
       @online_application = OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first
     end
   end
