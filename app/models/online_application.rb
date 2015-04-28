@@ -151,14 +151,14 @@ class OnlineApplication < ActiveRecord::Base
   validates :arrival, :presence => true,
                       :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' }
 
-  # Only validate arrival < departure if this is not a day visit!
+  # Validate arrival < departure
   validates :arrival, :date => { :before => :departure, :message => I18n.t(:must_be_before_departure) },
-                      :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' && oa.day_visit == false }
+                      :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' }
 
-  # Only validate presence of departure, and departure > arrival if this is not a day visit!
+  # Validate presence of departure, and departure > arrival
   validates :departure, :presence => true,
                         :date => { :after => :arrival, :message => I18n.t(:must_be_after_arrival) },
-                        :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' && oa.day_visit == false }
+                        :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' }
 
   unless ALLOW_RETROACTIVE_REGISTRATION
     validates :arrival, :date => { :after_or_equal_to => Date.today, :message => I18n.t(:can_be_no_earlier_than_today) },
