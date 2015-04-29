@@ -284,7 +284,7 @@ protected
     if step == :group or step == :family or step == :confirmation
       # this page needs to store a few fields on the application group object
       @show_ag_errors = true
-      if step == :group or step == :family
+      if step == :group or step == :family or step == :confirmation
         @show_only_ag_errors = true
       else
         @show_only_ag_errors = false

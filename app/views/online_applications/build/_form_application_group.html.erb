@@ -35,7 +35,7 @@
                   <% @application_group.errors.each_with_index.map do |msg| -%>
                     <% if (I18n.t(msg[0]) != '') then -%>
                       <% if (@show_only_ag_errors and not (msg[0].to_s =~ /^online_application/)) or !@show_only_ag_errors -%>
-                        <li><strong><%= I18n.t(msg[0].to_s.gsub(/\./,'_')) -%></strong> <%= msg[1] -%></li>
+                        <li><strong><%= I18n.t(msg[0].to_s.gsub(/\./,'_').sub(/online_applications_/,'')) -%></strong> <%= msg[1] -%></li>
                       <% end -%>
                     <% else -%>
                       <li><%= msg[1] -%></li>
@@ -55,7 +55,7 @@
                   <% @application_group.errors.each_with_index.map do |msg| -%>
                     <% if (I18n.t(msg[0]) != '') then -%>
                       <% if (@show_only_ag_errors and not (msg[0].to_s =~ /^online_application/)) or !@show_only_ag_errors -%>
-                        <li><strong><%= I18n.t(msg[0].to_s.gsub(/\./,'_')) -%></strong> <%= msg[1] -%></li>
+                        <li><strong><%= I18n.t(msg[0].to_s.gsub(/\./,'_').sub(/online_applications_/,'')) -%></strong> <%= msg[1] -%></li>
                       <% end -%>
                     <% else -%>
                       <li><%= msg[1] -%></li>
