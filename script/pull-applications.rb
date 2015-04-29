@@ -340,10 +340,10 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 
       @keys += 'calculated_rate_and_fee_details,'
       if not oa.financial_remarks.nil? and not oa.financial_remarks.empty?
-        @values += "'" + oa.calculated_rate_and_fee_details.to_s + "\n\n"
-        @values += "APPLICANT FINANCIAL REMARKS:\n" + oa.financial_remarks.to_s + "',"
+        @values += "'" + @conn.escape(oa.calculated_rate_and_fee_details.to_s) + "\n\n"
+        @values += "APPLICANT FINANCIAL REMARKS:\n" + @conn.escape(oa.financial_remarks.to_s) + "',"
       else
-        @values += "'" + oa.calculated_rate_and_fee_details.to_s + "',"
+        @values += "'" + @conn.escape(oa.calculated_rate_and_fee_details.to_s) + "',"
       end
 
       @keys += 'currency,'
