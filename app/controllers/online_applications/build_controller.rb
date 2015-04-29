@@ -8,6 +8,13 @@ class OnlineApplications::BuildController < ApplicationController
   def show
     @step = step
 
+    if step != :wicked_finish and step != 'wicked_finish'
+      # Catch people using the back button from the 'Registration form complete' page
+      if @online_application.status.nil? and step != :personal and step != :complete
+        redirect_to wizard_path(steps.first)
+        return
+      end
+   end
     # Add a blank address for correspondence address if it is nil
     # The correspondence address can be nil if it was not required on the
     # previous edit/creation of the online application.  It has to exist if we want it to
@@ -338,6 +345,25 @@ protected
         STDERR.puts "Request information:"
         STDERR.puts request.pretty_inspect()
         STDERR.puts "******* /Breakin attempt ********"
+        reset_session
+        redirect_to :home
+        return
+      end
+    end
+
+    if not session.nil? and
+       session.has_key?(:application_group_id) and
+       session.has_key?(:online_application_id)
+
+      @application_group = ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first
+      @online_application = OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first
+      if @online_application.application_group.id != @application_group.id or
+        not @application_group.online_applications.include?(@online_application)
+        # Mismatch between application group and application stored in session?
+        # That's shady. Reset the session.
+        reset_session
+        redirect_to :home
+        return
       end
     end
 
