@@ -168,6 +168,7 @@ en:
   badge_surname: "Name badge family name"
   badge_firstname: "Name badge first name"
   badge_country: "Name badge country"
+
   addresses: "Permanent address "
   sponsors: "Sponsor "
   must_be_before_valid_until: " must be before valid until date"
@@ -268,7 +269,9 @@ en:
   cookies_disabled_title: Please enable browser cookies
   cookies_disabled: "Browser cookies must be enabled to use this form. Please enable cookies to proceed."
 
-  application_could_not_be_saved: "This application could not be saved. Please make sure you have a primary applicant defined."
+  error_title: "Error"
+  application_could_not_be_saved: "This application could not be saved. Perhaps it was already submitted?"
+  click_here_to_apply_again_html: "<a href=\"/\">Click here</a> to apply again."
 
   please_only_register_if_you_have_been_accepted_beforehand: "Please only register for the following Programs if you have already been accepted:"
 

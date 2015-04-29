@@ -292,4 +292,7 @@ de:
 
   base: ''
 
+  error_title: "Error"
+  application_could_not_be_saved: "This application could not be saved. Perhaps it was already submitted?"
+  click_here_to_apply_again_html: "<a href=\"/\">Click here</a> to apply again."
 
