@@ -364,6 +364,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
         @keys += "sponsor_#{@sponsor_count}_currency,"
         @values += "'chf',"
         @sponsor_count += 1
+        break if @sponsor_count > 4
       end
 
       @keys += 'remarks,'
