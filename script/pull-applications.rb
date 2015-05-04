@@ -70,7 +70,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
                    #{ag.session_group_id},
                    #{ag.group_registration},
                    #{ag.family_registration},
-                   '#{ag.group_or_family_name}')"
+                   '#{@conn.escape(ag.group_or_family_name)}')"
     @res = @conn.exec(@pg_sql)
 
     @pg_sql = "select currval('seq_application_groups_id') as currval"
