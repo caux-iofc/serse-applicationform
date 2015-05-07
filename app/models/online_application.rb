@@ -67,6 +67,34 @@ class OnlineApplication < ActiveRecord::Base
   attr_accessor :conference_speaker
   attr_accessor :week_of_international_community
 
+  before_validation do
+    # Filter out duplicate online_application_conference records. This can happen when
+    # the dates_and_events form is submitted twice on first submit.
+    # Sadly, rails basically doesn't support doing this on has_many through, cf.
+    #   http://blog.spoolz.com/2012/12/21/rails-nested-attributes-with-scoped-uniqueness-validation-of-association/
+    self.online_application_conferences = self.online_application_conferences.select do |oac|
+      not oac.id.nil? or OnlineApplication.find(self.id).online_application_conferences.where('online_application_id = ?',self.id).empty?
+    end
+    # Filter out duplicated online_application_training_programs records.
+    self.online_application_training_programs = self.online_application_training_programs.select do |oac|
+      not oac.id.nil? or OnlineApplication.find(self.id).online_application_training_programs.where('online_application_id = ?',self.id).empty?
+    end
+
+    # Throw a proper error when duplicate online_application_conference+languages are
+    # selected, because of bug #4568:
+    #   https://github.com/rails/rails/issues/4568
+    self.online_application_languages.each do |oal|
+      if self.online_application_languages.select { |l| l.language.id == oal.language.id }.count > 1
+        # draw the red boxes around the offending language names
+        oal.errors.add(:language_id,I18n.t(:selected_multiple_times))
+        # show the error to the user, by saving it on self.errors
+        if not errors.messages.include?(:"online_application_languages.language_id")
+          errors.add(:"online_application_languages.language_id",I18n.t(:selected_multiple_times))
+        end
+      end
+    end
+  end
+
   after_validation() do
     # Keep track of validation errors, so that we can improve the user experience
     if not errors.empty? then
