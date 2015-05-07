@@ -84,7 +84,7 @@ class OnlineApplication < ActiveRecord::Base
     # selected, because of bug #4568:
     #   https://github.com/rails/rails/issues/4568
     self.online_application_languages.each do |oal|
-      if self.online_application_languages.select { |l| l.language.id == oal.language.id }.count > 1
+      if self.online_application_languages.select { |l| not oal.language.nil? and not l.language.nil? and l.language.id == oal.language.id }.count > 1
         # draw the red boxes around the offending language names
         oal.errors.add(:language_id,I18n.t(:selected_multiple_times))
         # show the error to the user, by saving it on self.errors
