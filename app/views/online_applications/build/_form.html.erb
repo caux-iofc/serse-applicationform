@@ -32,12 +32,12 @@
           <div class="actions">
             <% if @step == :detail -%>
               <% if @online_application.registration_type == 'group' -%>
-                <%= link_to "Back", previous_wizard_path, class: 'btn btn-info' %>
+                <%= link_to t(:back), previous_wizard_path, class: 'btn btn-info' %>
               <% else -%>
-                <%= link_to "Back", wizard_path(:personal), class: 'btn btn-info' %>
+                <%= link_to t(:back), wizard_path(:personal), class: 'btn btn-info' %>
               <% end -%>
             <% else -%>
-              <%= link_to "Back", previous_wizard_path, class: 'btn btn-info' %>
+              <%= link_to t(:back), previous_wizard_path, class: 'btn btn-info' %>
             <% end -%>
           </div>
         </div>
@@ -51,7 +51,7 @@
       <div class="row">
         <div class="col-md-5 col-md-offset-7">
           <div class="actions">
-            <%= link_to "Back", build_index_path, class: 'btn btn-info' %>
+            <%= link_to t(:back), build_index_path, class: 'btn btn-info' %>
           </div>
         </div>
       </div>

@@ -284,11 +284,11 @@ de:
   cookies_disabled: "Browser cookies must be enabled to use this form. Please enable cookies to proceed."
 
   please_choose_option: "Please choose an option"
-  back: "Back"
+  back: "Zurück"
 
   # For the bootstrap progress bar
-  step: Step
-  out_of: out of
+  step: Schritt
+  out_of: von
 
   base: ''
 

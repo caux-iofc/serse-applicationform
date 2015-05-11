@@ -281,12 +281,12 @@ fr:
   remove: supprimer
   add_a_person_to_this_application: "Ajouter une personne à cette inscription"
 
-  please_choose_option: "Please choose an option"
-  back: "Back"
+  please_choose_option: "Veuillez choisir une option"
+  back: "En arrière"
 
   # For the bootstrap progress bar
-  step: Step
-  out_of: out of
+  step: étape
+  out_of: de
 
   base: ""
 
@@ -327,7 +327,4 @@ fr:
   error: erreur
   please_scroll_down_for_details: ", voir les détails ci-dessous."
   financial_remarks_detail: "Si quelqu'un d'autre paie pour votre groupe, merci de bien vouloir donner le nom et les coordonnées de la personne ou de l'organisation qui paie dans l'espace prévu pour les remarques."
-
-  test: "etest"
-
 

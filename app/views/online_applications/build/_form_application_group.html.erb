@@ -83,16 +83,16 @@
           <div class="actions">
             <% if @step == :detail -%>
               <% if @online_application.registration_type == 'group' -%>
-                <%= link_to "Back", wizard_path(:group), class: 'btn btn-info' %>
+                <%= link_to t(:back), wizard_path(:group), class: 'btn btn-info' %>
               <% elsif @online_application.registration_type == 'family' -%>
-                <%= link_to "Back", wizard_path(:family), class: 'btn btn-info' %>
+                <%= link_to t(:back), wizard_path(:family), class: 'btn btn-info' %>
               <% else -%>
-                <%= link_to "Back", wizard_path(:personal), class: 'btn btn-info' %>
+                <%= link_to t(:back), wizard_path(:personal), class: 'btn btn-info' %>
               <% end -%>
             <% elsif @step == :family -%>
-              <%= link_to "Back", wizard_path(:personal), class: 'btn btn-info' %>
+              <%= link_to t(:back), wizard_path(:personal), class: 'btn btn-info' %>
             <% else -%>
-              <%= link_to "Back", previous_wizard_path, class: 'btn btn-info' %>
+              <%= link_to t(:back), previous_wizard_path, class: 'btn btn-info' %>
             <% end -%>
           </div>
         </div>
@@ -104,7 +104,7 @@
   <% elsif @online_application.status == 'complete' -%>
     <div class="col-md-2 col-md-offset-4">
       <div class="actions">
-        <%= link_to "Back", build_index_path, class: 'btn btn-info' %>
+        <%= link_to t(:back), build_index_path, class: 'btn btn-info' %>
       </div>
     </div>
     <div class="col-md-2">
