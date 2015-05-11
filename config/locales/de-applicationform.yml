@@ -31,7 +31,7 @@ de:
   register: Anmelden!
   proceed: Weiter
   personal_information: "Persönliche Angaben"
-  detailed_information: "Detailed information"
+  detailed_information: "Detaillierte Informationen"
   name_badge: Namensschild
   contact_information: "Kontaktmöglichkeiten"
   arrival: Ankunft
@@ -296,3 +296,36 @@ de:
   application_could_not_be_saved: "This application could not be saved. Perhaps it was already submitted?"
   click_here_to_apply_again_html: "<a href=\"/\">Click here</a> to apply again."
 
+  please_choose_your_rate: Bitte wählen Sie Ihren Tarif
+  full_premium: Full Premium
+  standard: Standard
+  student: Student
+  amis_de_caux: Freunde von Caux
+  local_iofc_team_member: Mitglied vom lokalen IofC-Team
+  exhibitor: Aussteller
+  please_only_register_if_you_have_been_accepted_beforehand: 'Bitte melden Sie sich für die folgenden Programme nur an wenn Ihre Teilnahme bestätigt wurde:'
+  register_as_part_of_group: Ich melde mich als Teil einer Gruppe / Delegation an
+  group_name: Name der Gruppe / Delegation
+  group_personal_details: Persönliche Angaben von Mitglieder der Gruppe / Delegation
+  group_member: Mitglied
+  group_or_family_name: Name
+  register_as_single_person: Ich melde mich alleine an
+  register_as_part_of_family: Ich melde mich mit meiner Familie an
+  family_intro_text: Bitte beachten Sie das alle Familienmitglieder die selbe Adresse und Kontaktangaben von der Person die sich als erstens angemeldet hat erhalten werden.
+  family_name: Familienname
+  family_personal_details: Persönliche Angaben von Familienmitgliedern
+  remove_from_family: Diese Person aus der Anmeldung entfernen
+  family_member: Familienmitglied
+  add_a_person: Person hinzufügen
+  remove_from_group: Diese Person aus der Gruppe entfernen
+  online_applications_firstname: Vorname
+  online_applications_surname: Familienname
+  online_applications_date_of_birth: Geburtsdatum
+  online_applications_gender: Geschlecht
+  online_applications_citizenship_id: Nationalität
+  online_applications_email: E-Mail Adresse
+  online_applications: Anmeldung
+  the_form_could_not_be_saved_because_it_contains: Die Anmeldung konnte nicht gespeichert werden wegen
+  error: fehler
+  please_scroll_down_for_details: ", weitere Details finden Sie weiter unten."
+  financial_remarks_detail: Wird der Aufenthalt Ihrer Gruppe gesponsort, vermerken Sie bitte den Namen und die Kontaktangaben des Sponsors in den Bemerkungen.
