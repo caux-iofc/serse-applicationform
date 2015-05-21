@@ -20,11 +20,11 @@
         <div class="col-md-6">
           <div class="form-group<%= online_application.relation == 'primary applicant' ? 'required' : '' -%>">
             <%= f.label :visa_reference_name, t(:visa_reference_name), class: 'control-label' %>
-            <%= f.text_field :visa_reference_name, :class => 'form-control' %>
+            <%= f.text_field :visa_reference_name, { :class => 'form-control', :maxlength => 100 } %>
           </div>
           <div class="form-group required">
             <%= f.label :passport_number, t(:passport_number), class: 'control-label' %>
-            <%= f.text_field :passport_number, :class => 'form-control' %>
+            <%= f.text_field :passport_number, { :class => 'form-control', :maxlength => 100 } %>
           </div>
           <div class="form-group required">
             <%= f.label :passport_issue_date, t(:passport_issue_date), class: 'control-label' %>
@@ -32,17 +32,17 @@
           </div>
           <div class="form-group required">
             <%= f.label :passport_embassy, t(:passport_embassy), class: 'control-label' %>
-            <%= f.text_field :passport_embassy, :class => 'form-control' %>
+            <%= f.text_field :passport_embassy, { :class => 'form-control', :maxlength => 100 } %>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group<%= online_application.relation == 'primary applicant' ? 'required' : '' -%>">
             <%= f.label :visa_reference_email, t(:visa_reference_email), class: 'control-label' %>
-            <%= f.text_field :visa_reference_email, :class => 'form-control' %>
+            <%= f.text_field :visa_reference_email, { :class => 'form-control', :maxlength => 200 } %>
           </div>
           <div class="form-group required">
             <%= f.label :passport_issue_place, t(:passport_issue_place), class: 'control-label' %>
-            <%= f.text_field :passport_issue_place, :class => 'form-control' %>
+            <%= f.text_field :passport_issue_place, { :class => 'form-control', :maxlength => 100 } %>
           </div>
           <div class="form-group required">
             <%= f.label :passport_expiry_date, t(:passport_expiry_date), class: 'control-label' %>
