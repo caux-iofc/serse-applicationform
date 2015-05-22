@@ -1,6 +1,12 @@
-<%= render :layout => 'form' do |f| %>  
-  <%= f.hidden_field :relation, :value => @online_application.relation %>
-  <%= render 'stay_in_caux', :f => f %>
-  <br/>
-  <%= render 'participation', :f => f %>
+<%= render :layout => 'form_application_group' do |f| %>
+
+  <%= f.fields_for :online_applications do |builder| %>
+    <% if builder.object.relation == 'primary applicant' -%>
+      <%= render 'stay_in_caux', :f => builder, :online_application => builder.object %>
+      <br/>
+    <% end -%>
+    <%= render 'participation', :f => builder, :online_application => builder.object %>
+  <% end %>
+<div>
+
 <% end %>

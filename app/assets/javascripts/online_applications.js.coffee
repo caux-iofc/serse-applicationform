@@ -155,16 +155,15 @@ jQuery ->
   ##### handle previous visit conditional fields #####
 
   ## First the code that will run on document load ##
-  if $('#online_application_previous_visit_false').is(':checked') and $('#online_application_relation').val() == 'primary applicant'
+  if $('#application_group_online_applications_attributes_0_previous_visit_false').is(':checked')
     $("#heard_about_div").show()
-  if $('#online_application_previous_visit_true').is(':checked')
+  if $('#application_group_online_applications_attributes_0_previous_visit_true').is(':checked')
     $("#previous_year_div").show()
 
   ## And then all the hooks ##
-  $('input:radio[name="online_application[previous_visit]"]').click ->
-    if $('#online_application_previous_visit_false').is(':checked')
-      if $('#online_application_relation').val() == 'primary applicant'
-        $("#heard_about_div").show()
+  $('input:radio[name="application_group[online_applications_attributes][0][previous_visit]"]').click ->
+    if $('#application_group_online_applications_attributes_0_previous_visit_false').is(':checked')
+      $("#heard_about_div").show()
       $("#previous_year_div").hide()
     else
       $("#heard_about_div").hide()

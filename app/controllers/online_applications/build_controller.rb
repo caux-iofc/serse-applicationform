@@ -30,7 +30,7 @@ class OnlineApplications::BuildController < ApplicationController
       @online_application.registration_type = 'single'
     end
 
-    if step == :group or step == :family or step == :detail or step == :visa or step == :confirmation
+    if step == :group or step == :family or step == :detail or step == :dates_and_events or step == :visa or step == :confirmation
       # Because we use the @application_group object for these steps, we need to
       # make sure to explicitly update the status field which lives on the primary
       # applicant object.
@@ -62,7 +62,7 @@ class OnlineApplications::BuildController < ApplicationController
       redirect_to :error
       return
     end
-    if step != :group and step != :family and step != :detail and step != :visa and step != :confirmation and step != :finances
+    if step != :group and step != :family and step != :detail and step != :dates_and_events and step != :visa and step != :confirmation and step != :finances
       @online_application.the_request = request
 
       # If no check boxes are checked, the form does not return those fields.
@@ -96,47 +96,6 @@ class OnlineApplications::BuildController < ApplicationController
           # It would be, if inverse_of worked for has_many, which it does not (as of rails 3.2.21)...
           @online_application.application_group.save(:validate => false)
         end
-        if step == :dates_and_events
-          params[:online_application].delete('relation')
-          # Save the dates and events information for every participant in the group
-          @application_group.online_applications.other_applicants.each do |oa|
-            # Sub-objects get their own IDs for each participant, so we need to rewrite them for update/delete
-            @online_application_conferences_attributes = params[:online_application]['online_application_conferences_attributes']
-            @online_application_conferences_attributes.each do |index,oac|
-              if oac.has_key?('id')
-                if oa.online_application_conferences.collect { |o| o.conference_id }.include?(oac['conference_id'].to_i)
-                  oac['id'] = oa.online_application_conferences.where(:conference_id => oac['conference_id']).first.id
-                else
-                  # this can happen when a new participant is added to a group after dates_and_events has already been saved
-                  # on the next pass through dates_and_events, we need to add the conference to the new participant
-                  oac.delete('id')
-                  @online_application_conference_workstreams_attributes = oac["online_application_conference_workstreams_attributes"]
-                  if not @online_application_conference_workstreams_attributes.nil?
-                    @online_application_conference_workstreams_attributes.each do |i,oacw|
-                      oacw.delete('id')
-                    end
-                  end
-                end
-              end
-              @online_application_conference_workstreams_attributes = oac["online_application_conference_workstreams_attributes"]
-              next if @online_application_conference_workstreams_attributes.nil?
-              next if not oac.has_key?('id') or oac['id'].nil? or oac['id'].to_s.empty?
-              # Unfortunately, we also need to rewrite IDs on sub-sub-objects...
-              @online_application_conference_workstreams_attributes.each do |i,oacw|
-                db_oac = OnlineApplicationConference.find(oac['id'].to_i)
-                if oacw.has_key?('id')
-                  if db_oac.online_application_conference_workstreams.collect { |o| o.preference }.include?(oacw['preference'])
-                    oacw['id'] = db_oac.online_application_conference_workstreams.where(:preference => oacw['preference']).first.id
-                  else
-                    oacw.delete('id')
-                 end
-                end
-              end
-            end
-            params[:online_application]['online_application_conferences_attributes'] = @online_application_conferences_attributes
-            oa.update_attributes!(params[:online_application])
-          end
-        end
       end
     else
       if step == :finances
@@ -153,6 +112,27 @@ class OnlineApplications::BuildController < ApplicationController
         # Do not save permanent address information if the 'different address' checkbox is not set
         params[:application_group]['online_applications_attributes'].each do |key,val|
           val['permanent_address_attributes']['_destroy'] = true if val['different_address'] != '1'
+        end
+      end
+      if step == :dates_and_events
+        # Save the 'stay in caux' information for every participant in the group
+        params[:application_group][:online_applications_attributes].each do |k,v|
+          next if k == '0'
+          params[:application_group][:online_applications_attributes][k]['day_visit'] = params[:application_group][:online_applications_attributes]['0']['day_visit']
+          params[:application_group][:online_applications_attributes][k]['arrival(1i)'] = params[:application_group][:online_applications_attributes]['0']['arrival(1i)']
+          params[:application_group][:online_applications_attributes][k]['arrival(2i)'] = params[:application_group][:online_applications_attributes]['0']['arrival(2i)']
+          params[:application_group][:online_applications_attributes][k]['arrival(3i)'] = params[:application_group][:online_applications_attributes]['0']['arrival(3i)']
+          params[:application_group][:online_applications_attributes][k]['arrival(4i)'] = params[:application_group][:online_applications_attributes]['0']['arrival(4i)']
+          params[:application_group][:online_applications_attributes][k]['arrival(5i)'] = params[:application_group][:online_applications_attributes]['0']['arrival(5i)']
+          params[:application_group][:online_applications_attributes][k]['departure(1i)'] = params[:application_group][:online_applications_attributes]['0']['departure(1i)']
+          params[:application_group][:online_applications_attributes][k]['departure(2i)'] = params[:application_group][:online_applications_attributes]['0']['departure(2i)']
+          params[:application_group][:online_applications_attributes][k]['departure(3i)'] = params[:application_group][:online_applications_attributes]['0']['departure(3i)']
+          params[:application_group][:online_applications_attributes][k]['departure(4i)'] = params[:application_group][:online_applications_attributes]['0']['departure(4i)']
+          params[:application_group][:online_applications_attributes][k]['departure(5i)'] = params[:application_group][:online_applications_attributes]['0']['departure(5i)']
+          params[:application_group][:online_applications_attributes][k]['travel_car_train'] = params[:application_group][:online_applications_attributes]['0']['travel_car_train']
+          params[:application_group][:online_applications_attributes][k]['travel_flight'] = params[:application_group][:online_applications_attributes]['0']['travel_flight']
+          params[:application_group][:online_applications_attributes][k]['previous_year'] = params[:application_group][:online_applications_attributes]['0']['previous_year']
+          params[:application_group][:online_applications_attributes][k]['heard_about'] = params[:application_group][:online_applications_attributes]['0']['heard_about']
         end
       end
       if not @application_group.update_attributes(params[:application_group])
@@ -208,6 +188,8 @@ protected
 
     calculate_progress_bar
 
+    # used to auto-populate the earliest start year and latest stop year
+    # in the arrival/departure dropdowns
     @earliest_start_year = Time.now.year
     @latest_stop_year = Time.now.year
 
@@ -234,42 +216,27 @@ protected
       end
     end
 
-    @oac_normal = Array.new()
-    @oac_special = Array.new()
-
-    # For some reason @online_application.online_application_conferences.find_by_conference_id(c.id).nil?
-    # does not work on records that were created with 'build' (presumably because they are not saved yet).
-    # So, use this workaround.
-    @conferences = Hash.new()
-    @online_application.online_application_conferences.each do |oac|
-      if oac.conference.special == false then
-        @oac_normal << oac
-      else
-        @oac_special << oac
+    @application_group.online_applications.each do |oa|
+      @conferences = Hash.new()
+      oa.online_application_conferences.each_with_object({}) {|oac| @conferences[oac.conference_id]=oac.conference_id }
+      @priority_sort = 0
+      Conference.normal.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
+        @earliest_start_year = c.start.year if c.start.year < @earliest_start_year
+        @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
+        if not @conferences.has_key?(c.id) then
+          @oac = oa.online_application_conferences.build({:conference_id => c.id, :priority_sort => @priority_sort += 1 })
+          # The user can choose 2 workstreams: a first choice and a second choice
+          @oac.online_application_conference_workstreams.build({ :preference => 'first_choice' })
+          @oac.online_application_conference_workstreams.build({ :preference => 'second_choice' })
+        end
       end
-      @conferences[oac.conference_id] = true
-    end
 
-    @priority_sort = 0
-    Conference.normal.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
-      @earliest_start_year = c.start.year if c.start.year < @earliest_start_year
-      @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
-      if not @conferences.has_key?(c.id) then
-        @oac = OnlineApplicationConference.new({ :online_application_id => @online_application.id, :conference_id => c.id, :priority_sort => @priority_sort += 1 })
-        @oac_normal << @oac
-        # The user can choose 2 workstreams: a first choice and a second choice
-        @oac.online_application_conference_workstreams.build({ :preference => 'first_choice' })
-        @oac.online_application_conference_workstreams.build({ :preference => 'second_choice' })
-      end
-    end
-
-    @priority_sort = 0
-    Conference.special.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
-      @earliest_start_year = c.start.year if c.start.year < @earliest_start_year
-      @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
-      if not @conferences.has_key?(c.id) then
-        @oac = OnlineApplicationConference.new({ :online_application_id => @online_application.id, :conference_id => c.id, :priority_sort => @priority_sort += 1 })
-        @oac_special << @oac
+      Conference.special.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
+        @earliest_start_year = c.start.year if c.start.year < @earliest_start_year
+        @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
+        if not @conferences.has_key?(c.id) then
+          @oac = oa.online_application_conferences.build({:conference_id => c.id, :priority_sort => @priority_sort += 1 })
+        end
       end
     end
 
@@ -313,7 +280,7 @@ protected
           oa.rate = 'staff' if oa.staff
           oa.rate = 'volunteer' if oa.volunteer
           oa.rate = 'interpreter' if oa.interpreter
-          oa.rate = 'family' if @application_group.family_registration and oa.relation != 'primary applicant'
+          oa.rate = 'family' if @application_group.family_registration
         end
         # these fields are used to pass information to the javascript that calculates the rates
         oa.caux_scholar = (oa.training_programs.collect { |tp| tp.name }.include?('Caux Scholars Program') ? 1 : 0)

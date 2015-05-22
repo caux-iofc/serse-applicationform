@@ -5,8 +5,15 @@
 </div>
 
 <div class="row">
+  <div class="col-md-12">
+    <hr>
+    <%= error_messages_for_object f.object %>
+  </div>
+</div>
+
+<div class="row">
   <div class="col-md-6">
-    <div class="form-group required show_for_primary_applicant">
+    <div class="form-group required">
       <div class="radio">
         <label>
           <%= f.radio_button :day_visit, :false %> <%=t :overnight_visitor %>
@@ -16,35 +23,25 @@
         </label>
       </div>
     </div>
-    <div class="form-group required show_for_primary_applicant">
+    <div class="form-group required">
       <%= f.label :arrival, t(:arrival), class: 'control-label' %> <%=t :approximate_time %><br />
       <%= f.datetime_select :arrival, { :include_blank => :true, :start_year => @earliest_start_year, :end_year => @latest_stop_year, :minute_step => 15 }, { class: 'form-control' } %>
     </div>
-    <div class="form-group required show_for_primary_applicant">
+    <div class="form-group required">
       <%= f.label :departure, t(:departure), class: 'control-label' %> <%=t :approximate_time %><br />
       <%= f.datetime_select :departure, { :include_blank => :true, :start_year => @earliest_start_year, :end_year => @latest_stop_year, :minute_step => 15 }, { class: 'form-control' } %>
     </div>
-
-    <div class="form-group required show_for_all_but_primary_applicant">
-      <%= f.label :arrival, t(:arrival), class: 'control-label' %>
-      <%= @online_application.departure.nil? ? '' : @online_application.arrival.to_s(:db) -%>
-    </div>
-    <div class="form-group required show_for_all_but_primary_applicant">
-      <%= f.label :departure, t(:departure), class: 'control-label' %>
-      <%= @online_application.departure.nil? ? '' : @online_application.departure.to_s(:db) -%>
-    </div>
-
-    <div class="form-group show_for_primary_applicant">
+    <div class="form-group">
       <%= f.label :travel_car_train, t(:travel_car_train), class: 'control-label' %>
       <%= f.text_field :travel_car_train, class: 'form-control' %>
     </div>
 
-    <div class="form-group show_for_primary_applicant">
+    <div class="form-group">
       <%= f.label :travel_flight, t(:travel_flight), class: 'control-label' %>
       <%= f.text_field :travel_flight, class: 'form-control' %>
     </div>
 
-    <div class="form-group required show_for_primary_applicant">
+    <div class="form-group required">
       <%= f.label :previous_visit, t(:previous_visit), class: 'control-label' %><br/>
       <label class="radio-inline">
         <%= f.radio_button :previous_visit, :false %> <%=t :previous_visit_no %>
@@ -65,3 +62,6 @@
     </div>
 
     <strong><%=t :practical_life %></strong>
+
+  </div>
+</div>

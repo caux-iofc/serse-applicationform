@@ -210,10 +210,10 @@ en:
   french: French
   german: German
 
-  conference_participation: "I/we will participate in the following conference(s)"
-  special_conference_participation: "I/we will participate in the following ..."
-  training_participation: "I/we will participate in the following training programme(s)"
-  other_reason_title: "I/we will come to Caux for another reason"
+  conference_participation: "I will participate in the following conference(s)"
+  special_conference_participation: "I will participate in the following ..."
+  training_participation: "I will participate in the following training programme(s)"
+  other_reason_title: "I will come to Caux for another reason"
   remarks: "Remarks"
 
   I_will_come_as: "I will come as"
