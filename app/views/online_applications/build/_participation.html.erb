@@ -27,7 +27,7 @@
         </div>
         <% @first_normal_conference = false -%>
       <% end -%>
-      <% if oac.object.conference.special and @first_special_conference -%>
+      <% if oac.object.conference.special and not oac.object.selected and @first_special_conference -%>
         <div class="row">
           <div class="col-md-12 text-center">
             <h3><%=t :special_conference_participation %></h3>
