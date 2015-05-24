@@ -147,6 +147,8 @@ class OnlineApplications::BuildController < ApplicationController
         @application_group.complete = true
         @application_group.save
       end
+      # reload @online_application, we've changed it by updating @application_group
+      @online_application = OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first
     end
 
     render_wizard @online_application
