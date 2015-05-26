@@ -356,17 +356,22 @@ jQuery ->
   ##### TIGE 2015 logic #####
 
   ## First the code that will run on document load ##
-  if $('#online_application_online_application_conferences_attributes_0_variables_tige_2015_options_other').is(':checked')
-    $("#tige_2015_other_detail").show()
-  else
-    $("#tige_2015_other_detail").hide()
+  $("input[id$=_tige_2015_options_other]").each ->
+    if $(this).is(':checked')
+      $("#" + $(this).attr('id') + "_detail").show()
+    else
+      $("#" + $(this).attr('id') + "_detail").hide()
 
   ## And then all the hooks ##
-  $('.tige_2015_options').change ->
-    if $('#online_application_online_application_conferences_attributes_0_variables_tige_2015_options_other').is(':checked')
-      $("#tige_2015_other_detail").show()
+  # We have to be a bit smarter than usual here because radio buttons only get a 'changed'
+  # event when they are selected, not when they are deselected.
+  $('input[type=radio][class=tige_2015_options]').change ->
+    # $(this).attr('name').replace(/[\[\]]+/g, "_") looks like
+    #   application_group_online_applications_attributes_1_online_application_conferences_attributes_0_variables_tige_2015_options_
+    if $('#' + $(this).attr('name').replace(/[\[\]]+/g, "_") + "other").is(':checked')
+      $("#" + $(this).attr('name').replace(/[\[\]]+/g, "_") + "other_detail").show()
     else
-      $("#tige_2015_other_detail").hide()
+      $("#" + $(this).attr('name').replace(/[\[\]]+/g, "_") + "other_detail").hide()
 
   ##### conference fee logic #####
 
