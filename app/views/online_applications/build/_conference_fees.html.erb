@@ -38,13 +38,13 @@
 
   <div class="row">
     <div class="col-md-12">
-      <div class="form-group required">
+      <div class="form-group">
         <%= builder.label :rate, builder.object.firstname + ' ' + builder.object.surname, class: 'control-label' %>
       </div>
       <div class="form-group required">
         <div class="radio">
           <label>
-            <%= builder.radio_button :rate, 'full_premium', :class => 'rate' %> <%=t :full_premium %>
+            <%= builder.radio_button :rate, 'full_premium', :class => 'rate control-label' %> <%=t :full_premium %>
           </label>
           <label>
             <%= builder.radio_button :rate, 'standard', :class => 'rate' %> <%=t :standard %>
@@ -129,10 +129,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-10">
       <%=t :registration_fee %>
     </div>
-    <div class="col-md-2 col-md-offset-3">
+    <div class="col-md-2">
       <div class="col-sm-8 text-right">
         CHF
       </div>
@@ -141,6 +141,24 @@
       </div>
     </div>
   </div>
+
+<div class="row">
+  <div class="col-md-12">
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%=t :nightly_contribution_html %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <hr>
+  </div>
+</div>
 
   <div class="row">
     <div class="col-md-7">
@@ -236,22 +254,6 @@
 
 <div class="row">
   <div class="col-md-12">
-    <%=t :nightly_contribution_html %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <hr>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-12">
     <div id="personalContribution">
       <h4><%=t :please_check_total_html %></h4>
     </div>
@@ -259,21 +261,27 @@
 </div>
 
 <div class="row">
-  <div class="col-md-10">
-    <label><%=t :personal_contribution_html %></label>
+  <div class="col-md-4 col-md-offset-6">
+    <div class="col-sm-12 text-right">
+      <h3><%=t :personal_contribution_html %>:</h3>
+    </div>
   </div>
-  <div class="col-md-2" align="right">
-     <strong>CHF <span id="total_automatic">0</span></strong><br />
+  <div class="col-md-2 label label-warning">
+    <div class="col-sm-6 text-right">
+      <strong><h3>CHF</h3></strong>
+    </div>
+    <div class="col-sm-6 text-right">
+      <strong><h3><span id="total_automatic">0</span></h3></strong>
+    </div>
   </div>
 </div>
+
 
 <div class="row">
   <div class="col-md-12">
     <% if @application_group.group_registration -%>
-      <hr>
       <%=t :financial_remarks_detail -%>
     <% end -%>
-    <hr>
     <%= @remarks.html_safe -%>
   </div>
 
