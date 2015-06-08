@@ -24,6 +24,15 @@ en:
   aeub_2015_expectations: "What do you expect from the conference or what do you need to make it a success for you? (150 words) (OPTIONAL)"
   aeub_2015_instrument: "Do you play an instrument and would you consider giving a 5-minute performance? (OPTIONAL)"
 
+  aeub_2015_monnet: 'Jean Monnet Foundation archive'
+  aeub_2015_monnet_option_1_label: "I would like to visit* the Jean Monnet Foundation archive in Lausanne on July 16 and will"
+  aeub_2015_monnet_travel_option_1_label: "arrive at Caux before 10:00 on that day"
+  aeub_2015_monnet_travel_option_2_label: "go directly to the archive, arriving at 11:00 and leave for Caux after by my own means"
+  aeub_2015_monnet_travel_option_3_label: "go directly to the archive, arriving at 11:00 but need help getting to Caux afterwards"
+  aeub_2015_monnet_option_2_label: "I would have liked to visit the archive but my travel schedule doesn't allow it."
+  aeub_2015_monnet_option_3_label: "I do not wish to take part in the visit to the Jean Monnet Foundation archive."
+  aeub_2015_monnet_note: "*Places are limited and will be allocated on a first come, first serve basis. We will send you an email to confirm your participation which will include additional details. A picnic lunch will be provided free of charge."
+
   ipf_2015_expectations: "What do you expect from IPF?"
 
   cats_2015_intro_html: "For registering delegations: if you are coming with a delegation please be sure to have contacted the CATS Conference Team before filling in this registration form catsconference.caux@gmail.com"

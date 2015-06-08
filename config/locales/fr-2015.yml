@@ -25,6 +25,15 @@ fr:
   aeub_2015_expectations: "Quelles sont vos attentes du séminaire et de quoi avez-vous besoin pour qu’il y réponde ? (150 mots) (FACULTATIF)"
   aeub_2015_instrument: "Jouez-vous d'un instrument de musique ? Pourriez-vous jouer un morceau de musique de 5 minutes environ? (FACULTATIF)"
 
+  aeub_2015_monnet: 'Archives de la Fondation Jean Monnet'
+  aeub_2015_monnet_option_1_label: "Je souhaite visiter* les archives de la Fondation Jean Monnet à Lausanne le 16 juillet 2015 et :"
+  aeub_2015_monnet_travel_option_1_label: "J'arriverai à Caux avant 10h00 ce jour-là."
+  aeub_2015_monnet_travel_option_2_label: "Je me rendrai directement aux archives à 11h00 et les quitterai pour Caux par mes propres moyens."
+  aeub_2015_monnet_travel_option_3_label: "Je me rendrai directement aux archives à 11h00 mais aurai besoin d'être ensuite véhiculé(e) vers Caux."
+  aeub_2015_monnet_option_2_label: "J'aurais aimé visiter les archives, mais ne le peux pas."
+  aeub_2015_monnet_option_3_label: "Je ne souhaite pas participer à cette visite."
+  aeub_2015_monnet_note: "*Les places sont limitées. Les premiers inscrits seront les premiers servis. Nous vous enverrons un email confirmant votre participation avec tous les détails pratiques. Un déjeuner pique-nique sera proposé gratuitement."
+
   ipf_2015_expectations: "Qu'attendez-vous de l'IPF?"
 
   cats_2015_intro_html: "Pour les délégations souhaitant s’inscrire : si vous venez avec une délégation, assurez-vous, s’il vous plaît, de contacter l’équipe de la conférence CATS avant de remplir le formulaire suivant catsconference.caux@gmail.com"

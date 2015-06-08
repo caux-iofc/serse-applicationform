@@ -308,6 +308,18 @@ class OnlineApplication < ActiveRecord::Base
       end
       I18n.locale = @real_locale
 
+      # Special for AEUB 2015
+      @real_locale = I18n.locale
+      I18n.locale = 'en'
+      if oac.conference.name == "Addressing Europe's Unfinished Business"
+        if not oac.variables.has_key?(:aeub_2015_monnet)
+          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:aeub_2015_monnet) + ': ' + I18n.t(:please_choose_option)
+        elsif oac.variables[:aeub_2015_monnet] == "would like to visit" and not oac.variables.has_key?(:aeub_2015_monnet_travel)
+          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:aeub_2015_monnet) + ': ' + I18n.t(:please_choose_option)
+        end
+      end
+      I18n.locale = @real_locale
+
       if @workstream_choice_required then
         oac.online_application_conference_workstreams.each do |oacws|
           if oacws.conference_workstream_id.nil?

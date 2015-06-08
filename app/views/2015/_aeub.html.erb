@@ -79,3 +79,79 @@
 </div>
 <% end -%>
 
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group required">
+      <%= f.label :aeub_2015_monnet, t(:aeub_2015_monnet), class: 'control-label' %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <%= oac.fields_for :variables do |var| -%>
+      <div class="form-group required">
+        <div class="radio">
+          <div class="row">
+            <div class="col-md-12">
+              <label>
+                <%= var.radio_button :aeub_2015_monnet, "would like to visit", { :checked => (oac.object.variables["aeub_2015_monnet"] == "would like to visit"), :class => 'aeub_2015_monnet' } %> <%=t :aeub_2015_monnet_option_1_label %>
+              </label>
+            </div>
+            <div class="col-md-11 col-md-offset-1">
+              <div class="radio">
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>
+                      <%= var.radio_button :aeub_2015_monnet_travel, "from Caux to Lausanne and back", { :checked => (oac.object.variables["aeub_2015_monnet_travel"] == "from Caux to Lausanne and back"), :class => 'aeub_2015_monnet' } %> <%=t :aeub_2015_monnet_travel_option_1_label %>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>
+                      <%= var.radio_button :aeub_2015_monnet_travel, "own means", { :checked => (oac.object.variables["aeub_2015_monnet_travel"] == "own means"), :class => 'aeub_2015_monnet' } %> <%=t :aeub_2015_monnet_travel_option_2_label %>
+                    </label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <label>
+                      <%= var.radio_button :aeub_2015_monnet_travel, "from Lausanne to Caux", { :checked => (oac.object.variables["aeub_2015_monnet_travel"] == "from Lausanne to Caux"), :class => 'aeub_2015_monnet' } %> <%=t :aeub_2015_monnet_travel_option_3_label %>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <label>
+                <%= var.radio_button :aeub_2015_monnet, "schedule conflict", { :checked => (oac.object.variables["aeub_2015_monnet"] == "schedule conflict"), :class => 'aeub_2015_monnet' } %> <%=t :aeub_2015_monnet_option_2_label %>
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <label>
+                <%= var.radio_button :aeub_2015_monnet, 'do not wish to visit', { :checked => (oac.object.variables["aeub_2015_monnet"] == "Other"), :class => 'do not wish to visit' } %> <%=t :aeub_2015_monnet_option_3_label -%>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end -%>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group required">
+      <%= f.label :aeub_2015_monnet_note, t(:aeub_2015_monnet_note) %>
+    </div>
+  </div>
+</div>
+
+
+
