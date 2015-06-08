@@ -6,11 +6,9 @@ fr:
   tige_2015_options: "Options"
   tige_2015_option_1_label: "Option 1:"
   tige_2015_option_1_html: "Je souhaite choisir divers ateliers portant sur le leadership, le monde des affaires, l’économie et l’éducation  proposés par TIGE."
-  tige_2015_option_2_label: "Option 2:"
-  tige_2015_option_2_html: "Je me suis inscrit/e à \"Impact Initiatives Challenge\" dans le cadre de TIGE (Pour s'inscrire: <a href=\"http://www.impactinitiativeschallenge.org/tige/\">http://www.impactinitiativeschallenge.org/tige/</a>). Si vous n'êtes pas encore inscrit/e, merci de le faire au plus vite possible. Frais supplémentaires possibles."
-  tige_2015_option_3_label: "Option 3:"
+  tige_2015_option_3_label: "Option 2:"
   tige_2015_option_3_html: "Je me suis inscrit/e pour le \"Impact Leadership Track\" (Pour s'inscrire: <a href=\"http://ch.amiando.com/UVHYAKA.html\">http://ch.amiando.com/UVHYAKA.html</a>). Si vous n'êtes pas encore inscrit/e; merci de le faire au plus vite possible. Frais supplémentaires possibles."
-  tige_2015_option_4_label: "Option 4:"
+  tige_2015_option_4_label: "Option 3:"
   tige_2015_option_4_html: "Je souhaite participer à une autre activité (spécifiez, s’il vous plaît):"
 
   tige_2015_intro_html: ""
