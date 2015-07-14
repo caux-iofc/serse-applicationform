@@ -35,12 +35,23 @@
         </div>
         <% @first_special_conference = false -%>
       <% end -%>
+      <% if oac.object.conference.full -%>
+        <div class="row">
+          <div class="col-md-12">
+            <i><%=t :conference_full -%></i>
+          </div>
+        </div>
+      <% end -%>
       <div class="row">
         <%= oac.hidden_field :conference_id, :value => oac.object.conference.id %>
         <%= oac.hidden_field :priority_sort, :value => oac.object.priority_sort %>
 
-        <div class="col-md-6">
-          <%= oac.check_box :selected, :class => "oac_checkbox_#{online_application.id}_#{oac.object.conference.id}" %>
+        <div class="col-md-1">
+          <% if not oac.object.conference.full -%>
+            <%= oac.check_box :selected, :class => "oac_checkbox_#{online_application.id}_#{oac.object.conference.id}" %>
+          <% end -%>
+        </div>
+        <div class="col-md-5">
           <%= label_tag :conference_id, oac.object.conference.name %>
         </div>
         <div class="col-md-6" align="left">
@@ -49,10 +60,7 @@
       </div>
       <% if not oac.object.conference.byline.nil? -%>
         <div class="row">
-          <div class="col-md-1">
-            &nbsp;
-          </div>
-          <div class="col-md-11">
+          <div class="col-md-11 col-md-offset-1">
             <font size="-1"><%= oac.object.conference.byline.html_safe %></font>
           </div>
         </div>
@@ -90,8 +98,10 @@
       <% end -%>
 
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-1">
           <%= check_box_tag :training_program_ids, tp.id, @online_application.training_programs.include?(tp), :name => 'online_application[training_program_ids][]', :id => "tp_check_" + (tp.nil? or tp.name.nil? ? '' : tp.name.downcase) %>
+        </div>
+        <div class="col-md-5">
           <%= label_tag :training_program_ids, tp.name %>
         </div>
 
@@ -122,33 +132,45 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12">
-        <%= f.check_box :interpreter %> <label><%=t :interpreter %></label>
+      <div class="col-md-1">
+        <%= f.check_box :interpreter %>
+      </div>
+      <div class="col-md-11">
+        <label><%=t :interpreter %></label>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
-        <%= f.check_box :volunteer %> <label><%=t :volunteer %></label>, <%=t :volunteer_please_specify %>
+      <div class="col-md-1">
+        <%= f.check_box :volunteer %>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-4">
+        <label><%=t :volunteer %></label>, <%=t :volunteer_please_specify %>
+      </div>
+      <div class="col-md-7">
         <%= f.text_field :volunteer_detail, { class: 'form-control', :size => 40 } %>
       </div>
     </div>
     <div class="row hide_for_children">
-      <div class="col-md-4">
-        <%= f.check_box :staff %> <label><%=t :staff %></label>, <%=t :staff_please_specify %>
+      <div class="col-md-1">
+        <%= f.check_box :staff %>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-4">
+        <label><%=t :staff %></label>, <%=t :staff_please_specify %>
+      </div>
+      <div class="col-md-7">
         <%= f.text_field :staff_detail, { class: 'form-control', :size => 40 } %>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
-        <div class="form-group">
-          <%= f.check_box :other_reason %> <%= f.label :other_reason, t(:other), class: 'control-label' %>, <%=t :other_reason_please_specify %>
+      <div class="form-group">
+        <div class="col-md-1">
+          <%= f.check_box :other_reason %>
+        </div>
+        <div class="col-md-4">
+          <%= f.label :other_reason, t(:other), class: 'control-label' %>, <%=t :other_reason_please_specify %>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-7">
         <%= f.text_field :other_reason_detail, { class: 'form-control', :size => 40 } %>
       </div>
     </div>
