@@ -9,13 +9,18 @@
            <%= oac.hidden_field :priority_sort, :value => oac.object.priority_sort %>
            <tr>
              <td>
-               <%= oac.check_box :selected, :class => "oac_checkbox_#{oac.object.conference.id}" %>
+               <% if not oac.full -%>
+                 <%= oac.check_box :selected, :class => "oac_checkbox_#{oac.object.conference.id}" %>
+               <% end -%>
                <%= label_tag :conference_id, oac.object.conference.name %>
              </td>
              <td>
                <%=l oac.object.conference.start.to_date, :format => :standard %> - <%=l oac.object.conference.stop.to_date, :format => :standard %>
              </td>
            </tr>
+           <% if oac.full -%>
+             <strong><%=t :conference_full -%></strong>
+           <% end -%>
            <% if not oac.object.conference.byline.nil? -%>
            <tr>
              <td colspan="2">

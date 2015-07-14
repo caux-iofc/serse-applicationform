@@ -124,6 +124,7 @@ y.sort.each do |k,v|
   of.stop = v['stop']
   of.private = v['private']
   of.special = v['special']
+  of.full = v['full']
   of.display_dates = v['display_dates']
   of.abbreviation = v['abbreviation']
   dd = DateTime.parse(v['start'].to_s)

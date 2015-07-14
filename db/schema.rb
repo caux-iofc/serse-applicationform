@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150505222000) do
+ActiveRecord::Schema.define(:version => 20150713200200) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(:version => 20150505222000) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "full",                            :default => false, :null => false
   end
 
   add_index "conference_versions", ["conference_id"], :name => "index_conference_versions_on_conference_id"
@@ -219,12 +220,13 @@ ActiveRecord::Schema.define(:version => 20150505222000) do
     t.string   "abbreviation"
     t.string   "template_path"
     t.integer  "serse_id"
-    t.string   "created_by",       :limit => 100, :default => "", :null => false
-    t.string   "updated_by",       :limit => 100, :default => "", :null => false
-    t.integer  "lock_version",                    :default => 0,  :null => false
+    t.string   "created_by",       :limit => 100, :default => "",    :null => false
+    t.string   "updated_by",       :limit => 100, :default => "",    :null => false
+    t.integer  "lock_version",                    :default => 0,     :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "full",                            :default => false, :null => false
   end
 
   add_index "conferences", ["session_group_id"], :name => "index_conferences_on_session_group_id"
