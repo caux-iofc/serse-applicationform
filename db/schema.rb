@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150427200900) do
+ActiveRecord::Schema.define(:version => 20150505222000) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -406,6 +406,7 @@ ActiveRecord::Schema.define(:version => 20150427200900) do
     t.boolean  "role_exhibitor",                       :default => false
   end
 
+  add_index "online_application_conferences", ["conference_id", "online_application_id"], :name => "index_oa_conf_uniq", :unique => true
   add_index "online_application_conferences", ["conference_id"], :name => "index_oa_conferences_on_conference_id"
   add_index "online_application_conferences", ["online_application_id"], :name => "index_oa_conferences_on_online_application_id"
 
