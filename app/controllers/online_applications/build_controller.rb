@@ -65,20 +65,6 @@ class OnlineApplications::BuildController < ApplicationController
     if step != :group and step != :family and step != :detail and step != :dates_and_events and step != :visa and step != :confirmation and step != :finances
       @online_application.the_request = request
 
-      # If no check boxes are checked, the form does not return those fields.
-      # Handle that here, making sure that any training programs previously
-      # selected will be removed.
-      if not params[:online_application].has_key?('training_program_ids') then
-        params[:online_application]['training_program_ids'] = []
-      end
-
-      # Make sure we delete online_application_conferences records that are not selected
-      if params[:online_application].has_key?('online_application_conferences_attributes')
-        params[:online_application]['online_application_conferences_attributes'].each do |k,v|
-          v['_destroy'] = true if v['selected'] != '1'
-        end
-      end
-
       params[:online_application][:status] = step.to_s
       params[:online_application][:status] = 'complete' if step == steps.last
 
@@ -115,8 +101,23 @@ class OnlineApplications::BuildController < ApplicationController
         end
       end
       if step == :dates_and_events
-        # Save the 'stay in caux' information for every participant in the group
         params[:application_group][:online_applications_attributes].each do |k,v|
+
+          # If no check boxes are checked, the form does not return those fields.
+          # Handle that here, making sure that any training programs previously
+          # selected will be removed.
+          if not params[:application_group][:online_applications_attributes][k].has_key?('training_program_ids') then
+            params[:application_group][:online_applications_attributes][k]['training_program_ids'] = []
+          end
+
+          # Make sure we delete online_application_conferences records that are not selected
+          if params[:application_group][:online_applications_attributes][k].has_key?('online_application_conferences_attributes')
+            params[:application_group][:online_applications_attributes][k]['online_application_conferences_attributes'].each do |k,v|
+              v['_destroy'] = true if v['selected'] != '1'
+            end
+          end
+
+          # Save the 'stay in caux' information for every participant in the group
           next if k == '0'
           params[:application_group][:online_applications_attributes][k]['day_visit'] = params[:application_group][:online_applications_attributes]['0']['day_visit']
           params[:application_group][:online_applications_attributes][k]['arrival(1i)'] = params[:application_group][:online_applications_attributes]['0']['arrival(1i)']
