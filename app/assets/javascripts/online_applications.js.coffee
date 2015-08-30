@@ -393,8 +393,18 @@ jQuery ->
       # base_id looks like 'application_group_online_applications_attributes_0'
       base_id = '#' + $(this).attr('id')
 
-      arrival = new Date($(base_id + '_arrival').val())
-      departure = new Date($(base_id + '_departure').val())
+      # Only Chromium can interpret dates like 'YYYY-MM-DD HH:MM:SS' out of the box.
+      # So we accomodate other browsers with a parse function.
+      parseDateUTC = (input) ->
+        reg = /^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/
+        parts = reg.exec(input)
+        if parts
+          new Date(Date.UTC(parts[1], parts[2] - 1, parts[3], parts[4], parts[5],parts[6]))
+        else
+          null
+
+      arrival = parseDateUTC($(base_id + '_arrival').val())
+      departure = parseDateUTC($(base_id + '_departure').val())
       now = new Date()
 
       nights = 0
@@ -404,6 +414,8 @@ jQuery ->
       if nights < 0
         nights = 0
 
+      # Note that the format of the date of birth is YYYY-MM-DD which even Firefox can parse
+      # without special handholding
       date_of_birth = new Date($(base_id + '_date_of_birth').val())
 
       age = -1
