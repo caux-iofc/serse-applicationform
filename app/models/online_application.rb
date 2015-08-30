@@ -1,6 +1,8 @@
 class OnlineApplication < ActiveRecord::Base
   acts_as_paranoid_versioned :version_column => :lock_version
 
+  attr_accessible :date_of_birth, :relation, :firstname, :surname, :gender, :citizenship_id, :other_citizenship, :profession, :employer, :email, :telephone, :cellphone, :fax, :work_telephone, :arrival, :departure, :travel_car_train, :travel_flight, :previous_visit, :previous_year, :heard_about, :visa, :visa_reference_name, :visa_reference_email, :confirmation_letter_via, :accompanied_by, :passport_number, :passport_issue_date, :passport_issue_place, :passport_expiry_date, :passport_embassy, :nightly_contribution, :remarks, :badge_firstname, :badge_surname, :badge_country, :interpreter, :volunteer, :other_reason, :other_reason_detail, :staff, :staff_detail, :volunteer_detail, :diet_other_detail, :family_discount, :support_renovation_fund, :full_time_volunteer, :day_visit, :calculated_registration_fee, :calculated_night_rate, :calculated_total_personal_contribution, :calculated_nights, :calculated_rate_and_fee_details, :sent_by_employer, :student, :status, :rate, :financial_remarks, :online_application_conferences_attributes, :training_program_ids
+
   belongs_to :application_group
   belongs_to :country, :foreign_key => :citizenship_id
 
@@ -144,13 +146,13 @@ class OnlineApplication < ActiveRecord::Base
                     :presence => true,
                     :email => true, :if => lambda { |oa| personal_or_group_or_family? && (oa.relation == 'primary applicant' || oa.relation == 'other') }
 
-  validates :telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
+  validates :telephone, :format => { :with => /\A(\+[\d\/\-\. ]{6,}|)\z/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
   validates :telephone, :presence => true,
                         :if => lambda { |oa| personal? && oa.relation == 'primary applicant' }
-  validates :cellphone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
+  validates :cellphone, :format => { :with => /\A(\+[\d\/\-\. ]{6,}|)\z/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
   validates :confirmation_letter_via, :presence => true, :if => lambda { |oa| personal? && oa.relation == 'primary applicant' }
-  validates :work_telephone, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
-  validates :fax, :format => { :with => /^(\+[\d\/\-\. ]{6,}|)$/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
+  validates :work_telephone, :format => { :with => /\A(\+[\d\/\-\. ]{6,}|)\z/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
+  validates :fax, :format => { :with => /\A(\+[\d\/\-\. ]{6,}|)\z/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
   validates :fax, :presence => true, :if => :fax_needed?
   def fax_needed?
     personal? and (confirmation_letter_via == "fax") and relation == 'primary applicant'
@@ -198,7 +200,7 @@ class OnlineApplication < ActiveRecord::Base
   # Whoa. Serious rough edge, can't use :presence => true here.
   # cf. http://stackoverflow.com/questions/4112858/radio-buttons-for-boolean-field-how-to-do-a-false
   validates :previous_visit, :inclusion => { :in => [ true, false ], :message => I18n.t(:previous_visit_unset) }, :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' }
-  validates :previous_year, :presence => true, :format => { :with => /^([\d]{4}|)$/, :message => I18n.t(:previous_year_invalid) }, :if => lambda { |oa| dates_and_events? && oa.previous_visit }
+  validates :previous_year, :presence => true, :format => { :with => /\A([\d]{4}|)\z/, :message => I18n.t(:previous_year_invalid) }, :if => lambda { |oa| dates_and_events? && oa.previous_visit }
 
   validates :heard_about, :presence => true, :length => { :maximum => 100 }, :if => lambda { |oa| dates_and_events? && !oa.previous_visit.nil? && !oa.previous_visit && oa.relation == 'primary applicant' }
 

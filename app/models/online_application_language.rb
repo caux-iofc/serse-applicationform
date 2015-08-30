@@ -1,6 +1,8 @@
 class OnlineApplicationLanguage < ActiveRecord::Base
   acts_as_paranoid_versioned :version_column => :lock_version
 
+  attr_accessible :online_application_id, :language_id, :proficiency
+
   belongs_to :online_application
   belongs_to :language
 

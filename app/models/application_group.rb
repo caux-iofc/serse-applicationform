@@ -1,6 +1,8 @@
 class ApplicationGroup < ActiveRecord::Base
   acts_as_paranoid_versioned :version_column => :lock_version
 
+  attr_accessible :name, :complete, :data_protection_consent, :data_protection_caux_info, :data_protection_three_local_events, :comment, :confirm_read_documents, :group_registration, :family_registration, :group_or_family_name, :online_applications_attributes
+
   belongs_to :session_group
 
   has_many :online_applications, :dependent => :destroy

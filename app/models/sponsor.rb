@@ -1,6 +1,8 @@
 class Sponsor < ActiveRecord::Base
   acts_as_paranoid_versioned :version_column => :lock_version
 
+  attr_accessible :online_application_id, :name, :nights, :amount, :auto
+
   belongs_to :online_application
 
   validates :nights, :numericality => { :only_integer => true }, :if => :nights

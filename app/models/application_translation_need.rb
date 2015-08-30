@@ -4,4 +4,6 @@ class ApplicationTranslationNeed < ActiveRecord::Base
   has_many :online_applications
   has_many :languages
 
+  attr_accessible :language_id, :online_application_id
+
 end

@@ -1,6 +1,8 @@
 class OnlineApplicationConference < ActiveRecord::Base
   acts_as_paranoid_versioned :version_column => :lock_version
 
+  attr_accessible :online_application_id, :conference_id, :selected, :variables, :priority_sort, :role_participant, :role_speaker, :role_team, :role_exhibitor, :online_application_conference_workstreams_attributes
+
   # serialized field for custom conference variables
   serialize :variables, Hash 
 
