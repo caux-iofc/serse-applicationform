@@ -87,7 +87,7 @@ en:
   previous_year_invalid: " does not look like a year - please use numbers only"
   practical_life: "Participants are expected to help in various practical tasks to run the centre. You will be invited to a work group (help in the kitchen, dining room, etc) by the organizers of your session."
 
-  heard_about: "If no, how did you hear about the Caux conferences?"
+  heard_about: "How did you hear about the Caux conferences?"
   confirmation_letter_via: "Send confirmation letter via"
   confirmation_letter_via_email: "E-mail"
   confirmation_letter_via_post: "Post"
@@ -118,7 +118,7 @@ en:
   passport_embassy: "In which embassy will you request your visa?"
   conference_fees: "Conference fees"
 
-  more_information_about_conference_fees_html: 'More information about the conference fees is available <a href="http://www.caux.ch/fees">here</a>.'
+  more_information_about_conference_fees_html: 'More information about the conference fees is available <a href="http://www.caux.ch/conference-fees">here</a>.'
   i_travel_with_my_family: 'I travel with my family (A couple does not count as a family. Minimum 1 child and 1 parent)'
   i_want_to_support_the_center_renovation_fund: "I want to support the Center's renovation fund (150 CHF per night)"
   i_volunteer_full_time: "I volunteer full time with IofC"
@@ -144,8 +144,7 @@ en:
 
   nightly_contribution: "My personal contribution per night"
   nightly_contribution_currency: "CHF"
-  nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.ch/fees\">your rate</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
-  child_nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.ch/fees\">0-63 CHF per night (child/young person)</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
+  child_nightly_contribution_html: "In case you are not able to pay <a href=\"http://www.caux.ch/conference-fees\">0-63 CHF per night (child/young person)</a> yourself, please provide the name of the person or organization that is sponsoring you and the exact amount this person or organization is going to pay per night:"
   nightly_contribution_invalid: " is not a number. Please do not use dots or commas."
   sponsors_name: "Sponsor"
   sponsors_nights: "Nights"
@@ -213,7 +212,6 @@ en:
   conference_participation: "I will participate in the following conference(s)"
   special_conference_participation: "I will participate in the following ..."
   training_participation: "I will participate in the following training programme(s)"
-  other_reason_title: "I will come to Caux for another reason"
   remarks: "Remarks"
 
   I_will_come_as: "I will come as"
@@ -230,7 +228,6 @@ en:
   volunteer: "Volunteer"
   volunteer_please_specify: "please specify department:"
   staff: "Staff"
-  staff_please_specify: "please specify position / department:"
   other: "Other"
   other_reason_please_specify: "please specify:"
   please_specify_your_reason: "please specify your reason"
@@ -319,3 +316,50 @@ en:
 
   selected_multiple_times: " has been selected multiple times"
   conference_full: "The following conference is fully booked, no further registrations are accepted:"
+
+  name_must_match_passport: "First name and family name must be identical to what appears on your passport or identity card."
+  i_have_been_to_caux_before: "I have been to Caux before"
+  online_search: "Online search"
+  caux_iofc_website: "CAUX-IofC website"
+  social_media: "Social Media"
+  family_friends: "Family/friends"
+  iofc_network_events: "IofC Network/IofC Events"
+  other_media: "Other media"
+  special_program_participation: "I will participate in the following Program:"
+  other_reason_title: "I will come to Caux as ..."
+  please_only_select_this_if_you_have_been_accepted: "Please only select this if you have been accepted."
+  staff_please_specify: "(only for Staff of CAUX-IofC or mandate by CAUX-IofC)"
+  team_member_reference_person: "Team member - reference person"
+
+  visa_information_html: '<p>Attendees who require an entry visa must allow sufficient time for the application procedure. Attendees should
+contact the nearest Swiss Embassy or Consulate in advance to learn about the requirements. A visa request can
+only be handed in 3 month before travelling and can take up to 8 weeks. We therefore highly recommend applying
+for a visa as early as possible and suggest careful reading of the requirements of the Embassy or Consulate
+responsible.  Missing documents can cause a visa refusal.  Please visit
+<a href="https://www.eda.admin.ch/eda/de/home.html">https://www.eda.admin.ch/eda/de/home.html</a> for detailed information on the visa application process.
+</p>
+<p>
+We kindly ask every attendee requiring a visa to mention this in the registration form and in addition to fill out the
+following document: <a href="">FIXME</a> and send it to the reservations team immediately after filling out the
+registration form. This document is important for the reservations team to evaluate your reservation and to deliver
+best possible support for your visa application. The reservations team will refuse to accept a reservation if the
+registration and visa information is suspicious or they suspect a misuse of the visa.
+</p>
+<p>
+The visa application is the sole responsibility of the attendee; the reservations team will deliver some necessary
+documents such as "Invitation Letter" and "Hotel Confirmation Letter". Travel insurance and all other necessary
+documents must be brought to the interview at the Embassy/Consulate by the participant including the before
+mentioned documents delivered by the CAUX – Initiatives of Change Foundation. The reservations team does not
+contact the Embassy/Consulate on your behalf for an appointment, but will send their documents in advance to
+prove authenticity.
+</p>
+<p>
+In case of a granted visa or visa refusal, please inform the reservations team immediately. It is important for
+organizational reason and to support the attendee that the reservations team is getting informed regularly on the
+status of the visa process.
+</p>'
+
+  nightly_contribution_html: 'If your stay is sponsored by a third party, please download this document: <a href="">FIXME</a> and fill it out as requested in the paper. Please note that this is only for conference participants and not for attendees of any of the programs.'
+
+  costs_covered_by_foundation: 'The costs of your stay are covered by the CAUX-IofC Foundation.'
+

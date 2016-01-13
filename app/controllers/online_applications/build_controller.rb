@@ -14,12 +14,7 @@ class OnlineApplications::BuildController < ApplicationController
         redirect_to wizard_path(steps.first)
         return
       end
-   end
-    # Add a blank address for correspondence address if it is nil
-    # The correspondence address can be nil if it was not required on the
-    # previous edit/creation of the online application.  It has to exist if we want it to
-    # show up in the form if it becomes needed.
-    @online_application.build_correspondence_address if @online_application.correspondence_address.nil?
+    end
 
     # Make sure the single/family/group radio button is prepopulated
     if @online_application.application_group.group_registration
@@ -36,6 +31,19 @@ class OnlineApplications::BuildController < ApplicationController
       # applicant object.
       @online_application.status = step.to_s
       @online_application.save(:validate => false)
+    end
+
+    if step == :dates_and_events
+      @heard_about = [
+        [t(:please_choose_option),""],
+        [t(:i_have_been_to_caux_before),"I have been to Caux before"],
+        [t(:online_search),"Online search"],
+        [t(:caux_iofc_website),"CAUX-IofC website"],
+        [t(:social_media),"Social Media"],
+        [t(:family_friends),"Family/friends"],
+        [t(:iofc_network_events),"IofC Network/IofC Events"],
+        [t(:other_media),"Other media"],
+      ]
     end
 
     populate_ethereal_variables
@@ -69,7 +77,6 @@ class OnlineApplications::BuildController < ApplicationController
       params[:online_application][:status] = 'complete' if step == steps.last
 
       if not @online_application.update_attributes(params[:online_application])
-        @online_application.build_correspondence_address if @online_application.correspondence_address.nil?
         populate_ethereal_variables
       else
         if step == :personal and @online_application.relation == 'primary applicant'
@@ -101,6 +108,10 @@ class OnlineApplications::BuildController < ApplicationController
         end
       end
       if step == :dates_and_events
+        if params[:application_group][:online_applications_attributes]['0']['heard_about'] == 'I have been to Caux before'
+          params[:application_group][:online_applications_attributes]['0']['previous_visit'] = true
+        end
+
         params[:application_group][:online_applications_attributes].each do |k,v|
 
           # If no check boxes are checked, the form does not return those fields.
@@ -130,9 +141,7 @@ class OnlineApplications::BuildController < ApplicationController
           params[:application_group][:online_applications_attributes][k]['departure(3i)'] = params[:application_group][:online_applications_attributes]['0']['departure(3i)']
           params[:application_group][:online_applications_attributes][k]['departure(4i)'] = params[:application_group][:online_applications_attributes]['0']['departure(4i)']
           params[:application_group][:online_applications_attributes][k]['departure(5i)'] = params[:application_group][:online_applications_attributes]['0']['departure(5i)']
-          params[:application_group][:online_applications_attributes][k]['travel_car_train'] = params[:application_group][:online_applications_attributes]['0']['travel_car_train']
-          params[:application_group][:online_applications_attributes][k]['travel_flight'] = params[:application_group][:online_applications_attributes]['0']['travel_flight']
-          params[:application_group][:online_applications_attributes][k]['previous_year'] = params[:application_group][:online_applications_attributes]['0']['previous_year']
+          params[:application_group][:online_applications_attributes][k]['previous_visit'] = params[:application_group][:online_applications_attributes]['0']['previous_visit']
           params[:application_group][:online_applications_attributes][k]['heard_about'] = params[:application_group][:online_applications_attributes]['0']['heard_about']
         end
       end
@@ -196,7 +205,7 @@ protected
     @earliest_start_year = Time.now.year
     @latest_stop_year = Time.now.year
 
-    # Make sure we have four sponsor lines; the first two are
+    # Make sure we have three sponsor lines; the first two are
     # auto-calculated (and empty if not needed)
     @application_group.online_applications.each do |oa|
       @count = oa.sponsors.auto.count
@@ -205,7 +214,7 @@ protected
         @count += 1
       end
       @count = oa.sponsors.not_auto.count
-      while @count < 2 do
+      while @count < 1 do
         oa.sponsors.build({:auto => false})
         @count += 1
       end
@@ -228,9 +237,6 @@ protected
         @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
         if not @conferences.has_key?(c.id) then
           @oac = oa.online_application_conferences.build({:conference_id => c.id, :priority_sort => @priority_sort += 1 })
-          # The user can choose 2 workstreams: a first choice and a second choice
-          @oac.online_application_conference_workstreams.build({ :preference => 'first_choice' })
-          @oac.online_application_conference_workstreams.build({ :preference => 'second_choice' })
         end
       end
 
@@ -379,7 +385,7 @@ protected
         # validation at this time).
         @online_application.save!
 
-        # Add a blank address (for permanent/correspondence address)
+        # Add a blank address (for permanent address)
         @online_application.build_permanent_address
 
         @online_application.save!

@@ -18,10 +18,6 @@
     <div class="row <%= "visa_checkbox_#{online_application.id}_subform" -%>" style="display:none">
       <div class="well">
         <div class="col-md-6">
-          <div class="form-group <%= online_application.relation == 'primary applicant' ? 'required' : '' -%>">
-            <%= f.label :visa_reference_name, t(:visa_reference_name), class: 'control-label' %>
-            <%= f.text_field :visa_reference_name, { :class => 'form-control', :maxlength => 100 } %>
-          </div>
           <div class="form-group required">
             <%= f.label :passport_number, t(:passport_number), class: 'control-label' %>
             <%= f.text_field :passport_number, { :class => 'form-control', :maxlength => 100 } %>
@@ -36,10 +32,6 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="form-group <%= online_application.relation == 'primary applicant' ? 'required' : '' -%>">
-            <%= f.label :visa_reference_email, t(:visa_reference_email), class: 'control-label' %>
-            <%= f.text_field :visa_reference_email, { :class => 'form-control', :maxlength => 200 } %>
-          </div>
           <div class="form-group required">
             <%= f.label :passport_issue_place, t(:passport_issue_place), class: 'control-label' %>
             <%= f.text_field :passport_issue_place, { :class => 'form-control', :maxlength => 100 } %>

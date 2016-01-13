@@ -89,7 +89,14 @@
   <%= builder.hidden_field :calculated_total_personal_contribution, :size => 6 %>
   <%= builder.hidden_field :calculated_rate_and_fee_details %>
 
-  <div class="row">
+  <div class="row application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_show_if_paid_by_foundation">
+    <div class="col-md-12">
+      <%= t(:costs_covered_by_foundation) -%>
+    </div>
+  </div>
+
+
+  <div class="row application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_hide_if_paid_by_foundation">
     <div class="col-md-7">
       &nbsp;
     </div>
@@ -104,7 +111,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_hide_if_paid_by_foundation">
     <div class="col-md-7">
      <%=t :cost_of_your_stay %>
     </div>
@@ -128,7 +135,7 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_hide_if_paid_by_foundation">
     <div class="col-md-10">
       <%=t :registration_fee %>
     </div>
@@ -142,25 +149,25 @@
     </div>
   </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <hr>
+  <div class="row application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_hide_if_paid_by_foundation">
+    <div class="col-md-12">
+      <hr>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-12">
-    <%=t :nightly_contribution_html %>
+  <div class="row application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_hide_if_paid_by_foundation">
+    <div class="col-md-12">
+      <%=t :nightly_contribution_html %>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-12">
-    <hr>
+  <div class="row application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_hide_if_paid_by_foundation">
+    <div class="col-md-12">
+      <hr>
+    </div>
   </div>
-</div>
 
-  <div class="row">
+  <div class="row application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_hide_if_paid_by_foundation">
     <div class="col-md-7">
       <label><%=t :sponsors_name %></label>
     </div>
@@ -171,7 +178,7 @@
       <label><%=t :sponsors_amount %></label>
     </div>
   </div>
-
+  <div class="application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_hide_if_paid_by_foundation">
   <%= builder.fields_for :sponsors do |sf| -%>
     <% if sf.object.auto -%>
       <div class="row" id="application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_sponsors_attributes_<%= sf.object_name.gsub(/^.*([0-9])\]$/,'\1') -%>" style="display: none">
@@ -239,6 +246,7 @@
       </div>
     <% end -%>
   <% end -%>
+  </div>
 
   <div class="row">
     <div class="col-md-12">
