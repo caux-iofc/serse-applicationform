@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150713200200) do
+ActiveRecord::Schema.define(:version => 20160113165738) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -133,6 +133,22 @@ ActiveRecord::Schema.define(:version => 20150713200200) do
     t.datetime "deleted_at"
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
+  end
+
+  create_table "conference_packages", :force => true do |t|
+    t.integer  "conference_id"
+    t.decimal  "price",                      :precision => 10, :scale => 0
+    t.integer  "rate_id"
+    t.decimal  "rate_nightly",               :precision => 10, :scale => 0
+    t.string   "currency",      :limit => 3
+    t.integer  "serse_id"
+    t.integer  "created_by"
+    t.integer  "updated_by"
+    t.integer  "deleted_by"
+    t.integer  "lock_version",                                              :default => 0, :null => false
+    t.datetime "deleted_at"
+    t.datetime "created_at",                                                               :null => false
+    t.datetime "updated_at",                                                               :null => false
   end
 
   create_table "conference_translations", :force => true do |t|
@@ -657,6 +673,23 @@ ActiveRecord::Schema.define(:version => 20150713200200) do
   end
 
   add_index "online_forms", ["session_group_id"], :name => "index_online_forms_on_session_group_id"
+
+  create_table "rates", :force => true do |t|
+    t.string   "name",        :limit => 200,                                :default => "",    :null => false
+    t.integer  "from_age",                                                  :default => 0,     :null => false
+    t.integer  "to_age",                                                    :default => 0,     :null => false
+    t.boolean  "student",                                                   :default => false, :null => false
+    t.boolean  "maintenance",                                               :default => false, :null => false
+    t.decimal  "daily_chf",                  :precision => 10, :scale => 0, :default => 0,     :null => false
+    t.decimal  "daily_eur",                  :precision => 10, :scale => 0, :default => 0,     :null => false
+    t.decimal  "daily_usd",                  :precision => 10, :scale => 0, :default => 0,     :null => false
+    t.integer  "serse_id"
+    t.datetime "created_at",                                                                   :null => false
+    t.datetime "updated_at",                                                                   :null => false
+    t.datetime "deleted_at"
+    t.string   "created_by",  :limit => 100,                                :default => "",    :null => false
+    t.string   "updated_by",  :limit => 100,                                :default => "",    :null => false
+  end
 
   create_table "session_group_versions", :force => true do |t|
     t.integer  "session_group_id"

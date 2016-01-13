@@ -362,4 +362,5 @@ status of the visa process.
   nightly_contribution_html: 'If your stay is sponsored by a third party, please download this document: <a href="">FIXME</a> and fill it out as requested in the paper. Please note that this is only for conference participants and not for attendees of any of the programs.'
 
   costs_covered_by_foundation: 'The costs of your stay are covered by the CAUX-IofC Foundation.'
+  conference_package_discount: 'Conference package discount'
 
