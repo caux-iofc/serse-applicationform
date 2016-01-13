@@ -18,8 +18,8 @@ class Address < ActiveRecord::Base
 
   def personal?
     # This gets the modified, 'dirty' version of online_application thanks to the ':inverse_of' set on
-    # the has_one / belongs_to lines in the online_application, permanent_address and
-    # correspondence_address models. Ward, 2015-03-28
+    # the has_one / belongs_to lines in the online_application and permanent_address
+    # models. Ward, 2015-03-28
     not self.online_application.status.nil? and self.online_application.status.include?('personal')
   end
 

@@ -117,41 +117,6 @@ jQuery ->
     else
       $("." + $(this).attr('class').replace('form-control ','') + "_subform").hide()
 
-  ##### handle correspondence_address_other_country ####
-
-  ## First the code that will run on document load ##
-  if $('#online_application_correspondence_address_attributes_country_id').val() == '0'
-    $("#correspondence_address_other_country").show()
-  else
-    $("#correspondence_address_other_country").hide()
-
-  ## And then all the hooks ##
-  $("#online_application_correspondence_address_attributes_country_id").change ->
-    if $("#online_application_correspondence_address_attributes_country_id").val() == '0'
-      $("#correspondence_address_other_country").show()
-    else
-      $("#correspondence_address_other_country").hide()
-    return
-
-  ##### handle day_visitor choice #####
-
-  ## First the code that will run on document load ##
-  if $('#online_application_day_visit_false').is(':checked')
-    $("#travel_car_train").show()
-    $("#travel_flight").show()
-  if $('#online_application_day_visit_true').is(':checked')
-    $("#travel_car_train").hide()
-    $("#travel_flight").hide()
-
-  ## And then all the hooks ##
-  $('input:radio[name="online_application[day_visit]"]').click ->
-    if $('#online_application_day_visit_false').is(':checked')
-      $("#travel_car_train").show()
-      $("#travel_flight").show()
-    else
-      $("#travel_car_train").hide()
-      $("#travel_flight").hide()
-
   ##### handle previous visit conditional fields #####
 
   ## First the code that will run on document load ##
@@ -168,39 +133,6 @@ jQuery ->
     else
       $("#heard_about_div").hide()
       $("#previous_year_div").show()
-
-  ##### fax number is compulsory in certain cases ####
-
-  ## First the code that will run on document load ##
-  if $('#online_application_confirmation_letter_via_fax').is(':checked') and $('#online_application_relation').val() == 'primary applicant'
-    $("#fax_required").addClass('required');
-  else
-    $("#fax_required").removeClass('required');
-
-  ## And then all the hooks ##
-  $('input:radio[name="online_application[confirmation_letter_via]"]').change ->
-    if $('#online_application_confirmation_letter_via_fax').is(':checked') or $('#online_application_visa').is(':checked')
-      $("#fax_required").addClass('required');
-    else
-      $("#fax_required").removeClass('required');
-    if $('#online_application_confirmation_letter_via_fax').is(':checked')
-      alert(I18n.t("ensure_fax_number"))
-
-  ##### correspondence address is compulsory in certain cases ####
-
-  ## First the code that will run on document load ##
-  if $('#online_application_relation').val() == 'primary applicant' and $('#online_application_confirmation_letter_via_correspondence_address').is(':checked')
-    $(".correspondence_address_required").show()
-  else
-    $(".correspondence_address_required").hide()
-
-  ## And then all the hooks ##
-  $('input:radio[name="online_application[confirmation_letter_via]"]').change ->
-    if $('#online_application_confirmation_letter_via_correspondence_address').is(':checked')
-      $(".correspondence_address_required").show()
-      alert(I18n.t("ensure_correspondence_address"))
-    else
-      $(".correspondence_address_required").hide()
 
   ##### show visa related fields if a visa is required ####
 
@@ -383,15 +315,30 @@ jQuery ->
 
     # exports.sponsors holds the aggregate sponsor information across all group/family members
     exports.sponsors = []
-    sponsors = []
     exports.total_automatic = 0
     exports.total_registration_fee = 0
 
     # Walk the applications in the group/family
     $('.oa-counter').each ->
+      sponsors = []
+      hide_elements = []
 
-      # base_id looks like 'application_group_online_applications_attributes_0'
+      # base_id looks like '#application_group_online_applications_attributes_0'
       base_id = '#' + $(this).attr('id')
+      
+      if $(base_id + '_rate_interpreter').is(':checked')
+        hide_elements['.' + $(this).attr('id') + '_hide_if_paid_by_foundation'] = true
+      if $(base_id + '_rate_staff').is(':checked')
+        hide_elements['.' + $(this).attr('id') + '_hide_if_paid_by_foundation'] = true
+      if $(base_id + '_rate_volunteer').is(':checked')
+        hide_elements['.' + $(this).attr('id') + '_hide_if_paid_by_foundation'] = true
+
+      if hide_elements['.' + $(this).attr('id') + '_hide_if_paid_by_foundation']
+        $('.' + $(this).attr('id') + '_hide_if_paid_by_foundation').hide()
+        $('.' + $(this).attr('id') + '_show_if_paid_by_foundation').show()
+      else
+        $('.' + $(this).attr('id') + '_hide_if_paid_by_foundation').show()
+        $('.' + $(this).attr('id') + '_show_if_paid_by_foundation').hide()
 
       # Only Chromium can interpret dates like 'YYYY-MM-DD HH:MM:SS' out of the box.
       # So we accomodate other browsers with a parse function.
@@ -450,13 +397,11 @@ jQuery ->
       if $(base_id + '_rate_staff').is(':checked')
         night_rate = 63
         registration_fee = 0
-        if typeof exports.sponsors['IofC Switzerland'] is 'undefined'
-          exports.sponsors['IofC Switzerland'] = {}
-          exports.sponsors['IofC Switzerland'].name = 'IofC Switzerland'
-          exports.sponsors['IofC Switzerland'].nights = nights
-          exports.sponsors['IofC Switzerland'].amount = 63
-        else
-          exports.sponsors['IofC Switzerland']['nights'] += nights
+        sp = {}
+        sp.name = 'IofC Switzerland'
+        sp.nights = nights
+        sp.amount = 63
+        exports.sponsors.push(sp)
         sponsors['IofC Switzerland'] = {}
         sponsors['IofC Switzerland'].name = 'IofC Switzerland'
         sponsors['IofC Switzerland'].nights = nights
@@ -465,13 +410,11 @@ jQuery ->
       else if $(base_id + '_rate_volunteer').is(':checked')
         night_rate = 63
         registration_fee = 0
-        if typeof exports.sponsors['Conference Support Fund (CSF)'] is 'undefined'
-          exports.sponsors['Conference Support Fund (CSF)'] = {}
-          exports.sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
-          exports.sponsors['Conference Support Fund (CSF)'].nights = nights
-          exports.sponsors['Conference Support Fund (CSF)'].amount = 63
-        else
-          exports.sponsors['Conference Support Fund (CSF)']['nights'] += nights
+        sp = {}
+        sp.name = 'Conference Support Fund (CSF)'
+        sp.nights = nights
+        sp.amount = 63
+        exports.sponsors.push(sp)
         sponsors['Conference Support Fund (CSF)'] = {}
         sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
         sponsors['Conference Support Fund (CSF)'].nights = nights
@@ -480,13 +423,11 @@ jQuery ->
       else if $(base_id + '_rate_interpreter').is(':checked')
         night_rate = 63
         registration_fee = 0
-        if typeof exports.sponsors['Conference Support Fund (CSF)'] is 'undefined'
-          exports.sponsors['Conference Support Fund (CSF)'] = {}
-          exports.sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
-          exports.sponsors['Conference Support Fund (CSF)'].nights = nights
-          exports.sponsors['Conference Support Fund (CSF)'].amount = 63
-        else
-          exports.sponsors['Conference Support Fund (CSF)']['nights'] += nights
+        sp = {}
+        sp.name = 'Conference Support Fund (CSF)'
+        sp.nights = nights
+        sp.amount = 63
+        exports.sponsors.push(sp)
         sponsors['Conference Support Fund (CSF)'] = {}
         sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
         sponsors['Conference Support Fund (CSF)'].nights = nights
@@ -495,13 +436,11 @@ jQuery ->
       else if $(base_id + "_caux_scholar").val() == '1'
         night_rate = 63
         registration_fee = 50
-        if typeof exports.sponsors['Caux Scholars Program'] is 'undefined'
-          exports.sponsors['Caux Scholars Program'] = {}
-          exports.sponsors['Caux Scholars Program'].name = 'Caux Scholars Program'
-          exports.sponsors['Caux Scholars Program'].nights = nights
-          exports.sponsors['Caux Scholars Program'].amount = 63
-        else
-          exports.sponsors['Caux Scholars Program']['nights'] += nights
+        sp = {}
+        sp.name = 'Caux Scholars Program'
+        sp.nights = nights
+        sp.amount = 63
+        exports.sponsors.push(sp)
         sponsors['Caux Scholars Program'] = {}
         sponsors['Caux Scholars Program'].name = 'Caux Scholars Program'
         sponsors['Caux Scholars Program'].nights = nights
@@ -510,13 +449,11 @@ jQuery ->
       else if $(base_id + "_caux_intern").val() == '1'
         night_rate = 63
         registration_fee = 250
-        if typeof exports.sponsors['Caux Interns Program'] is 'undefined'
-          exports.sponsors['Caux Interns Program'] = {}
-          exports.sponsors['Caux Interns Program'].name = 'Caux Interns Program'
-          exports.sponsors['Caux Interns Program'].nights = nights
-          exports.sponsors['Caux Interns Program'].amount = 63
-        else
-          exports.sponsors['Caux Interns Program']['nights'] += nights
+        sp = {}
+        sp.name = 'Caux Interns Program'
+        sp.nights = nights
+        sp.amount = 63
+        exports.sponsors.push(sp)
         sponsors['Caux Interns Program'] = {}
         sponsors['Caux Interns Program'].name = 'Caux Interns Program'
         sponsors['Caux Interns Program'].nights = nights
@@ -525,13 +462,11 @@ jQuery ->
       else if $(base_id + "_week_of_international_community").val() == '1'
         night_rate = 63
         registration_fee = 0
-        if typeof exports.sponsors['Conference Support Fund (CSF)'] is 'undefined'
-          exports.sponsors['Conference Support Fund (CSF)'] = {}
-          exports.sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
-          exports.sponsors['Conference Support Fund (CSF)'].nights = nights
-          exports.sponsors['Conference Support Fund (CSF)'].amount = 63
-        else
-          exports.sponsors['Conference Support Fund (CSF)']['nights'] += nights
+        sp = {}
+        sp.name = 'Conference Support Fund (CSF)'
+        sp.nights = nights
+        sp.amount = 63
+        exports.sponsors.push(sp)
         sponsors['Conference Support Fund (CSF)'] = {}
         sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
         sponsors['Conference Support Fund (CSF)'].nights = nights
@@ -540,13 +475,11 @@ jQuery ->
       else if $(base_id + "_caux_artist").val() == '1'
         night_rate = 63
         registration_fee = 50
-        if typeof exports.sponsors['Caux Artists Program'] is 'undefined'
-          exports.sponsors['Caux Artists Program'] = {}
-          exports.sponsors['Caux Artists Program'].name = 'Caux Artists Program'
-          exports.sponsors['Caux Artists Program'].nights = nights
-          exports.sponsors['Caux Artists Program'].amount = 63
-        else
-          exports.sponsors['Caux Artists Program']['nights'] += nights
+        sp = {}
+        sp.name = 'Caux Artists Program'
+        sp.nights = nights
+        sp.amount = 63
+        exports.sponsors.push(sp)
         sponsors['Caux Artists Program'] = {}
         sponsors['Caux Artists Program'].name = 'Caux Artists Program'
         sponsors['Caux Artists Program'].nights = nights
@@ -576,11 +509,6 @@ jQuery ->
           registration_fee = 100 if 100 > registration_fee
         calculated_rate_and_fee_details += 'Family: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-      if $(base_id + "_relation").val() == 'spouse'
-        # Only the primary registrant for families pays the registration fee
-        registration_fee = 0
-        calculated_rate_and_fee_details += 'Spouse: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
       if $(base_id + '_rate_full_premium').is(':checked')
         if day_visit == 1
           night_rate = 100
@@ -603,10 +531,10 @@ jQuery ->
         registration_fee = 50
         calculated_rate_and_fee_details += 'Age 18-25: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-      if $(base_id + "_relation").val() == 'child'
-        # Only the primary registrant pays the registration fee for families
+      if $(base_id + "_relation").val() != 'primary applicant'
+        # Only the primary applicant pays the registration fee
         registration_fee = 0
-        calculated_rate_and_fee_details += 'Child: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+        calculated_rate_and_fee_details += 'Group or family: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       $(base_id + "_rate_per_night_visible").text(night_rate)
       $(base_id + "_rate_per_night").val(night_rate)
@@ -631,6 +559,18 @@ jQuery ->
       # Deal with the sponsor lines
       sponsor_count = 0
       for key,sponsor of sponsors
+        if sponsor.amount > night_rate
+          console.log('inside loop: ' + sponsor.name)
+          # This can happen for children!
+          sponsor.amount = night_rate
+          sp = {}
+          sp.name = sponsor.name
+          sp.nights = sponsor.nights
+          sp.amount = sponsor.amount
+          # Also adjust exports.sponsors
+          exports.sponsors.pop()
+          exports.sponsors.push(sp)
+
         $(base_id + "_sponsors_attributes_" + sponsor_count + "_name").val(sponsor.name)
         $('span' + base_id + "_sponsors_attributes_" + sponsor_count + "_name").text(sponsor.name)
         $(base_id + "_sponsors_attributes_" + sponsor_count + "_nights").val(sponsor.nights)
@@ -655,6 +595,7 @@ jQuery ->
     # Deal with the totals/sponsor calculation
     sponsor_contribution = 0
     for key,sponsor of exports.sponsors
+      console.log(sponsor.name)
       sponsor_contribution += sponsor.nights * sponsor.amount
 
     exports.total_automatic -= sponsor_contribution
@@ -696,3 +637,4 @@ jQuery ->
   $(".edit_application_group").on "change", "input[class^='form-control sponsor_field_']", ->
     #sponsor_recalculate_total($(this))
     recalculate_fees()
+

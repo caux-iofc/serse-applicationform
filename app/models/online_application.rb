@@ -1,17 +1,14 @@
 class OnlineApplication < ActiveRecord::Base
   acts_as_paranoid_versioned :version_column => :lock_version
 
-  attr_accessible :date_of_birth, :relation, :firstname, :surname, :gender, :citizenship_id, :other_citizenship, :profession, :employer, :email, :telephone, :cellphone, :fax, :work_telephone, :arrival, :departure, :travel_car_train, :travel_flight, :previous_visit, :previous_year, :heard_about, :visa, :visa_reference_name, :visa_reference_email, :confirmation_letter_via, :accompanied_by, :passport_number, :passport_issue_date, :passport_issue_place, :passport_expiry_date, :passport_embassy, :nightly_contribution, :remarks, :badge_firstname, :badge_surname, :badge_country, :interpreter, :volunteer, :other_reason, :other_reason_detail, :staff, :staff_detail, :volunteer_detail, :diet_other_detail, :family_discount, :support_renovation_fund, :full_time_volunteer, :day_visit, :calculated_registration_fee, :calculated_night_rate, :calculated_total_personal_contribution, :calculated_nights, :calculated_rate_and_fee_details, :sent_by_employer, :student, :status, :rate, :financial_remarks, :online_application_conferences_attributes, :training_program_ids, :permanent_address_attributes, :different_address, :email_confirmation, :correspondence_address_attributes, :registration_type, :online_application_languages_attributes, :translate_english, :translate_french, :translate_german, :diet_ids, :caux_scholar, :caux_intern, :caux_artist, :conference_team, :conference_speaker, :week_of_international_community, :rate_per_night, :total_nights, :registration_fee, :sponsors_attributes
+  attr_accessible :date_of_birth, :relation, :firstname, :surname, :gender, :citizenship_id, :other_citizenship, :profession, :employer, :email, :telephone, :cellphone, :arrival, :departure, :previous_visit, :heard_about, :visa, :confirmation_letter_via, :accompanied_by, :passport_number, :passport_issue_date, :passport_issue_place, :passport_expiry_date, :passport_embassy, :nightly_contribution, :remarks, :badge_firstname, :badge_surname, :badge_country, :interpreter, :volunteer, :other_reason, :other_reason_detail, :staff, :staff_detail, :volunteer_detail, :diet_other_detail, :family_discount, :support_renovation_fund, :full_time_volunteer, :day_visit, :calculated_registration_fee, :calculated_night_rate, :calculated_total_personal_contribution, :calculated_nights, :calculated_rate_and_fee_details, :sent_by_employer, :student, :status, :rate, :financial_remarks, :online_application_conferences_attributes, :training_program_ids, :permanent_address_attributes, :different_address, :email_confirmation, :registration_type, :online_application_languages_attributes, :translate_english, :translate_french, :translate_german, :diet_ids, :caux_scholar, :caux_intern, :caux_artist, :conference_team, :conference_speaker, :week_of_international_community, :rate_per_night, :total_nights, :registration_fee, :sponsors_attributes
 
   belongs_to :application_group
   belongs_to :country, :foreign_key => :citizenship_id
 
   has_one :permanent_address, :dependent => :destroy, :inverse_of => :online_application
-  has_one :correspondence_address, :dependent => :destroy, :inverse_of => :online_application
 
   accepts_nested_attributes_for :permanent_address,
-    :allow_destroy => :true
-  accepts_nested_attributes_for :correspondence_address,
     :allow_destroy => :true
 
   has_many :sponsors, :dependent => :destroy
@@ -151,13 +148,6 @@ class OnlineApplication < ActiveRecord::Base
                         :if => lambda { |oa| personal? && oa.relation == 'primary applicant' }
   validates :cellphone, :format => { :with => /\A(\+[\d\/\-\. ]{6,}|)\z/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
   validates :confirmation_letter_via, :presence => true, :if => lambda { |oa| personal? && oa.relation == 'primary applicant' }
-  validates :work_telephone, :format => { :with => /\A(\+[\d\/\-\. ]{6,}|)\z/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
-  validates :fax, :format => { :with => /\A(\+[\d\/\-\. ]{6,}|)\z/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
-  validates :fax, :presence => true, :if => :fax_needed?
-  def fax_needed?
-    personal? and (confirmation_letter_via == "fax") and relation == 'primary applicant'
-  end
-
   # /end personal
 
   # /begin detail
@@ -197,12 +187,7 @@ class OnlineApplication < ActiveRecord::Base
                           :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' }
   end
 
-  # Whoa. Serious rough edge, can't use :presence => true here.
-  # cf. http://stackoverflow.com/questions/4112858/radio-buttons-for-boolean-field-how-to-do-a-false
-  validates :previous_visit, :inclusion => { :in => [ true, false ], :message => I18n.t(:previous_visit_unset) }, :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' }
-  validates :previous_year, :presence => true, :format => { :with => /\A([\d]{4}|)\z/, :message => I18n.t(:previous_year_invalid) }, :if => lambda { |oa| dates_and_events? && oa.previous_visit }
-
-  validates :heard_about, :presence => true, :length => { :maximum => 100 }, :if => lambda { |oa| dates_and_events? && !oa.previous_visit.nil? && !oa.previous_visit && oa.relation == 'primary applicant' }
+  validates :heard_about, :presence => true, :length => { :maximum => 100 }, :if => lambda { |oa| dates_and_events? && oa.relation == 'primary applicant' }
 
   validates :day_visit, :inclusion => { :in => [ true, false ], :message => I18n.t(:day_visit_unset) }, :if => :dates_and_events?
 
@@ -288,87 +273,10 @@ class OnlineApplication < ActiveRecord::Base
 
   def sub_forms
     online_application_conferences.each do |oac|
-      @workstream_choice_required = true
-
-      # Team members do not have to select workstreams
-      @workstream_choice_required = false if oac.role_team
-
-      # Special for LLWM 2012; people who select the course do not need to select workstreams
-      if oac.variables.has_key?(:llmw_2012_advanced_course_for_young_peacemakers) and
-         oac.variables['llmw_2012_advanced_course_for_young_peacemakers'] == '1' then
-        @workstream_choice_required = false
-      end
-
-      # Special for TIGE 2015
-      @real_locale = I18n.locale
-      I18n.locale = 'en'
-      if oac.conference.name == "Trust and integrity in the global economy"
-        @workstream_choice_required = false
-        if not oac.variables.has_key?(:tige_2015_options)
-          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_choose_option)
-        end
-      end
-      I18n.locale = @real_locale
-
-      # Special for AEUB 2015
-      @real_locale = I18n.locale
-      I18n.locale = 'en'
-      if oac.conference.name == "Addressing Europe's Unfinished Business"
-        if not oac.variables.has_key?(:aeub_2015_monnet)
-          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:aeub_2015_monnet) + ': ' + I18n.t(:please_choose_option)
-        elsif oac.variables[:aeub_2015_monnet] == "would like to visit" and not oac.variables.has_key?(:aeub_2015_monnet_travel)
-          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:aeub_2015_monnet) + ': ' + I18n.t(:please_choose_option)
-        end
-      end
-      I18n.locale = @real_locale
-
-      if @workstream_choice_required then
-        oac.online_application_conference_workstreams.each do |oacws|
-          if oacws.conference_workstream_id.nil?
-            errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_choose_preferred_workshops)
-            break
-          end
-        end
-      end
-
-      # Exclude HS 2012, as well as conferences marked as 'special' from this validation
-      # And exclude winter conference 2012/2013. TODO: fix this properly with a flag on the conference object.
-      # And exclude winter conference 2014/2015. Sigh.
-      # Cf. redmine #307. Ward, 2012-09-15
-      # TODO: fix role detection properly; it should probably auto-populate based on what is present
-      # in the forms.
-      @real_locale = I18n.locale
-      I18n.locale = 'en'
-      if oac.conference.name != 'Fifth annual Caux Forum for Human Security' and
-         oac.conference.name != 'Winter gathering 2012/13' and
-         oac.conference.name != "Impact Initiatives Challenge" and
-         oac.conference.name != 'Winter gathering 2014/15' and
-         not oac.conference.special and
-         not oac.role_participant and not oac.role_speaker and not oac.role_team and not oac.role_exhibitor then
-         I18n.locale = @real_locale
-        errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_indicate_conference_role)
-      end
-      I18n.locale = @real_locale
       oac.variables.each do |k,v|
-        # Please note that checkboxes are *NOT* caught by this rule
         if v.nil? or v == '' then
-          # TODO FIXME properly so that we don't need hardcoded lines like the next ones
-          next if k == 'ipbf_2014_exhibitor_org_name' and not oac.role_exhibitor
-          next if k == 'tige_2015_other_detail' and
-                  ((oac.variables.has_key?(:tige_2015_options) and oac.variables[:tige_2015_options] != 'Other') or
-                   not oac.variables.has_key?(:tige_2015_options))
-          next if k == 'aeub_2015_expectations'
-          next if k == 'aeub_2015_instrument'
-          next if k == 'seed_2015_offer'
-
           errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_complete_all_required_fields)
           break
-        end
-      end
-      oac.variables.each do |k,v|
-        # Another HS 2012 special
-        if k == 'hs_2012_confirm_registration_fee' and v == '0' then
-          errors.add :base, '<strong>'.html_safe + oac.conference.name + '</strong>: '.html_safe + I18n.t(:please_confirm_chf_100_registration_fee)
         end
       end
     end
@@ -376,15 +284,6 @@ class OnlineApplication < ActiveRecord::Base
 
   # /end dates_and_events
   # /begin visa
-
-  validates :visa_reference_name, :presence => true, :if => :visa_reference_needed?
-  validates :visa_reference_email, :presence => true,
-                                   :email => true,
-                                   :if => :visa_reference_needed?
-
-  def visa_reference_needed?
-    visa? and visa and relation == 'primary applicant'
-  end
 
   validates :passport_number, :presence => true, :if => lambda { |oa| visa? && oa.visa }
   validates :passport_issue_place, :presence => true, :if => lambda { |oa| visa? && oa.visa }

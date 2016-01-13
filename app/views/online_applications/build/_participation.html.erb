@@ -65,38 +65,42 @@
           </div>
         </div>
       <% end -%>
-      <% if oac.object.template_exists -%>
         <div class="well oac_checkbox_<%= online_application.id %>_<%= oac.object.conference.id %>_subform center-block" style="display:none; width:800px; background: rgb(49, 176, 213)">
           <div class="row">
             <div class="col-md-12">
               <div class="conference_subform_td">
                 <div class="conference_subform">
-                  <%= render oac.object.conference.template_path, :f => f, :oac => oac %>
+                  <%= oac.fields_for :variables do |var| -%>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group required">
+                        <%= var.label :team_member_reference_person, t(:team_member_reference_person), class: 'control-label' %>
+                        <%= var.text_field :team_member_reference_person, { :value => oac.object.variables["team_member_reference_person"], :class => 'form-control' } %>
+                      </div>
+                    </div>
+                  </div>
+                  <% end -%>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      <% end -%>
     <% end -%>
 
     <% if TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).size > 0 -%>
       <div class="row">
         <div class="col-md-12 text-center">
-          <h3><%=t :special_conference_participation %></h3>
+          <h3><%=t :special_program_participation %></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <i><%=t :please_only_register_if_you_have_been_accepted_beforehand %></i>
         </div>
       </div>
     <% end -%>
 
     <% TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).each do |tp| -%>
-      <% if tp.name == 'Caux Artists Program' -%>
-        <div class="row">
-          <div class="col-md-12">
-            <i><%=t :please_only_register_if_you_have_been_accepted_beforehand %></i>
-          </div>
-        </div>
-      <% end -%>
-
       <div class="row">
         <div class="col-md-1">
           <%= check_box_tag :training_program_ids, tp.id, @online_application.training_programs.include?(tp), :name => 'online_application[training_program_ids][]', :id => "tp_check_" + (tp.nil? or tp.name.nil? ? '' : tp.name.downcase) %>
@@ -130,6 +134,11 @@
         <h3><%=t :other_reason_title %></h3>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <i><%=t :please_only_select_this_if_you_have_been_accepted %></i>
+      </div>
+    </div>
 
     <div class="row">
       <div class="col-md-1">
@@ -143,10 +152,10 @@
       <div class="col-md-1">
         <%= f.check_box :volunteer %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-5">
         <label><%=t :volunteer %></label>, <%=t :volunteer_please_specify %>
       </div>
-      <div class="col-md-7">
+      <div class="col-md-6">
         <%= f.text_field :volunteer_detail, { class: 'form-control', :size => 40 } %>
       </div>
     </div>
@@ -154,10 +163,10 @@
       <div class="col-md-1">
         <%= f.check_box :staff %>
       </div>
-      <div class="col-md-4">
-        <label><%=t :staff %></label>, <%=t :staff_please_specify %>
+      <div class="col-md-5">
+        <label><%=t :staff %></label> <%=t :staff_please_specify %>
       </div>
-      <div class="col-md-7">
+      <div class="col-md-6">
         <%= f.text_field :staff_detail, { class: 'form-control', :size => 40 } %>
       </div>
     </div>
@@ -166,11 +175,11 @@
         <div class="col-md-1">
           <%= f.check_box :other_reason %>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
           <%= f.label :other_reason, t(:other), class: 'control-label' %>, <%=t :other_reason_please_specify %>
         </div>
       </div>
-      <div class="col-md-7">
+      <div class="col-md-6">
         <%= f.text_field :other_reason_detail, { class: 'form-control', :size => 40 } %>
       </div>
     </div>

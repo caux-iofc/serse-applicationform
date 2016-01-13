@@ -14,7 +14,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 3.1.4'
 
 gem 'cure_rails3_acts_as_paranoid'
 gem 'cure_acts_as_versioned', '0.6.2'

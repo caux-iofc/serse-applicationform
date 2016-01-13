@@ -24,9 +24,8 @@ class OnlineApplicationsController < ApplicationController
   # GET /online_applications/new.json
   def new
     @online_application = OnlineApplication.new
-    # Add a blank address (for permanent/correspondence address)
+    # Add a blank address (for permanent address)
     @online_application.build_permanent_address
-    @online_application.build_correspondence_address
 
     if OnlineApplication.find_all_by_application_group_id(@ag.id).size == 0 then
       @online_application.relation = 'primary applicant'
@@ -117,13 +116,9 @@ class OnlineApplicationsController < ApplicationController
     # Populate the email_confirmation field
     @online_application.email_confirmation = @online_application.email
 
-    # Add a blank address (for permanent/correspondence address) if either is nil
+    # Add a blank address (for permanent address) if it is nil
     # The permanent address should never be nil, but let's include it here just in case.
-    # The correspondence address can be nil if it was not required on the
-    # previous edit/creation of the online application.  It has to exist if we want it to
-    # show up in the form if it becomes needed.
     @online_application.build_permanent_address if @online_application.permanent_address.nil?
-    @online_application.build_correspondence_address if @online_application.correspondence_address.nil?
 
     populate_ethereal_variables
 
