@@ -219,16 +219,16 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
       @values += "'" + @conn.escape(oa.departure.to_time.strftime("%H:%M")) + "',"
 
       @keys += 'travel_car_train,'
-      @values += "'" + @conn.escape(oa.travel_car_train) + "',"
+      @values += "'',"
 
       @keys += 'travel_flight,'
-      @values += "'" + @conn.escape(oa.travel_flight) + "',"
+      @values += "'',"
 
       @keys += 'previous_visit,'
       @values += "'" + @conn.escape(oa.previous_visit ? 'yes' : 'no' ) + "',"
 
       @keys += 'previous_year,'
-      @values += "'" + @conn.escape(oa.previous_year) + "',"
+      @values += "'',"
 
       @keys += 'heard_about,'
       @values += "'" + @conn.escape(oa.heard_about) + "',"
@@ -260,7 +260,6 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
       @confirmation_letter_via = oa.confirmation_letter_via
       # family members can have this set to NULL
       @confirmation_letter_via = 'email' if @confirmation_letter_via.nil?
-      @confirmation_letter_via = 'postdifferent' if @confirmation_letter_via == 'correspondence_address'
       @values += "'" + @conn.escape(@confirmation_letter_via) + "',"
 
       @accompanied_by = ''
@@ -369,43 +368,6 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 
       @keys += 'remarks,'
       @values += "'" + @conn.escape(oa.remarks[0,5000]) + "',"
-
-      if not oa.correspondence_address.nil? and not oa.correspondence_address.empty? then
-        @keys += 'correspondence_street1,'
-        @values += "'" + @conn.escape(oa.correspondence_address.street1) + "',"
-
-        @keys += 'correspondence_street2,'
-        @values += "'" + @conn.escape(oa.correspondence_address.street2) + "',"
-
-        @keys += 'correspondence_street3,'
-        @values += "'" + @conn.escape(oa.correspondence_address.street3) + "',"
-
-        @keys += 'correspondence_city,'
-        @values += "'" + @conn.escape(oa.correspondence_address.city) + "',"
-
-        @keys += 'correspondence_zipcode,'
-        @values += "'" + @conn.escape(oa.correspondence_address.postal_code) + "',"
-
-        @keys += 'correspondence_state,'
-        @values += "'" + @conn.escape(oa.correspondence_address.state) + "',"
-
-        if oa.correspondence_address.country_id != 0 then
-          @keys += 'correspondence_country_id,'
-          @values += "'" + oa.correspondence_address.country.serse_id.to_s + "',"
-        else
-          @keys += 'correspondence_country_id,'
-          @values += "'" + oa.correspondence_address.country_id.to_s + "',"
-        end
-
-        @keys += 'correspondence_other_country,'
-        @values += "'" + @conn.escape(oa.correspondence_address.other_country) + "',"
-
-        @keys += 'correspondence_valid_from,'
-        @values += "'" + @conn.escape(oa.correspondence_address.valid_from.strftime("%Y-%m-%d")) + "',"
-
-        @keys += 'correspondence_valid_until,'
-        @values += "'" + @conn.escape(oa.correspondence_address.valid_until.strftime("%Y-%m-%d")) + "',"
-      end
 
       if oa.visa then
         @keys += 'passport_number,'
