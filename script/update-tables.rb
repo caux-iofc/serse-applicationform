@@ -14,7 +14,7 @@ require File.dirname(__FILE__) + '/../config/environment'
 
 @objects = Hash.new()
 y = YAML.load_file( "#{Rails.root}/tmp_script/tbl_online_forms.yml" )
-y.sort.each do |k,v| 
+y.sort.each do |k,v|
   of = OnlineForm.find_by_serse_id(v['id'])
   if of.nil? then
     of = OnlineForm.new
@@ -37,7 +37,7 @@ end
 
 @objects = Hash.new()
 y = YAML.load_file( "#{Rails.root}/tmp_script/session_groups.yml" )
-y.sort.each do |k,v| 
+y.sort.each do |k,v|
   of = SessionGroup.find_by_serse_id(v['id'])
   if of.nil? then
     of = SessionGroup.new
@@ -58,7 +58,7 @@ end
 
 @objects = Hash.new()
 y = YAML.load_file( "#{Rails.root}/tmp_script/tbl_countries.yml" )
-y.sort.each do |k,v| 
+y.sort.each do |k,v|
   of = Country.find_by_serse_id(v['id'])
   if of.nil? then
     of = Country.new
@@ -86,7 +86,7 @@ end
 
 @objects = Hash.new()
 y = YAML.load_file( "#{Rails.root}/tmp_script/tbl_languages.yml" )
-y.sort.each do |k,v| 
+y.sort.each do |k,v|
   of = Language.find_by_serse_id(v['id'])
   if of.nil? then
     of = Language.new
@@ -159,6 +159,70 @@ Conference.all.each do |o|
 end
 
 @objects = Hash.new()
+y = YAML.load_file( "#{Rails.root}/tmp_script/rates.yml" )
+y.sort.each do |k,v|
+  of = Rate.find_by_serse_id(v['id'])
+  if of.nil? then
+    of = Rate.new
+  end
+  of.serse_id = v['id']
+  of.name = v['name']
+
+  of.from_age = v['from_age']
+  of.to_age = v['to_age']
+  of.student = v['student']
+  of.maintenance = v['maintenance']
+  of.daily_chf = v['daily_chf']
+  of.daily_eur = v['daily_eur']
+  of.daily_usd = v['daily_usd']
+
+  of.created_by = v['created_by']
+  of.updated_by = v['updated_by']
+  of.updated_by = v['deleted_by']
+  of.created_at = v['created_at']
+  of.updated_at = v['updated_at']
+  of.deleted_at = v['deleted_at']
+  of.save
+  @objects[of.id] = true
+end
+
+Rate.all.each do |o|
+  if not @objects.has_key?(o.id) then
+    o.destroy!
+  end
+end
+
+@objects = Hash.new()
+y = YAML.load_file( "#{Rails.root}/tmp_script/conference_packages.yml" )
+y.sort.each do |k,v|
+  of = ConferencePackage.find_by_serse_id(v['id'])
+  if of.nil? then
+    of = ConferencePackage.new
+  end
+  of.serse_id = v['id']
+  of.conference_id = Conference.find_by_serse_id(v['conference_id']).id
+  of.price = v['price']
+  of.rate_id = Rate.find_by_serse_id(v['rate_id']).id
+  of.rate_nightly = v['rate_nightly']
+  of.currency = v['currency']
+
+  of.created_by = v['created_by']
+  of.updated_by = v['updated_by']
+  of.updated_by = v['deleted_by']
+  of.created_at = v['created_at']
+  of.updated_at = v['updated_at']
+  of.deleted_at = v['deleted_at']
+  of.save
+  @objects[of.id] = true
+end
+
+ConferencePackage.all.each do |o|
+  if not @objects.has_key?(o.id) then
+    o.destroy!
+  end
+end
+
+@objects = Hash.new()
 y = YAML.load_file( "#{Rails.root}/tmp_script/conference_workstreams.yml" )
 y.sort.each do |k,v|
   of = ConferenceWorkstream.find_by_serse_id(v['id'])
@@ -202,7 +266,7 @@ end
 
 @objects = Hash.new()
 y = YAML.load_file( "#{Rails.root}/tmp_script/training_programs.yml" )
-y.sort.each do |k,v| 
+y.sort.each do |k,v|
   of = TrainingProgram.find_by_serse_id(v['id'])
   if of.nil? then
     of = TrainingProgram.new
@@ -219,7 +283,7 @@ y.sort.each do |k,v|
 end
 
 y = YAML.load_file( "#{Rails.root}/tmp_script/training_program_names.yml" )
-y.sort.each do |k,v| 
+y.sort.each do |k,v|
   of = TrainingProgram.find_by_serse_id(v['training_program_id'])
   if of.nil? then
     of = TrainingProgram.new

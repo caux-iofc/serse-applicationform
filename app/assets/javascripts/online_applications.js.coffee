@@ -307,11 +307,32 @@ jQuery ->
 
   ##### conference fee logic #####
 
+  find_conference_package = (base_id,rate_nightly,start,stop) ->
+    $.ajax
+      url: '/en/conference_packages'
+      data:
+        rate_nightly: rate_nightly
+        start: start
+        stop: stop
+      success: (data) ->
+        # data is the object that contains all info returned. It's already in JSON format,
+        # thanks to the 'dataType' parameter on this call
+        if data.length isnt 0
+          window.package_data[base_id] = data[0]
+          recalculate_fees()
+      error: (data) ->
+        alert "Sorry, there was an error!"
+      dataType: "json"
+
   recalculate_fees = () ->
     DAY = 1000 * 60 * 60  * 24
     YEAR = DAY * 365.25
 
     exports = this
+
+    # Just in case, initialize window.package_data to the empty array if necessary
+    if (not window.package_data?)
+      window.package_data = []
 
     # exports.sponsors holds the aggregate sponsor information across all group/family members
     exports.sponsors = []
@@ -325,7 +346,7 @@ jQuery ->
 
       # base_id looks like '#application_group_online_applications_attributes_0'
       base_id = '#' + $(this).attr('id')
-      
+
       if $(base_id + '_rate_interpreter').is(':checked')
         hide_elements['.' + $(this).attr('id') + '_hide_if_paid_by_foundation'] = true
       if $(base_id + '_rate_staff').is(':checked')
@@ -531,6 +552,16 @@ jQuery ->
         registration_fee = 50
         calculated_rate_and_fee_details += 'Age 18-25: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
+      if typeof window.package_data[base_id] is 'undefined'
+        # Note that find_conference_package does an async ajax call, which will
+        # set window.package_data and then calls recalculate_fees() again to update
+        # the night_rate
+        find_conference_package(base_id,night_rate,$(base_id + "_arrival").val(),$(base_id + "_departure").val())
+        $('.conference_package').hide()
+      else
+        night_rate = window.package_data[base_id].price / nights
+        $('.conference_package').show()
+
       if $(base_id + "_relation").val() != 'primary applicant'
         # Only the primary applicant pays the registration fee
         registration_fee = 0
@@ -623,6 +654,8 @@ jQuery ->
   recalculate_fees()
 
   $(".rate").change ->
+    # Rate changed; wipe out the package_data variable so that we'll check for a conference_package rate again
+    window.package_data = []
     recalculate_fees()
   $('#application_group_online_applications_attributes_0_sponsors_attributes_0_nights').change ->
     recalculate_fees()
