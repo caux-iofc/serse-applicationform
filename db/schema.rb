@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160113165738) do
+ActiveRecord::Schema.define(:version => 20160115205700) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -236,13 +236,14 @@ ActiveRecord::Schema.define(:version => 20160113165738) do
     t.string   "abbreviation"
     t.string   "template_path"
     t.integer  "serse_id"
-    t.string   "created_by",       :limit => 100, :default => "",    :null => false
-    t.string   "updated_by",       :limit => 100, :default => "",    :null => false
-    t.integer  "lock_version",                    :default => 0,     :null => false
+    t.string   "created_by",                     :limit => 100, :default => "",    :null => false
+    t.string   "updated_by",                     :limit => 100, :default => "",    :null => false
+    t.integer  "lock_version",                                  :default => 0,     :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "full",                            :default => false, :null => false
+    t.boolean  "full",                                          :default => false, :null => false
+    t.integer  "early_bird_discount_percentage",                :default => 0,     :null => false
   end
 
   add_index "conferences", ["session_group_id"], :name => "index_conferences_on_session_group_id"
@@ -675,20 +676,21 @@ ActiveRecord::Schema.define(:version => 20160113165738) do
   add_index "online_forms", ["session_group_id"], :name => "index_online_forms_on_session_group_id"
 
   create_table "rates", :force => true do |t|
-    t.string   "name",        :limit => 200,                                :default => "",    :null => false
-    t.integer  "from_age",                                                  :default => 0,     :null => false
-    t.integer  "to_age",                                                    :default => 0,     :null => false
-    t.boolean  "student",                                                   :default => false, :null => false
-    t.boolean  "maintenance",                                               :default => false, :null => false
-    t.decimal  "daily_chf",                  :precision => 10, :scale => 0, :default => 0,     :null => false
-    t.decimal  "daily_eur",                  :precision => 10, :scale => 0, :default => 0,     :null => false
-    t.decimal  "daily_usd",                  :precision => 10, :scale => 0, :default => 0,     :null => false
+    t.string   "name",                         :limit => 200,                                :default => "",    :null => false
+    t.integer  "from_age",                                                                   :default => 0,     :null => false
+    t.integer  "to_age",                                                                     :default => 0,     :null => false
+    t.boolean  "student",                                                                    :default => false, :null => false
+    t.boolean  "maintenance",                                                                :default => false, :null => false
+    t.decimal  "daily_chf",                                   :precision => 10, :scale => 0, :default => 0,     :null => false
+    t.decimal  "daily_eur",                                   :precision => 10, :scale => 0, :default => 0,     :null => false
+    t.decimal  "daily_usd",                                   :precision => 10, :scale => 0, :default => 0,     :null => false
     t.integer  "serse_id"
-    t.datetime "created_at",                                                                   :null => false
-    t.datetime "updated_at",                                                                   :null => false
+    t.datetime "created_at",                                                                                    :null => false
+    t.datetime "updated_at",                                                                                    :null => false
     t.datetime "deleted_at"
-    t.string   "created_by",  :limit => 100,                                :default => "",    :null => false
-    t.string   "updated_by",  :limit => 100,                                :default => "",    :null => false
+    t.string   "created_by",                   :limit => 100,                                :default => "",    :null => false
+    t.string   "updated_by",                   :limit => 100,                                :default => "",    :null => false
+    t.boolean  "early_bird_discount_eligible",                                               :default => false, :null => false
   end
 
   create_table "session_group_versions", :force => true do |t|
@@ -708,12 +710,13 @@ ActiveRecord::Schema.define(:version => 20160113165738) do
   create_table "session_groups", :force => true do |t|
     t.string   "name"
     t.integer  "serse_id"
-    t.string   "created_by",   :limit => 100, :default => "", :null => false
-    t.string   "updated_by",   :limit => 100, :default => "", :null => false
-    t.integer  "lock_version",                :default => 0,  :null => false
+    t.string   "created_by",             :limit => 100, :default => "", :null => false
+    t.string   "updated_by",             :limit => 100, :default => "", :null => false
+    t.integer  "lock_version",                          :default => 0,  :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "early_bird_register_by"
   end
 
   create_table "sessions", :force => true do |t|

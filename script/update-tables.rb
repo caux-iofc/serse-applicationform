@@ -44,6 +44,7 @@ y.sort.each do |k,v|
   end
   of.serse_id = v['id']
   of.name = v['name']
+  of.early_bird_register_by = v['early_bird_register_by']
   of.created_at = v['created_at']
   of.updated_at = v['updated_at']
   of.save
@@ -120,6 +121,7 @@ y.sort.each do |k,v|
   end
   of.serse_id = v['id']
   of.session_group_id = v['session_group_id']
+  of.early_bird_discount_percentage = v['early_bird_discount_percentage']
   of.start = v['start']
   of.stop = v['stop']
   of.private = v['private']
@@ -170,6 +172,7 @@ y.sort.each do |k,v|
 
   of.from_age = v['from_age']
   of.to_age = v['to_age']
+  of.early_bird_discount_eligible = v['early_bird_discount_eligible']
   of.student = v['student']
   of.maintenance = v['maintenance']
   of.daily_chf = v['daily_chf']

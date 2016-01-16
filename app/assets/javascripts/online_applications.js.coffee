@@ -558,9 +558,14 @@ jQuery ->
         # the night_rate
         find_conference_package(base_id,night_rate,$(base_id + "_arrival").val(),$(base_id + "_departure").val())
         $('.conference_package').hide()
+        $('.early_bird_discount').hide()
       else
         night_rate = window.package_data[base_id].price / nights
         $('.conference_package').show()
+        if window.package_data[base_id].early_bird_pricing
+          $('.early_bird_discount').show()
+        else
+          $('.early_bird_discount').hide()
 
       if $(base_id + "_relation").val() != 'primary applicant'
         # Only the primary applicant pays the registration fee
