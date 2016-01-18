@@ -11,7 +11,7 @@ class ConferencePackagesController < ApplicationController
     # If eligible, apply the early bird discount to the package
     @conference_packages.each do |cp|
       cp.early_bird_pricing = false
-      if Time.now() < cp.conference.session_group.early_bird_register_by
+      if cp.conference.session_group.early_bird_register_by and Time.now() < cp.conference.session_group.early_bird_register_by
         if cp.rate.early_bird_discount_eligible
           if cp.conference.early_bird_discount_percentage > 0
             cp.price = cp.price * (100 - cp.conference.early_bird_discount_percentage) / 100
