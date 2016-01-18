@@ -120,11 +120,23 @@ class OnlineApplications::BuildController < ApplicationController
           if not params[:application_group][:online_applications_attributes][k].has_key?('training_program_ids') then
             params[:application_group][:online_applications_attributes][k]['training_program_ids'] = []
           end
-
           # Make sure we delete online_application_conferences records that are not selected
           if params[:application_group][:online_applications_attributes][k].has_key?('online_application_conferences_attributes')
-            params[:application_group][:online_applications_attributes][k]['online_application_conferences_attributes'].each do |k,v|
-              v['_destroy'] = true if v['selected'] != '1'
+            params[:application_group][:online_applications_attributes][k]['online_application_conferences_attributes'].each do |k2,v|
+              if v['selected'] != '1'
+                v['_destroy'] = true
+              elsif v and not v.has_key?('id') and params[:application_group][:online_applications_attributes][k].has_key?('id')
+                # It turns out that update_attributes (below) does not add *new* online_application_conferences,
+                # if the online application already has some online_application_conferences (i.e. when the user came back
+                # to the 'Stay in Caux' page after having saved it and added a new conference. So, we add these explicitly
+                # here, and then set the id field to make update_attributes do an additional refresh of the 
+                # application_group object.
+                oac = OnlineApplicationConference.new(v)
+                oac.online_application_id = params[:application_group][:online_applications_attributes][k]['id']
+                oac.online_application_id = params[:application_group][:online_applications_attributes][k]['id']
+                oac.save
+                v['id'] = oac.id
+              end
             end
           end
 
@@ -145,10 +157,13 @@ class OnlineApplications::BuildController < ApplicationController
           params[:application_group][:online_applications_attributes][k]['heard_about'] = params[:application_group][:online_applications_attributes]['0']['heard_about']
         end
       end
+
       if not @application_group.update_attributes(params[:application_group])
         # We can't use render_wizard directly here, because @online_application validates fine,
         # but this step is tied to the validation of application_group. Yes, we're doing silly
         # things here.
+        # Apply the changes, but don't save (because validation fails).
+        @application_group.assign_attributes(params[:application_group])
         populate_ethereal_variables
         show
         return
@@ -237,6 +252,7 @@ protected
         @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
         if not @conferences.has_key?(c.id) then
           @oac = oa.online_application_conferences.build({:conference_id => c.id, :priority_sort => @priority_sort += 1 })
+          @oac.variables[:role] = 'participant'
         end
       end
 
@@ -245,6 +261,7 @@ protected
         @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
         if not @conferences.has_key?(c.id) then
           @oac = oa.online_application_conferences.build({:conference_id => c.id, :priority_sort => @priority_sort += 1 })
+          @oac.variables[:role] = 'participant'
         end
       end
     end
@@ -285,10 +302,14 @@ protected
 
     if step == :finances
       @application_group.online_applications.each do |oa|
+        oa.conference_team = (oa.online_application_conferences.collect { |oac| oac.variables[:role] }.include?('team') ? true : false)
+        oa.conference_support = (oa.online_application_conferences.collect { |oac| oac.variables[:role] }.include?('support') ? true : false)
         if oa.rate.nil?
           oa.rate = 'staff' if oa.staff
           oa.rate = 'volunteer' if oa.volunteer
           oa.rate = 'interpreter' if oa.interpreter
+          oa.rate = 'conference_team' if oa.conference_team
+          oa.rate = 'conference_support' if oa.conference_support
           oa.rate = 'family' if @application_group.family_registration
         end
         # these fields are used to pass information to the javascript that calculates the rates
@@ -296,8 +317,6 @@ protected
         oa.caux_intern = ((oa.training_programs.collect { |tp| tp.name }.grep /^Caux Interns Program/).empty? ? 0 : 1)
         oa.caux_artist = (oa.training_programs.collect { |tp| tp.name }.include?('Caux Artists Program') ? 1 : 0)
         oa.week_of_international_community = (oa.training_programs.collect { |tp| tp.name }.include?('Week of International Community') ? 1 : 0)
-        oa.conference_team = (oa.online_application_conferences.collect { |oac| oac.role_team }.include?(true) ? 1 : 0)
-        oa.conference_speaker = (oa.online_application_conferences.collect { |oac| oac.role_speaker }.include?(true) ? 1 : 0)
         # Default to the standard rate
         oa.rate = 'standard' if oa.rate.nil?
       end

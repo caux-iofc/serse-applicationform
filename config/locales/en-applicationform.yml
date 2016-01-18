@@ -128,9 +128,6 @@ en:
   please_choose_your_rate: "Please choose your payment rate"
   full_premium: "Full premium"
   standard: "Standard"
-  student: "Student"
-  amis_de_caux: "amis de Caux"
-  local_iofc_team_member: "local IofC team member"
 
   cost_of_your_stay: "Cost of your stay"
 
@@ -364,4 +361,8 @@ status of the visa process.
   costs_covered_by_foundation: 'The costs of your stay are covered by the CAUX-IofC Foundation.'
   conference_package: 'Conference package'
   early_bird_discount: 'Early bird discount'
+  support: 'support team member'
+  student: "Student with student card (age 26-35)"
+  amis_de_caux: 'Full member of the association "Amis de Caux"'
+  local_iofc_team_member: "IofC staff or holder of a mandate from an IofC Association"
 

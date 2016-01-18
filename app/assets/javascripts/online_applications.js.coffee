@@ -285,25 +285,23 @@ jQuery ->
     else
       $("#ipbf_exhibitor_note").hide()
 
-  ##### TIGE 2015 logic #####
+  ##### Team logic #####
 
   ## First the code that will run on document load ##
-  $("input[id$=_tige_2015_options_other]").each ->
-    if $(this).is(':checked')
-      $("#" + $(this).attr('id') + "_detail").show()
-    else
-      $("#" + $(this).attr('id') + "_detail").hide()
+  $('input[type=radio][class=role]').each ->
+    if $(this).val() != "participant" and $(this).is(':checked')
+      $("#" + $(this).attr('id').replace(/_role.*$/, "_role") + "_team_member_reference").show()
+    else if $(this).is(':checked')
+      $("#" + $(this).attr('id').replace(/_role.*$/, "_role") + "_team_member_reference").hide()
 
   ## And then all the hooks ##
   # We have to be a bit smarter than usual here because radio buttons only get a 'changed'
   # event when they are selected, not when they are deselected.
-  $('input[type=radio][class=tige_2015_options]').change ->
-    # $(this).attr('name').replace(/[\[\]]+/g, "_") looks like
-    #   application_group_online_applications_attributes_1_online_application_conferences_attributes_0_variables_tige_2015_options_
-    if $('#' + $(this).attr('name').replace(/[\[\]]+/g, "_") + "other").is(':checked')
-      $("#" + $(this).attr('name').replace(/[\[\]]+/g, "_") + "other_detail").show()
+  $('input[type=radio][class=role]').change ->
+    if $(this).val() != "participant"
+      $("#" + $(this).attr('id').replace(/_role.*$/, "_role") + "_team_member_reference").show()
     else
-      $("#" + $(this).attr('name').replace(/[\[\]]+/g, "_") + "other_detail").hide()
+      $("#" + $(this).attr('id').replace(/_role.*$/, "_role") + "_team_member_reference").hide()
 
   ##### conference fee logic #####
 
@@ -511,10 +509,15 @@ jQuery ->
         registration_fee = 0
         calculated_rate_and_fee_details += 'Speaker: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-      if $(base_id + "_conference_team").val() == '1'
+      if $(base_id + '_rate_conference_team').is(':checked')
         registration_fee = 0
         night_rate = 63
-        calculated_rate_and_fee_details += 'Team: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+        calculated_rate_and_fee_details += 'Core team: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+      if $(base_id + '_rate_conference_support').is(':checked')
+        night_rate = 105
+        calculated_rate_and_fee_details += 'Support team: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+        console.log(calculated_rate_and_fee_details)
 
       if day_visit == 1
         night_rate = 55

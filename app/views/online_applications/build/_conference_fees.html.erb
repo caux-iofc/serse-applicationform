@@ -32,8 +32,6 @@
   <%= builder.hidden_field :caux_scholar %>
   <%= builder.hidden_field :caux_intern %>
   <%= builder.hidden_field :caux_artist %>
-  <%= builder.hidden_field :conference_team %>
-  <%= builder.hidden_field :conference_speaker %>
   <%= builder.hidden_field :week_of_international_community %>
 
   <div class="row">
@@ -69,9 +67,19 @@
               <%= builder.radio_button :rate, 'interpreter', :class => 'rate' %> <%=t :interpreter %>
             </label>
           <% end -%>
+          <% if builder.object.conference_support -%>
+            <label>
+              <%= builder.radio_button :rate, 'conference_support', :class => 'rate' %> <%=t :conference_support %>
+            </label>
+          <% end -%>
+          <% if builder.object.conference_team -%>
+            <label>
+              <%= builder.radio_button :rate, 'conference_team', :class => 'rate' %> <%=t :conference_team %>
+            </label>
+          <% end -%>
           <label>
             <%= builder.radio_button :rate, 'student', :class => 'rate' %> <%=t :student %>
-          </label>
+          </label><br/>
           <label>
             <%= builder.radio_button :rate, 'amis_de_caux', :class => 'rate' %> <%=t :amis_de_caux %>
           </label>
