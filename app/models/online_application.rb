@@ -76,8 +76,8 @@ class OnlineApplication < ActiveRecord::Base
       not oac.id.nil? or OnlineApplication.find(self.id).online_application_conferences.where('online_application_id = ?',self.id).empty?
     end
     # Filter out duplicated online_application_training_programs records.
-    self.online_application_training_programs = self.online_application_training_programs.select do |oac|
-      not oac.id.nil? or OnlineApplication.find(self.id).online_application_training_programs.where('online_application_id = ?',self.id).empty?
+    self.online_application_training_programs = self.online_application_training_programs.select do |oatp|
+      not oatp.id.nil? or OnlineApplication.find(self.id).online_application_training_programs.where('online_application_id = ?',self.id).empty?
     end
 
     # Throw a proper error when duplicate online_application_conference+languages are

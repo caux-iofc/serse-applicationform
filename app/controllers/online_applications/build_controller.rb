@@ -133,7 +133,6 @@ class OnlineApplications::BuildController < ApplicationController
                 # application_group object.
                 oac = OnlineApplicationConference.new(v)
                 oac.online_application_id = params[:application_group][:online_applications_attributes][k]['id']
-                oac.online_application_id = params[:application_group][:online_applications_attributes][k]['id']
                 oac.save
                 v['id'] = oac.id
               end
@@ -155,6 +154,19 @@ class OnlineApplications::BuildController < ApplicationController
           params[:application_group][:online_applications_attributes][k]['departure(5i)'] = params[:application_group][:online_applications_attributes]['0']['departure(5i)']
           params[:application_group][:online_applications_attributes][k]['previous_visit'] = params[:application_group][:online_applications_attributes]['0']['previous_visit']
           params[:application_group][:online_applications_attributes][k]['heard_about'] = params[:application_group][:online_applications_attributes]['0']['heard_about']
+        end
+      end
+
+      if step == :confirmation
+        # As of 2016, we now do a single opt out for newletters on the confirmation page.
+        # Turn that into the correct value for the caux and local opt in fields here.
+        if params[:application_group][:no_newsletters]
+          params[:application_group].delete('no_newsletters')
+          @application_group.data_protection_caux_info = false
+          @application_group.data_protection_local_info = false
+        else
+          @application_group.data_protection_caux_info = true
+          @application_group.data_protection_local_info = true
         end
       end
 

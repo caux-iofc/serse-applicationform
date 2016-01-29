@@ -165,14 +165,14 @@ de:
   other_diet_text: Falls Sie dazu spezielle Zutaten benötigen, bitten wir Sie, diese selber mitzubringen.
   phone_number_invalid: muss mit dem Zeichen + beginnen, gefolgt vom Code Ihres Landes (z.B. +49 fur Deutschland) und dem Rest der Nummer.
 
-  confirm_read_documents_text_html: "Ich/Wir bestätige/n hiermit, die Dokumente betreffend die Konferenzen in Caux gelesen zu haben und möchte/n an der Konferenz teilnehmen."
+  confirm_read_documents_text_html: "Ich/Wir akzeptiere/n die Allgemeinen Geschäftsbedingungen"
 
   telephone: Telefonnummer (z.B. +41...)
   nightly_contribution_html: "Falls Sie nicht <a href=\"http://www.caux.ch/de/konferenzgebuehren\">Ihre Rate</a> selber bezahlen, geben Sie bitte den Namen der Person oder der Organisation an, die für den Restbetrag aufkommt sowie den genauen Betrag, den diese Person oder Organisation für Sie pro Nacht bezahlt:"
   child_nightly_contribution_html: "Falls Sie nicht <a href=\"http://www.caux.ch/de/konferenzgebuehren\">0-63 CHF pro Nacht (Kind)</a> selber bezahlen, geben Sie bitte den Namen der Person oder der Organisation an, die für den Restbetrag aufkommt sowie den genauen Betrag, den diese Person oder Organisation für Sie pro Nacht bezahlt:"
 
 
-  confirm_read_documents_error: Bitte bestätigen Sie, dass sie die Dokumente zu den Konferenzen in Caux gelesen haben und dass sie an der Konferenz teilnehmen wollen.
+  confirm_read_documents_error: Bitte bestätigen Sie, dass sie die Allgemeinen Geschäftsbedingungen akzeptieren.
   data_protection_local_info_text: Ja, bitte senden Sie mir regelmässige Informationen über Aktivitäten von Initiativen der Veränderung in dem Land, in dem ich wohne.
   data_protection_caux_info_text: Ja, bitte senden Sie mir regelmässige Informationen über zukünftige Konferenzen in Caux (per E-Mail).
 
@@ -196,7 +196,7 @@ de:
 
   conference_fees: Konferenzgebühren
 
-  more_information_about_conference_fees_html: 'Weitere Informationen zu den Konferenzkosten finden Sie <a href="http://www.caux.ch/de/konferenzgebuehren">hier</a>.'
+  more_information_about_conference_fees_html: 'Weitere Informationen zu den Konferenzkosten finden Sie <a href="http://www.caux.ch/de/konferenzgebuehren" target="_new">hier</a>.'
   i_travel_with_my_family: 'Ich reise mit meiner Familie an (Ein Paar wird nicht als Familie gezählt. Mindestens 1 Kind und 1 Elternteil)'
   i_want_to_support_the_center_renovation_fund: "Ich möchte zum Renovationsfond für das Konferenzzentrum beitragen (150 CHF pro Nacht)"
   i_volunteer_full_time: "Ich arbeite Vollzeit als ehrenamtlicher Mitarbeiter beim IofC"
@@ -332,4 +332,25 @@ de:
 
   conference_full: "The following conference is fully booked, no further registrations are accepted"
 
-  name_must_match_passport: "First name and family name must be identical to what appears on your passport or identity card."
+  name_must_match_passport: "Vorname und Name müssen identisch mit den Angaben auf Ihrem Pass oder Ihrer ID Karte sein."
+  i_have_been_to_caux_before: "Ich war bereits in Caux"
+  online_search: "Internet Recherche"
+  caux_iofc_website: "CAUX-IofC Webseite"
+  social_media: "Soziale Medien"
+  family_friends: "Familie/Freunde"
+  iofc_network_events: "IofC Netzwerk/IofC Events"
+  other_media: "andere Medien"
+  special_program_participation: "Ich nehme and folgendem Programm teil:"
+  other_reason_title: "Ich komme nach Caux als ..."
+  please_only_select_this_if_you_have_been_accepted: "Bitte wählen Sie diese Option nur, wenn Sie hierfür eine Bestätigung haben."
+  staff_please_specify: "(nur für Angestellte oder Mandatsträger eines IofC-Verbandes)"
+  team_member_reference_person: "Teammitglied - Referenz Person"
+  nightly_contribution_html: 'Wenn Ihr Aufenthalt von einer Drittperson bezahlt wird, öffnen Sie bitte <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/de/de_sponsoring_confirmation.pdf" target="_new">dieses Dokument</a> und füllen Sie es aus. Dieses Dokument ist nur für Konferenzteilnehmer und nicht für Teilnehemer für eines der Programme.'
+  costs_covered_by_foundation: 'Die Kosten Ihres Aufenthaltes werden von der Stiftung CAUX-IofC übernommen.'
+  conference_package: 'Pauschalangebot'
+  early_bird_discount: 'Frühbucher-Sonderaktion'
+  support_team: 'Teammitglied support'
+  student: "Student mit Studentenausweis (Alter 26-35)"
+  amis_de_caux: 'Vollmitglied der "Freunde von Caux"'
+  please_carefully_read_html: "Bitte lesen Sie <a href=\"FIXME\" target=\"_new\">die Allgemeinen Anmeldebestimmungen</a> genau bevor Sie zustimmen.<p/>"
+  no_newsletters: 'Bitte senden Sie mir keine Newsletter'

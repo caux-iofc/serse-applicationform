@@ -3,6 +3,9 @@ class ApplicationGroup < ActiveRecord::Base
 
   attr_accessible :name, :complete, :data_protection_consent, :data_protection_caux_info, :data_protection_three_local_events, :comment, :confirm_read_documents, :group_registration, :family_registration, :group_or_family_name, :online_applications_attributes, :data_protection_local_info
 
+  # Used on the confirmation page
+  attr_accessor :no_newsletters
+
   belongs_to :session_group
 
   has_many :online_applications, :dependent => :destroy

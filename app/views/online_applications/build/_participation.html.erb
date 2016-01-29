@@ -77,7 +77,7 @@
                         <div class="form-group required">
                           <%= f.label :role, t(:I_will_come_as), class: 'control-label' %>
                           <%= var.radio_button :role, 'participant', { :checked => (oac.object.variables[:role] == "participant"), :class => 'role' } %> <%=t :participant %>
-                          <%= var.radio_button :role, 'support', { :checked => (oac.object.variables[:role] == "support"), :class => 'role' } %> <%=t :support %>
+                          <%= var.radio_button :role, 'support', { :checked => (oac.object.variables[:role] == "support"), :class => 'role' } %> <%=t :support_team %>
                           <%= var.radio_button :role, 'team', { :checked => (oac.object.variables[:role] == "team"), :class => 'role' } %> <%=t :team %>
                         </div>
                       </div>

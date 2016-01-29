@@ -4,6 +4,10 @@
   </div>
 
   <div class="col-md-12">
+    <%=t :please_carefully_read_html %>
+  </div>
+
+  <div class="col-md-12">
     <div class="form-group required">
       <%= f.check_box :confirm_read_documents, class: 'control-label' %> <%=t :confirm_read_documents_text_html %>
     </div>
@@ -14,12 +18,7 @@
     </div>
   </div>
   <div class="col-md-12">
-    <div class="form-group required">
-      <%= f.check_box :data_protection_caux_info %> <%=t :data_protection_caux_info_text %>
-    </div>
-  </div>
-  <div class="col-md-12">
-    <div class="form-group required">
-      <%= f.check_box :data_protection_local_info %> <%=t :data_protection_local_info_text %>
+    <div class="form-group">
+      <%= f.check_box :no_newsletters %> <%=t :no_newsletters %>
     </div>
   </div>

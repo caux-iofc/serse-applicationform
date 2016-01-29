@@ -118,7 +118,7 @@ en:
   passport_embassy: "In which embassy will you request your visa?"
   conference_fees: "Conference fees"
 
-  more_information_about_conference_fees_html: 'More information about the conference fees is available <a href="http://www.caux.ch/conference-fees">here</a>.'
+  more_information_about_conference_fees_html: 'More information about the conference fees is available <a href="http://www.caux.ch/conference-fees" target="_new">here</a>.'
   i_travel_with_my_family: 'I travel with my family (A couple does not count as a family. Minimum 1 child and 1 parent)'
   i_want_to_support_the_center_renovation_fund: "I want to support the Center's renovation fund (150 CHF per night)"
   i_volunteer_full_time: "I volunteer full time with IofC"
@@ -173,11 +173,11 @@ en:
   must_be_valid_now: " must be valid now"
   register: "Register!"
   confirmation: "Confirmation"
-  confirm_read_documents_text_html: "I/we confirm that I/we have read the documents relating to the Caux conferences and would like to take part in the conference."
+  confirm_read_documents_text_html: "I/we have read and agree to the general terms and conditions"
   data_protection_consent_text: "I consent for my/our personal data to be held by the Caux Conference Secretariat for the purpose of communicating with me about my registration this year."
   data_protection_caux_info_text: "Yes, I wish to regularly receive information about future International Caux Conferences (by email)."
   data_protection_local_info_text: "Yes, I wish to regularly receive information about the activities of Initiatives of Change in my country of residence."
-  confirm_read_documents_error: "You need to confirm that you have read the documents relating to the Caux conferences and would like to take part in the conference."
+  confirm_read_documents_error: "You need to confirm that you have read and agree to the general terms and conditions"
   data_protection_consent_error: "Unless you consent to your personal data being held by the Caux Foundation, we cannot process your application."
   data_protection_consent: ''
   confirm_read_documents: ''
@@ -356,13 +356,14 @@ organizational reason and to support the attendee that the reservations team is 
 status of the visa process.
 </p>'
 
-  nightly_contribution_html: 'If your stay is sponsored by a third party, please download this document: <a href="">FIXME</a> and fill it out as requested in the paper. Please note that this is only for conference participants and not for attendees of any of the programs.'
+  nightly_contribution_html: 'If your stay is sponsored by a third party, please download <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/en/en_sponsoring_confirmation.pdf" target="_new">this document</a> and fill it out as requested in the paper. Please note that this is only for conference participants and not for attendees of any of the programs.'
 
   costs_covered_by_foundation: 'The costs of your stay are covered by the CAUX-IofC Foundation.'
   conference_package: 'Conference package'
   early_bird_discount: 'Early bird discount'
-  support: 'support team member'
+  support_team: 'support team member'
   student: "Student with student card (age 26-35)"
   amis_de_caux: 'Full member of the association "Amis de Caux"'
   local_iofc_team_member: "IofC staff or holder of a mandate from an IofC Association"
-
+  please_carefully_read_html: 'Please carefully read <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/ge/general_terms_and_conditions_2016_en.pdf" target="_new">the general terms and conditions</a> before accepting.<p/>'
+  no_newsletters: 'I do not want to receive newsletters'
