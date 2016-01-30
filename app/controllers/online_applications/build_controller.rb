@@ -35,7 +35,7 @@ class OnlineApplications::BuildController < ApplicationController
 
     if step == :dates_and_events
       @heard_about = [
-        [t(:please_choose_option),""],
+        [t(:choose_one),""],
         [t(:i_have_been_to_caux_before),"I have been to Caux before"],
         [t(:online_search),"Online search"],
         [t(:caux_iofc_website),"CAUX-IofC website"],
