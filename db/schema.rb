@@ -716,21 +716,22 @@ ActiveRecord::Schema.define(:version => 20160115205700) do
   add_index "rate_versions", ["rate_id"], :name => "index_rate_versions_on_rate_id"
 
   create_table "rates", :force => true do |t|
-    t.string   "name",         :limit => 200,                                :default => "",    :null => false
-    t.integer  "from_age",                                                   :default => 0,     :null => false
-    t.integer  "to_age",                                                     :default => 0,     :null => false
-    t.boolean  "student",                                                    :default => false, :null => false
-    t.boolean  "maintenance",                                                :default => false, :null => false
-    t.decimal  "daily_chf",                   :precision => 10, :scale => 0, :default => 0,     :null => false
-    t.decimal  "daily_eur",                   :precision => 10, :scale => 0, :default => 0,     :null => false
-    t.decimal  "daily_usd",                   :precision => 10, :scale => 0, :default => 0,     :null => false
+    t.string   "name",                         :limit => 200,                                :default => "",    :null => false
+    t.integer  "from_age",                                                                   :default => 0,     :null => false
+    t.integer  "to_age",                                                                     :default => 0,     :null => false
+    t.boolean  "student",                                                                    :default => false, :null => false
+    t.boolean  "maintenance",                                                                :default => false, :null => false
+    t.decimal  "daily_chf",                                   :precision => 10, :scale => 0, :default => 0,     :null => false
+    t.decimal  "daily_eur",                                   :precision => 10, :scale => 0, :default => 0,     :null => false
+    t.decimal  "daily_usd",                                   :precision => 10, :scale => 0, :default => 0,     :null => false
     t.integer  "serse_id"
-    t.datetime "created_at",                                                                    :null => false
-    t.datetime "updated_at",                                                                    :null => false
+    t.datetime "created_at",                                                                                    :null => false
+    t.datetime "updated_at",                                                                                    :null => false
     t.datetime "deleted_at"
-    t.string   "created_by",   :limit => 100,                                :default => "",    :null => false
-    t.string   "updated_by",   :limit => 100,                                :default => "",    :null => false
+    t.string   "created_by",                   :limit => 100,                                :default => "",    :null => false
+    t.string   "updated_by",                   :limit => 100,                                :default => "",    :null => false
     t.integer  "lock_version"
+    t.boolean  "early_bird_discount_eligible",                                               :default => false, :null => false
   end
 
   create_table "session_group_versions", :force => true do |t|
