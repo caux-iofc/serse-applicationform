@@ -403,6 +403,18 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
+  def pretty_name
+    if self.firstname and self.surname
+      self.firstname + ' ' + self.surname
+    elsif self.firstname
+      self.firstname
+    elsif self.surname
+      self.surname
+    else
+      ''
+    end
+  end
+
 private
 
   def strip_whitespace

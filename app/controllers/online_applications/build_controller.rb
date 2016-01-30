@@ -183,6 +183,9 @@ class OnlineApplications::BuildController < ApplicationController
         # We're done
         @application_group.complete = true
         @application_group.save
+        if @application_group.primary_applicant and @application_group.primary_applicant.email
+          SystemMailer.notice_of_receipt("#{@application_group.primary_applicant.pretty_name} <#{@application_group.primary_applicant.email}>").deliver
+        end
       end
       # reload @online_application, we've changed it by updating @application_group
       @online_application = OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first
