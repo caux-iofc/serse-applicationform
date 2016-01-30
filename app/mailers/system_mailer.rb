@@ -28,9 +28,7 @@ class SystemMailer < ActionMailer::Base
 
   def notice_of_receipt(to)
     if CONFSEC_EMAIL
-      mail(:from => CONFSEC_EMAIL, :subject => t(:notice_of_receipt_subject), :to => to) do |format|
-        format.html { render "notice_of_receipt.#{I18n.locale}" }
-      end
+      mail(:from => CONFSEC_EMAIL, :subject => t(:notice_of_receipt_subject), :to => to)
     end
   end
   
