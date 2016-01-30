@@ -112,30 +112,24 @@
       </div>
     <% end -%>
 
-    <% TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).each do |tp| -%>
+    <%= f.fields_for :online_application_training_programs do |oatp| %>
       <div class="row">
+        <%= oatp.hidden_field :training_program_id, :value => oatp.object.training_program.id %>
+
         <div class="col-md-1">
-          <%= check_box_tag :training_program_ids, tp.id, @online_application.training_programs.include?(tp), :name => 'online_application[training_program_ids][]', :id => "tp_check_" + (tp.nil? or tp.name.nil? ? '' : tp.name.downcase) %>
+          <%= oatp.check_box :selected, :class => "oatp_checkbox_#{online_application.id}_#{oatp.object.training_program.id}", :checked => oatp.object.id ? 'checked' : '' %>
         </div>
         <div class="col-md-5">
-          <%= label_tag :training_program_ids, tp.name %>
+          <%= label_tag :training_program_id, oatp.object.training_program.name %>
         </div>
-
-        <div class="col-md-6">
-          <% if tp.display_dates -%>
-            <%=l tp.start.to_date, :format => :standard %> - <%=l tp.stop.to_date, :format => :standard %>
-          <% else -%>
-            &nbsp;
-          <% end -%>
+        <div class="col-md-6" align="left">
+          <%=l oatp.object.training_program.start.to_date, :format => :standard %> - <%=l oatp.object.training_program.stop.to_date, :format => :standard %>
         </div>
       </div>
-      <% if not tp.byline.nil? -%>
+      <% if not oatp.object.training_program.byline.nil? -%>
         <div class="row">
-          <div class="col-md-1">
-            &nbsp;
-          </div>
-          <div class="col-md-11">
-            <font size="-1"><%= tp.byline.html_safe %></font>
+          <div class="col-md-11 col-md-offset-1">
+            <font size="-1"><%= oatp.object.training_program.byline.html_safe %></font>
           </div>
         </div>
       <% end -%>

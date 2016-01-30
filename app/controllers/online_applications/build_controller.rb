@@ -117,8 +117,22 @@ class OnlineApplications::BuildController < ApplicationController
           # If no check boxes are checked, the form does not return those fields.
           # Handle that here, making sure that any training programs previously
           # selected will be removed.
-          if not params[:application_group][:online_applications_attributes][k].has_key?('training_program_ids') then
-            params[:application_group][:online_applications_attributes][k]['training_program_ids'] = []
+          if params[:application_group][:online_applications_attributes][k].has_key?('online_application_training_programs_attributes')
+            params[:application_group][:online_applications_attributes][k]['online_application_training_programs_attributes'].each do |k2,v|
+              if v['selected'] != '1'
+                v['_destroy'] = true
+              elsif v and not v.has_key?('id') and params[:application_group][:online_applications_attributes][k].has_key?('id')
+                # It turns out that update_attributes (below) does not add *new* online_application_training_programs,
+                # if the online application already has some online_application_training_programs (i.e. when the user came back
+                # to the 'Stay in Caux' page after having saved it and added a new training_program. So, we add these explicitly
+                # here, and then set the id field to make update_attributes do an additional refresh of the
+                # application_group object.
+                oatp = OnlineApplicationTrainingProgram.new(v)
+                oatp.online_application_id = params[:application_group][:online_applications_attributes][k]['id']
+                oatp.save
+                v['id'] = oatp.id
+              end
+            end
           end
           # Make sure we delete online_application_conferences records that are not selected
           if params[:application_group][:online_applications_attributes][k].has_key?('online_application_conferences_attributes')
@@ -279,6 +293,18 @@ protected
           @oac.variables[:role] = 'participant'
         end
       end
+
+      @training_programs = Hash.new()
+      oa.online_application_training_programs.each_with_object({}) {|oatp| @training_programs[oatp.training_program_id]=oatp.training_program_id }
+      @priority_sort = 0
+      TrainingProgram.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
+        @earliest_start_year = c.start.year if c.start.year < @earliest_start_year
+        @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
+        if not @training_programs.has_key?(c.id) then
+          @oatp = oa.online_application_training_programs.build({:training_program_id => c.id })
+        end
+      end
+
     end
 
     @languages = Language.with_translations.collect {|p| [ p.name, p.id ] }.sort
