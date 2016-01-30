@@ -1,4 +1,5 @@
 class ConferencePackage < ActiveRecord::Base
+  acts_as_paranoid_versioned :version_column => :lock_version
   default_scope order('conference_id desc, price desc')
 
   belongs_to :conference

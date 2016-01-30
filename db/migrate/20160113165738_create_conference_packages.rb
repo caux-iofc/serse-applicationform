@@ -15,5 +15,10 @@ class CreateConferencePackages < ActiveRecord::Migration
       t.timestamp :deleted_at
       t.timestamps
     end
+    if not ActiveRecord::Base.connection.table_exists? 'conference_package_versions'
+      ConferencePackage.create_versioned_table
+    else
+      ConferencePackage.drop_versioned_table
+    end
   end
 end

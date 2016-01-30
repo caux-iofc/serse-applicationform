@@ -1,4 +1,5 @@
 class Rate < ActiveRecord::Base
+  acts_as_paranoid_versioned :version_column => :lock_version
   validates :name, :uniqueness => true
   validates :name, :presence => true
 
