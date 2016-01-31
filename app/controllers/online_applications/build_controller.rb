@@ -33,19 +33,6 @@ class OnlineApplications::BuildController < ApplicationController
       @online_application.save(:validate => false)
     end
 
-    if step == :dates_and_events
-      @heard_about = [
-        [t(:choose_one),""],
-        [t(:i_have_been_to_caux_before),"I have been to Caux before"],
-        [t(:online_search),"Online search"],
-        [t(:caux_iofc_website),"CAUX-IofC website"],
-        [t(:social_media),"Social Media"],
-        [t(:family_friends),"Family/friends"],
-        [t(:iofc_network_events),"IofC Network/IofC Events"],
-        [t(:other_media),"Other media"],
-      ]
-    end
-
     populate_ethereal_variables
     render_wizard
   end
@@ -361,6 +348,19 @@ protected
         # Default to the standard rate
         oa.rate = 'standard' if oa.rate.nil?
       end
+    end
+
+    if step == :dates_and_events
+      @heard_about = [
+        [t(:choose_one),""],
+        [t(:i_have_been_to_caux_before),"I have been to Caux before"],
+        [t(:online_search),"Online search"],
+        [t(:caux_iofc_website),"CAUX-IofC website"],
+        [t(:social_media),"Social Media"],
+        [t(:family_friends),"Family/friends"],
+        [t(:iofc_network_events),"IofC Network/IofC Events"],
+        [t(:other_media),"Other media"],
+      ]
     end
   end
 

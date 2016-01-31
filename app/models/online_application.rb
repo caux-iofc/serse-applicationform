@@ -123,7 +123,7 @@ class OnlineApplication < ActiveRecord::Base
 
   # /begin personal
 
-  validates :relation, :inclusion => { :in => [ 'primary applicant', 'spouse', 'child', 'other' ], :message => I18n.t(:only_valid_relations) }, :if => :personal_or_family? 
+  validates :relation, :inclusion => { :in => [ 'primary applicant', 'spouse', 'child', 'other' ], :message => I18n.t(:only_valid_relations) }, :if => :personal_or_family?
   validates :firstname, :presence => true, :if => :personal_or_group_or_family?
   validates :surname, :presence => true, :if => :personal_or_group_or_family?
 
@@ -195,7 +195,8 @@ class OnlineApplication < ActiveRecord::Base
   validate :must_select_reason_for_coming, :if => :dates_and_events?
 
   def must_select_reason_for_coming
-    if online_application_conferences.select { |oac| oac.selected }.empty? and training_programs.empty? and
+    if online_application_conferences.select { |oac| oac.selected }.empty? and
+       online_application_training_programs.select { |oatp| oatp.selected == '1' }.empty? and
        not staff and not interpreter and not volunteer and not other_reason and
        not relation == 'child' then
       errors.add :other_reason, I18n.t(:please_indicate_other_reason).html_safe
@@ -214,10 +215,12 @@ class OnlineApplication < ActiveRecord::Base
     if interpreter and not online_application_conferences.select { |oac| oac.selected }.empty? then
       errors.add :base, I18n.t(:if_you_come_as_an_interpreter_please_do_not_select_a_conference_html).html_safe
     end
-    if not online_application_conferences.select { |oac| oac.selected }.empty? and not training_programs.empty? then
+    if not online_application_conferences.select { |oac| oac.selected }.empty? and
+       not online_application_training_programs.select { |oatp| oatp.selected == '1' }.empty? then
       @real_locale = I18n.locale
       I18n.locale = 'en'
-      training_programs.each do |tp|
+      online_application_training_programs.select { |oatp| oatp.selected == '1' }.each do |oatp|
+        tp = oatp.training_program
         if tp.name =~ /Caux Interns/ then
           I18n.locale = @real_locale
           errors.add :base, I18n.t(:if_you_come_as_a_caux_intern_please_do_not_select_a_conference_html).html_safe
