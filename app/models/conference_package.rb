@@ -8,7 +8,7 @@ class ConferencePackage < ActiveRecord::Base
 
   # A fake attribute that we use to tell the form that early bird pricing is in effect
   # when it asks for the json encoded package pricing list.
-  attr_accessor :early_bird_pricing
+  attr_accessor :early_bird_pricing, :early_bird_discount
 
   validates :rate_id, :uniqueness => { scope: :conference_id, message: "already has a package for this conference" }
   validates :price, presence: true, numericality: true

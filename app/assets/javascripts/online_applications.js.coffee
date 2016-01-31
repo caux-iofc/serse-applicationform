@@ -396,6 +396,8 @@ jQuery ->
       # These are the standard fees
       registration_fee = 100
       night_rate = 165
+      conference_package_fee = 0
+      early_bird_discount = 0
       calculated_rate_and_fee_details = 'Standard: night rate: CHF 165; registration fee: CHF 100\n'
 
       if $(base_id + '_rate_student').is(':checked')
@@ -560,15 +562,20 @@ jQuery ->
         # set window.package_data and then calls recalculate_fees() again to update
         # the night_rate
         find_conference_package(base_id,night_rate,$(base_id + "_arrival").val(),$(base_id + "_departure").val())
-        $('.conference_package').hide()
-        $('.early_bird_discount').hide()
+        $(base_id + '_conference_package').hide()
+        $(base_id + '_early_bird_discount').hide()
       else
-        night_rate = window.package_data[base_id].price / nights
-        $('.conference_package').show()
+        night_rate = (window.package_data[base_id].price - window.package_data[base_id].early_bird_discount) / nights
+        conference_package_fee = window.package_data[base_id].price
+        early_bird_discount = window.package_data[base_id].early_bird_discount * -1
+        $(base_id + '_cost_of_stay').hide()
+        $(base_id + '_conference_package').show()
+        calculated_rate_and_fee_details += 'Package rate: CHF ' + conference_package_fee + '; registration fee: CHF ' + registration_fee + '\n'
         if window.package_data[base_id].early_bird_pricing
-          $('.early_bird_discount').show()
+          calculated_rate_and_fee_details += 'Early bird discount: CHF ' + early_bird_discount + '; registration fee: CHF ' + registration_fee + '\n'
+          $(base_id + '_early_bird_discount').show()
         else
-          $('.early_bird_discount').hide()
+          $(base_id + '_early_bird_discount').show()
 
       if $(base_id + "_relation").val() != 'primary applicant'
         # Only the primary applicant pays the registration fee
@@ -577,6 +584,9 @@ jQuery ->
 
       $(base_id + "_rate_per_night_visible").text(night_rate)
       $(base_id + "_rate_per_night").val(night_rate)
+      $(base_id + "_conference_package_fee_visible").text(conference_package_fee)
+      $(base_id + "_conference_package_nights_visible").text(nights)
+      $(base_id + "_early_bird_discount_visible").text(early_bird_discount)
       $(base_id + "_registration_fee_visible").text(registration_fee)
       $(base_id + "_registration_fee").val(registration_fee)
       $(base_id + "_nights_visible").text(nights)
