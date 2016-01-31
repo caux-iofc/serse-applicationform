@@ -196,7 +196,7 @@ class OnlineApplication < ActiveRecord::Base
 
   def must_select_reason_for_coming
     if online_application_conferences.select { |oac| oac.selected }.empty? and
-       online_application_training_programs.select { |oatp| oatp.selected == '1' }.empty? and
+       online_application_training_programs.select { |oac| oac.selected }.empty? and
        not staff and not interpreter and not volunteer and not other_reason and
        not relation == 'child' then
       errors.add :other_reason, I18n.t(:please_indicate_other_reason).html_safe
@@ -216,10 +216,10 @@ class OnlineApplication < ActiveRecord::Base
       errors.add :base, I18n.t(:if_you_come_as_an_interpreter_please_do_not_select_a_conference_html).html_safe
     end
     if not online_application_conferences.select { |oac| oac.selected }.empty? and
-       not online_application_training_programs.select { |oatp| oatp.selected == '1' }.empty? then
+       not online_application_training_programs.select { |oatp| oatp.selected }.empty? then
       @real_locale = I18n.locale
       I18n.locale = 'en'
-      online_application_training_programs.select { |oatp| oatp.selected == '1' }.each do |oatp|
+      online_application_training_programs.select { |oatp| oatp.selected }.each do |oatp|
         tp = oatp.training_program
         if tp.name =~ /Caux Interns/ then
           I18n.locale = @real_locale
@@ -240,20 +240,8 @@ class OnlineApplication < ActiveRecord::Base
     return if arrival.nil?
     return if departure.nil?
 
-    # Find earliest session start and latest session end
-    @session_start = Time.now() + 30.years
-    @session_stop = Time.now() - 30.years
-    online_application_conferences.each do |oac|
-      @session_start = oac.conference.start if oac.conference.start < @session_start
-      @session_stop = oac.conference.stop if oac.conference.stop > @session_stop
-    end
-    training_programs.each do |tp|
-      @session_start = tp.start if tp.start < @session_start
-      @session_stop = tp.stop if tp.stop > @session_stop
-    end
-
     # See if they selected a conference outside of their arrival/departure dates
-    online_application_conferences.each do |oac|
+    online_application_conferences.select { |oatp| oatp.selected }.each do |oac|
       if (arrival > oac.conference.stop and departure > oac.conference.stop) or
          (arrival < oac.conference.start and departure < oac.conference.start) then
         errors.add :arrival, I18n.t(:a_conference_you_selected_does_not_overlap_with_your_stay_in_caux)
@@ -263,7 +251,8 @@ class OnlineApplication < ActiveRecord::Base
     end
 
     # See if they selected a training program outside of their arrival/departure dates
-    training_programs.each do |tp|
+    online_application_training_programs.select { |oatp| oatp.selected }.each do |oatp|
+      tp = oatp.training_program
       if (arrival > tp.stop and departure > tp.stop) or
          (arrival < tp.start and departure < tp.start) then
         errors.add :arrival, I18n.t(:a_training_program_you_selected_does_not_overlap_with_your_stay_in_caux)

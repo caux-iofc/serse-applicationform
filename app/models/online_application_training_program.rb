@@ -3,8 +3,6 @@ class OnlineApplicationTrainingProgram < ActiveRecord::Base
 
   attr_accessible :online_application_id, :training_program_id, :selected
 
-  attr_accessor :selected
-
   belongs_to :online_application
   belongs_to :training_program
 end

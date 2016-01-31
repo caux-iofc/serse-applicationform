@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160115205700) do
+ActiveRecord::Schema.define(:version => 20160131111600) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -516,6 +516,7 @@ ActiveRecord::Schema.define(:version => 20160115205700) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "selected",                                              :default => false, :null => false
   end
 
   add_index "online_application_training_program_versions", ["online_application_training_program_id"], :name => "index_online_application_training_program_versions_on_online_ap"
@@ -523,12 +524,13 @@ ActiveRecord::Schema.define(:version => 20160115205700) do
   create_table "online_application_training_programs", :force => true do |t|
     t.integer  "online_application_id"
     t.integer  "training_program_id"
-    t.string   "created_by",            :limit => 100, :default => "", :null => false
-    t.string   "updated_by",            :limit => 100, :default => "", :null => false
-    t.integer  "lock_version",                         :default => 0,  :null => false
+    t.string   "created_by",            :limit => 100, :default => "",    :null => false
+    t.string   "updated_by",            :limit => 100, :default => "",    :null => false
+    t.integer  "lock_version",                         :default => 0,     :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "selected",                             :default => false, :null => false
   end
 
   add_index "online_application_training_programs", ["online_application_id"], :name => "index_oa_training_programs_on_online_application_id"

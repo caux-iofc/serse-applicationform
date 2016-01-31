@@ -117,7 +117,7 @@
         <%= oatp.hidden_field :training_program_id, :value => oatp.object.training_program.id %>
 
         <div class="col-md-1">
-          <%= oatp.check_box :selected, :class => "oatp_checkbox_#{online_application.id}_#{oatp.object.training_program.id}", :checked => oatp.object.id ? 'checked' : '' %>
+          <%= oatp.check_box :selected, :class => "oatp_checkbox_#{online_application.id}_#{oatp.object.training_program.id}" %>
         </div>
         <div class="col-md-5">
           <%= label_tag :training_program_id, oatp.object.training_program.name %>
