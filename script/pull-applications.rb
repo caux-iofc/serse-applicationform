@@ -449,10 +449,10 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
       end
 
       # Mark this application as copied to Serse
+      ag.reload
       ag.copied_to_serse = true
       ag.serse_application_group_id = @serse_application_group_id.to_i
       ag.save!
-
     end
   }
 
