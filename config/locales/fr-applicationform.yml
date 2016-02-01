@@ -352,7 +352,7 @@ fr:
   support_team: "membre de l'équipe support"
   student: "Étudiants avec carte d’étudiant (26-35 ans)"
   amis_de_caux: 'Membres "Amis de Caux"'
-  please_carefully_read_html: "S'il vous plaît bien lire <a href=\"FIXME\" target=\"_new\">les conditions générales</a> avant d'accepter.<p/>"
+  please_carefully_read_html: "S'il vous plaît bien lire <a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/co/conditions_generales_fr_2016_final.pdf\" target=\"_new\">les conditions générales</a> avant d'accepter.<p/>"
   no_newsletters: "Je ne veux pas recevoir des bulletins d'information"
   notice_of_receipt_subject: 'Accusé de réception'
   conference_package_advertisement: "Profitez de nos offres promotionnelles en alignant vos dates d'arrivée et de départ  avec celles de la conférence qui vous intéresse!"
