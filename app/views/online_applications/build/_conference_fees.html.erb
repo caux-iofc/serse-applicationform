@@ -35,10 +35,21 @@
   <%= builder.hidden_field :week_of_international_community %>
 
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
       <div class="form-group">
         <%= builder.label :rate, builder.object.pretty_name + ': ' + builder.object.arrival.to_date.to_s + ' - ' + builder.object.departure.to_date.to_s, class: 'control-label' %>
       </div>
+    </div>
+    <% if builder.object.conferences.size == 1 and
+        (builder.object.conferences.first.start.to_date != builder.object.arrival.to_date or
+         builder.object.conferences.first.stop.to_date != builder.object.departure.to_date) -%>
+    <div class="col-md-6 label-warning">
+      <%= t :conference_package_advertisement -%>
+    </div>
+    <% end -%>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
       <div class="form-group required">
         <div class="radio">
           <label>
