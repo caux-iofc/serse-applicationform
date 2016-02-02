@@ -110,7 +110,7 @@ en:
                               <li>If you require a Swiss visa your registration needs to reach the conference secretariat <b>at least 10 weeks</b> prior to your arrival at Caux.
                               <li>Please note that once your visa letter has been issued (copies of which go to the Swiss Embassy) it is very difficult to change your reservation outside the dates of the visa letter.
                             </ul></p>'
-  visa_information_2: 'If you have any problems or questions please contact the Conference Secretariat as early as possible at '
+  visa_information_2: 'If you have any problems or questions please contact the Reservations Team as early as possible at '
   passport_number: "Passport number"
   passport_issue_place: "Passport place of issue"
   passport_issue_date: "Passport issue date"
@@ -187,7 +187,7 @@ en:
   submitted_intro_part_2: "Your registration has not yet been approved."
   submitted_intro_part_3: "You will receive a formal confirmation letter if your registration is approved. If you have not received a confirmation letter 2 weeks prior to your planned arrival in Caux, please enquire via "
   submitted_intro_part_3b: " the conference secretariat"
-  follow_us_on: "Follow us to get the latest about the Caux international conferences"
+  follow_us_on: "Follow us to get the latest about the International Caux Conferences"
   your_application_title: "Your application"
   application_not_yet_submitted_html: "Your application has not yet been submitted.<br/>Please add a person or submit your application."
   welcome_children_html: "We look forward to welcoming you in Caux with your child(ren). As you know they can be looked after in a kindergarten during the meetings. In order for everything to go smoothly, we ask you <b>to bring a mobile phone</b> so that you can be easily reached if needed. This is a regulation of the cantonal authorities for kindergartens. Thank you in advance."
@@ -218,7 +218,7 @@ en:
   exhibitor: "exhibitor"
 
   form_unavailable_title: "Registration form unavailable"
-  form_unavailable_html: "Dear participant,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the <a href=\"mailto:reservation@caux.ch\">Conference Secretariat</a> you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Conference Secretariat.<p>To receive the latest news about Caux, subscribe to our newsletter, our Facebook page and Twitter"
+  form_unavailable_html: "Dear participant,<p>Thank you for being in touch!<p>The online conference registration form is currently not available. If you email the <a href=\"mailto:reservation@caux.ch\">Reservations Team</a> you will be informed as soon as the registration form comes online.<p>Yours sincerely,<br>The Reservations Team.<p>To receive the latest news about Caux, subscribe to our newsletter, our Facebook page and Twitter"
   newsletter_url: "http://www.caux.iofc.org/en/newsletter-registration"
 
   interpreter: "Interpreter"
@@ -341,5 +341,5 @@ en:
   local_iofc_team_member: "IofC staff or holder of a mandate from an IofC Association"
   please_carefully_read_html: 'Please carefully read <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/ge/general_terms_and_conditions_2016_en.pdf" target="_new">the general terms and conditions</a> before accepting.<p/>'
   no_newsletters: 'I do not want to receive newsletters'
-  notice_of_receipt_subject: 'Notice of receipt'
+  notice_of_receipt_subject: 'Your online registration'
   conference_package_advertisement: "Benefit from our package deals by adjusting your arrival and departure dates to match the conference start and end date!"
