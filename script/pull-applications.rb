@@ -292,10 +292,14 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
       @values += "#{oa.visa ? 1 : 0},"
 
       if oa.visa then
-        @keys += 'reference,'
-        @values += "'" + @conn.escape(oa.visa_reference_name) + "',"
-        @keys += 'reference_email,'
-        @values += "'" + @conn.escape(oa.visa_reference_email) + "',"
+        if oa.visa_reference_name
+          @keys += 'reference,'
+          @values += "'" + @conn.escape(oa.visa_reference_name) + "',"
+        end
+        if oa.visa_reference_email
+          @keys += 'reference_email,'
+          @values += "'" + @conn.escape(oa.visa_reference_email) + "',"
+        end
       end
 
       @keys += 'family_discount,'
