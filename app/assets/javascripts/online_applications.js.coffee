@@ -365,7 +365,9 @@ jQuery ->
         reg = /^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/
         parts = reg.exec(input)
         if parts
-          new Date(Date.UTC(parts[1], parts[2] - 1, parts[3], parts[4], parts[5],parts[6]))
+          # For date calculations, we deliberately disregard time. Otherwise
+          # our nights count can be off by one
+          new Date(Date.UTC(parts[1], parts[2] - 1, parts[3], '0', '0', '0'))
         else
           null
 
@@ -392,6 +394,10 @@ jQuery ->
       if $(base_id + "_day_visit").val() == '1'
         # We force the night_rate and the registration-fee below for the day visitor case.
         day_visit = 1
+        # See if this is a day visitor who will be present for a few hours only, if so still
+        # charge for a 'night'.
+        if nights == 0
+          nights = 1
 
       # These are the standard fees
       registration_fee = 100
