@@ -525,7 +525,6 @@ jQuery ->
       if $(base_id + '_rate_conference_support').is(':checked')
         night_rate = 105
         calculated_rate_and_fee_details += 'Support team: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-        console.log(calculated_rate_and_fee_details)
 
       if day_visit == 1
         night_rate = 55
@@ -608,14 +607,12 @@ jQuery ->
       $(base_id + "_calculated_nights").val(nights)
       $(base_id + "_calculated_night_rate").val(night_rate)
       $(base_id + "_calculated_registration_fee").val(registration_fee)
-      $(base_id + "_calculated_total_personal_contribution").val(total_personal_automatic)
       $(base_id + "_calculated_rate_and_fee_details").val(calculated_rate_and_fee_details)
 
       # Deal with the sponsor lines
       sponsor_count = 0
       for key,sponsor of sponsors
         if sponsor.amount > night_rate
-          console.log('inside loop: ' + sponsor.name)
           # This can happen for children!
           sponsor.amount = night_rate
           sp = {}
@@ -635,6 +632,7 @@ jQuery ->
         $('span' + base_id + "_sponsors_attributes_" + sponsor_count + "_total").text(sponsor.amount * sponsor.nights)
         $(base_id + "_sponsors_attributes_" + sponsor_count).show()
         sponsor_count += 1
+        total_personal_automatic -= sponsor.nights * sponsor.amount
 
       while sponsor_count < 2
         $(base_id + "_sponsors_attributes_" + sponsor_count + "_name").val('')
@@ -646,11 +644,19 @@ jQuery ->
         $(base_id + "_sponsors_attributes_" + sponsor_count).hide()
         sponsor_count += 1
 
+      # Finally, make sure to account for any custom sponsors provided by the participant
+      while sponsor_count < 4
+        if $(base_id + "_sponsors_attributes_" + sponsor_count + "_nights").val() and
+           $(base_id + "_sponsors_attributes_" + sponsor_count + "_amount").val()
+          total_personal_automatic -= $(base_id + "_sponsors_attributes_" + sponsor_count + "_nights").val() * $(base_id + "_sponsors_attributes_" + sponsor_count + "_amount").val()
+        sponsor_count += 1
+
+      $(base_id + "_calculated_total_personal_contribution").val(total_personal_automatic)
+
     # Back from walking all the applications
     # Deal with the totals/sponsor calculation
     sponsor_contribution = 0
     for key,sponsor of exports.sponsors
-      console.log(sponsor.name)
       sponsor_contribution += sponsor.nights * sponsor.amount
 
     exports.total_automatic -= sponsor_contribution
