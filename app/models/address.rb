@@ -24,6 +24,7 @@ class Address < ActiveRecord::Base
   end
 
   def personal_or_group?
+    return nil if not self.online_application
     if self.online_application.relation == 'primary applicant'
       not self.online_application.status.nil? and
         (self.online_application.status.include?('personal') or

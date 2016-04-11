@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
+valid:
   kind: 1
   street1: MyString
   street2: MyString
@@ -8,16 +8,17 @@ one:
   city: MyString
   postal_code: MyString
   state: MyString
-  country: 
+  country: usa
   other_country: MyString
 
-two:
+empty:
   kind: 1
-  street1: MyString
-  street2: MyString
-  street3: MyString
-  city: MyString
-  postal_code: MyString
-  state: MyString
-  country: 
-  other_country: MyString
+  street1:
+  street2:
+  street3:
+  city:
+  postal_code:
+  state:
+  country:
+  other_country:
+

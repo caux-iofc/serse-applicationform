@@ -1,5 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
+usa:
+  id: 61
+  zipcode_order: 0
+  state_order: 1
+  serse_id: 183
+
 one:
   zipcode_order: 1
   state_order: 1
