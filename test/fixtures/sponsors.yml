@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  application: 
+  online_application:
   name: MyString
-  days: 1
+  nights: 1
   amount: 1
 
 two:
-  application: 
+  online_application:
   name: MyString
-  days: 1
+  nights: 1
   amount: 1

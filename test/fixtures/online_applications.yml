@@ -22,25 +22,22 @@ one:
   previous_visit: MyString
   previous_year: MyString
   heard_about: MyString
-  reference: MyString
-  diet: MyString
+  diet_other_detail: MyString
   confirmation_letter_via: MyString
   accompanied_by: MyString
   visa: false
   passport_number: MyString
   passport_issue_date: 2012-02-05
   passport_issue_place: MyString
-  passport_expire_date: 2012-02-05
-  passport_iofc_reference: MyString
-  passport_iofc_reference_email: MyString
+  passport_expiry_date: 2012-02-05
   nightly_contribution: 1
   remarks: MyText
   badge_firstname: MyString
   badge_surname: MyString
   badge_country: MyString
-  reason_other: MyString
-  reason_interpreting: false
-  reason_volunteer: false
+  other_reason: MyString
+  interpreter: false
+  volunteer: false
 
 two:
   application_group: 
@@ -64,22 +61,19 @@ two:
   previous_visit: MyString
   previous_year: MyString
   heard_about: MyString
-  reference: MyString
-  diet: MyString
+  diet_other_detail: MyString
   confirmation_letter_via: MyString
   accompanied_by: MyString
   visa: false
   passport_number: MyString
   passport_issue_date: 2012-02-05
   passport_issue_place: MyString
-  passport_expire_date: 2012-02-05
-  passport_iofc_reference: MyString
-  passport_iofc_reference_email: MyString
+  passport_expiry_date: 2012-02-05
   nightly_contribution: 1
   remarks: MyText
   badge_firstname: MyString
   badge_surname: MyString
   badge_country: MyString
-  reason_other: MyString
-  reason_interpreting: false
-  reason_volunteer: false
+  other_reason: MyString
+  interpreter: false
+  volunteer: false
