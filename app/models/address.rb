@@ -36,14 +36,14 @@ class Address < ActiveRecord::Base
   end
 
   def empty?
-    (street1.nil? or street1.empty?) and
-    (street2.nil? or street2.empty?) and
-    (street3.nil? or street3.empty?) and
-    (city.nil? or city.empty?) and
-    (state.nil? or state.empty?) and
-    (postal_code.nil? or postal_code.empty?) and
+    street1.blank? and
+    street2.blank? and
+    street3.blank? and
+    city.blank? and
+    state.blank? and
+    postal_code.blank? and
     country_id.nil? and
-    (other_country.nil? or other_country.empty?)
+    other_country.blank?
   end
 
 end
