@@ -2,6 +2,8 @@ class Rate < ActiveRecord::Base
   acts_as_paranoid_versioned :version_column => :lock_version
   validates :name, :uniqueness => true
   validates :name, :presence => true
+  
+  attr_accessible
 
   validates :from_age, :numericality => true
   validates :to_age, :numericality => true
