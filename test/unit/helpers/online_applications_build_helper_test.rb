@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class OnlineApplicationsBuild::HelperTest < ActionView::TestCase
+class OnlineApplicationsBuildHelperTest < ActionView::TestCase
 end
