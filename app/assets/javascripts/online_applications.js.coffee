@@ -477,15 +477,15 @@ jQuery ->
         night_rate = 63
         registration_fee = 250
         sp = {}
-        sp.name = 'Caux Interns Program'
+        sp.name = 'Caux Trainee Programme'
         sp.nights = nights
         sp.amount = 63
         exports.sponsors.push(sp)
-        sponsors['Caux Interns Program'] = {}
-        sponsors['Caux Interns Program'].name = 'Caux Interns Program'
-        sponsors['Caux Interns Program'].nights = nights
-        sponsors['Caux Interns Program'].amount = 63
-        calculated_rate_and_fee_details += 'Caux Interns Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+        sponsors['Caux Trainee Programme'] = {}
+        sponsors['Caux Trainee Programme'].name = 'Caux Trainee Programme'
+        sponsors['Caux Trainee Programme'].nights = nights
+        sponsors['Caux Trainee Programme'].amount = 63
+        calculated_rate_and_fee_details += 'Caux Trainee Programme: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if $(base_id + "_week_of_international_community").val() == '1'
         night_rate = 63
         registration_fee = 0

@@ -271,7 +271,7 @@ de:
   your_application_title: Ihr Antrag
   previous_year_invalid: " Sieht nich wie ein Jahr aus - bitte benützen Sie nur Zahlen"
   must_be_after_arrival: " Muss nach der Ankunft sein"
-  if_you_come_as_a_caux_intern_please_do_not_select_a_conference_html: "Wenn Sie als <strong>Caux Intern</strong> kommen bitte keine Konferenz auswählen"
+  if_you_come_as_a_caux_intern_please_do_not_select_a_conference_html: "Wenn Sie als <strong>Caux Trainee</strong> kommen bitte keine Konferenz auswählen"
 
 
   submit_this_application: Diesen Antrag senden
