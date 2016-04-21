@@ -560,8 +560,8 @@ jQuery ->
       else if age >= 18 and age <= 25 and day_visit == 0
         if night_rate > 63
           night_rate = 63
-        # Volunteers, etc do not pay a registration fee
-        if registration_fee > 50
+        # Trainees still need to pay a 250 registration fee
+        if registration_fee > 50 and registration_fee <= 100
           registration_fee = 50
         calculated_rate_and_fee_details += 'Age 18-25: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
