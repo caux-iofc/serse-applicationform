@@ -147,6 +147,8 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
         @values += l.proficiency.to_s + ","
         @language_count += 1
         @languages_seen[l.language.serse_id] = true
+        # We can only store up to 4 languages
+        break if @language_count == 4
       end
 
       @keys += 'profession,'
