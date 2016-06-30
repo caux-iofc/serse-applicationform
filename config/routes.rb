@@ -57,6 +57,8 @@ SerseApplication::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
 
+  match 'nagios/application_groups' => 'nagios#application_groups'
+
   scope "/:locale" do
     resources :online_applications do
       resources :addresses
