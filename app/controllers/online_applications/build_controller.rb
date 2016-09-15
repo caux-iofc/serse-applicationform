@@ -105,37 +105,37 @@ class OnlineApplications::BuildController < ApplicationController
           # Handle that here, making sure that any training programs previously
           # selected will be removed.
           if params[:application_group][:online_applications_attributes][k].has_key?('online_application_training_programs_attributes')
-            params[:application_group][:online_applications_attributes][k]['online_application_training_programs_attributes'].each do |k2,v|
-              if v['selected'] != '1'
-                v['_destroy'] = true
-              elsif v and not v.has_key?('id') and params[:application_group][:online_applications_attributes][k].has_key?('id')
+            params[:application_group][:online_applications_attributes][k]['online_application_training_programs_attributes'].each do |k2,v2|
+              if v2['selected'] != '1'
+                v2['_destroy'] = true
+              elsif v2 and not v2.has_key?('id') and params[:application_group][:online_applications_attributes][k].has_key?('id')
                 # It turns out that update_attributes (below) does not add *new* online_application_training_programs,
                 # if the online application already has some online_application_training_programs (i.e. when the user came back
                 # to the 'Stay in Caux' page after having saved it and added a new training_program. So, we add these explicitly
                 # here, and then set the id field to make update_attributes do an additional refresh of the
                 # application_group object.
-                oatp = OnlineApplicationTrainingProgram.new(v)
+                oatp = OnlineApplicationTrainingProgram.new(v2)
                 oatp.online_application_id = params[:application_group][:online_applications_attributes][k]['id']
                 oatp.save
-                v['id'] = oatp.id
+                v2['id'] = oatp.id
               end
             end
           end
           # Make sure we delete online_application_conferences records that are not selected
           if params[:application_group][:online_applications_attributes][k].has_key?('online_application_conferences_attributes')
-            params[:application_group][:online_applications_attributes][k]['online_application_conferences_attributes'].each do |k2,v|
-              if v['selected'] != '1'
-                v['_destroy'] = true
-              elsif v and not v.has_key?('id') and params[:application_group][:online_applications_attributes][k].has_key?('id')
+            params[:application_group][:online_applications_attributes][k]['online_application_conferences_attributes'].each do |k2,v2|
+              if v2['selected'] != '1'
+                v2['_destroy'] = true
+              elsif v2 and not v2.has_key?('id') and params[:application_group][:online_applications_attributes][k].has_key?('id')
                 # It turns out that update_attributes (below) does not add *new* online_application_conferences,
                 # if the online application already has some online_application_conferences (i.e. when the user came back
                 # to the 'Stay in Caux' page after having saved it and added a new conference. So, we add these explicitly
                 # here, and then set the id field to make update_attributes do an additional refresh of the 
                 # application_group object.
-                oac = OnlineApplicationConference.new(v)
+                oac = OnlineApplicationConference.new(v2)
                 oac.online_application_id = params[:application_group][:online_applications_attributes][k]['id']
                 oac.save
-                v['id'] = oac.id
+                v2['id'] = oac.id
               end
             end
           end
@@ -345,7 +345,7 @@ protected
         end
         # these fields are used to pass information to the javascript that calculates the rates
         oa.caux_scholar = (oa.training_programs.collect { |tp| tp.name }.include?('Caux Scholars Program') ? 1 : 0)
-        oa.caux_intern = ((oa.training_programs.collect { |tp| tp.name }.grep /^Caux Trainee Programme/).empty? ? 0 : 1)
+        oa.caux_intern = ((oa.training_programs.collect { |tp| tp.name }.grep(/^Caux Trainee Programme/)).empty? ? 0 : 1)
         oa.caux_artist = (oa.training_programs.collect { |tp| tp.name }.include?('Caux Artists Program') ? 1 : 0)
         oa.week_of_international_community = (oa.training_programs.collect { |tp| tp.name }.include?('Week of International Community') ? 1 : 0)
         # Default to the standard rate

@@ -248,7 +248,7 @@ protected
         @ag.remote_ip = request.env['REMOTE_ADDR']
         @ag.session_group_id = session[:session_group_id] if session.has_key?(:session_group_id)
         @ag.save!
-      rescue Exception => e
+      rescue
         # Most likely, this means there is no session_id. That can happen if cookies are disabled.
         redirect_to :cookies_disabled
         return
