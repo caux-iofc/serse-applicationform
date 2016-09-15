@@ -4,12 +4,9 @@ rvm:
   - 2.1
   - 2.2
 
-services:
-  - mysql
-
 before_script:
   - cp config/database.travis.yml config/database.yml
-  - mysql -e 'create database application_test;'
+  - cp config/environments/test.rb.example config/environments/test.rb
 
 script:
   - RAILS_ENV=test bundle exec rake db:setup
