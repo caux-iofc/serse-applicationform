@@ -65,38 +65,6 @@
           </div>
         </div>
       <% end -%>
-      <% if not oac.object.conference.special -%>
-        <div class="well oac_checkbox_<%= online_application.id %>_<%= oac.object.conference.id %>_subform center-block" style="display:none; width:800px; background: rgb(49, 176, 213)">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="conference_subform_td">
-                <div class="conference_subform">
-                  <%= oac.fields_for :variables do |var| -%>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group required">
-                          <%= f.label :role, t(:I_will_come_as), class: 'control-label' %>
-                          <%= var.radio_button :role, 'participant', { :checked => (oac.object.variables[:role] == "participant"), :class => 'role' } %> <%=t :participant %>
-                          <%= var.radio_button :role, 'support', { :checked => (oac.object.variables[:role] == "support"), :class => 'role' } %> <%=t :support_team %>
-                          <%= var.radio_button :role, 'team', { :checked => (oac.object.variables[:role] == "team"), :class => 'role' } %> <%=t :team %>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="form-group required" id="<%= var.object_name.gsub(/[\[\]]+/,'_') -%>role_team_member_reference" style="display:none">
-                          <%= var.label :team_member_reference_person, t(:team_member_reference_person), class: 'control-label' %>
-                          <%= var.text_field :team_member_reference_person, { :value => oac.object.variables["team_member_reference_person"], :class => 'form-control' } %>
-                        </div>
-                      </div>
-                    </div>
-                  <% end -%>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end -%>
     <% end -%>
 
     <% if TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).size > 0 -%>
@@ -148,14 +116,6 @@
 
     <div class="row">
       <div class="col-md-1">
-        <%= f.check_box :interpreter %>
-      </div>
-      <div class="col-md-11">
-        <label><%=t :interpreter %></label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-1">
         <%= f.check_box :volunteer %>
       </div>
       <div class="col-md-5">
@@ -174,19 +134,6 @@
       </div>
       <div class="col-md-6">
         <%= f.text_field :staff_detail, { class: 'form-control', :size => 40 } %>
-      </div>
-    </div>
-    <div class="row">
-      <div class="form-group">
-        <div class="col-md-1">
-          <%= f.check_box :other_reason %>
-        </div>
-        <div class="col-md-5">
-          <%= f.label :other_reason, t(:other), class: 'control-label' %>, <%=t :other_reason_please_specify %>
-        </div>
-        <div class="col-md-6">
-          <%= f.text_field :other_reason_detail, { class: 'form-control', :size => 40 } %>
-        </div>
       </div>
     </div>
 
