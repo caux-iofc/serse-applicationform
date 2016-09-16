@@ -140,7 +140,7 @@ fr:
   other_reason_title: "Je viens à Caux pour une autre raison:"
   interpreter: "Interprétation"
   volunteer: "Membre de l’équipe"
-  volunteer_please_specify: "merci de spécifier votre statu:"
+  volunteer_please_specify: "merci de spécifier votre statut:"
   staff: "Staff"
   staff_please_specify: "merci de spécifier votre poste/ votre départment:"
   other: "Autre"
@@ -199,7 +199,7 @@ fr:
   other_diet_text: Si vous utilisez des produits particuliers, merci de les apporter.
   conference_fees: Frais de séjour
 
-  more_information_about_conference_fees_html: 'Des informations complémentaires sur les tarifs sont disponibles <a href="http://www.caux.iofc.org/fr/frais-de-sejour" target="_new">ici</a>.'
+  more_information_about_conference_fees_html: 'Des informations complémentaires sur les tarifs sont disponibles <a href="http://www.caux.ch/fr/frais-de-sejour-rencontre-hiver" target="_new">ici</a>.'
   i_travel_with_my_family: 'Je viens à Caux en famille (Un couple ne compte pas comme une famille. Minimum 1 enfant et 1 parent)'
   i_want_to_support_the_center_renovation_fund: "Je désire soutenir le fonds de rénovation du Centre (150 CHF par nuit)"
   i_volunteer_full_time: "Je suis permanent d'I&C"
