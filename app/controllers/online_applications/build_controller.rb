@@ -175,7 +175,7 @@ class OnlineApplications::BuildController < ApplicationController
         # We can't use render_wizard directly here, because @online_application validates fine,
         # but this step is tied to the validation of application_group. Yes, we're doing silly
         # things here.
-        if step != :group
+        if step != :group and step != :family
           # Apply the changes, but don't save (because validation fails).
           # Don't do this on the group step, because we'll duplicate new group members otherwise.
           @application_group.assign_attributes(params[:application_group])
