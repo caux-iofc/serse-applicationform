@@ -422,14 +422,14 @@ jQuery ->
         night_rate = 63
         registration_fee = 0
         sp = {}
-        sp.name = 'IofC Switzerland'
+        sp.name = 'CAUX-Initiatives of Change Foundation'
         sp.nights = nights
         sp.amount = 63
         exports.sponsors.push(sp)
-        sponsors['IofC Switzerland'] = {}
-        sponsors['IofC Switzerland'].name = 'IofC Switzerland'
-        sponsors['IofC Switzerland'].nights = nights
-        sponsors['IofC Switzerland'].amount = 63
+        sponsors['CAUX-Initiatives of Change Foundation'] = {}
+        sponsors['CAUX-Initiatives of Change Foundation'].name = 'CAUX-Initiatives of Change Foundation'
+        sponsors['CAUX-Initiatives of Change Foundation'].nights = nights
+        sponsors['CAUX-Initiatives of Change Foundation'].amount = 63
         calculated_rate_and_fee_details += 'Staff: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if $(base_id + '_rate_volunteer').is(':checked')
         night_rate = 63
@@ -506,6 +506,19 @@ jQuery ->
         sponsors['Caux Artists Program'].nights = nights
         sponsors['Caux Artists Program'].amount = 63
         calculated_rate_and_fee_details += 'Caux Artists Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      else if $(base_id + "_global_assembly").val() == '1'
+        night_rate = 105
+        registration_fee = 0
+        sp = {}
+        sp.name = 'Conference Support Fund (CSF)'
+        sp.nights = nights
+        sp.amount = 63
+        exports.sponsors.push(sp)
+        sponsors['Conference Support Fund (CSF)'] = {}
+        sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
+        sponsors['Conference Support Fund (CSF)'].nights = nights
+        sponsors['Conference Support Fund (CSF)'].amount = 63
+        calculated_rate_and_fee_details += 'Work week: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if $(base_id + '_rate_conference_team').is(':checked')
         registration_fee = 0
