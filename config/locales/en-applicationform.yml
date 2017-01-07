@@ -222,8 +222,8 @@ en:
   newsletter_url: "http://www.caux.iofc.org/en/newsletter-registration"
 
   interpreter: "Interpreter"
-  volunteer: "Conference team"
-  volunteer_please_specify: "please specify role:"
+  volunteer: "Volunteer"
+  volunteer_please_specify: "please specify department:"
   staff: "Staff"
   other: "Other"
   other_reason_please_specify: "please specify:"
