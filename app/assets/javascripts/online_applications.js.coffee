@@ -404,7 +404,7 @@ jQuery ->
       night_rate = 165
       conference_package_fee = 0
       early_bird_discount = 0
-      calculated_rate_and_fee_details += 'Standard: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+      calculated_rate_and_fee_details = 'Standard: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if $(base_id + '_rate_student').is(':checked')
         night_rate = 105
@@ -459,7 +459,6 @@ jQuery ->
         calculated_rate_and_fee_details += 'Interpreter: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if $(base_id + "_caux_scholar").val() == '1'
         night_rate = 63
-        registration_fee = 50
         sp = {}
         sp.name = 'Caux Scholars Program'
         sp.nights = nights
@@ -472,7 +471,6 @@ jQuery ->
         calculated_rate_and_fee_details += 'Caux Scholars Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if $(base_id + "_caux_intern").val() == '1'
         night_rate = 63
-        registration_fee = 250
         sp = {}
         sp.name = 'Caux Trainee Programme'
         sp.nights = nights
@@ -498,7 +496,6 @@ jQuery ->
         calculated_rate_and_fee_details += 'Work week: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if $(base_id + "_caux_artist").val() == '1'
         night_rate = 63
-        registration_fee = 50
         sp = {}
         sp.name = 'Caux Artists Program'
         sp.nights = nights
@@ -509,10 +506,6 @@ jQuery ->
         sponsors['Caux Artists Program'].nights = nights
         sponsors['Caux Artists Program'].amount = 63
         calculated_rate_and_fee_details += 'Caux Artists Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
-      if $(base_id + "_conference_speaker").val() == '1'
-        registration_fee = 0
-        calculated_rate_and_fee_details += 'Speaker: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if $(base_id + '_rate_conference_team').is(':checked')
         registration_fee = 0
@@ -528,15 +521,6 @@ jQuery ->
         registration_fee = 0
         calculated_rate_and_fee_details += 'Day visit: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
-      if $(base_id + '_rate_family').is(':checked')
-        if day_visit == 1
-          night_rate = 55
-          registration_fee = 0
-        else
-          night_rate = 105
-          registration_fee = 100 if 100 > registration_fee
-        calculated_rate_and_fee_details += 'Family: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
-
       if $(base_id + '_rate_full_premium').is(':checked')
         if day_visit == 1
           night_rate = 100
@@ -551,12 +535,10 @@ jQuery ->
         calculated_rate_and_fee_details += 'Child 0-5: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if age >= 6 and age <= 17
         night_rate = 50
-        registration_fee = 50
         calculated_rate_and_fee_details += 'Age 6-17: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if age >= 18 and age <= 25 and day_visit == 0
         if night_rate > 63
           night_rate = 63
-        # Trainees still need to pay a 250 registration fee
         calculated_rate_and_fee_details += 'Age 18-25: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if typeof window.package_data[base_id] is 'undefined'
