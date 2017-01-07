@@ -400,25 +400,22 @@ jQuery ->
           nights = 1
 
       # These are the standard fees
-      registration_fee = 100
+      registration_fee = 50
       night_rate = 165
       conference_package_fee = 0
       early_bird_discount = 0
-      calculated_rate_and_fee_details = 'Standard: night rate: CHF 165; registration fee: CHF 100\n'
+      calculated_rate_and_fee_details += 'Standard: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if $(base_id + '_rate_student').is(':checked')
         night_rate = 105
-        registration_fee = 100
         calculated_rate_and_fee_details += 'Student: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if $(base_id + '_rate_amis_de_caux').is(':checked')
         night_rate = 105
-        registration_fee = 100
         calculated_rate_and_fee_details += 'amis de Caux: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if $(base_id + '_rate_local_iofc_team_member').is(':checked')
         night_rate = 105
-        registration_fee = 100
         calculated_rate_and_fee_details += 'local IofC team member: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if $(base_id + '_rate_staff').is(':checked')
@@ -546,7 +543,6 @@ jQuery ->
           registration_fee = 0
         else
           night_rate = 220
-          registration_fee = 100 if 100 > registration_fee
         calculated_rate_and_fee_details += 'Full premium: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if age >= 0 and age <= 5
@@ -555,16 +551,12 @@ jQuery ->
         calculated_rate_and_fee_details += 'Child 0-5: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if age >= 6 and age <= 17
         night_rate = 50
-        # registration fee 100 for winter conf
-        registration_fee = 100
+        registration_fee = 50
         calculated_rate_and_fee_details += 'Age 6-17: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if age >= 18 and age <= 25 and day_visit == 0
         if night_rate > 63
           night_rate = 63
         # Trainees still need to pay a 250 registration fee
-        if registration_fee > 50 and registration_fee <= 100
-          # registration fee 100 for winter conf
-          registration_fee = 100
         calculated_rate_and_fee_details += 'Age 18-25: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if typeof window.package_data[base_id] is 'undefined'
@@ -586,11 +578,6 @@ jQuery ->
           $(base_id + '_early_bird_discount').show()
         else
           $(base_id + '_early_bird_discount').show()
-
-      if $(base_id + "_relation").val() != 'primary applicant'
-        # Only the primary applicant pays the registration fee
-        registration_fee = 0
-        calculated_rate_and_fee_details += 'Group or family: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       $(base_id + "_rate_per_night_visible").text(night_rate)
       $(base_id + "_rate_per_night").val(night_rate)
