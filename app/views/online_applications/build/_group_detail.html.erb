@@ -61,6 +61,18 @@
       </div>
     </div>
 
+    <div class="form-group required">
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.label :communications_language, t(:communications_language), class: 'control-label' %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.select(:communications_language_id, @communications_languages, {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
+        </div>
+      </div>
+    </div>
 
     <div class="form-group">
       <%= f.label :special_dietary_requirements, t(:special_dietary_requirements) %><br />

@@ -300,6 +300,9 @@ protected
     @languages = Language.with_translations.collect {|p| [ p.name, p.id ] }.sort
     @language_proficiencies = [ [t('proficiency_poor'),'110'], [t('proficiency_good'),'120'], [t('proficiency_excellent'),'130'], [t('proficiency_native'),'140'] ]
 
+    # Only English, French, German are currently offered
+    @communications_languages = Language.where("serse_id in (63,74,89)").with_translations.collect {|p| [ p.name, p.id ] }.sort
+
     @diets = @online_application.diets.collect { |d| d.id }
 
     @countries = [ [t(:other_please_specify),'0'] ] + Country.with_translations.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }
