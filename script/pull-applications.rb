@@ -401,6 +401,13 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
       @keys += 'badge_country,'
       @values += "'" + @conn.escape(oa.badge_country) + "',"
 
+      @keys += 'communications_language_id,'
+      if not oa.communications_language.nil?
+        @values += "'" + oa.communications_language.serse_id.to_s + "',"
+      else
+        @values += "'0',"
+      end
+
       @keys.chop!
       @values.chop!
 
