@@ -51,6 +51,7 @@ fr:
   gender: "Sexe\t"
   special_dietary_requirements: "Régime alimentaire particulier"
   diet_detail: "La cuisine de Caux peut également adapter les menus si nécessaire. Le petit-déjeuner et le déjeuner sont toujours végétarien, en soirée une option végétarienne est disponible pour ceux qui se sont inscrits.Veuillez marquer d'une croix vos éventuels besoins:"
+  communications_language: "Langue de communication préférée"
   language_proficiency: Niveau
   male: Masculin
   travel_car_train: "Voyage: voiture/train"
