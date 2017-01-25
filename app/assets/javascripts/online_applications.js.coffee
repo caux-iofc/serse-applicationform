@@ -337,6 +337,10 @@ jQuery ->
     exports.total_automatic = 0
     exports.total_registration_fee = 0
 
+    # exports.youths holds the number of youths in the application group; the first one is
+    # free
+    exports.youths = 0
+
     # Walk the applications in the group/family
     $('.oa-counter').each ->
       sponsors = []
@@ -547,8 +551,14 @@ jQuery ->
         registration_fee = 0
         calculated_rate_and_fee_details += 'Child 0-5: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if age >= 6 and age <= 17
-        night_rate = 50
-        calculated_rate_and_fee_details += 'Age 6-17: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+        if exports.youths > 0
+          night_rate = 50
+          calculated_rate_and_fee_details += 'Age 6-17: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+        else
+          # first youth is free
+          night_rate = 0
+          calculated_rate_and_fee_details += 'Age 6-17 (first free): CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+        exports.youths += 1
       else if age >= 18 and age <= 25 and day_visit == 0
         if night_rate > 63
           night_rate = 63
