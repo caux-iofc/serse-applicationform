@@ -475,6 +475,7 @@ jQuery ->
         calculated_rate_and_fee_details += 'Caux Scholars Program: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if $(base_id + "_caux_intern").val() == '1'
         night_rate = 63
+        registration_fee = 0
         sp = {}
         sp.name = 'Caux Trainee Programme'
         sp.nights = nights
