@@ -301,7 +301,16 @@ protected
     @language_proficiencies = [ [t('proficiency_poor'),'110'], [t('proficiency_good'),'120'], [t('proficiency_excellent'),'130'], [t('proficiency_native'),'140'] ]
 
     # Only English, French, German are currently offered
-    @communications_languages = Language.where("serse_id in (63,74,89)").with_translations.collect {|p| [ p.name, p.id ] }.sort
+    @old_locale = I18n.locale
+    @communications_languages = []
+    I18n.locale = 'en'
+    @communications_languages << Language.where("serse_id = 63").with_translations.collect {|p| [ p.name, p.id ] }.flatten!
+    I18n.locale = 'fr'
+    @communications_languages << Language.where("serse_id = 74").with_translations.collect {|p| [ p.name, p.id ] }.flatten!
+    I18n.locale = 'de'
+    @communications_languages << Language.where("serse_id = 89").with_translations.collect {|p| [ p.name, p.id ] }.flatten!
+    @communications_languages.sort!
+    I18n.locale = @old_locale
 
     @diets = @online_application.diets.collect { |d| d.id }
 

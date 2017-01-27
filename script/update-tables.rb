@@ -25,7 +25,9 @@ y.sort.each do |k,v|
   of.session_group_id = v['session_group_id']
   of.created_at = DateTime.strptime(v['epoch'],'%s')
   of.updated_at = DateTime.strptime(v['epoch'],'%s')
-  of.save
+  if of.changed?
+    of.save
+  end
   @objects[of.id] = true
 end
 
@@ -47,7 +49,9 @@ y.sort.each do |k,v|
   of.early_bird_register_by = v['early_bird_register_by']
   of.created_at = v['created_at']
   of.updated_at = v['updated_at']
-  of.save
+  if of.changed?
+    of.save
+  end
   @objects[of.id] = true
 end
 
@@ -75,7 +79,9 @@ y.sort.each do |k,v|
   of.name = v['name_3']
   of.created_at = DateTime.strptime(v['epoch'],'%s')
   of.updated_at = DateTime.strptime(v['epoch'],'%s')
-  of.save
+  if of.changed?
+    of.save
+  end
   @objects[of.id] = true
 end
 
@@ -95,14 +101,24 @@ y.sort.each do |k,v|
   of.serse_id = v['id']
   of.priority_sort = v['priority_sort']
   I18n.locale = 'fr'
-  of.name = v['name']
+  if v['name'] == 'French'
+    of.name = "Français"
+  else
+    of.name = v['name']
+  end
   I18n.locale = 'de'
-  of.name = v['name']
+  if v['name'] == 'German'
+    of.name = "Deutsch"
+  else
+    of.name = v['name']
+  end
   I18n.locale = 'en'
   of.name = v['name']
   of.created_at = DateTime.strptime(v['epoch'],'%s')
   of.updated_at = DateTime.strptime(v['epoch'],'%s')
-  of.save
+  if of.changed?
+    of.save
+  end
   @objects[of.id] = true
 end
 
@@ -134,7 +150,9 @@ y.sort.each do |k,v|
 
   of.created_at = v['created_at']
   of.updated_at = v['updated_at']
-  of.save
+  if of.changed?
+    of.save
+  end
   @objects[of.id] = true
 end
 
@@ -149,7 +167,9 @@ y.sort.each do |k,v|
   of.byline = v['byline']
   of.created_at = v['created_at']
   of.updated_at = v['updated_at']
-  of.save
+  if of.changed?
+    of.save
+  end
   I18n.locale = 'en'
   @objects[of.id] = true
 end
@@ -185,7 +205,9 @@ y.sort.each do |k,v|
   of.created_at = v['created_at']
   of.updated_at = v['updated_at']
   of.deleted_at = v['deleted_at']
-  of.save
+  if of.changed?
+    of.save
+  end
   @objects[of.id] = true
 end
 
@@ -215,7 +237,9 @@ y.sort.each do |k,v|
   of.created_at = v['created_at']
   of.updated_at = v['updated_at']
   of.deleted_at = v['deleted_at']
-  of.save
+  if of.changed?
+    of.save
+  end
   @objects[of.id] = true
 end
 
@@ -240,7 +264,9 @@ y.sort.each do |k,v|
   of.created_at = v['created_at']
   of.updated_at = v['updated_at']
   of.deleted_at = v['deleted_at']
-  of.save
+  if of.changed?
+    of.save
+  end
   @objects[of.id] = true
 end
 
@@ -256,7 +282,9 @@ y.sort.each do |k,v|
   of.language = v['language']
   of.created_at = v['created_at']
   of.updated_at = v['updated_at']
-  of.save
+  if of.changed?
+    of.save
+  end
   I18n.locale = 'en'
   @objects[of.id] = true
 end
@@ -281,7 +309,9 @@ y.sort.each do |k,v|
   of.stop = v['stop']
   of.created_at = v['created_at']
   of.updated_at = v['updated_at']
-  of.save
+  if of.changed?
+    of.save
+  end
   @objects[of.id] = true
 end
 
@@ -302,7 +332,9 @@ y.sort.each do |k,v|
     I18n.locale = 'en'
     of.name = v['name']
   end
-  of.save
+  if of.changed?
+    of.save
+  end
   @objects[of.id] = true
 end
 
