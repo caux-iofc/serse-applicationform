@@ -501,6 +501,8 @@ jQuery ->
         calculated_rate_and_fee_details += 'Work week: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
       else if $(base_id + "_caux_artist").val() == '1'
         night_rate = 63
+        # The registration fee is covered by CAP and will be added manually after the registration is accepted.
+        registration_fee = 0
         sp = {}
         sp.name = 'Caux Artists Program'
         sp.nights = nights
