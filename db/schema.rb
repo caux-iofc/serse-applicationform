@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20170114154700) do
+ActiveRecord::Schema.define(:version => 20170128151400) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -106,6 +106,9 @@ ActiveRecord::Schema.define(:version => 20170114154700) do
     t.boolean  "group_registration",                                :default => false, :null => false
     t.boolean  "family_registration",                               :default => false, :null => false
     t.string   "group_or_family_name",                              :default => "",    :null => false
+    t.integer  "payment_required",                                  :default => 0,     :null => false
+    t.integer  "payment_received",                                  :default => 0,     :null => false
+    t.string   "payment_reference",                                 :default => "",    :null => false
   end
 
   add_index "application_groups", ["session_group_id"], :name => "index_application_groups_on_session_group_id"

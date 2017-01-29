@@ -87,6 +87,12 @@ class OnlineApplications::BuildController < ApplicationController
             val['student'] = 0
           end
         end
+        params[:application_group][:online_applications_attributes].each do |k,v|
+          if params[:application_group][:payment_required].nil? then
+            params[:application_group][:payment_required] = 0
+          end
+          params[:application_group][:payment_required] += v[:calculated_registration_fee].to_i
+        end
       end
       if step == :group and params[:application_group].has_key?('online_applications_attributes')
         # Do not save permanent address information if the 'different address' checkbox is not set
@@ -184,11 +190,17 @@ class OnlineApplications::BuildController < ApplicationController
         show
         return
       elsif step == :confirmation
-        # We're done
-        @application_group.complete = true
-        @application_group.save
-        if @application_group.primary_applicant and @application_group.primary_applicant.email
-          SystemMailer.notice_of_receipt("#{@application_group.primary_applicant.pretty_name} <#{@application_group.primary_applicant.email}>").deliver
+        # We're done, see if payment is required
+        if @application_group.payment_required != @application_group.payment_received then
+          # redirect to payment processor
+          redirect_to generate_url(PAYMENT_PROCESSOR_URL, :merchantId => PAYMENT_PROCESSOR_MERCHANT_ID, :refno => @application_group.id, :amount => ((@application_group.payment_required - @application_group.payment_received) * 100).to_s, :currency => PAYMENT_PROCESSOR_CURRENCY)
+          return
+        else
+          @application_group.complete = true
+          @application_group.save
+          if @application_group.primary_applicant and @application_group.primary_applicant.email
+            SystemMailer.notice_of_receipt("#{@application_group.primary_applicant.pretty_name} <#{@application_group.primary_applicant.email}>").deliver
+          end
         end
       end
       # reload @online_application, we've changed it by updating @application_group
@@ -527,6 +539,12 @@ protected
     # Yeah, this is weird.
     @application_group = ApplicationGroup.new()
     populate_ethereal_variables
+  end
+
+  def generate_url(url, params = {})
+    uri = URI(url)
+    uri.query = params.to_query
+    uri.to_s
   end
 
 end
