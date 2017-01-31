@@ -106,11 +106,17 @@ y.sort.each do |k,v|
   else
     of.name = v['name']
   end
+  if of.changed?
+    of.save
+  end
   I18n.locale = 'de'
   if v['name'] == 'German'
     of.name = "Deutsch"
   else
     of.name = v['name']
+  end
+  if of.changed?
+    of.save
   end
   I18n.locale = 'en'
   of.name = v['name']
