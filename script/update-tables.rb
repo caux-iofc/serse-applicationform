@@ -102,7 +102,7 @@ y.sort.each do |k,v|
   of.priority_sort = v['priority_sort']
   I18n.locale = 'fr'
   if v['name'] == 'French'
-    of.name = "Français"
+    of.name = "français"
   else
     of.name = v['name']
   end

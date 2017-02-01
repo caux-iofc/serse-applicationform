@@ -40,26 +40,21 @@ de:
   practial_life: "Da alle Konferenzteilnehmenden auch Teil einer Gemeinschaftsgruppe sein werden, mit der sie während der Konferenz kleinere Aufgaben im Haus übernehmen, werden Sie leider nicht an allen Sitzungen und Versammlungen teilnehmen können. Wir bitten Sie dafür um Ihr Verständnis! Sie werden der Gemeinschaftsgruppe vor Ort vor Beginn der Konferenz zugeteilt um einem Departement wie Küche, Service, Abwasch, Haushaltung, Gemüse Zubereitung oder Konferenz Logistik zugeteilt."
 
   visa_needed: "Ja, ich benötige ein Visum"
-  visa_information_html: "<p>Bitte erkundigen Sie sich, ob Sie für die Einreise in die Schweiz ein Visum benötigen. Auskunft erteilt Ihnen
-                          <ul>
-                            <li><a href=\"http://www.eda.admin.ch/eda/en/home/reps.html\" target=\"new\">das nächste Schweizer Konsulat</a>
-                            <li><a href=\"http://www.bfm.admin.ch/bfm/en/home/themen/einreise/merkblatt_einreise.html\" target=\"new\">die Webseite des Bundesamts für Migration</a>
-                            <li>Ihr Reiseveranstalter
-                          </ul>
-                          <strong>WICHTIG</strong>
-                            <ul>
-                              <li>Wenn Sie ein Visum für die Einreise in die Schweiz benötigen, muss Ihre Anmeldung <strong>mindesten ZEHN Wochen</strong> vor Ihrer Ankunft in Caux auf dem Konferenzsekretariat eintreffen.
-                              <li>Bitte beachten Sie, dass es schwierig ist, nachträglich Änderungen der Daten vorzunehmen, sobald sich Ihre Visum-Anfrage (Kopie Ihres Visum-Briefes) bei der zuständigen Schweizer Botschaft befindet.
-                            </ul></p>"
 
   passport_issue_place: Ausstellungsort des Passes
   passport_number: Passnummer
   visa_information_2: "Wenn Sie irgendwelche Probleme oder Fragen haben, kontaktieren Sie bitte das Konferenz-Sekretariat so früh wie möglich an "
 
-
   data_protection_consent_text: "Meine/Unsere persönlichen Daten dürfen vom Caux-Konferenzsekretariat für die Verarbeitung meiner/unserer diesjährigen Anmeldung benutzt werden."
   gender: Geschlecht
-  special_dietary_requirements: Mahlzeiten
+
+  special_dietary_requirements: "Spezielle Diätanforderungen"
+  diet_detail_html: "<p>Die Gerichte sind vegetarisch oder es gibt eine vegetarische Alternative. Das Küchenteam bemüht sich, <strong>übliche Ernährungseinschränkungen</strong> aus gesundheitlichen Gründen zu berücksichtigen. Wir können gluten- und laktosefreie, salzarme Kost und Gerichte ohne Knoblauch und Zwiebeln anbieten. Fettreduzierte und vegane Mahlzeiten werden nicht zubereitet, aber Sie können sich das Essen am Buffet entsprechend zusammenstellen. Um unterschiedliche Religionen willkommen zu heissen, bieten wir Gerichte ohne Schweinefleisch und eine Halal Option.</p><p><strong>Bitte informieren Sie uns vorab über Ihre Ernährungseinschränkungen. Zu spät oder vor Ort geäusserte Wünsche können leider nicht immer berücksichtigt werden.</strong></p>"
+  diet_i_have_dietary_requests: "Ich benötige folgende Manu Adaptionen:"
+  diet_ramadan_info: "Info: Während dem Ramadan servieren wir spezielle Mahlzeiten in der Nacht"
+  diet_i_have_medical_allergy_requests: "Aus medizinischen Gründen benötige ich folgende Menu Adaptionen:"
+  diet_closing_text: "Bitte informieren Sie uns via E-Mail falls Sie andere Bedürfnisse haben und wir helfen Ihnen eine Lösung zu finden."
+
   communications_language: "Bevorzugte Kommunikationssprache"
   language_proficiency: Kenntnisse
   male: "Männlich"
@@ -122,18 +117,15 @@ de:
   addresses_other_country: Anderes Land
   nightly_contribution: "Mein persönlicher Beitrag an die Konferenzgebühren beträgt pro Nacht"
   nightly_contribution_invalid: " ist keine Zahl. Bitte verwenden Sie keine Punkte oder Kommas."
-  submitted_intro_part_1: "Danke, wir haben Ihre Anmeldung erhalten. "
   spouse: Partner/in
   email: E-Mail Adresse
   profession: Beruf
 
-  follow_us_on: "Folgen Sie uns auf"
+  follow_us_on: "Folgen Sie uns für Caux Forum:"
 
   form_unavailable_title: "Anmeldeformular nicht verfügbar"
   form_unavailable_html: "Sehr geehrte Damen und Herren,<p>Vielen Dank für Ihr Interesse an unserem Anmeldeformular. Das online Anmeldeformular ist zurzeit nicht verfügbar. Wenn Sie eine E-Mail an <a href=\"mailto:reservation@caux.ch\">das Konferenzsekretariat</a> senden werden Sie informiert sobald das Anmeldeformular online ist.<p>Freundliche Grüsse,<p>Das Konferenzsekretariat Team<p>Um die neusten Caux Informationen zu erhalten, melden Sie sich für unseren Newsletter an und besuchen uns auf Facebook und Twitter"
   newsletter_url: "http://www.caux.iofc.org/de/newsletter-abonnement"
-
-  submitted_intro_part_2: "Ihre Anmeldung wurde noch nicht akzeptiert"
 
   language_name: "Sprache"
   online_application_languages_language_id: "Sprache"
@@ -177,8 +169,11 @@ de:
   data_protection_local_info_text: Ja, bitte senden Sie mir regelmässige Informationen über Aktivitäten von Initiativen der Veränderung in dem Land, in dem ich wohne.
   data_protection_caux_info_text: Ja, bitte senden Sie mir regelmässige Informationen über zukünftige Konferenzen in Caux (per E-Mail).
 
-  submitted_intro_part_3: Sie erhalten ein Bestätigungsschreiben, sobald ihre Anmeldung akzeptiert ist. Falls Sie bis zwei Wochen vor Ihrer geplanten Ankunft in Caux noch keine Bestätigung erhalten haben, erkundigen Sie sich bitte 
-  submitted_intro_part_3b: " hier"
+  submitted_intro_part_1: "Vielen Dank, wir haben Ihre Anmeldung erhalten. Sie werden in kürze eine Empfangsbestätigung erhalten. Dieses automatische E-Mail könnte in durch Ihren Spam Filter fallen, sollten Sie die Nachricht nicht erhalten, kontrollieren Sie bitte Ihren Spam Ordner."
+  submitted_intro_part_2: "Ihre Anmeldung wurde noch nicht bestätigt und wird in den nächsten 7 Tagen bearbeitet und bestätigt."
+  submitted_intro_part_3: "Bitte vergessen Sie nicht, uns die zusätzlichen Dokumente, falls während der Anmeldung erwähnt, an"
+  submitted_intro_part_3b: "reservation@caux.ch"
+  submitted_intro_part_3c: " zu senden"
 
   volunteer: "Freiwilliger Helfer"
   volunteer_please_specify: "bitte geben Sie ihre Position / Abteilung an:"
@@ -213,6 +208,7 @@ de:
 
   personal_contribution_html: "<b>Ihre Aufenthaltskosten</b>"
   please_check_total_html: "Bitte überprüfen Sie den automatisch generierten Gesamtbetrag Ihrer Aufenthaltskosten:"
+  personal_contribution_note_html: "<i>Der angezeigte Preis ist nicht verbindend da unter Umständen während des Anmeldeprozesses falsche Optionen gewählt wurden. Das Reservations Team wird Ihnen die definitiven Kosten im Bestätigungsschreiben mitteilen.</i>"
 
   other: 'Andere Aufenthaltsgründe'
   other_reason: 'Andere Aufenthaltsgründe: '
@@ -303,6 +299,7 @@ de:
   student: Student
   amis_de_caux: Freunde von Caux
   local_iofc_team_member: Mitglied vom lokalen IofC-Team
+  local_iofc_team_member_footnote_html: 'bitte vervollständigen Sie das Dokument <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_iofc_staff_approval_de.pdf">2017 IofC staff approval.pdf</a>'
   exhibitor: Aussteller
   please_only_register_if_you_have_been_accepted_beforehand: 'Bitte melden Sie sich für die folgenden Programme nur an wenn Ihre Teilnahme bestätigt wurde:'
   register_as_part_of_group: Ich melde mich als Teil einer Gruppe / Delegation an
@@ -333,7 +330,7 @@ de:
 
   conference_full: "The following conference is fully booked, no further registrations are accepted"
 
-  visa_information_html: '<p><span>Potenzielle Teilnehmer/innen, die ein Visum für die Einreise in die Schweiz benötigen, müssen genügend Zeit für das Antragsverfahren einkalkulieren. Sie sollten sich vor ihrer Reiseplanung an die nächstgelegene schweizerische Auslandsvertretung wenden und mit den Vorschriften vertraut machen. </span></p><p><span>Da eine Visumsanfrage erst drei Monate vor Reisebeginn eingereicht werden kann und manchmal bis zu 8 Wochen dauert, empfehlen wir nachdrücklich, dass ein Visumsantrag so früh wie möglich und nach sorgfältiger Prüfung der </span><span>Visumsvorschriften bei den zuständigen Stellen (Botschaft oder Konsulat) gestellt wird. Fehlende Unterlagen können ein Ablehnungsgrund sein. Besuchen Sie</span><span> </span><a href="https://www.eda.admin.ch/eda/de/home.html" target="_new"><span>https://www.eda.admin.ch/eda/de/home.html</span></a><span> für weitere Informationen zur Visumsbeantragung und zum Visumverfahren.</span></p><p><span>Wir bitten alle potenziellen Teilnehmer/innen, die ein Visum benötigen, dies im Anmeldeformular zu vermerken, und ihre Angaben zusätzlich in das folgende Formblatt: </span><a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/de/de_visa_application2016.pdf" target="_new"><span>Visumsantrag</span></a><span> einzutragen, bevor sie es zusammen mit dem ausgefüllten Anmeldeformular an das Reservationsteam schicken</span><span>. </span><span>Das Reservationsteam benötigt dieses Formblatt zur Bearbeitung Ihrer Anmeldung und um Ihrem Visumsantrag die bestmögliche Unterstützung zuteilwerden zu lassen. Es liegt im Ermessen des Reservationsteams, eine Buchung abzulehnen, sollten die nötigen Informationen nicht vollständig beigebracht worden sein oder ein Visumsantrag nicht mehr rechtzeitig bearbeitet werden können. Die alleinige Verantwortung für den Visumsantrag liegt bei den potenziellen Teilnehmer/innen. Das Reservationsteam wird notwendige Unterlagen, wie  z.B. die offizielle „Einladung” und  die „Bestätigung” ausstellen. Potenzielle Teilnehmer/innen sind aufgefordert, einen Reiseversicherungsnachweis sowie alle anderen notwendigen Unterlagen, einschliesslich der von der Stiftung CAUX-Initiativen der Veränderung ausgestellten vorgenannten Schriftstücke zum Termin bei der zuständigen Botschaft bzw. dem zuständigen Konsulat mitzubringen. Das Reservationsteam setzt sich nicht im Auftrag potenzieller Teilnehmer/innen mit Botschaften/Konsulaten in Verbindung, ist jedoch bereit, Kopien der offiziellen „Einladung” und „Bestätigung” als Echtheitsnachweis an die Botschaft bzw. das Konsulat zu verschicken. Diese Unterlagen müssen jedoch nach wie vor auch dem eigenen Visumsantrag beigelegt werden.  </span></p><p><span>Bitte setzen Sie das Reservationsteam in Kenntnis, sobald Ihrem Ersuchen um ein Visum stattgegeben bzw. der entsprechende Antrag abgelehnt wird. Aus organisatorischen Gründen und zur Unterstützung potenzieller Teilnehmer/innen ist es wichtig, das Reservationsteam regelmässig über den Stand des Visumverfahrens zu unterrichten.</span></p>'
+  visa_information_html: '<p><span>Sollten Sie für Ihren Aufenthalt in Caux ein Visum benötigen, vervollständigen Sie bitte das Dokument <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_visa_application_de.pdf" target="_new">2017 visa application.pdf</a> und senden es an <a href="mailto:reservation@caux.ch">reservation(at)caux.ch</a> nach dem Sie Ihre Anmeldung ausgefüllt haben. Wir werden Ihre Anmeldung erst nach erhalt dieses Dokuments bearbeiten können. Teilnehmer des Caux Peace & Leadership Programms und des Caux Scholar Programms müssen dieses Dokument dank des Bewerbungsprozesses nicht mehr ausfüllen.</span></p> Potenzielle Teilnehmer/innen, die ein Visum für die Einreise in die Schweiz benötigen, müssen genügend Zeit für das Antragsverfahren einkalkulieren. Sie sollten sich vor ihrer Reiseplanung an die nächstgelegene schweizerische Auslandsvertretung wenden und mit den Vorschriften vertraut machen. </span></p><p><span>Da eine Visumsanfrage erst drei Monate vor Reisebeginn eingereicht werden kann und manchmal bis zu 8 Wochen dauert, empfehlen wir nachdrücklich, dass ein Visumsantrag so früh wie möglich und nach sorgfältiger Prüfung der </span><span>Visumsvorschriften bei den zuständigen Stellen (Botschaft oder Konsulat) gestellt wird. Fehlende Unterlagen können ein Ablehnungsgrund sein. Besuchen Sie</span><span> </span><a href="https://www.eda.admin.ch/eda/de/home.html" target="_new"><span>https://www.eda.admin.ch/eda/de/home.html</span></a><span> für weitere Informationen zur Visumsbeantragung und zum Visumverfahren.</span></p><p><span>Wir bitten alle potenziellen Teilnehmer/innen, die ein Visum benötigen, dies im Anmeldeformular zu vermerken, und ihre Angaben zusätzlich in das folgende Formblatt: </span><a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/de/de_visa_application2016.pdf" target="_new"><span>Visumsantrag</span></a><span> einzutragen, bevor sie es zusammen mit dem ausgefüllten Anmeldeformular an das Reservationsteam schicken</span><span>. </span><span>Das Reservationsteam benötigt dieses Formblatt zur Bearbeitung Ihrer Anmeldung und um Ihrem Visumsantrag die bestmögliche Unterstützung zuteilwerden zu lassen. Es liegt im Ermessen des Reservationsteams, eine Buchung abzulehnen, sollten die nötigen Informationen nicht vollständig beigebracht worden sein oder ein Visumsantrag nicht mehr rechtzeitig bearbeitet werden können. Die alleinige Verantwortung für den Visumsantrag liegt bei den potenziellen Teilnehmer/innen. Das Reservationsteam wird notwendige Unterlagen, wie  z.B. die offizielle „Einladung” und  die „Bestätigung” ausstellen. Potenzielle Teilnehmer/innen sind aufgefordert, einen Reiseversicherungsnachweis sowie alle anderen notwendigen Unterlagen, einschliesslich der von der Stiftung CAUX-Initiativen der Veränderung ausgestellten vorgenannten Schriftstücke zum Termin bei der zuständigen Botschaft bzw. dem zuständigen Konsulat mitzubringen. Das Reservationsteam setzt sich nicht im Auftrag potenzieller Teilnehmer/innen mit Botschaften/Konsulaten in Verbindung, ist jedoch bereit, Kopien der offiziellen „Einladung” und „Bestätigung” als Echtheitsnachweis an die Botschaft bzw. das Konsulat zu verschicken. Diese Unterlagen müssen jedoch nach wie vor auch dem eigenen Visumsantrag beigelegt werden.  </span></p><p><span>Bitte setzen Sie das Reservationsteam in Kenntnis, sobald Ihrem Ersuchen um ein Visum stattgegeben bzw. der entsprechende Antrag abgelehnt wird. Aus organisatorischen Gründen und zur Unterstützung potenzieller Teilnehmer/innen ist es wichtig, das Reservationsteam regelmässig über den Stand des Visumverfahrens zu unterrichten.</span></p>'
 
   name_must_match_passport: "Vorname und Name müssen identisch mit den Angaben auf Ihrem Pass oder Ihrer ID Karte sein."
   i_have_been_to_caux_before: "Ich war bereits in Caux"
@@ -348,14 +345,14 @@ de:
   please_only_select_this_if_you_have_been_accepted: "Bitte wählen Sie diese Option nur, wenn Sie hierfür eine Bestätigung haben."
   staff_please_specify: "(nur für Angestellte oder Mandatsträger eines IofC-Verbandes)"
   team_member_reference_person: "Teammitglied - Referenz Person"
-  nightly_contribution_html: 'Wenn Ihr Aufenthalt von einer Drittperson bezahlt wird, öffnen Sie bitte <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/de/de_sponsoring_confirmation.pdf" target="_new">dieses Dokument</a> und füllen Sie es aus. Dieses Dokument ist nur für Konferenzteilnehmer und nicht für Teilnehemer für eines der Programme.'
+  nightly_contribution_html: '<p>Sollten Sie den Standarttarif nicht begleichen können und eine reduzierte Rate anfordern möchten, vervollständigen Sie bitte das Dokument: <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_fee_reduction_request_de.pdf" target="_new">2017 fee reduction request.pdf</a>. Wir garantieren keine reduzierte Rate.</p><p>Falls Ihr Aufenthalt oder ein Teil Ihres Aufenthaltes von einer Drittpartei bezahlt wird, vervollständigen Sie bitte das Dokument <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_sponsoring_confirmation_de.pdf">2017 sponsoring confirmation.pdf</a> und lassen es von Ihrem Sponsor unterzeichnen. Teilnehmer des Caux Peace & Leadership Programmes, des Caux Scholars Programs und des Caux Artists Programs müssen dieses Formular nicht ausfüllen.</p><p>Alle oben erwähnten Dokumente, falls verlangt, sollten direkt nach dem Ausfüllen der Anmeldeformulars and <a href="mailto:reservation@caux.ch">reservation@caux.ch</a> geschickt werden. Verspätet eingereichte Dokumente können den ganzen Anmeldeprozess verzögern.</p>'
   costs_covered_by_foundation: 'Die Kosten Ihres Aufenthaltes werden von der Stiftung CAUX-IofC übernommen.'
   conference_package: 'Pauschalangebot'
   early_bird_discount: 'Frühbucher-Sonderaktion'
   support_team: 'Teammitglied support'
   student: "Student mit Studentenausweis (Alter 26-35)"
   amis_de_caux: 'Vollmitglied der "Freunde von Caux"'
-  please_carefully_read_html: "Bitte lesen Sie <a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/pr/pr_general_terms_and_conditions_2015_finalreviewed20160125_de.pdf\" target=\"_new\">die Allgemeinen Anmeldebestimmungen</a> genau bevor Sie zustimmen.<p/>"
+  please_carefully_read_html: "Bitte lesen Sie <a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/ge/general_terms_and_conditions_2017_de.pdf\" target=\"_new\">die Allgemeinen Anmeldebestimmungen</a> genau bevor Sie zustimmen.<p/>"
   no_newsletters: 'Bitte senden Sie mir keine Newsletter'
   notice_of_receipt_subject: 'Empfangsbestätigung'
   conference_package_advertisement: "Profitieren Sie von unseren Pauschalangeboten indem Sie Ihre An- und Abreisedaten denen der Konferenz Ihrer Wahl anpassen!"

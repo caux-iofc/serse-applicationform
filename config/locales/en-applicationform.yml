@@ -23,7 +23,11 @@ en:
   profession: "Profession"
   employer: "Employer"
   special_dietary_requirements: "Special dietary requirements"
-  diet_detail: "To help meet medical, health and religious needs, the Caux kitchen can provide the following menu adaptations. Breakfast and lunch is always vegetarian, in the evening a vegetarian option is provided for those who have registered. Please tick the box(es) according to your needs: "
+  diet_detail_html: "Our meals are either vegetarian or offer a vegetarian option. The catering company does its best to accommodate most <strong>standard dietary requests</strong> for medical and health reasons. We can fulfill requests for gluten-free, lactose-free, garlic- and onion-free, as well as low salt diets. Low fat and vegan meals are not provided, but you will be able to make your choice out of our buffets. In order to welcome people with different religious backgrounds we provide pork-free meals and a Halal option.<p/><strong>Please make sure to inform us about all of your dietary requests in advance. We cannot guarantee to arrange for late or on-site requests.</strong>"
+  diet_i_have_dietary_requests: "I have dietary requests:"
+  diet_ramadan_info: "Info: During Ramadan we offer special meals at night"
+  diet_i_have_medical_allergy_requests: "I  have medical allergy requests:"
+  diet_closing_text: "Please inform us via email if you have other needs and we will help to provide a solution."
   diet: "Diet"
   diet_other_detail: "Diet / Other"
   special_meals_at_night: "(special meals at night)"
@@ -99,17 +103,6 @@ en:
   visa_needed: "Yes I need a visa"
   visa_reference_name: "Reference person from Initiatives of Change"
   visa_reference_email: "E-mail address reference person"
-  visa_information_html: '<p>Please enquire whether you need a visa by consulting one of the following
-                          <ul>
-                            <li><a href="http://www.eda.admin.ch/eda/en/home/reps.html" target="new">the nearest Swiss Consulate</a>
-                            <li><a href="http://www.bfm.admin.ch/bfm/en/home/themen/einreise/merkblatt_einreise.html" target="new">ID and Visa provisions for entry into Switzerland</a>
-                            <li>your travel agent
-                          </ul>
-                          <strong>IMPORTANT</strong>
-                            <ul>
-                              <li>If you require a Swiss visa your registration needs to reach the conference secretariat <b>at least 10 weeks</b> prior to your arrival at Caux.
-                              <li>Please note that once your visa letter has been issued (copies of which go to the Swiss Embassy) it is very difficult to change your reservation outside the dates of the visa letter.
-                            </ul></p>'
   visa_information_2: 'If you have any problems or questions please contact the Reservations Team as early as possible at '
   passport_number: "Passport number"
   passport_issue_place: "Passport place of issue"
@@ -138,6 +131,7 @@ en:
 
   personal_contribution_html: "<b>Personal contribution</b>"
   please_check_total_html: "Please check the total cost of your personal contribution (automatically calculated):"
+  personal_contribution_note_html: "<i>The price shown may not be correct due to wrongly chosen options during the process. The reservations team will communicate the final costs in the confirmation letter.</i>"
 
   nightly_contribution: "My personal contribution per night"
   nightly_contribution_currency: "CHF"
@@ -183,11 +177,12 @@ en:
   confirm_read_documents: ''
 
   submitted_title: 'Registration Form complete'
-  submitted_intro_part_1: "Thank you, your registration has been received."
-  submitted_intro_part_2: "Your registration has not yet been approved."
-  submitted_intro_part_3: "You will receive a formal confirmation letter if your registration is approved. If you have not received a confirmation letter 2 weeks prior to your planned arrival in Caux, please enquire via "
-  submitted_intro_part_3b: " the conference secretariat"
-  follow_us_on: "Follow us to get the latest about the International Caux Conferences"
+  submitted_intro_part_1: "Thank you, your registration has been received. You will also receive an automated email for the acknowledgement of receipt. Please be aware that this automated email may be filtered into your spam folder."
+  submitted_intro_part_2: "Your registration has not yet been approved and will be processed within 7 days."
+  submitted_intro_part_3: 'Please make sure that you send all the required documents mentioned during the registration process to the Reservations Team at '
+  submitted_intro_part_3b: "reservation@caux.ch"
+  submitted_intro_part_3c: ""
+  follow_us_on: "Follow us to get the latest about the Caux Forum:"
   your_application_title: "Your application"
   application_not_yet_submitted_html: "Your application has not yet been submitted.<br/>Please add a person or submit your application."
   welcome_children_html: "We look forward to welcoming you in Caux with your child(ren). As you know they can be looked after in a kindergarten during the meetings. In order for everything to go smoothly, we ask you <b>to bring a mobile phone</b> so that you can be easily reached if needed. This is a regulation of the cantonal authorities for kindergartens. Thank you in advance."
@@ -329,18 +324,19 @@ en:
   staff_please_specify: "(only for Staff of CAUX-IofC or mandate by CAUX-IofC)"
   team_member_reference_person: "Team member - reference person"
 
-  visa_information_html: '<p><span>Prospective attendees who require an entry visa for Switzerland must allow sufficient time for the visa application procedure. They should contact the nearest Swiss Embassy or Consulate before planning their trip to learn about the requirements. </span></p><p><span>As a visa request can only be submitted 3 months before travelling and can take up to 8 weeks, we strongly recommend applying for a visa as early as possible and suggest a careful study of the visa requirements with the relevant Embassy or Consulate. Missing documents can be a ground for visa refusal. Please visit </span><a href="https://www.eda.admin.ch/eda/en/home.html"><span>https://www.eda.admin.ch/eda/en/home.html</span></a><span> for more information on the visa application procedure and process.</span></p><p><span>We kindly ask every prospective attendee requiring a visa to mention this in the registration form and, in addition, to fill out the </span><a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/en/en_visa_application2016.pdf" target="_new"><span>Visa application</span></a><span> and to send it to the Reservations Team with the filled-out registration form.</span><span> </span><span>This document is important for the Reservations Team to evaluate your reservation and provide the best support possible for your visa application. The Reservations Team will have the discretion to not accept a reservation should any information be missing or should it be too late for a visa application to be processed in time. The visa application is the sole responsibility of the prospective attendee. The Reservations Team will issue necessary documents such as the “Invitation Letter” and the “Hotel Confirmation Letter”. Travel insurance and all other necessary documents must be brought to the interview at the relevant Embassy/Consulate by the prospective attendee including the above-mentioned documents issued by the CAUX – Initiatives of Change Foundation. The Reservations Team does not contact the Embassy/Consulate on your behalf for an appointment, but it will send a copy of the “Invitation Letter” and the “Hotel Confirmation Letter” to the Embassy/ Consulate to prove authenticity. You will still need to present those documents yourself in your visa application.  </span></p><p><span>Please inform the Reservations Team as soon as your visa request is granted or refused. It is important, for organizational reasons and in order to support the prospective attendee, that the Reservations Team be informed regularly on the status of the visa process.</span></p>'
+  visa_information_html: '<p><span>If you require a visa for your stay in Caux, please fill out the document <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_visa_application_en.pdf" target="_new">2017 visa application.pdf</a> and send it to <a href="mailto:reservation@caux.ch">reservation@caux.ch</a> right after you completed the registration form. We will not process your reservation until we have received the requested document. Participants of the Caux Peace & Leadership Programme and the Caux Scholars Program do not have to send this document due to their previous application process.</span></p><p><span>Prospective attendees who require an entry visa for Switzerland must allow sufficient time for the visa application procedure. They should contact the nearest Swiss Embassy or Consulate before planning their trip to learn about the requirements. </span></p><p><span>As a visa request can only be submitted 3 months before travelling and can take up to 8 weeks, we strongly recommend applying for a visa as early as possible and suggest a careful study of the visa requirements with the relevant Embassy or Consulate. Missing documents can be a ground for visa refusal. Please visit </span><a href="https://www.eda.admin.ch/eda/en/home.html"><span>https://www.eda.admin.ch/eda/en/home.html</span></a><span> for more information on the visa application procedure and process.</span></p><p><span>We kindly ask every prospective attendee requiring a visa to mention this in the registration form and, in addition, to fill out the </span><a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/en/en_visa_application2016.pdf" target="_new"><span>Visa application</span></a><span> and to send it to the Reservations Team with the filled-out registration form.</span><span> </span><span>This document is important for the Reservations Team to evaluate your reservation and provide the best support possible for your visa application. The Reservations Team will have the discretion to not accept a reservation should any information be missing or should it be too late for a visa application to be processed in time. The visa application is the sole responsibility of the prospective attendee. The Reservations Team will issue necessary documents such as the “Invitation Letter” and the “Hotel Confirmation Letter”. Travel insurance and all other necessary documents must be brought to the interview at the relevant Embassy/Consulate by the prospective attendee including the above-mentioned documents issued by the CAUX – Initiatives of Change Foundation. The Reservations Team does not contact the Embassy/Consulate on your behalf for an appointment, but it will send a copy of the “Invitation Letter” and the “Hotel Confirmation Letter” to the Embassy/ Consulate to prove authenticity. You will still need to present those documents yourself in your visa application.  </span></p><p><span>Please inform the Reservations Team as soon as your visa request is granted or refused. It is important, for organizational reasons and in order to support the prospective attendee, that the Reservations Team be informed regularly on the status of the visa process.</span></p>'
 
-  nightly_contribution_html: 'If your stay is sponsored by a third party, please download <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/en/en_sponsoring_confirmation.pdf" target="_new">this document</a> and fill it out as requested in the paper. Please note that this is only for conference participants and not for attendees of any of the programs.'
+  nightly_contribution_html: '<p>If you are unable to pay the Standard rate and request a reduction, please complete the document <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_fee_reduction_request_en.pdf" target="_new">2017 fee reduction request.pdf</a>. We do not guarantee a reduced rate.</p><p>If your stay or parts of your stay are covered by a third party, please complete the document <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_sponsoring_confirmation_en.pdf" target="_new">2017 sponsoring confirmation.pdf</a> and have it signed by the sponsor. Participants of the Caux Peace & Leadership Programme, the Caux Scholars Program and the Caux Artists Program are excluded from this step.</p><p>All of the above mentioned documents should be sent to the Reservations Team via email to <a href="mailto:reservation@caux.ch">reservation@caux.ch</a> directly after completing the registration form. A delay may slow down the process.</p>'
 
   costs_covered_by_foundation: 'The costs of your stay are covered by the CAUX-IofC Foundation.'
   conference_package: 'Conference package'
   early_bird_discount: 'Early bird discount'
   support_team: 'support team member'
-  student: "Student with student card (age 26-35)"
-  amis_de_caux: 'Full member of the association "Amis de Caux"'
-  local_iofc_team_member: "IofC staff or holder of a mandate from an IofC Association"
-  please_carefully_read_html: 'Please carefully read <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/ge/general_terms_and_conditions_2015_finalreviewed20160125.pdf" target="_new">the general terms and conditions</a> before accepting.<p/>'
+  student: 'Subsidized - Student Age 26-35'
+  amis_de_caux: 'Subsidized - Full member of Amis de Caux'
+  local_iofc_team_member: 'Subsidized - IofC Staff, Holder of IofC Mandate'
+  local_iofc_team_member_footnote_html: 'please complete the document <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_iofc_staff_approval_en.pdf" target="_new">2017 IofC staff approval.pdf</a>'
+  please_carefully_read_html: 'Please carefully read <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/ge/general_terms_and_conditions_2017_en.pdf" target="_new">the general terms and conditions</a> before accepting.<p/>'
   no_newsletters: 'I do not want to receive newsletters'
   notice_of_receipt_subject: 'acknowledgement of receipt'
   conference_package_advertisement: "Benefit from our package deals by adjusting your arrival and departure dates to match the conference start and end date!"

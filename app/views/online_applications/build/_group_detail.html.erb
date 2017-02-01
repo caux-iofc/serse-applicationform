@@ -76,19 +76,21 @@
 
     <div class="form-group">
       <%= f.label :special_dietary_requirements, t(:special_dietary_requirements) %><br />
-      <%= t(:diet_detail) %><br />
+      <%= t(:diet_detail_html) %><br/><br/>
+      <strong><%= t(:diet_i_have_dietary_requests) %></strong><br/>
       <% Diet.with_translations.order(:priority_sort).each do |diet| -%>
-        <div <%= diet.name == 'Ramadan' ? 'id="ramadan" style="display: none"'.html_safe : '' -%>>
+        <div>
           <% @old_locale = I18n.locale; I18n.locale = 'en' -%>
           <%= check_box_tag :diet_ids, diet.id, online_application.diets.include?(diet), :name => "application_group[online_applications_attributes][#{f.object_name.gsub(/[^0-9]+/,'')}][diet_ids][]", :id => "diet_check_#{diet.name.downcase}", :class => ( diet.name == 'Other' ? "diet_other_#{online_application.id}" : '' ) %>
           <% I18n.locale = @old_locale -%>
-          <%= label_tag :diet_ids, diet.name %> <%= diet.name == 'Ramadan' ? t(:special_meals_at_night) : '' -%>
+          <%= label_tag :diet_ids, diet.name %>
         </div>
+        <% if diet.name == 'Halal' -%>
+          <div>&nbsp;&nbsp;&nbsp;&nbsp;<i><%= t(:diet_ramadan_info) -%></i></div><br/>
+          <strong><%= t(:diet_i_have_medical_allergy_requests) %></strong><br/>
+        <% end -%>
       <% end -%>
-      <span class="diet_other_<%= online_application.id -%>_subform" name="diet_other_text" id="diet_other_text" style="display: none">
-        <%=t 'please_specify' %> <%= f.text_field :diet_other_detail, :size => 60 %><br/>
-      </span>
-      <i><%=t 'other_diet_text' %></i>
+      <div><%= t(:diet_closing_text) %></div>
     </div>
   </div>
 </div>

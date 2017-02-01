@@ -63,6 +63,13 @@
           <div class="col-md-11 col-md-offset-1">
             <font size="-1"><%= oac.object.conference.byline.html_safe %></font>
           </div>
+          <% @old_locale = I18n.locale; I18n.locale = 'en' -%>
+          <% if oac.object.conference.name == 'Ethical Leadership in Business' -%>
+          <div class="col-md-10 col-md-offset-2">
+            <%= t(:elic_2017_long_byline_html) -%>
+          </div>
+          <% end -%>
+          <% I18n.locale = @old_locale -%>
         </div>
       <% end -%>
       <% if not oac.object.conference.special -%>
