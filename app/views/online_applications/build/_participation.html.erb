@@ -65,7 +65,8 @@
           </div>
           <% @old_locale = I18n.locale; I18n.locale = 'en' -%>
           <% if oac.object.conference.name == 'Ethical Leadership in Business' -%>
-          <div class="col-md-10 col-md-offset-2">
+          <% I18n.locale = @old_locale -%>
+          <div class="col-md-10 col-md-offset-1">
             <%= t(:elic_2017_long_byline_html) -%>
           </div>
           <% end -%>
@@ -159,17 +160,6 @@
       </div>
       <div class="col-md-11">
         <label><%=t :interpreter %></label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-1">
-        <%= f.check_box :volunteer %>
-      </div>
-      <div class="col-md-5">
-        <label><%=t :volunteer %></label>, <%=t :volunteer_please_specify %>
-      </div>
-      <div class="col-md-6">
-        <%= f.text_field :volunteer_detail, { class: 'form-control', :size => 40 } %>
       </div>
     </div>
     <div class="row hide_for_children">
