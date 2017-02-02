@@ -143,7 +143,7 @@ en:
   sponsors_currency_name: "CHF"
   sponsors_amount: "Amount per night"
   name_badge: "Name badge"
-  badge_explanation: "While the conferences are on, during the Caux Forum, everyone in the conference centre has a name badge that indicates their name and country. Please provide your information as you want it to appear on your badge."
+  badge_explanation: "During the Caux Forum, everyone in the conference centre has a name badge that indicates their name and country. Please provide your information as you want it to appear on your badge."
   proceed: "Proceed"
   phone_number_invalid: "must start with a plus sign followed by your country code (e.g. +41 for Switzerland, +1 for the USA, etc) followed by the rest of the number."
   postal_code_invalid: "must either be empty or two or more characters long"
