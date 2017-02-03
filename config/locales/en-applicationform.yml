@@ -85,6 +85,10 @@ en:
   previous_visit_yes: "Yes"
   previous_visit_unset: ": please indicate if you have visited Caux before."
 
+  # stop rails from interpreting keys as booleans, quote them!
+  "yes": Yes
+  "no": No
+
   day_visit_unset: ": please indicate if you will stay overnight or are a day visitor."
 
   previous_year: "Year of last visit"

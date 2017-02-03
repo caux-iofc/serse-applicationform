@@ -13,7 +13,7 @@ jQuery ->
   $(document).on "click", "#add_family_member", (e) ->
     e.preventDefault();
     $.ajax
-      url: '/en/add_family_member'
+      url: '/' + I18n.locale + '/add_family_member'
       success: (data) ->
         el_to_add = $(data).html()
         $('#members').append(el_to_add)

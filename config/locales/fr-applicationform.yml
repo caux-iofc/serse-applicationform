@@ -114,6 +114,10 @@ fr:
   previous_visit_no: "Non"
   previous_visit_yes: "Oui"
 
+  # stop rails from interpreting keys as booleans, quote them!
+  "yes": Oui
+  "no": Non
+
   previous_year: "Année de votre dernière visite"
 
   practical_life: "Les participant(e)s aux rencontres sont invité(e)s à aider à la bonne marche du centre et aux tâches pratiques. Votre équipe de service (cuisine, service des repas etc.) vous sera indiquée à votre arrivée par les organisateurs de la session."
@@ -191,7 +195,7 @@ fr:
   other_diet_text: Si vous utilisez des produits particuliers, merci de les apporter.
   conference_fees: Frais de séjour
 
-  more_information_about_conference_fees_html: 'Des informations complémentaires sur les tarifs sont disponibles <a href="http://www.caux.ch/fr/frais-de-sejour-rencontre-hiver" target="_new">ici</a>.'
+  more_information_about_conference_fees_html: 'Des informations complémentaires sur les tarifs sont disponibles <a href="http://www.caux.ch/fr/frais-de-sejour" target="_new">ici</a>.'
   i_travel_with_my_family: 'Je viens à Caux en famille (Un couple ne compte pas comme une famille. Minimum 1 enfant et 1 parent)'
   i_want_to_support_the_center_renovation_fund: "Je désire soutenir le fonds de rénovation du Centre (150 CHF par nuit)"
   i_volunteer_full_time: "Je suis permanent d'I&C"

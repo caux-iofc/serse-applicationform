@@ -27,7 +27,7 @@ def new_diet(sort,en,fr=en,de=en)
 end
 
 sort = 0
-new_diet(sort += 1,'Vegetarian (includes eggs and dairy products)','Végétarien (comprend des œufs et des produits laitiers)','Vegetarisch (inclusive Eier und Michprodukte)')
+new_diet(sort += 1,'Vegetarian (includes eggs and dairy products)','Végétarien (comprend des œufs et des produits laitiers)','Vegetarisch (inclusive Eier und Milchprodukte)')
 #new_diet(sort += 1,'Vegan','Végétalien','Vegan')
 new_diet(sort += 1,'Halal')
 #new_diet(sort += 1,'Ramadan','Ramadan','Ramadan')
