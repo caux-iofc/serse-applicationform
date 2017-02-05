@@ -11,7 +11,7 @@ fr:
   other_citizenship: "Autre nationalité"
   confirmation: Confirmation
   travel_flight: "Voyage: no de vol"
-  submitted_title: Formulaire d'inscription complet
+  submitted_title: "Formulaire d'inscription completé"
   citizenship: "Nationalité"
   citizenship_id: "Nationalité"
   work_telephone: "Numéro de téléphone professionnel"
@@ -32,7 +32,7 @@ fr:
   proficiency_good: Conversation
   proficiency_poor: Basique
 
-  translation_needed: "Est-ce que vous avez besoin d'une traduction des langues suivantes vers votre langue maternelle ou dans une autre langue pour-que vous puissiez suivre les conférences?"
+  translation_needed: "Avez-vous besoin d’une traduction d’une des langues ci-dessous vers votre langue maternelle ou dans une autre langue afin de pouvoir suivre les échanges du Caux Forum ?"
   english: anglais
   french: français
   german: allemand
@@ -52,7 +52,7 @@ fr:
   special_dietary_requirements: "Régime alimentaire particulier"
   diet_detail_html: "<p>Nos repas sont végétariens ou proposent une option végétarienne. Notre entreprise de restauration fait de son mieux pour satisfaire la plupart des <strong>restrictions alimentaires standard</strong> pour raisons médicales et de santé. Nous pouvons satisfaire vos demandes pour les régimes sans gluten, sans lactose, sans ail et sans oignon, ainsi que les régimes pauvres en sel. Nous ne proposons pas de repas allégés ou végétaliens mais vous pourrez faire votre choix dans nos buffets. Afin de pouvoir accueillir des personnes de milieux religieux différents, nous proposons des repas sans porc, ainsi qu’une option halal.</p><strong>Veuillez, s’il vous plaît, nous informer de vos restrictions alimentaires à l’avance. Nous ne pouvons garantir la satisfaction de demandes tardives ou faites sur place.</strong>"
   diet_i_have_dietary_requests: "J'ai des restrictions alimentaires:"
-  diet_ramadan_info: "Info: au cours du Ramadan, nous offrons des repas spéciaux le soir"
+  diet_ramadan_info: "Info: pendant le Ramadan, nous offrons des repas spéciaux le soir"
   diet_i_have_medical_allergy_requests: "J'ai des restrictions alimentaires d’ordre médical en raison d’allergies:"
   diet_closing_text: "Veuillez, s’il vous plaît, nous informer par e-mail si vous avez d’autres besoins et nous vous aiderons à trouver une solution."
 
@@ -69,7 +69,7 @@ fr:
   confirm_read_documents: ""
   employer: Employeur
   date_of_birth: Date de naissance
-  heard_about: Comment avez-vous entendu parler des rencontres de Caux?
+  heard_about: Comment avez-vous entendu parler du Caux Forum?
   nightly_contribution_currency: CHF
   sponsors_name: ""
   sponsors_nights: "Nuitées"
@@ -79,7 +79,7 @@ fr:
   confirmation_letter_via_email: Courriel
   permanent_address: Adresse permanente
   surname: Nom de famille
-  badge_explanation: Tous les participants aux rencontres de Caux portent un badge indiquant leur nom et pays. Veuillez entrer ces informations telles que vous souhaitez qu'elles apparaissent.
+  badge_explanation: Tous les participants au Caux Forum portent un badge indiquant leur nom et pays. Veuillez entrer ces informations telles que vous souhaitez qu'elles apparaissent.
   passport_number: No de passeport
   passport_issue_place: "Lieu d'émission du passeport"
   passport_issue_date: "Date d'émission"
@@ -120,7 +120,9 @@ fr:
 
   previous_year: "Année de votre dernière visite"
 
-  practical_life: "Les participant(e)s aux rencontres sont invité(e)s à aider à la bonne marche du centre et aux tâches pratiques. Votre équipe de service (cuisine, service des repas etc.) vous sera indiquée à votre arrivée par les organisateurs de la session."
+  practical_life: "Les participant(e)s au Caux Forum sont invité(e)s à aider au bon fonctionnement du centre du conférence et
+aux tâches pratiques. Votre équipe de service (cuisine, service des repas etc.) vous sera indiquée à votre arrivée par
+les organisateurs de la session."
 
   visa_needed: "Oui, il me faut un visa"
 
@@ -131,7 +133,7 @@ fr:
   email: "Adresse courriel (e-mail) "
   profession: Profession
 
-  conference_participation: "Je participe à la/aux rencontre(s) suivante(s):"
+  conference_participation: "Je participe à l’évènement(s) suivant(s):"
   special_conference_participation: "Autre réunion:"
   training_participation: "Je participe à la formation suivante:"
   other_reason_title: "Je viens à Caux pour une autre raison:"
@@ -157,7 +159,7 @@ fr:
   team: "membre de l’équipe"
   exhibitor: "exposant"
 
-  follow_us_on: "Vous pouvez nous suivre pour recevoir toutes les dernières infos sur le Forum de Caux:"
+  follow_us_on: "Suivez nous pour recevoir toutes les dernières infos sur le Caux Forum:"
 
   form_unavailable_title: "Inscription en ligne hors service"
   form_unavailable_html: "Chère participante, cher participant,<p>Merci de votre intérêt. Le formulaire d'inscription sera bientôt en ligne. Si vous envoyez votre email au <a href=\"mailto:reservation@caux.ch\">secrétariat des rencontres</a>, nous pourrons vous prévenir dès que celui-ci est disponible. <p>Meilleures salutations,<br/>le secrétariat des rencontres<p>Pour recevoir les dernières nouvelles de Caux directement, inscrivez-vous à la newsletter, sur notre page Facebook et Twitter"
@@ -302,7 +304,7 @@ fr:
   amis_de_caux: 'Membres "Amis de Caux"'
   local_iofc_team_member: "Personnel d'I&C ou détenteurs d'un mandat d'une Association d'I&C"
   local_iofc_team_member_footnote_html: "veuillez, s'il vous plaît, remplir le document <a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_iofc_staff_approval_fr.pdf\" target=\"_web\">2017 IofC staff approval.pdf</a>"
-  please_only_register_if_you_have_been_accepted_beforehand: 'Merci de ne vous inscrire aux programmes suivants que si vous avez déjà été accepté'
+  please_only_register_if_you_have_been_accepted_beforehand: 'Merci de ne vous inscrire aux programmes suivants que si vous avez déjà été accepté(e)'
   register_as_part_of_group: "Je m'inscris en tant que membre d'un groupe / d'une délégation"
   group_name: Nom du groupe / de la délégation
   group_personal_details: Données personnelles des membres du groupe / de la délégation
@@ -331,9 +333,9 @@ fr:
 
   conference_full: "The following conference is fully booked, no further registrations are accepted"
 
-  visa_information_html: "<p><span>Si vous avez besoin d'un visa pour votre séjour à Caux, veuillez, s'il vous plaît, remplir le document <a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_visa_application_fr.pdf\" target=\"_new\">2017 visa application.pdf</a> et l'envoyer à l'adresse suivante <a href=\"mailto:reservation@caux.ch\">reservation(at)caux.ch</a> après avoir rempli votre formulaire d'inscription. Nous ne traiterons votre demande que lorsque nous aurons reçu ledit document. Les participants au Programme de Caux pour la paix et le leadership et au Programme des Caux Scholars n'ont pas besoin d'envoyer ce document en raison de leur précédent processus d'inscription.</span></p><p>Les participants potentiels ayant besoin d'un visa d'entrée pour la Suisse doivent prévoir assez de temps pour la procédure de demande de visa. Ils doivent contacter l'ambassade suisse ou le consulat suisse le plus proche avant de planifier leur voyage pour se renseigner sur les démarches requises.</span></p><p><span>Étant donné qu'une demande de visa ne peut être soumise que 3 mois avant votre voyage et peut prendre jusqu'à 8 semaines avant d'être acceptée, nous vous conseillons vivement d'effectuer votre demande de visa aussi tôt que possible et d'étudier minutieusement les conditions requises avec l'ambassade ou le consulat concerné. Des documents manquants peuvent être la cause d'un refus de visa. Veuillez consulter  </span><a href=\"https://www.eda.admin.ch/eda/fr/home.html\" target=\"_new\"><span>https://www.eda.admin.ch/eda/fr/home.html</span></a><span> pour plus d'informations sur la procédure et le processus de demande de visa. </span></p><p><span>Nous demandons à chaque participant potentiel ayant besoin d'un visa de bien vouloir le mentionner dans le formulaire d'inscription, ainsi que de remplir le document </span><a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_visa_application_fr.pdf\" target=\"_new\">2017 visa application.pdf</a><span> et de l'envoyer à l'équipe des réservations avec le formulaire d'inscription rempli.</span><span> </span><span>Ce document est important afin que l'équipe des réservations puisse évaluer votre réservation et fournir le meilleur soutien possible à votre demande de visa. L'équipe des réservations peut ne pas accepter une réservation si des informations sont manquantes ou s'il est trop tard pour qu'une demande de visa soit traitée à temps. La demande de visa relève de la responsabilité du participant potentiel. L'équipe des réservations fournira les documents nécessaires tels que la « lettre</span><span> d'invitation » et la « lettre de confirmation de l'hôtel ». L'assurance de voyage et tous les autres documents nécessaires doivent être présentés par le participant potentiel lors de l'entretien à l'ambassade ou au consulat concerné, y compris les documents ci-dessus mentionnés fournis par la Fondation CAUX – Initiatives et Changement. L'équipe des réservations ne contactera pas l'ambassade ou le consulat en votre nom pour un rendez-vous, mais elle enverra une copie de la « lettre d'invitation » et de la « lettre de confirmation de l'hôtel » à l'ambassade ou au consulat comme preuve d'authenticité. Vous devrez également joindre ces documents vous-même dans votre demande de visa. </span></p><p><span>Veuillez informer l'équipe des réservations dès que votre demande de visa est acceptée ou refusée. Il est important, pour des raisons d'organisation et afin de soutenir le participant potentiel, que l'équipe des réservations soit informée régulièrement du statut du processus de demande de visa. </span></p>"
+  visa_information_html: "<p><span>Si vous avez besoin d'un visa pour votre séjour à Caux, veuillez, s'il vous plaît, remplir le document <a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_visa_application_fr.pdf\" target=\"_new\">2017 visa application.pdf</a> et l'envoyer à l'adresse suivante <a href=\"mailto:reservation@caux.ch\">reservation@caux.ch</a> après avoir rempli votre formulaire d'inscription. Nous ne traiterons votre demande que lorsque nous aurons reçu ledit document. Les participants au Programme de Caux pour la paix et le leadership et au Programme des Caux Scholars n'ont pas besoin d'envoyer ce document en raison de leur précédent processus d'inscription.</span></p><p>Les participants potentiels ayant besoin d'un visa d'entrée pour la Suisse doivent prévoir assez de temps pour la procédure de demande de visa. Ils doivent contacter l'ambassade suisse ou le consulat suisse le plus proche avant de planifier leur voyage pour se renseigner sur les démarches requises.</span></p><p><span>Étant donné qu'une demande de visa ne peut être soumise que 3 mois avant votre voyage et peut prendre jusqu'à 8 semaines avant d'être acceptée, nous vous conseillons vivement d'effectuer votre demande de visa aussi tôt que possible et d'étudier minutieusement les conditions requises avec l'ambassade ou le consulat concerné. Des documents manquants peuvent être la cause d'un refus de visa. Veuillez consulter  </span><a href=\"https://www.eda.admin.ch/eda/fr/home.html\" target=\"_new\"><span>https://www.eda.admin.ch/eda/fr/home.html</span></a><span> pour plus d'informations sur la procédure et le processus de demande de visa. </span></p><p><span>Nous demandons à chaque participant potentiel ayant besoin d'un visa de bien vouloir le mentionner dans le formulaire d'inscription, ainsi que de remplir le document </span><a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_visa_application_fr.pdf\" target=\"_new\">2017 visa application.pdf</a><span> et de l'envoyer à l'équipe des réservations avec le formulaire d'inscription rempli.</span><span> </span><span>Ce document est important afin que l'équipe des réservations puisse évaluer votre réservation et fournir le meilleur soutien possible à votre demande de visa. L'équipe des réservations peut ne pas accepter une réservation si des informations sont manquantes ou s'il est trop tard pour qu'une demande de visa soit traitée à temps. La demande de visa relève de la responsabilité du participant potentiel. L'équipe des réservations fournira les documents nécessaires tels que la « lettre</span><span> d'invitation » et la « lettre de confirmation de l'hôtel ». L'assurance de voyage et tous les autres documents nécessaires doivent être présentés par le participant potentiel lors de l'entretien à l'ambassade ou au consulat concerné, y compris les documents ci-dessus mentionnés fournis par la Fondation CAUX-Initiatives et Changement. L'équipe des réservations ne contactera pas l'ambassade ou le consulat en votre nom pour un rendez-vous, mais elle enverra une copie de la « lettre d'invitation » et de la « lettre de confirmation de l'hôtel » à l'ambassade ou au consulat comme preuve d'authenticité. Vous devrez également joindre ces documents vous-même dans votre demande de visa. </span></p><p><span>Veuillez informer l'équipe des réservations dès que votre demande de visa est acceptée ou refusée. Il est important, pour des raisons d'organisation et afin de soutenir le participant potentiel, que l'équipe des réservations soit informée régulièrement du statut du processus de demande de visa. </span></p>"
 
-  name_must_match_passport: "Prénom et nom de famille doivent être identiques à ce qui apparaît sur votre passeport ou carte d'identité."
+  name_must_match_passport: "Le prénom et le nom de famille doivent être identiques à ce qui apparaît sur votre passeport ou carte d'identité."
   i_have_been_to_caux_before: "Je étais à Caux avant"
   online_search: "recherche en ligne"
   caux_iofc_website: "site internet CAUX-IofC"
@@ -343,12 +345,12 @@ fr:
   other_media: "autres médias"
   special_program_participation: "Je vais participer au programme suivant:"
   other_reason_title: "Je viens à Caux comme ..."
-  please_only_select_this_if_you_have_been_accepted: "S'il vous plaît sélectionner uniquement si vous avez été accepté."
-  staff_please_specify: "(seulement pour personnel d’I&C ou détenteurs d’un mandat d’une Association d’I&C)"
+  please_only_select_this_if_you_have_been_accepted: "S'il vous plaît sélectionner uniquement si vous avez été accepté(e)."
+  staff_please_specify: "(seulement pour personnel d’I&C ou consultants d’une Association d’I&C)"
   team_member_reference_person: "membre de l'équipe - personne de référence"
   nightly_contribution_html: "<p>Si vous ne pouvez pas payer le tarif standard et souhaitez demander une réduction, veuillez, s'il vous plaît, remplir le document <a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_fee_reduction_request_fr.pdf\" target=\"_new\">2017 fee reduction request.pdf</a>. Nous ne pouvons pas garantir une réduction de tarif.</p><p>Si votre séjour ou des parties de votre séjour sont couverts par un tiers, veuillez, s'il vous plaît, remplir le document <a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_sponsoring_confirmation_fr.pdf\" target=\"_new\">2017 sponsoring confirmation.pdf</a> et le faire signer par votre parrain. Les participants au Programme de Caux pour la paix et le leadership, le Programme des Caux Scholars et le Programme des Caux Artists n'ont pas à procéder à cette étape.</p><p>Tous les documents mentionnés ci-dessus devraient être envoyés directement à l'équipe des réservations par e-mail à l'adresse suivante <a href=\"mailto:reservation@caux.ch\">reservation@caux.ch</a> après avoir rempli le formulaire d'inscription. Tout retard pourrait ralentir le processus.</p>"
 
-  costs_covered_by_foundation: 'Les frais de séjour sont couverts par la Fondation CAUX - Initiatives et Changement.'
+  costs_covered_by_foundation: 'Les frais de séjour sont couverts par la Fondation CAUX-Initiatives et Changement.'
   conference_package: 'offre promotionelle par conference'
   early_bird_discount: 'offre promotionelle'
   support_team: "membre de l'équipe support"
