@@ -13,7 +13,7 @@ jQuery ->
   $(document).on "click", "#add_family_member", (e) ->
     e.preventDefault();
     $.ajax
-      url: '/en/add_family_member'
+      url: '/' + I18n.locale + '/add_family_member'
       success: (data) ->
         el_to_add = $(data).html()
         $('#members').append(el_to_add)
@@ -149,43 +149,40 @@ jQuery ->
 
   ##### handle showing/hiding of certain sections for spouse/children ####
 
-  ## First the code that will run on document load ##
-  if $('#online_application_relation').val() == 'spouse' or $('#online_application_relation').val() == 'child'
-    $(".hide_for_family_members").hide()
-  else
-    $(".hide_for_family_members").show()
-  if $('#online_application_relation').val() == 'child'
-    $(".hide_for_children").hide()
-    $(".show_for_children").show()
-  else
-    $(".hide_for_children").show()
-    $(".show_for_children").hide()
-  if $('#online_application_relation').val() == 'primary applicant'
-    $(".show_for_primary_applicant").show()
-  else
-    $(".show_for_primary_applicant").hide()
-  if $('#online_application_relation').val() == 'primary applicant'
-    $(".show_for_all_but_primary_applicant").hide()
-  else
-    $(".show_for_all_but_primary_applicant").show()
-
-
-  ## And then all the hooks ##
-  $("#online_application_relation").change ->
-    if $('#online_application_relation').val() == 'spouse' or $('#online_application_relation').val() == 'child'
+  spouse_child_updates = (o) ->
+    if o.length
+      console.log o.length
+    else
+      console.log 'xx'
+      console.log o.val()
+    if o.val() == 'spouse' or o.val() == 'child'
       $(".hide_for_family_members").hide()
     else
       $(".hide_for_family_members").show()
-    if $('#online_application_relation').val() == 'child'
+    if o.val() == 'child'
       $(".hide_for_children").hide()
       $(".show_for_children").show()
     else
       $(".hide_for_children").show()
       $(".show_for_children").hide()
-    if $('#online_application_relation').val() == 'primary applicant'
+    if o.val() == 'primary applicant'
       $(".show_for_primary_applicant").show()
+      $(".show_for_all_but_primary_applicant").hide()
     else
       $(".show_for_primary_applicant").hide()
+      $(".show_for_all_but_primary_applicant").show()
+
+  ## First the code that will run on document load ##
+  if $('#online_application_relation').length
+    spouse_child_updates($('#online_application_relation'))
+  if $("select[class$=relation]").length
+    spouse_child_updates($("select[class$=relation]"))
+
+  ## And then all the hooks ##
+  $("#online_application_relation").change ->
+    spouse_child_updates($("#online_application_relation"))
+  $("select[class$=relation]").change ->
+    spouse_child_updates($(this))
 
   ##### handle conference subforms #####
 

@@ -54,49 +54,49 @@
         <div class="radio">
           <label>
             <%= builder.radio_button :rate, 'full_premium', :class => 'rate control-label' %> <%=t :full_premium %>
-          </label>
+          </label><br/>
           <label>
             <%= builder.radio_button :rate, 'standard', :class => 'rate' %> <%=t :standard %>
-          </label>
+          </label><br/>
           <% if builder.object.application_group.family_registration -%>
             <label>
               <%= builder.radio_button :rate, 'family', :class => 'rate' %> <%=t :family %>
-            </label>
+            </label><br/>
           <% end -%>
           <% if builder.object.volunteer -%>
             <label>
               <%= builder.radio_button :rate, 'volunteer', :class => 'rate' %> <%=t :volunteer %>
-            </label>
+            </label><br/>
           <% end -%>
           <% if builder.object.staff -%>
             <label>
               <%= builder.radio_button :rate, 'staff', :class => 'rate' %> <%=t :staff %>
-            </label>
+            </label><br/>
           <% end -%>
           <% if builder.object.interpreter -%>
             <label>
               <%= builder.radio_button :rate, 'interpreter', :class => 'rate' %> <%=t :interpreter %>
-            </label>
+            </label><br/>
           <% end -%>
           <% if builder.object.conference_support -%>
             <label>
               <%= builder.radio_button :rate, 'conference_support', :class => 'rate' %> <%=t :conference_support %>
-            </label>
+            </label><br/>
           <% end -%>
           <% if builder.object.conference_team -%>
             <label>
               <%= builder.radio_button :rate, 'conference_team', :class => 'rate' %> <%=t :conference_team %>
-            </label>
+            </label><br/>
           <% end -%>
+          <label>
+            <%= builder.radio_button :rate, 'amis_de_caux', :class => 'rate' %> <%=t :amis_de_caux %>
+          </label><br/>
+          <label>
+            <%= builder.radio_button :rate, 'local_iofc_team_member', :class => 'rate' %> <%=t :local_iofc_team_member %> (<%= t(:local_iofc_team_member_footnote_html) -%>)
+          </label><br/>
           <label>
             <%= builder.radio_button :rate, 'student', :class => 'rate' %> <%=t :student %>
           </label><br/>
-          <label>
-            <%= builder.radio_button :rate, 'amis_de_caux', :class => 'rate' %> <%=t :amis_de_caux %>
-          </label>
-          <label>
-            <%= builder.radio_button :rate, 'local_iofc_team_member', :class => 'rate' %> <%=t :local_iofc_team_member %>
-          </label>
         </div>
       </div>
     </div>
@@ -336,6 +336,13 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-9 col-md-offset-3">
+    <div class="col-sm-12 text-right">
+      <%=t :personal_contribution_note_html %>
+    </div>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-md-12">

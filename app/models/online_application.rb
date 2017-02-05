@@ -150,6 +150,10 @@ class OnlineApplication < ActiveRecord::Base
                         :if => lambda { |oa| personal? && oa.relation == 'primary applicant' }
   validates :cellphone, :format => { :with => /\A(\+[\d\/\-\. ]{6,}|)\z/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
   validates :confirmation_letter_via, :presence => true, :if => lambda { |oa| personal? && oa.relation == 'primary applicant' }
+  validates :profession, :presence => true,
+                        :if => lambda { |oa| personal_or_group_or_family? && oa.relation != 'child' }
+  validates :employer, :presence => true,
+                        :if => lambda { |oa| personal_or_group_or_family? && oa.relation != 'child' }
   # /end personal
 
   # /begin detail
