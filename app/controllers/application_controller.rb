@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     end
     # But if it ain't forced, always set the session_group_id to the current 
     # session group
-    of = OnlineForm.where('start < ? and stop > ?',Time.now(),Time.now()).first
+    of = OnlineForm.where('start < ? and stop > ?',Time.now(),Time.now()).order('id desc').first
     if of.nil? then
       redirect_to :form_unavailable
       false
