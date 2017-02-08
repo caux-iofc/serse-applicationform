@@ -45,4 +45,17 @@ module ApplicationHelper
     end
   end
   
+  def generate_url(url, params = {})
+    uri = URI(url)
+    uri.query = params.to_query
+    uri.to_s
+  end
+
+  def sign(*fields)
+    return nil unless PAYMENT_PROCESSOR_HMAC_HEX_KEY
+    key = PAYMENT_PROCESSOR_HMAC_HEX_KEY.split(/([a-f0-9][a-f0-9])/).reject(&:empty?)
+    key = key.pack("H*" * key.size)
+    OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), key, fields.join)
+  end
+
 end

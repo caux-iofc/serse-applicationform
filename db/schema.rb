@@ -66,15 +66,16 @@ ActiveRecord::Schema.define(:version => 20170128151400) do
     t.string   "name"
     t.string   "session_id"
     t.boolean  "complete"
+    t.boolean  "confirm_read_documents"
     t.boolean  "data_protection_consent"
     t.boolean  "data_protection_caux_info"
-    t.boolean  "data_protection_three_local_events"
     t.boolean  "data_protection_local_info"
     t.integer  "session_group_id"
-    t.text     "comment"
+    t.text     "comment",                    :limit => 16777215
     t.string   "browser"
-    t.string   "created_by",                         :limit => 100, :default => ""
-    t.string   "updated_by",                         :limit => 100, :default => ""
+    t.string   "remote_ip"
+    t.string   "created_by",                 :limit => 100,      :default => ""
+    t.string   "updated_by",                 :limit => 100,      :default => ""
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -84,31 +85,30 @@ ActiveRecord::Schema.define(:version => 20170128151400) do
 
   create_table "application_groups", :force => true do |t|
     t.string   "name"
-    t.string   "session_id",                                                           :null => false
+    t.string   "session_id",                                                        :null => false
     t.boolean  "complete"
+    t.boolean  "confirm_read_documents"
     t.boolean  "data_protection_consent"
     t.boolean  "data_protection_caux_info"
-    t.boolean  "data_protection_three_local_events"
     t.boolean  "data_protection_local_info"
     t.integer  "session_group_id"
-    t.text     "comment"
+    t.text     "comment",                    :limit => 16777215
     t.string   "browser"
-    t.string   "created_by",                         :limit => 100, :default => "",    :null => false
-    t.string   "updated_by",                         :limit => 100, :default => "",    :null => false
-    t.integer  "lock_version",                                      :default => 0,     :null => false
+    t.string   "remote_ip"
+    t.string   "created_by",                 :limit => 100,      :default => "",    :null => false
+    t.string   "updated_by",                 :limit => 100,      :default => "",    :null => false
+    t.integer  "lock_version",                                   :default => 0,     :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "confirm_read_documents"
-    t.string   "remote_ip"
-    t.boolean  "copied_to_serse",                                   :default => false
+    t.boolean  "copied_to_serse",                                :default => false
     t.integer  "serse_application_group_id"
-    t.boolean  "group_registration",                                :default => false, :null => false
-    t.boolean  "family_registration",                               :default => false, :null => false
-    t.string   "group_or_family_name",                              :default => "",    :null => false
-    t.integer  "payment_required",                                  :default => 0,     :null => false
-    t.integer  "payment_received",                                  :default => 0,     :null => false
-    t.string   "payment_reference",                                 :default => "",    :null => false
+    t.boolean  "group_registration",                             :default => false, :null => false
+    t.boolean  "family_registration",                            :default => false, :null => false
+    t.string   "group_or_family_name",                           :default => "",    :null => false
+    t.integer  "payment_required",                               :default => 0,     :null => false
+    t.integer  "payment_received",                               :default => 0,     :null => false
+    t.string   "payment_reference",                              :default => "",    :null => false
   end
 
   add_index "application_groups", ["session_group_id"], :name => "index_application_groups_on_session_group_id"
@@ -211,8 +211,8 @@ ActiveRecord::Schema.define(:version => 20170128151400) do
     t.integer  "conference_workstream_id"
     t.string   "locale"
     t.string   "language"
-    t.string   "name"
     t.string   "byline"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -384,13 +384,13 @@ ActiveRecord::Schema.define(:version => 20170128151400) do
     t.integer  "online_application_id"
     t.integer  "conference_id"
     t.boolean  "selected"
-    t.text     "variables"
+    t.text     "variables",                        :limit => 16777215
     t.integer  "priority_sort"
     t.boolean  "role_participant"
     t.boolean  "role_speaker"
     t.boolean  "role_team"
-    t.string   "created_by",                       :limit => 100, :default => ""
-    t.string   "updated_by",                       :limit => 100, :default => ""
+    t.string   "created_by",                       :limit => 100,      :default => ""
+    t.string   "updated_by",                       :limit => 100,      :default => ""
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -433,18 +433,18 @@ ActiveRecord::Schema.define(:version => 20170128151400) do
     t.integer  "online_application_id"
     t.integer  "conference_id"
     t.boolean  "selected"
-    t.text     "variables"
+    t.text     "variables",             :limit => 16777215
     t.integer  "priority_sort"
     t.boolean  "role_participant"
     t.boolean  "role_speaker"
     t.boolean  "role_team"
-    t.string   "created_by",            :limit => 100, :default => "",    :null => false
-    t.string   "updated_by",            :limit => 100, :default => "",    :null => false
-    t.integer  "lock_version",                         :default => 0,     :null => false
+    t.string   "created_by",            :limit => 100,      :default => "",    :null => false
+    t.string   "updated_by",            :limit => 100,      :default => "",    :null => false
+    t.integer  "lock_version",                              :default => 0,     :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "role_exhibitor",                       :default => false
+    t.boolean  "role_exhibitor",                            :default => false
   end
 
   add_index "online_application_conferences", ["conference_id", "online_application_id"], :name => "index_oa_conf_uniq", :unique => true
@@ -576,7 +576,7 @@ ActiveRecord::Schema.define(:version => 20170128151400) do
     t.date     "passport_expiry_date"
     t.string   "passport_embassy"
     t.integer  "nightly_contribution"
-    t.text     "remarks"
+    t.text     "remarks",                 :limit => 16777215
     t.string   "badge_firstname"
     t.string   "badge_surname"
     t.string   "badge_country"
@@ -584,8 +584,8 @@ ActiveRecord::Schema.define(:version => 20170128151400) do
     t.boolean  "volunteer"
     t.boolean  "other_reason"
     t.string   "other_reason_detail"
-    t.string   "created_by",              :limit => 100, :default => ""
-    t.string   "updated_by",              :limit => 100, :default => ""
+    t.string   "created_by",              :limit => 100,      :default => ""
+    t.string   "updated_by",              :limit => 100,      :default => ""
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -628,7 +628,7 @@ ActiveRecord::Schema.define(:version => 20170128151400) do
     t.date     "passport_expiry_date"
     t.string   "passport_embassy"
     t.integer  "nightly_contribution"
-    t.text     "remarks"
+    t.text     "remarks",                                :limit => 16777215
     t.string   "badge_firstname"
     t.string   "badge_surname"
     t.string   "badge_country"
@@ -636,32 +636,32 @@ ActiveRecord::Schema.define(:version => 20170128151400) do
     t.boolean  "volunteer"
     t.boolean  "other_reason"
     t.string   "other_reason_detail"
-    t.string   "created_by",                             :limit => 100, :default => "",    :null => false
-    t.string   "updated_by",                             :limit => 100, :default => "",    :null => false
-    t.integer  "lock_version",                                          :default => 0,     :null => false
+    t.string   "created_by",                             :limit => 100,      :default => "",    :null => false
+    t.string   "updated_by",                             :limit => 100,      :default => "",    :null => false
+    t.integer  "lock_version",                                               :default => 0,     :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "staff",                                                 :default => false
-    t.string   "staff_detail",                                          :default => ""
-    t.string   "volunteer_detail",                                      :default => ""
-    t.string   "diet_other_detail",                                     :default => ""
-    t.boolean  "family_discount",                                       :default => false
-    t.boolean  "support_renovation_fund",                               :default => false
-    t.boolean  "full_time_volunteer",                                   :default => false
-    t.boolean  "day_visit",                                             :default => false
-    t.integer  "calculated_registration_fee",                           :default => 0
-    t.integer  "calculated_night_rate",                                 :default => 0
-    t.integer  "calculated_total_personal_contribution",                :default => 0
-    t.boolean  "sent_by_employer",                                      :default => false
-    t.integer  "calculated_nights",                                     :default => 0
+    t.boolean  "staff",                                                      :default => false
+    t.string   "staff_detail",                                               :default => ""
+    t.string   "volunteer_detail",                                           :default => ""
+    t.string   "diet_other_detail",                                          :default => ""
+    t.boolean  "family_discount",                                            :default => false
+    t.boolean  "support_renovation_fund",                                    :default => false
+    t.boolean  "full_time_volunteer",                                        :default => false
+    t.boolean  "day_visit",                                                  :default => false
+    t.integer  "calculated_registration_fee",                                :default => 0
+    t.integer  "calculated_night_rate",                                      :default => 0
+    t.integer  "calculated_total_personal_contribution",                     :default => 0
+    t.boolean  "sent_by_employer",                                           :default => false
+    t.integer  "calculated_nights",                                          :default => 0
     t.text     "calculated_rate_and_fee_details"
-    t.boolean  "student",                                               :default => false
+    t.boolean  "student",                                                    :default => false
     t.string   "status"
     t.string   "session_id"
     t.string   "rate"
     t.text     "financial_remarks"
-    t.integer  "communications_language_id",                            :default => 0,     :null => false
+    t.integer  "communications_language_id",                                 :default => 0,     :null => false
   end
 
   add_index "online_applications", ["application_group_id"], :name => "index_online_applications_on_application_group_id"
@@ -767,8 +767,8 @@ ActiveRecord::Schema.define(:version => 20170128151400) do
   end
 
   create_table "sessions", :force => true do |t|
-    t.string   "session_id", :null => false
-    t.text     "data"
+    t.string   "session_id",                     :null => false
+    t.text     "data",       :limit => 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -3,7 +3,7 @@ class OnlineApplications::BuildController < ApplicationController
   before_filter :ensure_application_group
 
   include Wicked::Wizard
-  steps :personal, :group, :family, :detail, :dates_and_events, :visa, :finances, :confirmation
+  steps :personal, :group, :family, :detail, :dates_and_events, :visa, :finances, :confirmation, :payment
 
   def show
     @step = step
@@ -57,7 +57,7 @@ class OnlineApplications::BuildController < ApplicationController
       redirect_to :error
       return
     end
-    if step != :group and step != :family and step != :detail and step != :dates_and_events and step != :visa and step != :confirmation and step != :finances
+    if step != :group and step != :family and step != :detail and step != :dates_and_events and step != :visa and step != :finances and step != :confirmation and step != :payment
       @online_application.the_request = request
 
       params[:online_application][:status] = step.to_s
@@ -189,11 +189,11 @@ class OnlineApplications::BuildController < ApplicationController
         populate_ethereal_variables
         show
         return
-      elsif step == :confirmation
-        # We're done, see if payment is required
+      elsif step == :payment
+        # We're done, but just in case, see if payment is still required
         if @application_group.payment_required != @application_group.payment_received then
-          # redirect to payment processor
-          redirect_to generate_url(PAYMENT_PROCESSOR_URL, :merchantId => PAYMENT_PROCESSOR_MERCHANT_ID, :refno => @application_group.id, :amount => ((@application_group.payment_required - @application_group.payment_received) * 100).to_s, :currency => PAYMENT_PROCESSOR_CURRENCY)
+          # Hrm, still need money. Redirect them to the payment step.
+          redirect_to build_path(:payment)
           return
         else
           @application_group.complete = true
@@ -391,109 +391,6 @@ protected
     end
   end
 
-  def ensure_application_group
-    # Allow selection of a application, if the session id matches
-    if not session.nil? and params[:online_application_id]
-      @online_application = OnlineApplication.where(:id => params[:online_application_id], :session_id => request.session_options[:id]).first
-      if not @online_application.nil?
-        session[:online_application_id] = @online_application.id
-        session[:application_group_id] = @online_application.application_group.id
-      else
-        STDERR.puts "******* Breakin attempt ********"
-        STDERR.puts "Tried to access application with id #{params[:online_application_id]} with"
-        STDERR.puts "session id #{request.session_options[:id]}, which does not match the session"
-        STDERR.puts "saved in the online application record."
-        require 'pp'
-        STDERR.puts ""
-        STDERR.puts "Request information:"
-        STDERR.puts request.pretty_inspect()
-        STDERR.puts "******* /Breakin attempt ********"
-        reset_session
-        redirect_to :home
-        return
-      end
-    end
-
-    if not session.nil? and
-       session.has_key?(:application_group_id) and
-       session.has_key?(:online_application_id)
-
-      @application_group = ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first
-      @online_application = OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first
-      if @online_application.application_group.id != @application_group.id or
-        not @application_group.online_applications.include?(@online_application)
-        # Mismatch between application group and application stored in session?
-        # That's shady. Reset the session.
-        reset_session
-        redirect_to :home
-        return
-      end
-    end
-
-    if session.nil? or
-       not session.has_key?(:application_group_id) or
-       not session.has_key?(:online_application_id) or
-       session[:application_group_id] == 0 or
-       session[:online_application_id] == 0 or
-       ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first.nil? or
-       ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first.complete or
-       OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first.nil? or
-       action_name == 'new'
-      begin
-        # new application group
-        @application_group = ApplicationGroup.new()
-        # Trigger creation of session id, in case the session is new. We have to do this
-        # because of lazy session loading.
-        # Cf. https://rails.lighthouseapp.com/projects/8994/tickets/2268-rails-23-session_optionsid-problem
-        # Ward, 2012-02-29
-        request.session_options[:id]
-        @application_group.session_id = request.session_options[:id]
-        @application_group.browser = request.env['HTTP_USER_AGENT']
-        @application_group.remote_ip = request.env['REMOTE_ADDR']
-        @application_group.session_group_id = session[:session_group_id] if session.has_key?(:session_group_id)
-        @application_group.save!
-
-        # new application
-        @online_application = OnlineApplication.new()
-        @online_application.application_group = @application_group
-        @online_application.application_group_order = @application_group.online_applications.count + 1
-        @online_application.session_id = request.session_options[:id]
-        if @application_group.online_applications.primary_applicant.size == 0
-          @online_application.relation = 'primary applicant'
-          @online_application.day_visit = false
-        else
-          @online_application.arrival = @application_group.online_applications.primary_applicant.first.arrival
-          @online_application.departure = @application_group.online_applications.primary_applicant.first.departure
-          @online_application.day_visit = @application_group.online_applications.primary_applicant.first.day_visit
-        end
-
-        # Save the application so we can refer back to it from the address model,
-        # which is needed in the validation step there (i.e. to avoid address
-        # validation at this time).
-        @online_application.save!
-
-        # Add a blank address (for permanent address)
-        @online_application.build_permanent_address
-
-        @online_application.save!
-      rescue Exception => e
-        STDERR.puts "*******      ERROR      ********"
-        STDERR.puts @application_group.pretty_inspect()
-        STDERR.puts @online_application.pretty_inspect()
-        STDERR.puts e.pretty_inspect()
-        STDERR.puts "*******     /ERROR      ********"
-        # Most likely, this means there is no session_id. That can happen if cookies are disabled.
-        redirect_to :cookies_disabled
-        return
-      end
-      session[:application_group_id] = @application_group.id
-      session[:online_application_id] = @online_application.id
-    else
-      @application_group = ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first
-      @online_application = OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first
-    end
-  end
-
   def calculate_progress_bar
     if not wizard_steps.index(step).nil?
       if not @online_application.application_group.group_registration and not @online_application.application_group.family_registration
@@ -539,12 +436,6 @@ protected
     # Yeah, this is weird.
     @application_group = ApplicationGroup.new()
     populate_ethereal_variables
-  end
-
-  def generate_url(url, params = {})
-    uri = URI(url)
-    uri.query = params.to_query
-    uri.to_s
   end
 
 end

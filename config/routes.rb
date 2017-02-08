@@ -59,6 +59,12 @@ SerseApplication::Application.routes.draw do
 
   match 'nagios/application_groups' => 'nagios#application_groups'
 
+  scope "/payments" do
+    match '/callback/:status' => 'payments#callback'
+    match '/post' => 'payments#post'
+    match '/redirect_to_processor' => 'payments#redirect_to_processor', :as => 'payments_redirect_to_processor'
+  end
+
   scope "/:locale" do
     resources :online_applications do
       resources :addresses
