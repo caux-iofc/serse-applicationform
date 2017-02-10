@@ -44,9 +44,11 @@ ALLOW_RETROACTIVE_REGISTRATION = false
 PAYMENT_PROCESSOR_MERCHANT_ID = ''
 PAYMENT_PROCESSOR_CURRENCY = ''
 PAYMENT_PROCESSOR_URL = ''
-PAYMENT_PROCESSOR_CALLBACK_SUCCESS_URL = '/payment/callback/success'
-PAYMENT_PROCESSOR_CALLBACK_ERROR_URL = '/payment/callback/error'
-PAYMENT_PROCESSOR_CALLBACK_CANCEL_URL = '/payment/callback/cancel'
-PAYMENT_PROCESSOR_POST_URL = '/payment/post'
+
+# The payment step can be skipped if the user provides a parameter skip_payment with value that matches
+# SKIP_PAYMENT_SECRET. By default SKIP_PAYMENT_SECRET is blank which means this feature is disabled.
+SKIP_PAYMENT_SECRET=''
+# The payment step is disabled by default
+PAYMENT_STEP_DISABLED=true
 
 require 'pp'

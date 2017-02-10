@@ -19,6 +19,10 @@ class ApplicationController < ActionController::Base
     if params.has_key?('override') then
       session[:override] = true
     end
+    # Allow skipping the payment step
+    if params.has_key?('skip_payment') and not SKIP_PAYMENT_SECRET.empty? and params[:skip_payment] == SKIP_PAYMENT_SECRET
+      session[:skip_payment] = true
+    end
     if params.has_key?('session_group_id') then
       session[:session_group_id] = params[:session_group_id]
     end
@@ -134,6 +138,9 @@ class ApplicationController < ActionController::Base
       end
       session[:application_group_id] = @application_group.id
       session[:online_application_id] = @online_application.id
+      # Make sure to clear the :skip_payment session value,
+      # we do not want that to stick around in the session.
+      session.delete :skip_payment
     else
       @application_group = ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first
       @online_application = OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first
