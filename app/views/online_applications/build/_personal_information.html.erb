@@ -1,4 +1,9 @@
 
+<% if not PAYMENT_STEP_DISABLED -%>
+  <div class="col-md-12 label-warning">
+    <%=t :payment_notice %>
+  </div>
+<% end -%>
   <div class="col-md-12 text-center">
     <h3><%=t :personal_information %></h3>
   </div>

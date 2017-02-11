@@ -6,16 +6,24 @@
 </div>
     <div class="row">
       <div class="col-md-12">
-        <% flash.each do |key, value| %>
-          <div class="alert alert-<%= key %>"><%= value %></div>
-        <% end %>
+        <div class="col-md-6 col-md-offset-3 text-center">
+          <% flash.each do |key, value| %>
+            <div class="label-danger alert-<%= key %>"><strong><font color="white"><%= value %></font></strong></div>
+          <% end %>
+        </div>
 
         <% if @application_group.payment_required == @application_group.payment_received -%>
-          <%= t :payment_received -%>
+          <div class="col-md-6 col-md-offset-3">
+            <%= t :payment_received -%>
+          </div>
         <% else -%>
-          <%=t :payment_information -%>
-
-          <%= link_to t(:pay_now), payments_redirect_to_processor_path, class: 'btn btn-info' %>
+          <div class="col-md-6 col-md-offset-3">
+            <%=t :payment_information -%>
+          </div>
+          <p/>
+          <div class="col-md-6 col-md-offset-3 text-center">
+            <%= link_to t(:pay_now), payments_redirect_to_processor_path, class: 'btn btn-info' %>
+          </div>
         <% end -%>
 
       </div>

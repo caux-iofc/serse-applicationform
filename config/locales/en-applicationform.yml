@@ -344,3 +344,9 @@ en:
   no_newsletters: 'I do not want to receive newsletters'
   notice_of_receipt_subject: 'Caux Forum - acknowledgement of receipt'
   conference_package_advertisement: "Benefit from our package deals by adjusting your arrival and departure dates to match the conference start and end date!"
+
+  payment_notice: "We would like to inform you that all participants of the Caux Forum now have to pay a non-refundable registration fee of CHF 50.- directly at the end of the registration process in order to submit the form"
+
+  payment_received: "Thank you, we have received your payment. Please proceed to the final step of the application."
+  payment_information: "All participants of the Caux Forum need to pay a non-refundable registration fee of CHF 50.-. Please use the button below to make the payment before completing the application."
+  pay_now: "Pay registration fee now"

@@ -89,7 +89,7 @@ class PaymentsController < ApplicationController
       STDERR.puts "Request information:"
       STDERR.puts request.pretty_inspect()
       STDERR.puts "******* /error status ********"
-      flash[:error] = "Payment processor error!"
+      flash[:error] = "Error processing your payment. Please try again."
       redirect_to build_path(:payment)
       return
     elsif params[:status] == 'cancel'
@@ -99,7 +99,8 @@ class PaymentsController < ApplicationController
       STDERR.puts "Request information:"
       STDERR.puts request.pretty_inspect()
       STDERR.puts "******* /cancel status ********"
-      flash[:error] = "Payment cancelled!"
+      # Cancel happens when they hit the back arrow on the payment page; no need to
+      # put a special warning about that on the payment page.
       redirect_to build_path(:payment)
       return
     end

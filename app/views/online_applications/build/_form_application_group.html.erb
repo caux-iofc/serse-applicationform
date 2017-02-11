@@ -98,9 +98,11 @@
         </div>
       </div>
     </div>
-    <div class="col-md-2">
-      <%= f.submit t(:proceed), class: 'btn btn-default' %>
-    </div>
+    <% if @step != :payment or (@step == :payment and @application_group.payment_required == @application_group.payment_received) -%>
+      <div class="col-md-2">
+        <%= f.submit t(:proceed), class: 'btn btn-default' %>
+      </div>
+    <% end -%>
   <% elsif @online_application.status == 'complete' -%>
     <div class="col-md-2 col-md-offset-4">
       <div class="actions">
