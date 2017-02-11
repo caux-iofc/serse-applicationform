@@ -56,7 +56,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
                         (epoch,name,spouse_complete,children_complete,other_complete,complete,
                          data_protection_consent,data_protection_caux_info,data_protection_local_info,
                          browser,session_group_id,group_registration,family_registration,group_or_family_name,
-                         payment_required,payment_received,payment_reference)
+                         payment_required,payment_received,payment_currency,payment_reference)
                  values (
                    #{ag.updated_at.to_i},
                    '#{@conn.escape(ag.primary_applicant.surname)}, #{@conn.escape(ag.primary_applicant.firstname)}',
@@ -74,6 +74,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
                    '#{@conn.escape(ag.group_or_family_name)}',
                    #{ag.payment_required},
                    #{ag.payment_received},
+                   '#{@conn.escape(ag.payment_currency)}',
                    '#{@conn.escape(ag.payment_reference)}')"
     @res = @conn.exec(@pg_sql)
 

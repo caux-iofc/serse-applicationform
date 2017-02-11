@@ -78,6 +78,7 @@ class PaymentsController < ApplicationController
 
       @application_group.payment_received = (params[:amount].to_i / 100).to_i
       @application_group.payment_reference = params[:uppTransactionId]
+      @application_group.payment_currency = PAYMENT_PROCESSOR_CURRENCY
       @application_group.save!
 
       redirect_to build_path(:payment)
