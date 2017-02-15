@@ -360,3 +360,6 @@ de:
   conference_package_advertisement: "Profitieren Sie von unseren Pauschalangeboten indem Sie Ihre An- und Abreisedaten denen der Konferenz Ihrer Wahl anpassen!"
 
   payment_notice: "Wir möchten Sie darüber informieren, dass alle Teilnehmer am Caux Forum die Anmeldegebühr von CHF 50.-, welche im Normalfall nicht erstattet wird, direkt am Ende des Anmeldeprozesses bezahlen müssen um das Formular übermitteln zu können."
+  payment_received: "Danke, wir haben Ihre Zahlung erhalten. Bitte fahren Sie nun mit dem letzten Schritt der Anmeldung fort."
+  payment_information: " Alle Teilnehmer am Caux Forum müssen eine Anmeldegebühr von CHF 50.- bezahlen, welche im Normalfall nicht erstattet wird. Bitte verwenden Sie dafür den untenstehenden Link bevor Sie das Formular übermitteln."
+  pay_now: "Jetzt Anmeldegebühr bezahlen"
