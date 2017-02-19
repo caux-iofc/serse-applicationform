@@ -357,9 +357,10 @@ protected
         end
         # these fields are used to pass information to the javascript that calculates the rates
         oa.caux_scholar = (oa.training_programs.collect { |tp| tp.name }.include?('Caux Scholars Program') ? 1 : 0)
-        oa.caux_intern = ((oa.training_programs.collect { |tp| tp.name }.grep(/^Caux Trainee Programme/)).empty? ? 0 : 1)
+        oa.caux_intern = ((oa.training_programs.collect { |tp| tp.name }.grep(/^Caux Peace and Leadership Programme/)).empty? ? 0 : 1)
         oa.caux_artist = (oa.training_programs.collect { |tp| tp.name }.include?('Caux Artists Program') ? 1 : 0)
         oa.week_of_international_community = (oa.training_programs.collect { |tp| tp.name }.include?('Week of International Community') ? 1 : 0)
+        oa.global_assembly = (oa.conferences.collect { |tp| tp.name }.include?('IofC Global Assembly') ? 1 : 0)
         # Default to the standard rate
         oa.rate = 'standard' if oa.rate.nil?
       end

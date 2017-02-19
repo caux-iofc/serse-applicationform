@@ -150,11 +150,6 @@ jQuery ->
   ##### handle showing/hiding of certain sections for spouse/children ####
 
   spouse_child_updates = (o) ->
-    if o.length
-      console.log o.length
-    else
-      console.log 'xx'
-      console.log o.val()
     if o.val() == 'spouse' or o.val() == 'child'
       $(".hide_for_family_members").hide()
     else
@@ -513,16 +508,7 @@ jQuery ->
       else if $(base_id + "_global_assembly").val() == '1'
         night_rate = 105
         registration_fee = 0
-        sp = {}
-        sp.name = 'Conference Support Fund (CSF)'
-        sp.nights = nights
-        sp.amount = 63
-        exports.sponsors.push(sp)
-        sponsors['Conference Support Fund (CSF)'] = {}
-        sponsors['Conference Support Fund (CSF)'].name = 'Conference Support Fund (CSF)'
-        sponsors['Conference Support Fund (CSF)'].nights = nights
-        sponsors['Conference Support Fund (CSF)'].amount = 63
-        calculated_rate_and_fee_details += 'Work week: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+        calculated_rate_and_fee_details += 'IofC Global Assembly: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if $(base_id + '_rate_conference_team').is(':checked')
         registration_fee = 0
