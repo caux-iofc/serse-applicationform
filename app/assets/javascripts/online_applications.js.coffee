@@ -516,6 +516,7 @@ jQuery ->
         calculated_rate_and_fee_details += 'Core team: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if $(base_id + '_rate_conference_support').is(':checked')
+        registration_fee = 0
         night_rate = 105
         calculated_rate_and_fee_details += 'Support team: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
