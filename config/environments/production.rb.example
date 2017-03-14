@@ -78,13 +78,8 @@ ALLOW_RETROACTIVE_REGISTRATION = false
 PAYMENT_PROCESSOR_MERCHANT_ID = ''
 PAYMENT_PROCESSOR_CURRENCY = ''
 PAYMENT_PROCESSOR_URL = ''
-
-# Note: in the payment processor admin interface, you need to store the HEX representation of PAYMENT_PROCESSOR_HMAC_HEX_KEY. Calculate it with:
-# require 'openssl'
-# instance = OpenSSL::HMAC.new(PAYMENT_PROCESSOR_HMAC_KEY, OpenSSL::Digest.new('sha256'))
-# instance.hexdigest
-PAYMENT_PROCESSOR_HMAC_HEX_KEY = 'insert-a-long-secret-key-here'
-
+# Choose the 'HMAC-SHA256' option and generate this key in the payment processor admin interface
+PAYMENT_PROCESSOR_HMAC_HEX_KEY = 'insert-your-generated-key-here'
 # The payment step can be skipped if the user provides a parameter skip_payment with value that matches
 # SKIP_PAYMENT_SECRET. By default SKIP_PAYMENT_SECRET is blank which means this feature is disabled.
 SKIP_PAYMENT_SECRET=''
