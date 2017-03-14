@@ -67,6 +67,7 @@ class OnlineApplication < ActiveRecord::Base
   attr_accessor :conference_support
   attr_accessor :conference_speaker
   attr_accessor :week_of_international_community
+  attr_accessor :global_assembly
 
   before_validation do
     # Filter out duplicate online_application_conference records. This can happen when

@@ -105,6 +105,31 @@
           </div>
         </div>
       <% end -%>
+      <% @old_locale = I18n.locale; I18n.locale = 'en' -%>
+      <% if oac.object.conference.name == 'ae Centre - International Academy and Forum on Peace' -%>
+        <div class="well oac_checkbox_<%= online_application.id %>_<%= oac.object.conference.id %>_subform center-block" style="display:none; width:800px; background: rgb(49, 176, 213)">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="conference_subform_td">
+                <div class="conference_subform">
+                  <%= oac.fields_for :variables do |var| -%>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group required">
+                          <%= f.label :role, t(:I_will_come_as), class: 'control-label' %>
+                          <%= var.radio_button :role, 'participant', { :checked => (oac.object.variables[:role] == "participant"), :class => 'role' } %> <%=t :participant %>
+                          <%= var.radio_button :role, 'support', { :checked => (oac.object.variables[:role] == "support"), :class => 'role' } %> <%=t :support_team %>
+                        </div>
+                      </div>
+                    </div>
+                  <% end -%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end -%>
+      <% I18n.locale = @old_locale -%>
     <% end -%>
 
     <% if TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).size > 0 -%>
