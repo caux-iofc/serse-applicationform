@@ -48,7 +48,7 @@
       <div class="col-md-6">
         <div class="form-group required">
           <%= f.label :gender, t(:gender), class: 'control-label' %><br />
-          <%= f.select("gender", [ [t('female'),'1'], [t('male'),'2'] ], {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
+          <%= f.select("gender", [ [t('female'),'1'], [t('male'),'2'], [t('other'),'3'] ], {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
         </div>
       </div>
     </div>

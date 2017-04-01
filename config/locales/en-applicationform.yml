@@ -16,6 +16,7 @@ en:
   gender: "Gender"
   female: "Female"
   male: "Male"
+  other: "Other"
   citizenship: "Citizenship"
   citizenship_id: "Citizenship"
   other_please_specify: "Other, please specify"

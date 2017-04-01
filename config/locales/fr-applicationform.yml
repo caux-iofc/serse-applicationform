@@ -59,6 +59,7 @@ fr:
   communications_language: "Langue de communication préférée"
   language_proficiency: Niveau
   male: Masculin
+  other: Autre
   travel_car_train: "Voyage: voiture/train"
   correspondence_address: Adresse de correspondance
   other_please_specify: "Autre, préciser"
