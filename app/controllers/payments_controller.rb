@@ -77,7 +77,7 @@ class PaymentsController < ApplicationController
       end
 
       @application_group.payment_received = (params[:amount].to_i / 100).to_i
-      @application_group.payment_reference = params[:uppTransactionId]
+      @application_group.payment_reference = params.except('expm','expy','cardno','controller','action').to_json
       @application_group.payment_currency = PAYMENT_PROCESSOR_CURRENCY
       @application_group.save!
 

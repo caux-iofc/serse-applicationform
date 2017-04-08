@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20170211122400) do
+ActiveRecord::Schema.define(:version => 20170407205800) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(:version => 20170211122400) do
     t.string   "group_or_family_name",                           :default => "",    :null => false
     t.integer  "payment_required",                               :default => 0,     :null => false
     t.integer  "payment_received",                               :default => 0,     :null => false
-    t.string   "payment_reference",                              :default => "",    :null => false
+    t.text     "payment_reference",                                                 :null => false
     t.string   "payment_currency",                               :default => "",    :null => false
   end
 
