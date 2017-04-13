@@ -56,3 +56,6 @@ gem 'autoprefixer-rails'
 
 # For ruby 2.2
 gem 'test-unit', '~> 3.0'
+
+# e-mail notification of code exceptions
+gem 'exception_notification'
