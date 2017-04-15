@@ -5,7 +5,12 @@ class ApplicationController < ActionController::Base
   before_filter :select_online_form
  
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    begin
+      I18n.locale = params[:locale] || I18n.default_locale
+    rescue I18n::InvalidLocale
+      # This translates into the default 404 error in production
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end  
 
   def default_url_options(options={})
