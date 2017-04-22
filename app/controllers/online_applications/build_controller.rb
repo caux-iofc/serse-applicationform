@@ -150,7 +150,7 @@ class OnlineApplications::BuildController < ApplicationController
                 # It turns out that update_attributes (below) does not add *new* online_application_conferences,
                 # if the online application already has some online_application_conferences (i.e. when the user came back
                 # to the 'Stay in Caux' page after having saved it and added a new conference. So, we add these explicitly
-                # here, and then set the id field to make update_attributes do an additional refresh of the 
+                # here, and then set the id field to make update_attributes do an additional refresh of the
                 # application_group object.
                 oac = OnlineApplicationConference.new(v2)
                 oac.online_application_id = params[:application_group][:online_applications_attributes][k]['id']
