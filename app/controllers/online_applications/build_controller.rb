@@ -230,7 +230,7 @@ class OnlineApplications::BuildController < ApplicationController
   # GET /online_applications.json
   def index
     @online_applications = OnlineApplication.find_all_by_application_group_id(@application_group.id)
-    if @online_applications.size == 0 or @application_group.complete or @online_application.status == 'confirmation'
+    if @online_applications.size == 0 or @application_group.complete
       redirect_to new_build_path
       return
     elsif not @online_application.nil? and @online_application.status.nil?
@@ -239,7 +239,7 @@ class OnlineApplications::BuildController < ApplicationController
     elsif not @online_application.nil? and not @online_application.status.nil? and
           not @online_application.status.empty? and @online_application.status != 'complete' and
           not steps.index(@online_application.status.to_sym).nil? then
-      redirect_to wizard_path(steps[steps.index(@online_application.status.to_sym)+1], :online_application_id => @online_application.id)
+      redirect_to wizard_path(steps[steps.index(@online_application.status.to_sym)], :online_application_id => @online_application.id)
       return
     end
     respond_to do |format|
