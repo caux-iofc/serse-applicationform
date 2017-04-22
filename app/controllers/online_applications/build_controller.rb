@@ -8,7 +8,21 @@ class OnlineApplications::BuildController < ApplicationController
   def show
     @step = step
 
-    if step != :wicked_finish and step != 'wicked_finish'
+    if step.to_s != 'wicked_finish'
+      # Make sure that we're not skipping steps!
+      redirstep = step
+      while (steps.index(redirstep) - 1) >= 0
+        if not has_completed?(steps[steps.index(redirstep) - 1])
+          redirstep = steps[steps.index(redirstep) - 1]
+        else
+          break
+        end
+      end
+      if redirstep != step
+        redirect_to wizard_path(redirstep)
+        return
+      end
+
       # Catch people using the back button from the 'Registration form complete' page
       if @online_application.status.nil? and step != :personal and step != :complete
         redirect_to wizard_path(steps.first)
@@ -448,6 +462,42 @@ protected
     # Yeah, this is weird.
     @application_group = ApplicationGroup.new()
     populate_ethereal_variables
+  end
+
+private
+
+  def has_completed?(step)
+    case step
+    when :personal
+      not @online_application.surname.nil?
+    when :family
+      if not @application_group.family_registration
+        true
+      else
+        not @application_group.group_or_family_name.empty?
+      end
+    when :group
+      if not @application_group.group_registration
+        true
+      else
+        not @application_group.group_or_family_name.empty?
+      end
+    when :detail
+      @online_application.communications_language_id != 0
+    when :dates_and_events
+      not @online_application.arrival.nil?
+    when :visa
+      not @online_application.visa.nil?
+    when :finances
+      not @online_application.financial_remarks.nil?
+    when :confirmation
+      not @application_group.confirm_read_documents.nil? and @application_group.confirm_read_documents
+    when :payment
+      not @application_group.confirm_read_documents.nil? and @application_group.confirm_read_documents and
+        @application_group.payment_required == @application_group.payment_received
+    else
+      false
+    end
   end
 
 end
