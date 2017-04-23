@@ -71,6 +71,24 @@ class OnlineApplications::BuildController < ApplicationController
       redirect_to :error
       return
     end
+
+    # This is effectively optimistic locking. Deals with people who open multiple copies of the form in various
+    # stages on different browser tabs and then submit them interchangeably. Yes, this is pretty common.
+    if ((params.has_key?('application_group') and
+         params[:application_group].has_key?('lock_version') and
+         params[:application_group][:lock_version] != @application_group.lock_version.to_s) or
+        (params.has_key?('online_application') and
+         params[:online_application].has_key?('lock_version') and
+        params[:online_application][:lock_version] != @online_application.lock_version.to_s))
+      # This is not the latest copy of the application group. Tell the user and reload the page.
+      flash[:error] = "The application was modified since this page was loaded. The changes you just submitted could not be saved. Please try again."
+      redirect_to request.path
+      return
+    else
+      params[:application_group].delete('lock_version') if params.has_key?('application_group') and params[:application_group].has_key?('lock_version')
+      params[:online_application].delete('lock_version') if params.has_key?('online_application') and params[:online_application].has_key?('lock_version')
+    end
+
     if step != :group and step != :family and step != :detail and step != :dates_and_events and step != :visa and step != :finances and step != :confirmation and step != :payment
       @online_application.the_request = request
 

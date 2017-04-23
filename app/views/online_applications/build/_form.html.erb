@@ -1,6 +1,9 @@
 
 <%= form_for @online_application, url: wizard_path, role: 'form' do |f| %>
 
+<input id="application_group_lock_version" name="application_group[lock_version]" type="hidden" value="<%= @online_application.application_group.lock_version -%>" />
+<%= f.hidden_field(:lock_version) -%>
+
 <div class="well">
 
   <div class="row">
