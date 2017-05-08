@@ -154,8 +154,13 @@ class OnlineApplications::BuildController < ApplicationController
                 # application_group object.
                 oatp = OnlineApplicationTrainingProgram.new(v2)
                 oatp.online_application_id = params[:application_group][:online_applications_attributes][k]['id']
-                oatp.save
-                v2['id'] = oatp.id
+                # Save but guard against race conditions (or double form submissions, Edge seems to have a knack for those)
+                begin
+                  oatp.save
+                  v2['id'] = oatp.id
+                rescue
+                  v2['id'] = OnlineApplicationTrainingProgram.where(:online_application_id => params[:application_group][:online_applications_attributes][k]['id'], :training_program_id => v2[:training_program_id]).first.id
+                end
               end
             end
           end
@@ -172,8 +177,13 @@ class OnlineApplications::BuildController < ApplicationController
                 # application_group object.
                 oac = OnlineApplicationConference.new(v2)
                 oac.online_application_id = params[:application_group][:online_applications_attributes][k]['id']
-                oac.save
-                v2['id'] = oac.id
+                # Save but guard against race conditions (or double form submissions, Edge seems to have a knack for those)
+                begin
+                  oac.save
+                  v2['id'] = oac.id
+                rescue
+                  v2['id'] = OnlineApplicationConference.where(:online_application_id => params[:application_group][:online_applications_attributes][k]['id'], :conference_id => v2[:conference_id]).first.id
+                end
               end
             end
           end
