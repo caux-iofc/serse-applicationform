@@ -8,8 +8,8 @@ class OnlineApplicationLanguage < ActiveRecord::Base
 
   validates :online_application_id, :presence => true
 
-  validates :language_id, :presence => true, :if => lambda { |l| not l.proficiency.blank? and personal? }
-  validates :proficiency, :presence => true, :if => lambda { |l| not l.language_id.blank? and personal? }
+  validates :language_id, :presence => true, :if => lambda { |l| not l.proficiency.blank? and detail? }
+  validates :proficiency, :presence => true, :if => lambda { |l| not l.language_id.blank? and detail? }
 
   # This works but only when updating. Cf. bug https://github.com/rails/rails/issues/4568
   # We catch the insertion of multiple identical languages
@@ -18,8 +18,8 @@ class OnlineApplicationLanguage < ActiveRecord::Base
 
 private
 
-  def personal?
-    not online_application.nil? and not online_application.status.nil? and online_application.status.include?('personal')
+  def detail?
+    not online_application.nil? and not online_application.status.nil? and online_application.status.include?('detail')
   end
 
 end
