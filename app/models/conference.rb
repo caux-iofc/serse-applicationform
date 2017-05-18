@@ -13,5 +13,6 @@ class Conference < ActiveRecord::Base
   scope :not_private, where("private = ?", false)
   scope :normal, not_private.where("special = ?", false)
   scope :special, not_private.where("special = ?", true)
+  scope :caux_forum_training, not_private.where("caux_forum_training = ?", true)
 
 end
