@@ -18,6 +18,7 @@
 
     <% @first_normal_conference = true -%>
     <% @first_special_conference = true -%>
+    <% @first_cft_conference = true -%>
     <%= f.fields_for :online_application_conferences do |oac| %>
       <% if @first_normal_conference -%>
         <div class="row">
@@ -26,6 +27,14 @@
           </div>
         </div>
         <% @first_normal_conference = false -%>
+      <% end -%>
+      <% if oac.object.conference.caux_forum_training and not oac.object.selected and @first_cft_conference -%>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3><%=t :caux_forum_training_participation %></h3>
+          </div>
+        </div>
+        <% @first_cft_conference = false -%>
       <% end -%>
       <% if oac.object.conference.special and not oac.object.selected and @first_special_conference -%>
         <div class="row">
@@ -73,7 +82,7 @@
           <% I18n.locale = @old_locale -%>
         </div>
       <% end -%>
-      <% if not oac.object.conference.special -%>
+      <% if not oac.object.conference.special and not oac.object.conference.caux_forum_training -%>
         <div class="well oac_checkbox_<%= online_application.id %>_<%= oac.object.conference.id %>_subform center-block" style="display:none; width:800px; background: rgb(49, 176, 213)">
           <div class="row">
             <div class="col-md-12">
@@ -105,6 +114,21 @@
           </div>
         </div>
       <% end -%>
+
+      <% if oac.object.template_exists -%>
+        <div class="well oac_checkbox_<%= online_application.id %>_<%= oac.object.conference.id %>_subform center-block" style="display:none; width:800px; background: rgb(49, 176, 213)">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="conference_subform_td">
+                <div class="conference_subform">
+                  <%= render oac.object.conference.template_path, :f => f, :oac => oac %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end -%>
+
       <% @old_locale = I18n.locale; I18n.locale = 'en' -%>
       <% if oac.object.conference.name == 'ae Centre - International Academy and Forum on Peace' -%>
         <div class="well oac_checkbox_<%= online_application.id %>_<%= oac.object.conference.id %>_subform center-block" style="display:none; width:800px; background: rgb(49, 176, 213)">
@@ -131,7 +155,6 @@
       <% end -%>
       <% I18n.locale = @old_locale -%>
     <% end -%>
-
     <% if TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).size > 0 -%>
       <div class="row">
         <div class="col-md-12 text-center">

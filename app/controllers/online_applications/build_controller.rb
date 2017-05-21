@@ -349,6 +349,19 @@ protected
         end
       end
 
+      Conference.caux_forum_training.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
+        @earliest_start_year = c.start.year if c.start.year < @earliest_start_year
+        @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
+        if not @conferences.has_key?(c.id) then
+          @oac = oa.online_application_conferences.build({:conference_id => c.id, :priority_sort => @priority_sort += 1 })
+          @oac.variables[:role] = 'participant'
+          # The user can choose a workstream
+          if @oac.online_application_conference_workstreams.empty?
+            @oac.online_application_conference_workstreams.build({ :preference => 'preference' })
+          end
+        end
+      end
+
       @training_programs = Hash.new()
       oa.online_application_training_programs.each_with_object({}) {|oatp| @training_programs[oatp.training_program_id]=oatp.training_program_id }
       @priority_sort = 0
@@ -426,6 +439,7 @@ protected
         oa.caux_artist = (oa.training_programs.collect { |tp| tp.name }.include?('Caux Artists Program') ? 1 : 0)
         oa.week_of_international_community = (oa.training_programs.collect { |tp| tp.name }.include?('Week of International Community') ? 1 : 0)
         oa.global_assembly = (oa.conferences.collect { |tp| tp.name }.include?('IofC Global Assembly') ? 1 : 0)
+        oa.caux_forum_training = ( oa.conferences.caux_forum_training.empty? ? 0 : 1)
         # Default to the standard rate
         oa.rate = 'standard' if oa.rate.nil?
       end

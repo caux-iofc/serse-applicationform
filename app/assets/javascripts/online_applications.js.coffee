@@ -571,6 +571,10 @@ jQuery ->
         else
           $(base_id + '_early_bird_discount').show()
 
+      if $(base_id + "_caux_forum_training").val() == '1' and night_rate < 165
+        night_rate = 165
+        calculated_rate_and_fee_details += 'Caux Forum Training minimum rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
       $(base_id + "_rate_per_night_visible").text(night_rate)
       $(base_id + "_rate_per_night").val(night_rate)
       $(base_id + "_conference_package_fee_visible").text(conference_package_fee)

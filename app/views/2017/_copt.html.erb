@@ -1,0 +1,64 @@
+
+<div class="row">
+  <div class="col-md-12">
+    Please choose your preferred training:
+  </div>
+</div>
+
+<ul>
+<% oac.object.conference.conference_workstreams.each do |w| -%>
+
+<div class="row">
+  <% if not w.language.nil? and not w.language.empty? then -%>
+    <div class="col-md-6">
+      <li><strong><%= w.name %></strong>
+    </div>
+    <div class="col-md-6">
+      <i><%=t w.language %></i>
+    </div>
+  <% else -%>
+    <div class="col-md-12">
+      <li><strong><%= w.name %></strong>
+    </div>
+  <% end -%>
+</div>
+
+<% if not w.byline.nil? and not w.byline.empty? then -%>
+<div class="row">
+  <div class="col-md-12 col-md-offset-2">
+    <%=raw w.byline %>
+  </div>
+</div>
+<% end -%>
+<% end -%>
+</ul>
+
+<%= oac.fields_for :online_application_conference_workstreams do |cw| -%>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="form-group required">
+      <%= cw.label :preference, t(cw.object.preference), class: 'control-label' %>
+      <%= cw.hidden_field :preference, :value => cw.object.preference %>
+    </div>    
+    <div class="form-group required">
+      <%= cw.select(:conference_workstream_id, ConferenceWorkstream.with_translations.where('conference_id = ?',oac.object.conference.id).collect {|p| [ p.name, p.id ] }, {:include_blank => t(:choose_one)}) %>
+    </div>
+  </div>
+</div>
+<% end -%>
+
+<div class="row">
+  <div class="col-md-12">
+    <p>
+    <i>(choice will be confirmed by Creators of Peace; final programme will be confirmed subject to numbers)</i>
+    </p>
+    
+    <p>
+    Costs for your stay in Caux and the training:<br/>
+    CHF 165.- per Person per Night<br/>
+    CHF 50.- Registration fee<br/>
+    CHF 50.- Participation fee
+    </p>
+  </div>
+</div>

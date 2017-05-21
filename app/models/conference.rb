@@ -11,7 +11,7 @@ class Conference < ActiveRecord::Base
   scope :private, where("private = ?", true)
   # public is a reserved word
   scope :not_private, where("private = ?", false)
-  scope :normal, not_private.where("special = ?", false)
+  scope :normal, not_private.where("special = ? and caux_forum_training = ?", false, false)
   scope :special, not_private.where("special = ?", true)
   scope :caux_forum_training, not_private.where("caux_forum_training = ?", true)
 
