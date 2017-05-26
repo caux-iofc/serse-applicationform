@@ -352,3 +352,5 @@ en:
   payment_received: "Thank you, we have received your payment. Please proceed to the final step of the application."
   payment_information: "All participants of the Caux Forum need to pay a non-refundable registration fee of CHF 50.-. Please use the button below to make the payment before completing the application."
   pay_now: "Pay registration fee now"
+
+  preference: "Preference"

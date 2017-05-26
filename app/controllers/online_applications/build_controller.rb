@@ -356,9 +356,7 @@ protected
           @oac = oa.online_application_conferences.build({:conference_id => c.id, :priority_sort => @priority_sort += 1 })
           @oac.variables[:role] = 'participant'
           # The user can choose a workstream
-          if @oac.online_application_conference_workstreams.empty?
-            @oac.online_application_conference_workstreams.build({ :preference => 'preference' })
-          end
+          @oac.online_application_conference_workstreams.build({ :preference => 'preference' })
         end
       end
 
