@@ -169,6 +169,21 @@ class OnlineApplication < ActiveRecord::Base
     end
   end
 
+  validate :must_have_one_menu, :if => :detail?
+  validate :no_more_than_one_diet, :if => :detail?
+
+  def must_have_one_menu
+    if diets.menu.empty? or diets.menu.all? { |diet| diet.marked_for_destruction? }
+      errors.add :base, I18n.t(:menu_missing)
+    end
+  end
+
+  def no_more_than_one_diet
+    if diets.diet.size > 1
+      errors.add :base, I18n.t(:no_more_than_one_diet_choice)
+    end
+  end
+
   validates :diet_other_detail, :length => { :maximum => 240 }, :if => :detail?
 
   # /end detail

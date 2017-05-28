@@ -12,22 +12,22 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-12">
     <div class="form-group required">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-3">
           <%= f.label :language_name, t(:language_name), class: 'control-label' %>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-9">
           <%= f.label :language_proficiency, t(:language_proficiency), class: 'control-label' %>
         </div>
       </div>
       <%= f.fields_for :online_application_languages do |lf| -%>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-3">
             <%= lf.select(:language_id, @languages, {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-9">
             <%= lf.select(:proficiency, @language_proficiencies, {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
           </div>
         </div>
@@ -74,22 +74,24 @@
       </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group required">
       <%= f.label :special_dietary_requirements, t(:special_dietary_requirements) %><br />
       <%= t(:diet_detail_html) %><br/><br/>
-      <strong><%= t(:diet_i_have_dietary_requests) %></strong><br/>
-      <% Diet.with_translations.order(:priority_sort).each do |diet| -%>
+      <%= f.label :diet_ids, t(:diet_type_of_menu), class: 'control-label' %><br />
+      <% Diet.with_translations.menu.order(:priority_sort).each do |diet| -%>
         <div>
-          <% @old_locale = I18n.locale; I18n.locale = 'en' -%>
-          <%= check_box_tag :diet_ids, diet.id, online_application.diets.include?(diet), :name => "application_group[online_applications_attributes][#{f.object_name.gsub(/[^0-9]+/,'')}][diet_ids][]", :id => "diet_check_#{diet.name.downcase}", :class => ( diet.name == 'Other' ? "diet_other_#{online_application.id}" : '' ) %>
-          <% I18n.locale = @old_locale -%>
-          <%= label_tag :diet_ids, diet.name %>
+          <%= radio_button_tag :diet_menu_ids, diet.id, online_application.diets.include?(diet), :name => "application_group[online_applications_attributes][#{f.object_name.gsub(/[^0-9]+/,'')}][diet_ids][]", :id => "diet_check_#{diet.name.downcase}" %>
+          <%= label_tag :diet_ids, diet.name, style: 'font-weight: normal' %>
         </div>
-        <% if diet.name == 'Halal' -%>
-          <div>&nbsp;&nbsp;&nbsp;&nbsp;<i><%= t(:diet_ramadan_info) -%></i></div><br/>
-          <strong><%= t(:diet_i_have_medical_allergy_requests) %></strong><br/>
-        <% end -%>
       <% end -%>
+      <strong><%= t(:diet_dietary_restrictions) %></strong><br/>
+      <% Diet.with_translations.diet.order(:priority_sort).each do |diet| -%>
+        <div>
+          <%= check_box_tag :diet_ids, diet.id, online_application.diets.include?(diet), :name => "application_group[online_applications_attributes][#{f.object_name.gsub(/[^0-9]+/,'')}][diet_ids][]", :id => "diet_check_#{diet.name.downcase}" %>
+          <%= label_tag :diet_ids, diet.name, style: 'font-weight: normal' %>
+        </div>
+      <% end -%>
+
       <div><%= t(:diet_closing_text) %></div>
     </div>
   </div>

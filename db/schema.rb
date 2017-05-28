@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20170517203500) do
+ActiveRecord::Schema.define(:version => 20170528141500) do
 
   create_table "address_versions", :force => true do |t|
     t.integer  "address_id"
@@ -340,18 +340,22 @@ ActiveRecord::Schema.define(:version => 20170517203500) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "menu",                         :default => false, :null => false
+    t.string   "code",                         :default => "",    :null => false
   end
 
   add_index "diet_versions", ["diet_id"], :name => "index_diet_versions_on_diet_id"
 
   create_table "diets", :force => true do |t|
     t.integer  "priority_sort"
-    t.string   "created_by",    :limit => 100, :default => "", :null => false
-    t.string   "updated_by",    :limit => 100, :default => "", :null => false
-    t.integer  "lock_version",                 :default => 0,  :null => false
+    t.string   "created_by",    :limit => 100, :default => "",    :null => false
+    t.string   "updated_by",    :limit => 100, :default => "",    :null => false
+    t.integer  "lock_version",                 :default => 0,     :null => false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "menu",                         :default => false, :null => false
+    t.string   "code",                         :default => "",    :null => false
   end
 
   create_table "language_translations", :force => true do |t|

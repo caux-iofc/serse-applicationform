@@ -24,7 +24,10 @@ en:
   profession: "Profession"
   employer: "Employer"
   special_dietary_requirements: "Special dietary requirements"
-  diet_detail_html: "Our meals are either vegetarian or offer a vegetarian option. The catering company does its best to accommodate most <strong>standard dietary requests</strong> for medical and health reasons. We can fulfill requests for gluten-free, lactose-free, garlic- and onion-free, as well as low salt diets. Low fat and vegan meals are not provided, but you will be able to make your choice out of our buffets. In order to welcome people with different religious backgrounds we provide pork-free meals and a Halal option.<p/><strong>Please make sure to inform us about all of your dietary requests in advance. We cannot guarantee to arrange for late or on-site requests.</strong>"
+  diet_detail_html: "Our catering company does its best to accommodate most standard dietary requests for medical and health reasons.<br/>All meals are pork free and low salted; every day, a meat-free meal will be served either at lunch or dinner. Allergens such as nuts and shell fish, as well as onion and garlic, will be identifiable on each dish.<br/>
+<strong>Please make sure to inform us about all of your dietary requests in advance. We cannot guarantee to arrange for late or on-site requests.</strong>"
+  diet_type_of_menu: "What type of menu do you wish?"
+  diet_dietary_restrictions: "Do you have any dietary restrictions?"
   diet_i_have_dietary_requests: "I have dietary requests:"
   diet_ramadan_info: "Info: During Ramadan we offer special meals at night"
   diet_i_have_medical_allergy_requests: "I  have medical allergy requests:"
@@ -354,3 +357,5 @@ en:
   pay_now: "Pay registration fee now"
 
   preference: "Preference"
+  menu_missing: "Please choose a type of menu"
+  no_more_than_one_diet_choice: "Maximum one dietary restriction"

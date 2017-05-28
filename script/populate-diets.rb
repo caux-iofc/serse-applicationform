@@ -10,13 +10,16 @@ ENV["RAILS_ENV"] = "production" if production
 require File.dirname(__FILE__) + '/../config/boot'
 require File.dirname(__FILE__) + '/../config/environment'
 
-def new_diet(sort,en,fr=en,de=en)
+def new_diet(sort,menu,code,en,fr=en,de=en)
   I18n.locale = :en
   d = Diet.find_by_name(en)
   if d.nil? then
     d = Diet.new()
   end
   d.priority_sort = sort
+
+  d.menu = menu
+  d.code = code
 
   d.name = en
   I18n.locale = :fr
@@ -27,13 +30,14 @@ def new_diet(sort,en,fr=en,de=en)
 end
 
 sort = 0
-new_diet(sort += 1,'Vegetarian (includes eggs and dairy products)','Végétarien (comprend des œufs et des produits laitiers)','Vegetarisch (inclusive Eier und Milchprodukte)')
-#new_diet(sort += 1,'Vegan','Végétalien','Vegan')
-new_diet(sort += 1,'Halal')
-#new_diet(sort += 1,'Ramadan','Ramadan','Ramadan')
-new_diet(sort += 1,'Gluten free','Sans gluten','Glutenfrei')
-new_diet(sort += 1,'Lactose free','Sans lactose','Laktosefrei')
-new_diet(sort += 1,'Low salt','Sans sel','Salzlos')
-new_diet(sort += 1,'Onion / garlic free','Sans oignon / ail','Ohne Zwiebeln / Knoblauch')
-#new_diet(sort += 1,'Other','Autre','Anderes')
+
+new_diet(sort += 1,1,'0','standard (meat, fish or vegetarian)','standard (viande, poisson ou végétarien)','Standard (Fleisch, Fisch oder vegetarisch)')
+new_diet(sort += 1,1,'1','vegetarian','végétarien','Vegetarisch')
+new_diet(sort += 1,1,'2','vegan','végétalien','Vegan')
+new_diet(sort += 1,1,'3','halal','halal','Halal')
+
+new_diet(sort += 1,0,'LF','lactose free','sans lactose','Laktosefrei')
+new_diet(sort += 1,0,'GF','gluten free','sans gluten','Glutenfrei')
+new_diet(sort += 1,0,'LGF','lactose & gluten free','sans gluten & lactose','Gluten- und Laktosefrei')
+new_diet(sort += 1,0,'M','other medical needs (please specify per email)','autres besoins médicaux (veuillez préciser par email)','andere medizinische Bedürfnisse (bitte per email präzisieren)')
 

@@ -251,16 +251,23 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
       end
       @values += "'" + @or[0..199] + "',"
 
+      # There are 15 diet codes. We get one 'menu' type (diet.menu is true,
+      # numeric code), and at most one diet type (diet.diet is true, letter code). We
+      # generate the code letter first. Code 'M' trumps everything.
+      # LF = lactose free
+      # GF = gluten free
+      # LGF = lactose & gluten free
+      # M = other medical need
+      # 0 (standard), 1 (vegetarian), 2 (vegan), 3 (halal)
       @keys += 'diet,'
       @diets = ''
-      oa.diets.each do |d|
-        @diets += "#{d.name}, "
+      if oa.diets.map {|d| d.code }.include?('M')
+        @diets = 'M'
+      else
+        @diets = oa.diets.map {|d| d.code }.sort.reverse!.join('')
       end
-      @diets += oa.diet_other_detail + ", " if oa.diet_other_detail
-      if @diets != '' then
-        @diets.chop!
-        @diets.chop!
-      end
+      @diets = 'GF2' if (@diets == 'LGF2') # 2 == vegan, which implies lactose free
+      @diets = '2' if (@diets == 'LF2') # 2 == vegan, which implies lactose free
       @values += "'" + @conn.escape(@diets) + "',"
 
       @keys += 'confirmation_letter_via,'

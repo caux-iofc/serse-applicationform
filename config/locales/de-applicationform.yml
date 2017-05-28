@@ -49,7 +49,9 @@ de:
   gender: Geschlecht
 
   special_dietary_requirements: "Spezielle Diätanforderungen"
-  diet_detail_html: "<p>Die Gerichte sind vegetarisch oder es gibt eine vegetarische Alternative. Das Küchenteam bemüht sich, <strong>übliche Ernährungseinschränkungen</strong> aus gesundheitlichen Gründen zu berücksichtigen. Wir können gluten- und laktosefreie, salzarme Kost und Gerichte ohne Knoblauch und Zwiebeln anbieten. Fettreduzierte und vegane Mahlzeiten werden nicht zubereitet, aber Sie können sich das Essen am Buffet entsprechend zusammenstellen. Um unterschiedliche Religionen willkommen zu heissen, bieten wir Gerichte ohne Schweinefleisch und eine Halal Option.</p><p><strong>Bitte informieren Sie uns vorab über Ihre Ernährungseinschränkungen. Zu spät oder vor Ort geäusserte Wünsche können leider nicht immer berücksichtigt werden.</strong></p>"
+  diet_detail_html: "<p>Unser Küchenteam bemüht sich, übliche Ernährungseinschränkungen aus gesundheitlichen Gründen zu berücksichtigen. Alle Mahlzeiten sind ohne Schweinefleisch und nur leicht gesalzen; ein Menü pro Tag ist fleischlos. Allergene wie Nüsse und Schalentiere, sowie Zwiebeln und Knoblauch, sind jeweils identifizierbar.</p><strong>Bitte informieren Sie uns vorab über Ihre Ernährungseinschränkungen. Zu späte oder vor Ort geäusserte Wünsche können leider nicht garantiert berücksichtigt werden.</strong>"
+  diet_type_of_menu: "Welche Art von Menu wünschen Sie?"
+  diet_dietary_restrictions: "Haben Sie spezielle Diät Restriktionen?"
   diet_i_have_dietary_requests: "Ich benötige folgende Manu Adaptionen:"
   diet_ramadan_info: "Info: Während dem Ramadan servieren wir spezielle Mahlzeiten in der Nacht"
   diet_i_have_medical_allergy_requests: "Aus medizinischen Gründen benötige ich folgende Menu Adaptionen:"
@@ -367,3 +369,5 @@ de:
   pay_now: "Jetzt Anmeldegebühr bezahlen"
 
   preference: "Wahl"
+  menu_missing: "Please choose a type of menu"
+  no_more_than_one_diet_choice: "Maximum one dietary restriction"
