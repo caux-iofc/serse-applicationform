@@ -18,8 +18,14 @@
   </div>
 </div>
 
-
 <%= f.fields_for :online_applications do |builder| %>
+  <% if builder.object.errors.any? -%>
+  <div class="row">
+    <div class="col-md-12">
+      <%= error_messages_for_object builder.object %>
+    </div>
+  </div>
+  <% end -%>
   <span class="oa-counter" id="application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>"></span>
   <%= builder.hidden_field :relation %>
   <%= builder.hidden_field :arrival %>

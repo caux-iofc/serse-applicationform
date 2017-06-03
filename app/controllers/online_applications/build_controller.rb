@@ -39,7 +39,7 @@ class OnlineApplications::BuildController < ApplicationController
       @online_application.registration_type = 'single'
     end
 
-    if step == :group or step == :family or step == :detail or step == :dates_and_events or step == :visa or step == :confirmation
+    if step == :group or step == :family or step == :detail or step == :dates_and_events or step == :visa or step == :finances or step == :confirmation
       # Because we use the @application_group object for these steps, we need to
       # make sure to explicitly update the status field which lives on the primary
       # applicant object.

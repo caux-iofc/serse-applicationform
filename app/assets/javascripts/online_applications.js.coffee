@@ -639,6 +639,12 @@ jQuery ->
           total_personal_automatic -= $(base_id + "_sponsors_attributes_" + sponsor_count + "_nights").val() * $(base_id + "_sponsors_attributes_" + sponsor_count + "_amount").val()
         sponsor_count += 1
 
+      # Sponsors do not pay the registration fee; also make sure
+      # total_personal_automatic does not go negative if a sponsorship
+      # larger than the calculated total amount is indicated.
+      if total_personal_automatic < registration_fee
+        total_personal_automatic = registration_fee
+
       $(base_id + "_calculated_total_personal_contribution").val(total_personal_automatic)
 
     # Back from walking all the applications
