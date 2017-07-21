@@ -94,7 +94,9 @@ class OnlineApplications::BuildController < ApplicationController
       params[:online_application][:status] = step.to_s
       params[:online_application][:status] = 'complete' if step == steps.last
 
-      if @online_application.update_attributes(params[:online_application])
+      if not @online_application.update_attributes(params[:online_application])
+        populate_ethereal_variables
+      else
         if step == :personal and @online_application.relation == 'primary applicant'
           @online_application.application_group.group_registration = (@online_application.registration_type == 'group' ? true : false)
           @online_application.application_group.family_registration = (@online_application.registration_type == 'family' ? true: false)
