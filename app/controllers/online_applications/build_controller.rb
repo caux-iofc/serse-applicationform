@@ -7,7 +7,6 @@ class OnlineApplications::BuildController < ApplicationController
 
   def show
     @step = step
-
     if step.to_s != 'wicked_finish'
       # Make sure that we're not skipping steps!
       redirstep = step
@@ -95,9 +94,7 @@ class OnlineApplications::BuildController < ApplicationController
       params[:online_application][:status] = step.to_s
       params[:online_application][:status] = 'complete' if step == steps.last
 
-      if not @online_application.update_attributes(params[:online_application])
-        populate_ethereal_variables
-      else
+      if @online_application.update_attributes(params[:online_application])
         if step == :personal and @online_application.relation == 'primary applicant'
           @online_application.application_group.group_registration = (@online_application.registration_type == 'group' ? true : false)
           @online_application.application_group.family_registration = (@online_application.registration_type == 'family' ? true: false)
@@ -223,12 +220,11 @@ class OnlineApplications::BuildController < ApplicationController
         # We can't use render_wizard directly here, because @online_application validates fine,
         # but this step is tied to the validation of application_group. Yes, we're doing silly
         # things here.
-        if step != :group and step != :family
+        if step != :group and step != :family and step != :detail and step != :finances
           # Apply the changes, but don't save (because validation fails).
           # Don't do this on the group step, because we'll duplicate new group members otherwise.
           @application_group.assign_attributes(params[:application_group])
         end
-        populate_ethereal_variables
         show
         return
       elsif step == :confirmation
@@ -296,7 +292,6 @@ protected
   end
 
   def populate_ethereal_variables
-
     calculate_progress_bar
 
     # used to auto-populate the earliest start year and latest stop year
@@ -307,23 +302,25 @@ protected
     # Make sure we have three sponsor lines; the first two are
     # auto-calculated (and empty if not needed)
     @application_group.online_applications.each do |oa|
-      @count = oa.sponsors.auto.count
-      while @count < 2 do
+      @size = oa.sponsors.auto.size
+      while @size < 2 do
         oa.sponsors.build({:auto => true})
-        @count += 1
+        @size += 1
       end
-      @count = oa.sponsors.not_auto.count
-      while @count < 1 do
+      @size = oa.sponsors.not_auto.size
+      while @size < 1 do
         oa.sponsors.build({:auto => false})
-        @count += 1
+        @size += 1
       end
     end
 
     # Make sure we have at least four online_application_language lines for each
     # applicant in the group
     @application_group.online_applications.each do |oa|
-      while oa.online_application_languages.size < 4 do
-        oa.online_application_languages.build
+      @size = oa.online_application_languages.size
+      while @size < 4 do
+        oa.online_application_languages.build()
+        @size += 1
       end
     end
 
