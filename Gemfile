@@ -1,22 +1,25 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.22.5'
+gem 'rails', '4.0.13'
 
-gem 'mysql2'
+gem 'mysql2', '~> 0.3.18'
 
 gem 'json'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.6'
-  gem 'coffee-rails', '~> 3.2.2'
+#  gem 'sass-rails',   '~> 3.2.6'
+#  gem 'coffee-rails', '~> 3.2.2'
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails', '~> 3.1.4'
 
-gem 'cure_rails3_acts_as_paranoid'
+gem 'protected_attributes'
+
+#gem 'cure_rails3_acts_as_paranoid'
+gem 'acts_as_paranoid', '~> 0.5.0'
 gem 'cure_acts_as_versioned', '0.6.2'
 
 # To use ActiveModel has_secure_password
@@ -35,7 +38,7 @@ gem 'rvm1-capistrano3', require: false, group: :development
 
 gem 'hoptoad_notifier', "~> 2.3"
 
-gem 'globalize', '~> 3.0.4'
+gem 'globalize', '~> 4.0.3'
 
 gem 'execjs'
 gem 'therubyracer'

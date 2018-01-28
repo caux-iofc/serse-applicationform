@@ -27,7 +27,7 @@ class OnlineApplication < ActiveRecord::Base
   accepts_nested_attributes_for :online_application_training_programs, :allow_destroy => :true, :reject_if => :not_selected, :update_only => :true
 
   has_many :conferences, :through => :online_application_conferences
-  has_many :online_application_conferences, :order => 'priority_sort asc'
+  has_many :online_application_conferences, -> { order(priority_sort: :asc) }
   accepts_nested_attributes_for :online_application_conferences, :allow_destroy => :true, :reject_if => :not_selected, :update_only => :true
 
   has_many :application_translation_needs
@@ -40,8 +40,8 @@ class OnlineApplication < ActiveRecord::Base
     attributed['selected'] == "0"
   end
 
-  scope :primary_applicant, where("relation = 'primary applicant'")
-  scope :other_applicants, where("relation != 'primary applicant'")
+  scope :primary_applicant, -> { where("relation = 'primary applicant'") }
+  scope :other_applicants, -> { where("relation != 'primary applicant'") }
 
   attr_accessor :the_request
 

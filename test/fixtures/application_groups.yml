@@ -8,6 +8,8 @@ one:
   data_protection_local_info: false
   session_group: 
   comment: MyText
+  session_id: "My Secret Session Id"
+  payment_reference: ""
 
 two:
   name: MyString
@@ -17,3 +19,5 @@ two:
   data_protection_local_info: false
   session_group: 
   comment: MyText
+  session_id: "My Other Secret Session Id"
+  payment_reference: ""

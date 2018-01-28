@@ -29,5 +29,5 @@ class ApplicationGroup < ActiveRecord::Base
     self.group_registration or self.family_registration
   end
 
-  scope :complete, where("complete = ?", true)
+  scope :complete, -> { where("complete = ?", true) }
 end
