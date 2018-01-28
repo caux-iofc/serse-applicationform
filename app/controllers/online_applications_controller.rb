@@ -60,7 +60,7 @@ class OnlineApplicationsController < ApplicationController
     @oac_special = Array.new()
 
     # For some reason @online_application.online_application_conferences.find_by_conference_id(c.id).nil?
-    # does not work on records that were created with 'build' (presumably because they are not saved yet). 
+    # does not work on records that were created with 'build' (presumably because they are not saved yet).
     # So, use this workaround.
     @conferences = Hash.new()
     @online_application.online_application_conferences.each do |oac|
@@ -131,7 +131,7 @@ class OnlineApplicationsController < ApplicationController
     @online_application.application_group_id = @ag.id
     @online_application.application_group_order = @ag.online_applications.count + 1
 
-    if @online_application.relation != 'primary applicant' and 
+    if @online_application.relation != 'primary applicant' and
        (@ag.online_applications.empty? or @ag.online_applications.primary_applicant.first.nil?) then
       # Something funky is going on here. Most likely, they have already submitted this application.
       redirect_to :error
@@ -184,7 +184,7 @@ class OnlineApplicationsController < ApplicationController
     @online_application.the_request = request
 
     # If no check boxes are checked, the form does not return those fields.
-    # Handle that here, making sure that any training programs previously 
+    # Handle that here, making sure that any training programs previously
     # selected will be removed.
     if not params[:online_application].has_key?('training_program_ids') then
       params[:online_application]['training_program_ids'] = []
@@ -230,33 +230,33 @@ class OnlineApplicationsController < ApplicationController
 
 protected
 
-  def ensure_application_group
-    if session.nil? or
-       not session.has_key?(:application_group_id) or
-       session[:application_group_id] == 0 or
-       ApplicationGroup.where(:id => session[:application_group_id]).first.nil? then
-      begin
-        # new application group
-        @ag = ApplicationGroup.new()
-        # Trigger creation of session id, in case the session is new. We have to do this
-        # because of lazy session loading. 
-        # Cf. https://rails.lighthouseapp.com/projects/8994/tickets/2268-rails-23-session_optionsid-problem
-        # Ward, 2012-02-29
-        request.session_options[:id]
-        @ag.session_id = request.session_options[:id]
-        @ag.browser = request.env['HTTP_USER_AGENT']
-        @ag.remote_ip = request.env['REMOTE_ADDR']
-        @ag.session_group_id = session[:session_group_id] if session.has_key?(:session_group_id)
-        @ag.save!
-      rescue
-        # Most likely, this means there is no session_id. That can happen if cookies are disabled.
-        redirect_to :cookies_disabled
-        return
-      end
-      session[:application_group_id] = @ag.id
-    else
-      @ag = ApplicationGroup.find(session[:application_group_id])
-    end
-  end
+#  def ensure_application_group
+#    if session.nil? or
+#       not session.has_key?(:application_group_id) or
+#       session[:application_group_id] == 0 or
+#       ApplicationGroup.where(:id => session[:application_group_id]).first.nil? then
+#      begin
+#        # new application group
+#        @ag = ApplicationGroup.new()
+#        # Trigger creation of session id, in case the session is new. We have to do this
+#        # because of lazy session loading.
+#        # Cf. https://rails.lighthouseapp.com/projects/8994/tickets/2268-rails-23-session_optionsid-problem
+#        # Ward, 2012-02-29
+#        request.session_options[:id]
+#        @ag.session_id = request.session_options[:id]
+#        @ag.browser = request.env['HTTP_USER_AGENT']
+#        @ag.remote_ip = request.env['REMOTE_ADDR']
+#        @ag.session_group_id = session[:session_group_id] if session.has_key?(:session_group_id)
+#        @ag.save!
+#      rescue
+#        # Most likely, this means there is no session_id. That can happen if cookies are disabled.
+#        redirect_to :cookies_disabled
+#        return
+#      end
+#      session[:application_group_id] = @ag.id
+#    else
+#      @ag = ApplicationGroup.find(session[:application_group_id])
+#    end
+#  end
 
 end

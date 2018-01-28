@@ -57,10 +57,6 @@ class ApplicationController < ActionController::Base
         STDERR.puts "Tried to access application with id #{params[:online_application_id]} with"
         STDERR.puts "session id #{request.session_options[:id]}, which does not match the session"
         STDERR.puts "saved in the online application record."
-        require 'pp'
-        STDERR.puts ""
-        STDERR.puts "Request information:"
-        STDERR.puts request.pretty_inspect()
         STDERR.puts "******* /Breakin attempt ********"
         reset_session
         redirect_to :home
@@ -102,6 +98,7 @@ class ApplicationController < ActionController::Base
         # Cf. https://rails.lighthouseapp.com/projects/8994/tickets/2268-rails-23-session_optionsid-problem
         # Ward, 2012-02-29
         request.session_options[:id]
+        @application_group.payment_reference = ''
         @application_group.session_id = request.session_options[:id]
         @application_group.browser = request.env['HTTP_USER_AGENT']
         @application_group.remote_ip = request.env['REMOTE_ADDR']

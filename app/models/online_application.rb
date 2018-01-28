@@ -145,7 +145,7 @@ class OnlineApplication < ActiveRecord::Base
 
   validates :email, :confirmation => true,
                     :presence => true,
-                    :email => true, :if => lambda { |oa| personal_or_group_or_family? && (oa.relation == 'primary applicant' || oa.relation == 'other') }
+                    :format => { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, :if => lambda { |oa| personal_or_group_or_family? && (oa.relation == 'primary applicant' || oa.relation == 'other') }
 
   validates :telephone, :format => { :with => /\A(\+[\d\/\-\. ]{6,}|)\z/, :message => I18n.t(:phone_number_invalid) }, :if => :personal?
   validates :telephone, :presence => true,
