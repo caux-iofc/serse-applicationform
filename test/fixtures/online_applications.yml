@@ -17,11 +17,11 @@ personal_primary_applicant:
   cellphone: MyString
   fax: MyString
   work_telephone: MyString
-  arrival: 2012-02-05 10:25:18
-  departure: 2012-02-05 10:25:18
+  arrival: '2012-02-05 10:25:18'
+  departure: '2012-02-05 10:25:18'
   travel_car_train: MyString
   travel_flight: MyString
-  previous_visit: MyString
+  previous_visit: 1
   previous_year: MyString
   heard_about: MyString
   diet_other_detail: MyString
@@ -37,7 +37,7 @@ personal_primary_applicant:
   badge_firstname: MyString
   badge_surname: MyString
   badge_country: MyString
-  other_reason: MyString
+  other_reason: 0
   interpreter: false
   volunteer: false
 
@@ -58,11 +58,11 @@ group_primary_applicant:
   cellphone: MyString
   fax: MyString
   work_telephone: MyString
-  arrival: 2012-02-05 10:25:18
-  departure: 2012-02-05 10:25:18
+  arrival: '2012-02-05 10:25:18'
+  departure: '2012-02-05 10:25:18'
   travel_car_train: MyString
   travel_flight: MyString
-  previous_visit: MyString
+  previous_visit: 1
   previous_year: MyString
   heard_about: MyString
   diet_other_detail: MyString
@@ -78,6 +78,6 @@ group_primary_applicant:
   badge_firstname: MyString
   badge_surname: MyString
   badge_country: MyString
-  other_reason: MyString
+  other_reason: 0
   interpreter: false
   volunteer: false

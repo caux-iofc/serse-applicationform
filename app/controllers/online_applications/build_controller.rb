@@ -372,24 +372,24 @@ protected
 
     end
 
-    @languages = Language.with_translations.collect {|p| [ p.name, p.id ] }.sort
+    @languages = Language.all.collect {|p| [ p.name, p.id ] }.sort
     @language_proficiencies = [ [t('proficiency_poor'),'110'], [t('proficiency_good'),'120'], [t('proficiency_excellent'),'130'], [t('proficiency_native'),'140'] ]
 
     # Only English, French, German are currently offered
     @old_locale = I18n.locale
     @communications_languages = []
     I18n.locale = 'en'
-    @communications_languages << Language.where("serse_id = 63").with_translations.collect {|p| [ p.name, p.id ] }.flatten!
+    @communications_languages << Language.where("serse_id = 63").collect {|p| [ p.name, p.id ] }.flatten!
     I18n.locale = 'fr'
-    @communications_languages << Language.where("serse_id = 74").with_translations.collect {|p| [ p.name, p.id ] }.flatten!
+    @communications_languages << Language.where("serse_id = 74").collect {|p| [ p.name, p.id ] }.flatten!
     I18n.locale = 'de'
-    @communications_languages << Language.where("serse_id = 89").with_translations.collect {|p| [ p.name, p.id ] }.flatten!
+    @communications_languages << Language.where("serse_id = 89").collect {|p| [ p.name, p.id ] }.flatten!
     @communications_languages.sort!
     I18n.locale = @old_locale
 
     @diets = @online_application.diets.collect { |d| d.id }
 
-    @countries = [ [t(:other_please_specify),'0'] ] + Country.with_translations.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }
+    @countries = [ [t(:other_please_specify),'0'] ] + Country.all.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }
 
     if step == :confirmation
       # Just default (force) the info fields to 'yes'. This is sneaky, but

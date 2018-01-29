@@ -14,9 +14,9 @@ class OnlineApplicationConference < ActiveRecord::Base
   belongs_to :conference
 
   # public is a reserved word
-  scope :not_private, joins(:conference).where("conferences.private = ?", false)
-  scope :normal, joins(:conference).where("conferences.special = ?", false)
-  scope :special, joins(:conference).where("conferences.special = ?", true)
+  scope :not_private, -> { joins(:conference).where("conferences.private = ?", false) }
+  scope :normal, -> { joins(:conference).where("conferences.special = ?", false) }
+  scope :special, -> { joins(:conference).where("conferences.special = ?", true) }
 
   def template_exists
     @tmp = self.conference.template_path.split(/\//,2)
@@ -27,5 +27,7 @@ class OnlineApplicationConference < ActiveRecord::Base
       return false
     end
   end
+
+  default_scope { order('priority_sort') }
 
 end
