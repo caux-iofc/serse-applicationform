@@ -1,5 +1,5 @@
 class PermanentAddress < Address
-  default_scope where(:kind => :permanent)
+  default_scope { where(:kind => :permanent) }
 
   belongs_to :online_application, :inverse_of => :permanent_address
 
