@@ -27,7 +27,8 @@ class OnlineApplication < ActiveRecord::Base
   accepts_nested_attributes_for :online_application_training_programs, :allow_destroy => :true, :reject_if => :not_selected, :update_only => :true
 
   has_many :conferences, :through => :online_application_conferences
-  has_many :online_application_conferences, -> { order(priority_sort: :asc) }
+  has_many :online_application_conferences
+
   accepts_nested_attributes_for :online_application_conferences, :allow_destroy => :true, :reject_if => :not_selected, :update_only => :true
 
   has_many :application_translation_needs

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170528141500) do
+ActiveRecord::Schema.define(version: 20180128141200) do
 
   create_table "address_versions", force: true do |t|
     t.integer  "address_id"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20170528141500) do
     t.string   "group_or_family_name",                        default: "",    null: false
     t.integer  "payment_required",                            default: 0,     null: false
     t.integer  "payment_received",                            default: 0,     null: false
-    t.string   "payment_reference",                           default: "",    null: false
+    t.text     "payment_reference",                                           null: false
     t.string   "payment_currency",                            default: "",    null: false
   end
 
@@ -824,6 +824,7 @@ ActiveRecord::Schema.define(version: 20170528141500) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "auto",                              default: false, null: false
   end
 
   add_index "sponsor_versions", ["sponsor_id"], name: "index_sponsor_versions_on_sponsor_id", using: :btree

@@ -78,14 +78,14 @@
       <%= f.label :special_dietary_requirements, t(:special_dietary_requirements) %><br />
       <%= t(:diet_detail_html) %><br/><br/>
       <%= f.label :diet_ids, t(:diet_type_of_menu), class: 'control-label' %><br />
-      <% Diet.with_translations.menu.order(:priority_sort).each do |diet| -%>
+      <% Diet.menu.order(:priority_sort).each do |diet| -%>
         <div>
           <%= radio_button_tag :diet_menu_ids, diet.id, online_application.diets.include?(diet), :name => "application_group[online_applications_attributes][#{f.object_name.gsub(/[^0-9]+/,'')}][diet_ids][]", :id => "diet_check_#{diet.name.downcase}" %>
           <%= label_tag :diet_ids, diet.name, style: 'font-weight: normal' %>
         </div>
       <% end -%>
       <strong><%= t(:diet_dietary_restrictions) %></strong><br/>
-      <% Diet.with_translations.diet.order(:priority_sort).each do |diet| -%>
+      <% Diet.diet.order(:priority_sort).each do |diet| -%>
         <div>
           <%= check_box_tag :diet_ids, diet.id, online_application.diets.include?(diet), :name => "application_group[online_applications_attributes][#{f.object_name.gsub(/[^0-9]+/,'')}][diet_ids][]", :id => "diet_check_#{diet.name.downcase}" %>
           <%= label_tag :diet_ids, diet.name, style: 'font-weight: normal' %>

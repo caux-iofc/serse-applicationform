@@ -28,4 +28,6 @@ class OnlineApplicationConference < ActiveRecord::Base
     end
   end
 
+  default_scope { order('priority_sort') }
+
 end
