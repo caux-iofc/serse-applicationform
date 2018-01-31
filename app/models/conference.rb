@@ -8,7 +8,8 @@ class Conference < ActiveRecord::Base
 
   has_many :conference_workstreams
 
-  scope :private, -> { where("private = ?", true) }
+  # private is a reserved word
+  scope :is_private, -> { where("private = ?", true) }
   # public is a reserved word
   scope :not_private, -> { where("private = ?", false) }
   scope :normal, -> { not_private.where("special = ? and caux_forum_training = ?", false, false) }
