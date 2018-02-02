@@ -2,9 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.3.6'
 
-gem 'rails', '4.1.16'
+gem 'rails', '4.2.10'
 
-gem 'mysql2', '~> 0.3.18'
+gem 'mysql2'
 
 gem 'json'
 
