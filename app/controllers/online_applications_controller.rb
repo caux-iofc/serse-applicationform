@@ -5,7 +5,7 @@ class OnlineApplicationsController < ApplicationController
   # GET /online_applications
   # GET /online_applications.json
   def index
-    @online_applications = OnlineApplication.find_all_by_application_group_id(@ag.id)
+    @online_applications = OnlineApplication.where(:application_group_id => @ag.id)
 
     if @online_applications.size == 0 then
       redirect_to new_build_path
@@ -27,7 +27,7 @@ class OnlineApplicationsController < ApplicationController
     # Add a blank address (for permanent address)
     @online_application.build_permanent_address
 
-    if OnlineApplication.find_all_by_application_group_id(@ag.id).size == 0 then
+    if OnlineApplication.where(:application_group_id => @ag.id).size == 0 then
       @online_application.relation = 'primary applicant'
     end
 

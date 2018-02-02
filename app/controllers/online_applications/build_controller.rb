@@ -269,7 +269,7 @@ class OnlineApplications::BuildController < ApplicationController
   # GET /build
   # GET /online_applications.json
   def index
-    @online_applications = OnlineApplication.find_all_by_application_group_id(@application_group.id)
+    @online_applications = OnlineApplication.where(:application_group_id => @application_group.id)
     if @online_applications.size == 0 or @application_group.complete
       redirect_to new_build_path
       return
@@ -372,7 +372,7 @@ protected
 
     end
 
-    @languages = Language.all.collect {|p| [ p.name, p.id ] }.sort
+    @languages = Language.all.collect {|p| [ p.name, p.id ] }.select { |x| !x[0].nil? }.sort { |a,b| a[0] <=> b[0] }
     @language_proficiencies = [ [t('proficiency_poor'),'110'], [t('proficiency_good'),'120'], [t('proficiency_excellent'),'130'], [t('proficiency_native'),'140'] ]
 
     # Only English, French, German are currently offered
