@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180128141200) do
+ActiveRecord::Schema.define(version: 20180201215200) do
 
   create_table "address_versions", force: true do |t|
     t.integer  "address_id"
@@ -410,6 +410,7 @@ ActiveRecord::Schema.define(version: 20180128141200) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "role_exhibitor",                                    default: false
   end
 
   add_index "online_application_conference_versions", ["online_application_conference_id"], name: "index_online_application_conference_versions_on_online_applicat", using: :btree
