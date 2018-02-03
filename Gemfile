@@ -42,7 +42,7 @@ end
 
 gem 'hoptoad_notifier', "~> 2.3"
 
-gem 'globalize', '~> 4.0.3'
+gem 'globalize', '~> 5.0.0'
 
 gem 'execjs'
 gem 'therubyracer'

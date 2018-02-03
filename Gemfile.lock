@@ -79,9 +79,9 @@ GEM
     ffi (1.9.18)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    globalize (4.0.3)
-      activemodel (>= 4.0.0, < 5)
-      activerecord (>= 4.0.0, < 5)
+    globalize (5.0.1)
+      activemodel (>= 4.2.0, < 4.3)
+      activerecord (>= 4.2.0, < 4.3)
     hoptoad_notifier (2.4.11)
       activesupport
       builder
@@ -190,7 +190,7 @@ DEPENDENCIES
   date_validator
   exception_notification
   execjs
-  globalize (~> 4.0.3)
+  globalize (~> 5.0.0)
   hoptoad_notifier (~> 2.3)
   i18n-js
   jquery-rails (~> 3.1.4)
