@@ -81,7 +81,8 @@ class PaymentsController < ApplicationController
       @application_group.payment_currency = PAYMENT_PROCESSOR_CURRENCY
       @application_group.save!
 
-      redirect_to build_path(:payment)
+      @application_group.complete!
+      redirect_to build_path(Wicked::FINISH_STEP)
     elsif params[:status] == 'error'
       STDERR.puts "******* Payment callback: error status ********"
       require 'pp'

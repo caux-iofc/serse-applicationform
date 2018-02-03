@@ -57,8 +57,8 @@ Rails.application.routes.draw do
   get 'nagios/application_groups' => 'nagios#application_groups'
 
   scope "/payments" do
-    get '/callback/:status' => 'payments#callback'
-    get '/post' => 'payments#post'
+    post '/callback/:status' => 'payments#callback'
+    post '/post' => 'payments#post'
     get '/redirect_to_processor' => 'payments#redirect_to_processor', :as => 'payments_redirect_to_processor'
   end
 

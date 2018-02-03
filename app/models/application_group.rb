@@ -30,4 +30,13 @@ class ApplicationGroup < ActiveRecord::Base
   end
 
   scope :complete, -> { where("complete = ?", true) }
+
+  def complete!
+    self.complete = true
+    self.save
+    if self.primary_applicant and self.primary_applicant.email
+      SystemMailer.notice_of_receipt("#{self.primary_applicant.pretty_name} <#{self.primary_applicant.email}>").deliver
+    end
+  end
+
 end

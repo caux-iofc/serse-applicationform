@@ -232,7 +232,7 @@ class OnlineApplications::BuildController < ApplicationController
       elsif step == :confirmation
         if @application_group.payment_required == 0 or session[:skip_payment] or PAYMENT_STEP_DISABLED then
           # No payment required, skip to the end!
-          complete_application_group
+          @application_group.complete!
           redirect_to build_path(Wicked::FINISH_STEP)
           return
         end
@@ -243,7 +243,7 @@ class OnlineApplications::BuildController < ApplicationController
           redirect_to build_path(:payment)
           return
         else
-          complete_application_group
+          @application_group.complete!
         end
       end
       # reload @online_application, we've changed it by updating @application_group
@@ -251,14 +251,6 @@ class OnlineApplications::BuildController < ApplicationController
     end
 
     render_wizard @online_application
-  end
-
-  def complete_application_group
-    @application_group.complete = true
-    @application_group.save
-    if @application_group.primary_applicant and @application_group.primary_applicant.email
-      SystemMailer.notice_of_receipt("#{@application_group.primary_applicant.pretty_name} <#{@application_group.primary_applicant.email}>").deliver
-    end
   end
 
   # We use this method to reset the application
@@ -389,7 +381,7 @@ protected
 
     @diets = @online_application.diets.collect { |d| d.id }
 
-    @countries = [ [t(:other_please_specify),'0'] ] + Country.all.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }
+    @countries = [ [t(:other_please_specify),'0'] ] + Country.all.select{|c| ! c.nil? and !c.name.nil? }.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }
 
     if step == :confirmation
       # Just default (force) the info fields to 'yes'. This is sneaky, but
