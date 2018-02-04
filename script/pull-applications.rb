@@ -42,7 +42,7 @@ APP_CONFIG = load_configuration
 
 def pg_connect
   require 'pg'
-  conn = PGconn.open(:host => APP_CONFIG['db_host'], :port => APP_CONFIG['db_port'], :dbname => APP_CONFIG['db_name'], :user => APP_CONFIG['db_user'], :password => APP_CONFIG['db_pass'])
+  conn = PG::Connection.open(:host => APP_CONFIG['db_host'], :port => APP_CONFIG['db_port'], :dbname => APP_CONFIG['db_name'], :user => APP_CONFIG['db_user'], :password => APP_CONFIG['db_pass'])
   return conn
 end
 

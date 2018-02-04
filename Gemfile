@@ -52,7 +52,7 @@ gem 'i18n-js'
 gem 'date_validator'
 
 # For the pull-applications serse interface script
-gem 'pg'
+gem 'pg', '~> 0.21.0'
 
 # The form wizard
 gem 'wicked'

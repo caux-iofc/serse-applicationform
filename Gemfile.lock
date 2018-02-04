@@ -108,7 +108,7 @@ GEM
     net-ssh (4.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
-    pg (1.0.0)
+    pg (0.21.0)
     power_assert (1.1.1)
     protected_attributes (1.1.4)
       activemodel (>= 4.0.1, < 5.0)
@@ -196,7 +196,7 @@ DEPENDENCIES
   jquery-rails (~> 3.1.4)
   json
   mysql2
-  pg
+  pg (~> 0.21.0)
   protected_attributes
   rails (= 4.2.10)
   rvm1-capistrano3
