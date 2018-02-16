@@ -4,8 +4,10 @@
   <%= render 'permanent_address', :f => f %>
 </div>
 <div class="row">
+  <div class="col-md-12 label-warning">
+    <%=t :please_register_every_person %>
+  </div>
   <div class="col-md-12">
-
     <div class="radio">
       <label>
         <%= f.radio_button :registration_type, :single %> <%=t :register_as_single_person %>
