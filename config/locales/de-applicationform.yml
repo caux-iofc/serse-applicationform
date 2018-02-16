@@ -307,7 +307,6 @@ de:
   student: "Studierende mit Studentenausweis (26-35 Jahre)"
   amis_de_caux: 'Vollmitglieder der "Freunde von Caux"'
   local_iofc_team_member: "Angestellte oder Mandatsträger eines IofC-Verbandes"
-  local_iofc_team_member_footnote_html: 'bitte vervollständigen Sie das Dokument <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_iofc_staff_approval_de.pdf">2017 IofC staff approval.pdf</a>'
   exhibitor: Aussteller
   please_only_register_if_you_have_been_accepted_beforehand: 'Bitte melden Sie sich für die folgenden Programme nur an wenn Ihre Teilnahme bestätigt wurde:'
   register_as_part_of_group: Ich melde mich als Teil einer Gruppe / Delegation an
@@ -353,7 +352,7 @@ de:
   please_only_select_this_if_you_have_been_accepted: "Bitte wählen Sie diese Option nur, wenn Sie hierfür eine Bestätigung haben."
   staff_please_specify: "(nur für Angestellte oder Mandatsträger eines IofC-Verbandes)"
   team_member_reference_person: "Teammitglied - Referenz Person"
-  nightly_contribution_html: '<p>Sollten Sie den Standarttarif nicht begleichen können und eine reduzierte Rate anfordern möchten, vervollständigen Sie bitte das Dokument: <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_fee_reduction_request_de.pdf" target="_new">2017 fee reduction request.pdf</a>. Wir garantieren keine reduzierte Rate.</p><p>Falls Ihr Aufenthalt oder ein Teil Ihres Aufenthaltes von einer Drittpartei bezahlt wird, vervollständigen Sie bitte das Dokument <a href="http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_sponsoring_confirmation_de.pdf">2017 sponsoring confirmation.pdf</a> und lassen es von Ihrem Sponsor unterzeichnen. Teilnehmer des Caux Peace & Leadership Programmes, des Caux Scholars Programs und des Caux Artists Programs müssen dieses Formular nicht ausfüllen.</p><p>Alle oben erwähnten Dokumente, falls verlangt, sollten direkt nach dem Ausfüllen der Anmeldeformulars and <a href="mailto:reservation@caux.ch">reservation@caux.ch</a> geschickt werden. Verspätet eingereichte Dokumente können den ganzen Anmeldeprozess verzögern.</p>'
+
   costs_covered_by_foundation: 'Die Kosten Ihres Aufenthaltes werden von der Stiftung CAUX-IofC übernommen.'
   conference_package: 'Pauschalangebot'
   early_bird_discount: 'Frühbucher-Sonderaktion'

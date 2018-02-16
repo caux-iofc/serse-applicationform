@@ -100,7 +100,7 @@
             <%= builder.radio_button :rate, 'amis_de_caux', :class => 'rate' %> <%=t :amis_de_caux %>
           </label><br/>
           <label>
-            <%= builder.radio_button :rate, 'local_iofc_team_member', :class => 'rate' %> <%=t :local_iofc_team_member %> (<%= t(:local_iofc_team_member_footnote_html) -%>)
+            <%= builder.radio_button :rate, 'local_iofc_team_member', :class => 'rate' %> <%=t :local_iofc_team_member %>
           </label><br/>
           <label>
             <%= builder.radio_button :rate, 'student', :class => 'rate' %> <%=t :student %>
@@ -206,18 +206,6 @@
       <div class="col-sm-4">
         <span id="application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_registration_fee_visible" class="pull-right"></span><%= builder.hidden_field :registration_fee %>
       </div>
-    </div>
-  </div>
-
-  <div class="row application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_hide_if_paid_by_foundation">
-    <div class="col-md-12">
-      <hr>
-    </div>
-  </div>
-
-  <div class="row application_group_online_applications_attributes_<%= builder.object_name.gsub(/[^0-9]+/,'') -%>_hide_if_paid_by_foundation">
-    <div class="col-md-12">
-      <%=t :nightly_contribution_html %>
     </div>
   </div>
 

@@ -308,7 +308,6 @@ les organisateurs de la session."
   student: "Étudiants avec carte d’étudiant (26-35 ans)"
   amis_de_caux: 'Membres "Amis de Caux"'
   local_iofc_team_member: "Personnel d'I&C ou détenteurs d'un mandat d'une Association d'I&C"
-  local_iofc_team_member_footnote_html: "veuillez, s'il vous plaît, remplir le document <a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_iofc_staff_approval_fr.pdf\" target=\"_web\">2017 IofC staff approval.pdf</a>"
   please_only_register_if_you_have_been_accepted_beforehand: 'Merci de ne vous inscrire aux programmes suivants que si vous avez déjà été accepté(e)'
   register_as_part_of_group: "Je m'inscris en tant que membre d'un groupe / d'une délégation"
   group_name: Nom du groupe / de la délégation
@@ -353,7 +352,6 @@ les organisateurs de la session."
   please_only_select_this_if_you_have_been_accepted: "S'il vous plaît sélectionner uniquement si vous avez été accepté(e)."
   staff_please_specify: "(seulement pour personnel d’I&C ou consultants d’une Association d’I&C)"
   team_member_reference_person: "membre de l'équipe - personne de référence"
-  nightly_contribution_html: "<p>Si vous ne pouvez pas payer le tarif standard et souhaitez demander une réduction, veuillez, s'il vous plaît, remplir le document <a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_fee_reduction_request_fr.pdf\" target=\"_new\">2017 fee reduction request.pdf</a>. Nous ne pouvons pas garantir une réduction de tarif.</p><p>Si votre séjour ou des parties de votre séjour sont couverts par un tiers, veuillez, s'il vous plaît, remplir le document <a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/20/2017_sponsoring_confirmation_fr.pdf\" target=\"_new\">2017 sponsoring confirmation.pdf</a> et le faire signer par votre parrain. Les participants au Programme de Caux pour la paix et le leadership, le Programme des Caux Scholars et le Programme des Caux Artists n'ont pas à procéder à cette étape.</p><p>Tous les documents mentionnés ci-dessus devraient être envoyés directement à l'équipe des réservations par e-mail à l'adresse suivante <a href=\"mailto:reservation@caux.ch\">reservation@caux.ch</a> après avoir rempli le formulaire d'inscription. Tout retard pourrait ralentir le processus.</p>"
 
   costs_covered_by_foundation: 'Les frais de séjour sont couverts par la Fondation CAUX-Initiatives et Changement.'
   conference_package: 'offre promotionelle par conference'
