@@ -12,7 +12,7 @@ require File.dirname(__FILE__) + '/../config/environment'
 
 def new_diet(sort,menu,code,en,fr=en,de=en)
   I18n.locale = :en
-  d = Diet.find_by_name(en)
+  d = Diet.where(:name => en).first
   if d.nil? then
     d = Diet.new()
   end
