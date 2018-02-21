@@ -230,7 +230,7 @@ class OnlineApplications::BuildController < ApplicationController
         show
         return
       elsif step == :confirmation
-        if @application_group.payment_required == 0 or session[:skip_payment] or PAYMENT_STEP_DISABLED then
+        if @application_group.payment_required == 0 or session[:skip_payment] or PAYMENT_STEP_DISABLED or session[:internal] then
           # No payment required, skip to the end!
           @application_group.complete!
           redirect_to build_path(Wicked::FINISH_STEP)

@@ -104,3 +104,7 @@ PAYMENT_PROCESSOR_HMAC_HEX_KEY = 'insert-your-generated-key-here'
 SKIP_PAYMENT_SECRET=''
 # The payment step is disabled by default
 PAYMENT_STEP_DISABLED=true
+
+# The form can be put into 'internal mode' if a special parameter, 'formtype', is set to the value of
+# the INTERNAL_FORM_SECRET config variable.
+INTERNAL_FORM_SECRET=''

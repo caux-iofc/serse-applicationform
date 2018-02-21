@@ -82,7 +82,7 @@
           <% I18n.locale = @old_locale -%>
         </div>
       <% end -%>
-      <% if not oac.object.conference.special and not oac.object.conference.caux_forum_training -%>
+      <% if not oac.object.conference.special and not oac.object.conference.caux_forum_training and session[:internal] -%>
         <div class="well oac_checkbox_<%= online_application.id %>_<%= oac.object.conference.id %>_subform center-block" style="display:none; width:800px; background: rgb(49, 176, 213)">
           <div class="row">
             <div class="col-md-12">
@@ -202,6 +202,7 @@
       </div>
     </div>
 
+    <% if session[:internal] -%>
     <div class="row">
       <div class="col-md-1">
         <%= f.check_box :interpreter %>
@@ -221,6 +222,7 @@
         <%= f.text_field :staff_detail, { class: 'form-control', :size => 40 } %>
       </div>
     </div>
+    <% end -%>
     <div class="row">
       <div class="form-group">
         <div class="col-md-1">

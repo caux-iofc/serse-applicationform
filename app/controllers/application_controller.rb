@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
       { :locale => I18n.locale }
   end
 
-
   def select_online_form
     # Allow forcing of session_group_id 
     if params.has_key?('override') then
@@ -27,6 +26,12 @@ class ApplicationController < ActionController::Base
     # Allow skipping the payment step
     if params.has_key?('skip_payment') and not SKIP_PAYMENT_SECRET.empty? and params[:skip_payment] == SKIP_PAYMENT_SECRET
       session[:skip_payment] = true
+    end
+    # Allow selecting the internal form
+    if params.has_key?('formtype') and not INTERNAL_FORM_SECRET.empty? and params[:formtype] == INTERNAL_FORM_SECRET
+      session[:internal] = true
+    elsif params.has_key?('formtype') and not INTERNAL_FORM_SECRET.empty? and params[:formtype] != INTERNAL_FORM_SECRET
+      session[:internal] = false
     end
     if params.has_key?('session_group_id') then
       session[:session_group_id] = params[:session_group_id]
@@ -143,6 +148,8 @@ class ApplicationController < ActionController::Base
       # Make sure to clear the :skip_payment session value,
       # we do not want that to stick around in the session.
       session.delete :skip_payment
+      # Same for the :internal session value
+      session.delete :internal
     else
       @application_group = ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first
       @online_application = OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first
