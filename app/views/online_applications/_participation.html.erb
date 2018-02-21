@@ -1,150 +1,254 @@
-         <table class="af_block">
-           <% if @oac_normal.size > 0 -%>
-           <tr>
-             <td colspan="2" align="center"><span class="af_normtitle"><%=t :conference_participation %></span></td>
-           </tr>
-           <% end -%>
-           <%= f.fields_for :online_application_conferences, @oac_normal do |oac| %>
-           <%= oac.hidden_field :conference_id, :value => oac.object.conference.id %>
-           <%= oac.hidden_field :priority_sort, :value => oac.object.priority_sort %>
-           <tr>
-             <td>
-               <% if not oac.full -%>
-                 <%= oac.check_box :selected, :class => "oac_checkbox_#{oac.object.conference.id}" %>
-               <% end -%>
-               <%= label_tag :conference_id, oac.object.conference.name %>
-             </td>
-             <td>
-               <%=l oac.object.conference.start.to_date, :format => :standard %> - <%=l oac.object.conference.stop.to_date, :format => :standard %>
-             </td>
-           </tr>
-           <% if oac.full -%>
-             <strong><%=t :conference_full -%></strong>
-           <% end -%>
-           <% if not oac.object.conference.byline.nil? -%>
-           <tr>
-             <td colspan="2">
-               <table align=left>
-                 <tr>
-                   <td width="30">&nbsp;</td>
-                   <td><font size="-1"><%= oac.object.conference.byline.html_safe %></font></td>
-                 </tr>
-               </table>
-             </td>
-           </tr>
-           <% end -%>
-           <% if oac.object.template_exists -%>
-           <tr class="oac_checkbox_<%= oac.object.conference.id %>_subform" style="display:none">
-             <td colspan="2" class="conference_subform_td">
-               <div class="conference_subform">
-                 <%= render oac.object.conference.template_path, :f => f, :oac => oac %>
-               </div>
-             </td>
-           </tr>
-           <% end -%>
-           <% end -%>
-           <% if @oac_special.size > 0 -%>
-           <tr>
-             <td colspan="2" align="center"><span class="af_normtitle"><%=t :special_conference_participation %></span></td>
-           </tr>
-           <% end -%>
-           <%= f.fields_for :online_application_conferences, @oac_special do |oac| %>
-           <%= oac.hidden_field :conference_id, :value => oac.object.conference.id %>
-           <%= oac.hidden_field :priority_sort, :value => oac.object.priority_sort %>
-           <tr>
-             <td>
-               <%= oac.check_box :selected, :class => "oac_checkbox_#{oac.object.conference.id}" %>
-               <%= label_tag :conference_id, oac.object.conference.name %>
-             </td>
-             <td>
-               <% if oac.object.conference.display_dates -%>
-                 <%=l oac.object.conference.start.to_date, :format => :standard %> - <%=l oac.object.conference.stop.to_date, :format => :standard %>
-               <% end -%>
-             </td>
-           </tr>
-           <% if not oac.object.conference.byline.nil? -%>
-           <tr>
-             <td colspan="2">
-               <table align=left>
-                 <tr>
-                   <td width="30">&nbsp;</td>
-                   <td><font size="-1"><%= oac.object.conference.byline.html_safe %></font></td>
-                 </tr>
-               </table>
-             </td>
-           </tr>
-           <% end -%>
-           <% end -%>
+<% if online_application.relation != 'primary applicant' -%>
+<div class="row">
+  <div class="col-md-12">
+    <hr>
+    <%= error_messages_for_object f.object %>
+  </div>
+</div>
+<% end -%>
 
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h4><%= online_application.firstname -%> <%= online_application.surname -%></h4>
+  </div>
+</div>
 
-           <% if TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).size > 0 -%>
-           <tr>
-             <td colspan="2" align="center"><span class="af_normtitle"><%=t :special_conference_participation %></span></td>
-           </tr>
-           <% end -%>
-           <% TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).each do |tp| -%>
-           <% if tp.name == 'Caux Artists Program' -%>
-           <tr>
-             <td colspan="2">
-               <i><%=t :please_only_register_if_you_have_been_accepted_beforehand %></i>
-             </td>
-           </tr>
-           <% end -%>
-           <tr>
-             <td>
-               <%= check_box_tag :training_program_ids, tp.id, @online_application.training_programs.include?(tp), :name => 'online_application[training_program_ids][]', :id => "tp_check_" + (tp.nil? or tp.name.nil? ? '' : tp.name.downcase) %>
-               <%= label_tag :training_program_ids, tp.name %>
-             </td>
-             <td>
-               <% if tp.display_dates -%>
-                 <%=l tp.start.to_date, :format => :standard %> - <%=l tp.stop.to_date, :format => :standard %>
-               <% end -%>
-             </td>
-           </tr>
-           <% if not tp.byline.nil? -%>
-           <tr>
-             <td colspan="2">
-               <table align=left>
-                 <tr>
-                   <td width="30">&nbsp;</td>
-                   <td><font size="-1"><%= tp.byline.html_safe %></font></td>
-                 </tr>
-               </table>
-             </td>
-           </tr>
-           <% end -%>
-           <% end -%>
-           <tr>
-             <td colspan="2" align="center"><span class="af_normtitle"><%=t :other_reason_title %></span></td>
-           </tr>
-           <tr>
-             <td colspan="2">
-               <%= f.check_box :interpreter %> <strong><%=t :interpreter %></strong>
-             </td>
-           </tr>
-           <tr>
-             <td>
-               <%= f.check_box :volunteer %> <strong><%=t :volunteer %></strong>, <%=t :volunteer_please_specify %>
-             </td>
-             <td>
-               <%= f.text_field :volunteer_detail, :size => 40 %>
-             </td>
-           </tr>
-           <tr class="hide_for_children">
-             <td>
-               <%= f.check_box :staff %> <strong><%=t :staff %></strong>, <%=t :staff_please_specify %>
-             </td>
-             <td>
-               <%= f.text_field :staff_detail, :size => 40 %>
-             </td>
-           </tr>
-           <tr>
-             <td>
-               <%= f.check_box :other_reason %> <strong><%=t :other %></strong>, <%=t :other_reason_please_specify %>
-             </td>
-             <td>
-               <%= f.text_field :other_reason_detail, :size => 40 %>
-             </td>
-           </tr>
-         </table>
+<div class="row">
+  <div class="col-md-12">
 
+    <% @first_normal_conference = true -%>
+    <% @first_special_conference = true -%>
+    <% @first_cft_conference = true -%>
+    <%= f.fields_for :online_application_conferences do |oac| %>
+      <% if @first_normal_conference -%>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3><%=t :conference_participation %></h3>
+          </div>
+        </div>
+        <% @first_normal_conference = false -%>
+      <% end -%>
+      <% if oac.object.conference.caux_forum_training and not oac.object.selected and @first_cft_conference -%>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3><%=t :caux_forum_training_participation %></h3>
+          </div>
+        </div>
+        <% @first_cft_conference = false -%>
+      <% end -%>
+      <% if oac.object.conference.special and not oac.object.selected and @first_special_conference -%>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3><%=t :special_conference_participation %></h3>
+          </div>
+        </div>
+        <% @first_special_conference = false -%>
+      <% end -%>
+      <% if oac.object.conference.full -%>
+        <div class="row">
+          <div class="col-md-12">
+            <i><%=t :conference_full -%></i>
+          </div>
+        </div>
+      <% end -%>
+      <% if (not oac.object.conference.internal or (oac.object.conference.internal and session[:internal])) -%>
+      <div class="row">
+        <%= oac.hidden_field :conference_id, :value => oac.object.conference.id %>
+        <%= oac.hidden_field :priority_sort, :value => oac.object.priority_sort %>
+
+        <div class="col-md-1">
+          <% if not oac.object.conference.full -%>
+            <%= oac.check_box :selected, :class => "oac_checkbox_#{online_application.id}_#{oac.object.conference.id}" %>
+          <% end -%>
+        </div>
+        <div class="col-md-5">
+          <%= label_tag :conference_id, oac.object.conference.name %>
+        </div>
+        <div class="col-md-6" align="left">
+          <%=l oac.object.conference.start.to_date, :format => :standard %> - <%=l oac.object.conference.stop.to_date, :format => :standard %>
+        </div>
+      </div>
+      <% if not oac.object.conference.byline.nil? -%>
+        <div class="row">
+          <div class="col-md-11 col-md-offset-1">
+            <font size="-1"><%= oac.object.conference.byline.html_safe %></font>
+          </div>
+          <% @old_locale = I18n.locale; I18n.locale = 'en' -%>
+          <% if oac.object.conference.name == 'Ethical Leadership in Business' -%>
+          <% I18n.locale = @old_locale -%>
+          <div class="col-md-10 col-md-offset-1">
+            <%= t(:elic_2017_long_byline_html) -%>
+          </div>
+          <% end -%>
+          <% I18n.locale = @old_locale -%>
+        </div>
+      <% end -%>
+      <% end -%>
+      <% if not oac.object.conference.special and not oac.object.conference.caux_forum_training and session[:internal] -%>
+        <div class="well oac_checkbox_<%= online_application.id %>_<%= oac.object.conference.id %>_subform center-block" style="display:none; width:800px; background: rgb(49, 176, 213)">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="conference_subform_td">
+                <div class="conference_subform">
+                  <%= oac.fields_for :variables do |var| -%>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group required">
+                          <%= f.label :role, t(:I_will_come_as), class: 'control-label' %>
+                          <%= var.radio_button :role, 'participant', { :checked => (oac.object.variables[:role] == "participant"), :class => 'role' } %> <%=t :participant %>
+                          <%= var.radio_button :role, 'support', { :checked => (oac.object.variables[:role] == "support"), :class => 'role' } %> <%=t :support_team %>
+                          <%= var.radio_button :role, 'team', { :checked => (oac.object.variables[:role] == "team"), :class => 'role' } %> <%=t :team %>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group required" id="<%= var.object_name.gsub(/[\[\]]+/,'_') -%>role_team_member_reference" style="display:none">
+                          <%= var.label :team_member_reference_person, t(:team_member_reference_person), class: 'control-label' %>
+                          <%= var.text_field :team_member_reference_person, { :value => oac.object.variables["team_member_reference_person"], :class => 'form-control' } %>
+                        </div>
+                      </div>
+                    </div>
+                  <% end -%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end -%>
+
+      <% if oac.object.template_exists -%>
+        <div class="well oac_checkbox_<%= online_application.id %>_<%= oac.object.conference.id %>_subform center-block" style="display:none; width:800px; background: rgb(49, 176, 213)">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="conference_subform_td">
+                <div class="conference_subform">
+                  <%= render oac.object.conference.template_path, :f => f, :oac => oac %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end -%>
+
+      <% @old_locale = I18n.locale; I18n.locale = 'en' -%>
+      <% if oac.object.conference.name == 'ae Centre - International Academy and Forum on Peace' -%>
+        <div class="well oac_checkbox_<%= online_application.id %>_<%= oac.object.conference.id %>_subform center-block" style="display:none; width:800px; background: rgb(49, 176, 213)">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="conference_subform_td">
+                <div class="conference_subform">
+                  <%= oac.fields_for :variables do |var| -%>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group required">
+                          <%= f.label :role, t(:I_will_come_as), class: 'control-label' %>
+                          <%= var.radio_button :role, 'participant', { :checked => (oac.object.variables[:role] == "participant"), :class => 'role' } %> <%=t :participant %>
+                          <%= var.radio_button :role, 'support', { :checked => (oac.object.variables[:role] == "support"), :class => 'role' } %> <%=t :support_team %>
+                        </div>
+                      </div>
+                    </div>
+                  <% end -%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end -%>
+      <% I18n.locale = @old_locale -%>
+    <% end -%>
+    <% if TrainingProgram.with_translations.where('session_group_id = ?',session[:session_group_id]).size > 0 -%>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <h3><%=t :special_program_participation %></h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <i><%=t :please_only_register_if_you_have_been_accepted_beforehand %></i>
+        </div>
+      </div>
+    <% end -%>
+
+    <%= f.fields_for :online_application_training_programs do |oatp| %>
+      <% if (not oatp.object.training_program.internal or (oatp.object.training_program.internal and session[:internal])) -%>
+        <div class="row">
+          <%= oatp.hidden_field :training_program_id, :value => oatp.object.training_program.id %>
+
+          <div class="col-md-1">
+            <%= oatp.check_box :selected, :class => "oatp_checkbox_#{online_application.id}_#{oatp.object.training_program.id}" %>
+          </div>
+          <div class="col-md-5">
+            <%= label_tag :training_program_id, oatp.object.training_program.name %>
+          </div>
+          <div class="col-md-6" align="left">
+            <%=l oatp.object.training_program.start.to_date, :format => :standard %> - <%=l oatp.object.training_program.stop.to_date, :format => :standard %>
+          </div>
+        </div>
+        <% if not oatp.object.training_program.byline.nil? -%>
+          <div class="row">
+            <div class="col-md-11 col-md-offset-1">
+              <font size="-1"><%= oatp.object.training_program.byline.html_safe %></font>
+            </div>
+          </div>
+        <% end -%>
+      <% end -%>
+    <% end -%>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h3><%=t :other_reason_title %></h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <i><%=t :please_only_select_this_if_you_have_been_accepted %></i>
+      </div>
+    </div>
+
+    <% if session[:internal] -%>
+    <div class="row">
+      <div class="col-md-1">
+        <%= f.check_box :interpreter %>
+      </div>
+      <div class="col-md-11">
+        <label><%=t :interpreter %></label>
+      </div>
+    </div>
+    <div class="row hide_for_children">
+      <div class="col-md-1">
+        <%= f.check_box :staff %>
+      </div>
+      <div class="col-md-5">
+        <label><%=t :staff %></label> <%=t :staff_please_specify %>
+      </div>
+      <div class="col-md-6">
+        <%= f.text_field :staff_detail, { class: 'form-control', :size => 40 } %>
+      </div>
+    </div>
+    <% end -%>
+    <div class="row">
+      <div class="form-group">
+        <div class="col-md-1">
+          <%= f.check_box :other_reason %>
+        </div>
+        <div class="col-md-5">
+          <%= f.label :other_reason, t(:other), class: 'control-label' %>, <%=t :other_reason_please_specify %>
+        </div>
+        <div class="col-md-6">
+          <%= f.text_field :other_reason_detail, { class: 'form-control', :size => 40 } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= f.label :remarks, t(:remarks), class: 'control-label' %>
+          <%= f.text_area :remarks, { :rows => 5, :class => 'form-control' } %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
