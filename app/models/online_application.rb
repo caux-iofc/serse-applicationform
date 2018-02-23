@@ -1,11 +1,12 @@
 class OnlineApplication < ActiveRecord::Base
   acts_as_paranoid_versioned :version_column => :lock_version
 
-  attr_accessible :date_of_birth, :relation, :firstname, :surname, :gender, :citizenship_id, :other_citizenship, :profession, :employer, :email, :telephone, :cellphone, :arrival, :departure, :previous_visit, :heard_about, :visa, :confirmation_letter_via, :accompanied_by, :passport_number, :passport_issue_date, :passport_issue_place, :passport_expiry_date, :passport_embassy, :nightly_contribution, :remarks, :badge_firstname, :badge_surname, :badge_country, :interpreter, :volunteer, :other_reason, :other_reason_detail, :staff, :staff_detail, :volunteer_detail, :diet_other_detail, :family_discount, :support_renovation_fund, :full_time_volunteer, :day_visit, :calculated_registration_fee, :calculated_night_rate, :calculated_total_personal_contribution, :calculated_nights, :calculated_rate_and_fee_details, :sent_by_employer, :student, :status, :rate, :financial_remarks, :online_application_conferences_attributes, :online_application_training_programs_attributes, :permanent_address_attributes, :different_address, :email_confirmation, :registration_type, :online_application_languages_attributes, :translate_english, :translate_french, :translate_german, :diet_ids, :caux_scholar, :caux_intern, :caux_artist, :conference_team, :conference_support, :conference_speaker, :week_of_international_community, :global_assembly, :caux_forum_training, :rate_per_night, :total_nights, :registration_fee, :sponsors_attributes, :communications_language_id
+  attr_accessible :date_of_birth, :relation, :firstname, :surname, :gender, :citizenship_id, :other_citizenship, :profession, :employer, :email, :telephone, :cellphone, :arrival, :departure, :previous_visit, :heard_about, :visa, :confirmation_letter_via, :accompanied_by, :passport_number, :passport_issue_date, :passport_issue_place, :passport_expiry_date, :passport_embassy, :nightly_contribution, :remarks, :badge_firstname, :badge_surname, :badge_country, :interpreter, :volunteer, :other_reason, :other_reason_detail, :staff, :staff_detail, :volunteer_detail, :diet_other_detail, :family_discount, :support_renovation_fund, :full_time_volunteer, :day_visit, :calculated_registration_fee, :calculated_night_rate, :calculated_total_personal_contribution, :calculated_nights, :calculated_rate_and_fee_details, :sent_by_employer, :student, :status, :rate, :financial_remarks, :online_application_conferences_attributes, :online_application_training_programs_attributes, :permanent_address_attributes, :different_address, :email_confirmation, :registration_type, :online_application_languages_attributes, :translate_english, :translate_french, :translate_german, :diet_ids, :caux_scholar, :caux_intern, :caux_artist, :conference_team, :conference_support, :conference_speaker, :week_of_international_community, :global_assembly, :caux_forum_training, :rate_per_night, :total_nights, :registration_fee, :sponsors_attributes, :communications_language_id, :translate_into_language_id
 
   belongs_to :application_group
   belongs_to :country, :foreign_key => :citizenship_id
   belongs_to :communications_language, :class_name => "Language"
+  belongs_to :translate_into_language, :class_name => "Language"
 
   has_one :permanent_address, :dependent => :destroy, :inverse_of => :online_application
 
@@ -162,6 +163,8 @@ class OnlineApplication < ActiveRecord::Base
   # /begin detail
 
   validates :communications_language, :presence => true, :if => :detail?
+  validates :translate_into_language, :presence => true, :if => lambda { |oa| detail? and (oa.translate_english == "true" or oa.translate_french == "true" or oa.translate_german == "true" ) }
+
   validate :must_have_one_language, :if => :detail?
 
   def must_have_one_language

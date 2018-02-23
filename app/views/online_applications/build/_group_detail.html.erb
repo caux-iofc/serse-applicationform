@@ -61,6 +61,17 @@
       </div>
     </div>
 
+    <div class="form-group required" style="display: none" id="translate_into_language_subform">
+      <div class="row">
+        <div class="col-md-6 control-label">
+          <%= t(:translate_into_language) %>
+        </div>
+        <div class="col-md-6">
+          <%= f.select(:translate_into_language_id, @languages, {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
+        </div>
+      </div>
+    </div>
+
     <div class="form-group required">
       <div class="row">
         <div class="col-md-12">

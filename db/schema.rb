@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180211143900) do
+ActiveRecord::Schema.define(version: 20180222211900) do
 
   create_table "address_versions", force: :cascade do |t|
     t.integer  "address_id",            limit: 4
@@ -61,66 +61,64 @@ ActiveRecord::Schema.define(version: 20180211143900) do
   add_index "addresses", ["country_id"], name: "index_addresses_on_country_id", using: :btree
 
   create_table "application_group_versions", force: :cascade do |t|
-    t.integer  "application_group_id",               limit: 4
-    t.integer  "lock_version",                       limit: 4
-    t.string   "name",                               limit: 255
-    t.string   "session_id",                         limit: 255
+    t.integer  "application_group_id",       limit: 4
+    t.integer  "lock_version",               limit: 4
+    t.string   "name",                       limit: 255
+    t.string   "session_id",                 limit: 255
     t.boolean  "complete"
+    t.boolean  "confirm_read_documents"
     t.boolean  "data_protection_consent"
     t.boolean  "data_protection_caux_info"
-    t.boolean  "data_protection_three_local_events"
     t.boolean  "data_protection_local_info"
-    t.integer  "session_group_id",                   limit: 4
-    t.text     "comment",                            limit: 65535
-    t.string   "browser",                            limit: 255
-    t.string   "created_by",                         limit: 100,   default: ""
-    t.string   "updated_by",                         limit: 100,   default: ""
+    t.integer  "session_group_id",           limit: 4
+    t.text     "comment",                    limit: 16777215
+    t.string   "browser",                    limit: 255
+    t.string   "remote_ip",                  limit: 255
+    t.string   "created_by",                 limit: 100,      default: ""
+    t.string   "updated_by",                 limit: 100,      default: ""
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "serse_application_group_id",         limit: 4
-    t.boolean  "copied_to_serse",                                  default: false
-    t.boolean  "group_registration",                               default: false, null: false
-    t.boolean  "family_registration",                              default: false, null: false
-    t.string   "group_or_family_name",               limit: 255,   default: "",    null: false
-    t.integer  "payment_required",                   limit: 4,     default: 0,     null: false
-    t.integer  "payment_received",                   limit: 4,     default: 0,     null: false
-    t.text     "payment_reference",                  limit: 65535,                 null: false
-    t.string   "payment_currency",                   limit: 255,   default: "",    null: false
-    t.boolean  "confirm_read_documents"
-    t.string   "remote_ip",                          limit: 255
+    t.integer  "serse_application_group_id", limit: 4
+    t.boolean  "copied_to_serse",                             default: false
+    t.boolean  "group_registration",                          default: false, null: false
+    t.boolean  "family_registration",                         default: false, null: false
+    t.string   "group_or_family_name",       limit: 255,      default: "",    null: false
+    t.integer  "payment_required",           limit: 4,        default: 0,     null: false
+    t.integer  "payment_received",           limit: 4,        default: 0,     null: false
+    t.text     "payment_reference",          limit: 65535,                    null: false
+    t.string   "payment_currency",           limit: 255,      default: "",    null: false
   end
 
   add_index "application_group_versions", ["application_group_id"], name: "index_application_group_versions_on_application_group_id", using: :btree
 
   create_table "application_groups", force: :cascade do |t|
-    t.string   "name",                               limit: 255
-    t.string   "session_id",                         limit: 255,                   null: false
+    t.string   "name",                       limit: 255
+    t.string   "session_id",                 limit: 255,                      null: false
     t.boolean  "complete"
+    t.boolean  "confirm_read_documents"
     t.boolean  "data_protection_consent"
     t.boolean  "data_protection_caux_info"
-    t.boolean  "data_protection_three_local_events"
     t.boolean  "data_protection_local_info"
-    t.integer  "session_group_id",                   limit: 4
-    t.text     "comment",                            limit: 65535
-    t.string   "browser",                            limit: 255
-    t.string   "created_by",                         limit: 100,   default: "",    null: false
-    t.string   "updated_by",                         limit: 100,   default: "",    null: false
-    t.integer  "lock_version",                       limit: 4,     default: 0,     null: false
+    t.integer  "session_group_id",           limit: 4
+    t.text     "comment",                    limit: 16777215
+    t.string   "browser",                    limit: 255
+    t.string   "remote_ip",                  limit: 255
+    t.string   "created_by",                 limit: 100,      default: "",    null: false
+    t.string   "updated_by",                 limit: 100,      default: "",    null: false
+    t.integer  "lock_version",               limit: 4,        default: 0,     null: false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "confirm_read_documents"
-    t.string   "remote_ip",                          limit: 255
-    t.boolean  "copied_to_serse",                                  default: false
-    t.integer  "serse_application_group_id",         limit: 4
-    t.boolean  "group_registration",                               default: false, null: false
-    t.boolean  "family_registration",                              default: false, null: false
-    t.string   "group_or_family_name",               limit: 255,   default: "",    null: false
-    t.integer  "payment_required",                   limit: 4,     default: 0,     null: false
-    t.integer  "payment_received",                   limit: 4,     default: 0,     null: false
-    t.text     "payment_reference",                  limit: 65535,                 null: false
-    t.string   "payment_currency",                   limit: 255,   default: "",    null: false
+    t.boolean  "copied_to_serse",                             default: false
+    t.integer  "serse_application_group_id", limit: 4
+    t.boolean  "group_registration",                          default: false, null: false
+    t.boolean  "family_registration",                         default: false, null: false
+    t.string   "group_or_family_name",       limit: 255,      default: "",    null: false
+    t.integer  "payment_required",           limit: 4,        default: 0,     null: false
+    t.integer  "payment_received",           limit: 4,        default: 0,     null: false
+    t.text     "payment_reference",          limit: 65535,                    null: false
+    t.string   "payment_currency",           limit: 255,      default: "",    null: false
   end
 
   add_index "application_groups", ["session_group_id"], name: "index_application_groups_on_session_group_id", using: :btree
@@ -226,8 +224,8 @@ ActiveRecord::Schema.define(version: 20180211143900) do
     t.integer  "conference_workstream_id", limit: 4
     t.string   "locale",                   limit: 255
     t.string   "language",                 limit: 255
-    t.string   "name",                     limit: 255
     t.string   "byline",                   limit: 255
+    t.string   "name",                     limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -406,17 +404,17 @@ ActiveRecord::Schema.define(version: 20180211143900) do
     t.integer  "online_application_id",            limit: 4
     t.integer  "conference_id",                    limit: 4
     t.boolean  "selected"
-    t.text     "variables",                        limit: 65535
+    t.text     "variables",                        limit: 16777215
     t.integer  "priority_sort",                    limit: 4
     t.boolean  "role_participant"
     t.boolean  "role_speaker"
     t.boolean  "role_team"
-    t.string   "created_by",                       limit: 100,   default: ""
-    t.string   "updated_by",                       limit: 100,   default: ""
+    t.string   "created_by",                       limit: 100,      default: ""
+    t.string   "updated_by",                       limit: 100,      default: ""
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "role_exhibitor",                                 default: false
+    t.boolean  "role_exhibitor",                                    default: false
   end
 
   add_index "online_application_conference_versions", ["online_application_conference_id"], name: "index_online_application_conference_versions_on_online_applicat", using: :btree
@@ -457,18 +455,18 @@ ActiveRecord::Schema.define(version: 20180211143900) do
     t.integer  "online_application_id", limit: 4
     t.integer  "conference_id",         limit: 4
     t.boolean  "selected"
-    t.text     "variables",             limit: 65535
+    t.text     "variables",             limit: 16777215
     t.integer  "priority_sort",         limit: 4
     t.boolean  "role_participant"
     t.boolean  "role_speaker"
     t.boolean  "role_team"
-    t.string   "created_by",            limit: 100,   default: "",    null: false
-    t.string   "updated_by",            limit: 100,   default: "",    null: false
-    t.integer  "lock_version",          limit: 4,     default: 0,     null: false
+    t.string   "created_by",            limit: 100,      default: "",    null: false
+    t.string   "updated_by",            limit: 100,      default: "",    null: false
+    t.integer  "lock_version",          limit: 4,        default: 0,     null: false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "role_exhibitor",                      default: false
+    t.boolean  "role_exhibitor",                         default: false
   end
 
   add_index "online_application_conferences", ["conference_id", "online_application_id"], name: "index_oa_conf_uniq", unique: true, using: :btree
@@ -600,7 +598,7 @@ ActiveRecord::Schema.define(version: 20180211143900) do
     t.date     "passport_expiry_date"
     t.string   "passport_embassy",                       limit: 255
     t.integer  "nightly_contribution",                   limit: 4
-    t.text     "remarks",                                limit: 65535
+    t.text     "remarks",                                limit: 16777215
     t.string   "badge_firstname",                        limit: 255
     t.string   "badge_surname",                          limit: 255
     t.string   "badge_country",                          limit: 255
@@ -608,31 +606,32 @@ ActiveRecord::Schema.define(version: 20180211143900) do
     t.boolean  "volunteer"
     t.boolean  "other_reason"
     t.string   "other_reason_detail",                    limit: 255
-    t.string   "created_by",                             limit: 100,   default: ""
-    t.string   "updated_by",                             limit: 100,   default: ""
+    t.string   "created_by",                             limit: 100,      default: ""
+    t.string   "updated_by",                             limit: 100,      default: ""
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "staff",                                                default: false
-    t.string   "staff_detail",                           limit: 255,   default: ""
-    t.string   "volunteer_detail",                       limit: 255,   default: ""
-    t.string   "diet_other_detail",                      limit: 255,   default: ""
-    t.boolean  "family_discount",                                      default: false
-    t.boolean  "support_renovation_fund",                              default: false
-    t.boolean  "full_time_volunteer",                                  default: false
-    t.boolean  "day_visit",                                            default: false
-    t.integer  "calculated_registration_fee",            limit: 4,     default: 0
-    t.integer  "calculated_night_rate",                  limit: 4,     default: 0
-    t.integer  "calculated_total_personal_contribution", limit: 4,     default: 0
-    t.boolean  "sent_by_employer",                                     default: false
-    t.integer  "calculated_nights",                      limit: 4,     default: 0
+    t.boolean  "staff",                                                   default: false
+    t.string   "staff_detail",                           limit: 255,      default: ""
+    t.string   "volunteer_detail",                       limit: 255,      default: ""
+    t.string   "diet_other_detail",                      limit: 255,      default: ""
+    t.boolean  "family_discount",                                         default: false
+    t.boolean  "support_renovation_fund",                                 default: false
+    t.boolean  "full_time_volunteer",                                     default: false
+    t.boolean  "day_visit",                                               default: false
+    t.integer  "calculated_registration_fee",            limit: 4,        default: 0
+    t.integer  "calculated_night_rate",                  limit: 4,        default: 0
+    t.integer  "calculated_total_personal_contribution", limit: 4,        default: 0
+    t.boolean  "sent_by_employer",                                        default: false
+    t.integer  "calculated_nights",                      limit: 4,        default: 0
     t.text     "calculated_rate_and_fee_details",        limit: 65535
-    t.boolean  "student",                                              default: false
+    t.boolean  "student",                                                 default: false
     t.string   "status",                                 limit: 255
     t.string   "session_id",                             limit: 255
     t.string   "rate",                                   limit: 255
     t.text     "financial_remarks",                      limit: 65535
-    t.integer  "communications_language_id",             limit: 4,     default: 0,     null: false
+    t.integer  "communications_language_id",             limit: 4,        default: 0,     null: false
+    t.integer  "translate_into_language_id",             limit: 4,        default: 0,     null: false
   end
 
   add_index "online_application_versions", ["online_application_id"], name: "index_online_application_versions_on_online_application_id", using: :btree
@@ -672,7 +671,7 @@ ActiveRecord::Schema.define(version: 20180211143900) do
     t.date     "passport_expiry_date"
     t.string   "passport_embassy",                       limit: 255
     t.integer  "nightly_contribution",                   limit: 4
-    t.text     "remarks",                                limit: 65535
+    t.text     "remarks",                                limit: 16777215
     t.string   "badge_firstname",                        limit: 255
     t.string   "badge_surname",                          limit: 255
     t.string   "badge_country",                          limit: 255
@@ -680,32 +679,33 @@ ActiveRecord::Schema.define(version: 20180211143900) do
     t.boolean  "volunteer"
     t.boolean  "other_reason"
     t.string   "other_reason_detail",                    limit: 255
-    t.string   "created_by",                             limit: 100,   default: "",    null: false
-    t.string   "updated_by",                             limit: 100,   default: "",    null: false
-    t.integer  "lock_version",                           limit: 4,     default: 0,     null: false
+    t.string   "created_by",                             limit: 100,      default: "",    null: false
+    t.string   "updated_by",                             limit: 100,      default: "",    null: false
+    t.integer  "lock_version",                           limit: 4,        default: 0,     null: false
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "staff",                                                default: false
-    t.string   "staff_detail",                           limit: 255,   default: ""
-    t.string   "volunteer_detail",                       limit: 255,   default: ""
-    t.string   "diet_other_detail",                      limit: 255,   default: ""
-    t.boolean  "family_discount",                                      default: false
-    t.boolean  "support_renovation_fund",                              default: false
-    t.boolean  "full_time_volunteer",                                  default: false
-    t.boolean  "day_visit",                                            default: false
-    t.integer  "calculated_registration_fee",            limit: 4,     default: 0
-    t.integer  "calculated_night_rate",                  limit: 4,     default: 0
-    t.integer  "calculated_total_personal_contribution", limit: 4,     default: 0
-    t.boolean  "sent_by_employer",                                     default: false
-    t.integer  "calculated_nights",                      limit: 4,     default: 0
+    t.boolean  "staff",                                                   default: false
+    t.string   "staff_detail",                           limit: 255,      default: ""
+    t.string   "volunteer_detail",                       limit: 255,      default: ""
+    t.string   "diet_other_detail",                      limit: 255,      default: ""
+    t.boolean  "family_discount",                                         default: false
+    t.boolean  "support_renovation_fund",                                 default: false
+    t.boolean  "full_time_volunteer",                                     default: false
+    t.boolean  "day_visit",                                               default: false
+    t.integer  "calculated_registration_fee",            limit: 4,        default: 0
+    t.integer  "calculated_night_rate",                  limit: 4,        default: 0
+    t.integer  "calculated_total_personal_contribution", limit: 4,        default: 0
+    t.boolean  "sent_by_employer",                                        default: false
+    t.integer  "calculated_nights",                      limit: 4,        default: 0
     t.text     "calculated_rate_and_fee_details",        limit: 65535
-    t.boolean  "student",                                              default: false
+    t.boolean  "student",                                                 default: false
     t.string   "status",                                 limit: 255
     t.string   "session_id",                             limit: 255
     t.string   "rate",                                   limit: 255
     t.text     "financial_remarks",                      limit: 65535
-    t.integer  "communications_language_id",             limit: 4,     default: 0,     null: false
+    t.integer  "communications_language_id",             limit: 4,        default: 0,     null: false
+    t.integer  "translate_into_language_id",             limit: 4,        default: 0,     null: false
   end
 
   add_index "online_applications", ["application_group_id"], name: "index_online_applications_on_application_group_id", using: :btree
@@ -813,8 +813,8 @@ ActiveRecord::Schema.define(version: 20180211143900) do
   end
 
   create_table "sessions", force: :cascade do |t|
-    t.string   "session_id", limit: 255,   null: false
-    t.text     "data",       limit: 65535
+    t.string   "session_id", limit: 255,      null: false
+    t.text     "data",       limit: 16777215
     t.datetime "created_at"
     t.datetime "updated_at"
   end
