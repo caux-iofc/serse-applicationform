@@ -420,6 +420,13 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
         @values += "'0',"
       end
 
+      @keys += 'translate_into_language_id,'
+      if not oa.translate_into_language.nil?
+        @values += "'" + oa.translate_into_language.serse_id.to_s + "',"
+      else
+        @values += "'0',"
+      end
+
       @keys.chop!
       @values.chop!
 
