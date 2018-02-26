@@ -35,28 +35,27 @@
     </div>
     <div class="form-group required">
       <%= f.label :translation_needed, t(:translation_needed), class: 'control-label' %>
+
+      <%= f.fields_for :application_translation_needs do |atn| -%>
+        <div class="row">
+          <div class="col-md-3">
+            <%= atn.object.language.nil? ? "Undefined" : atn.object.language.name %>:
+            <%= atn.hidden_field(:language_id, :value => atn.object.language_id) %>
+          </div>
+          <div class="col-md-9">
+            <%= atn.select(:need, options_for_select([[t(:no),false], [t(:yes),true]],{ :selected => atn.object.need }), {}, { :class => 'form-control' }) %>
+          </div>
+        </div>
+      <% end -%>
+    </div>
+
+    <div class="form-group required" style="display: none" id="translate_into_language_subform">
       <div class="row">
-        <div class="col-md-3">
-          <%= t :english %>:
+        <div class="col-md-6 control-label">
+          <%= t(:translate_into_language) %>
         </div>
-        <div class="col-md-9">
-          <%= f.select("translate_english", [[t(:no),false], [t(:yes),true]], { :class => 'form-control' }) %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <%= t :french %>:
-        </div>
-        <div class="col-md-9">
-          <%= f.select("translate_french", [[t(:no),false], [t(:yes),true]], { :class => 'form-control' }) %>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3">
-          <%= t :german %>:
-        </div>
-        <div class="col-md-9">
-          <%= f.select("translate_german", [[t(:no),false], [t(:yes),true]], { :class => 'form-control' }) %>
+        <div class="col-md-6">
+          <%= f.select(:translate_into_language_id, @languages, {:include_blank => t(:choose_one)}, { :class => 'form-control' }) %>
         </div>
       </div>
     </div>

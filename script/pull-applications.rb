@@ -420,6 +420,13 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
         @values += "'0',"
       end
 
+      @keys += 'translate_into_language_id,'
+      if not oa.translate_into_language.nil?
+        @values += "'" + oa.translate_into_language.serse_id.to_s + "',"
+      else
+        @values += "'0',"
+      end
+
       @keys.chop!
       @values.chop!
 
@@ -432,8 +439,8 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
 
       ####################### APPLICATION TRANSLATION NEEDS ################################
       oa.application_translation_needs.each do |t|
-        @pg_sql = "insert into application_translation_needs (language_id,online_application_id,updated_at,created_at)
-                   values (#{Language.find(t.language_id).serse_id},currval('seq_applications_id'),now(),now())"
+        @pg_sql = "insert into application_translation_needs (language_id,online_application_id,need,updated_at,created_at)
+                   values (#{Language.find(t.language_id).serse_id},currval('seq_applications_id'),#{t.need},now(),now())"
         @res = @conn.exec(@pg_sql)
       end
 

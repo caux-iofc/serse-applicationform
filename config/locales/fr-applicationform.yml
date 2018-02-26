@@ -36,6 +36,7 @@ fr:
   english: anglais
   french: français
   german: allemand
+  translation_target_language: 'Dans quelle langue devrions-nous traduire les langue(s) marqués par « OUI »?'
 
   female: "Féminin"
   register: Soumettre!

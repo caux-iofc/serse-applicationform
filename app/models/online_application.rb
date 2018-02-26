@@ -1,16 +1,15 @@
 class OnlineApplication < ActiveRecord::Base
   acts_as_paranoid_versioned :version_column => :lock_version
 
-  attr_accessible :date_of_birth, :relation, :firstname, :surname, :gender, :citizenship_id, :other_citizenship, :profession, :employer, :email, :telephone, :cellphone, :arrival, :departure, :previous_visit, :heard_about, :visa, :confirmation_letter_via, :accompanied_by, :passport_number, :passport_issue_date, :passport_issue_place, :passport_expiry_date, :passport_embassy, :nightly_contribution, :remarks, :badge_firstname, :badge_surname, :badge_country, :interpreter, :volunteer, :other_reason, :other_reason_detail, :staff, :staff_detail, :volunteer_detail, :diet_other_detail, :family_discount, :support_renovation_fund, :full_time_volunteer, :day_visit, :calculated_registration_fee, :calculated_night_rate, :calculated_total_personal_contribution, :calculated_nights, :calculated_rate_and_fee_details, :sent_by_employer, :student, :status, :rate, :financial_remarks, :online_application_conferences_attributes, :online_application_training_programs_attributes, :permanent_address_attributes, :different_address, :email_confirmation, :registration_type, :online_application_languages_attributes, :translate_english, :translate_french, :translate_german, :diet_ids, :caux_scholar, :caux_intern, :caux_artist, :conference_team, :conference_support, :conference_speaker, :week_of_international_community, :global_assembly, :caux_forum_training, :rate_per_night, :total_nights, :registration_fee, :sponsors_attributes, :communications_language_id
+  attr_accessible :date_of_birth, :relation, :firstname, :surname, :gender, :citizenship_id, :other_citizenship, :profession, :employer, :email, :telephone, :cellphone, :arrival, :departure, :previous_visit, :heard_about, :visa, :confirmation_letter_via, :accompanied_by, :passport_number, :passport_issue_date, :passport_issue_place, :passport_expiry_date, :passport_embassy, :nightly_contribution, :remarks, :badge_firstname, :badge_surname, :badge_country, :interpreter, :volunteer, :other_reason, :other_reason_detail, :staff, :staff_detail, :volunteer_detail, :diet_other_detail, :family_discount, :support_renovation_fund, :full_time_volunteer, :day_visit, :calculated_registration_fee, :calculated_night_rate, :calculated_total_personal_contribution, :calculated_nights, :calculated_rate_and_fee_details, :sent_by_employer, :student, :status, :rate, :financial_remarks, :online_application_conferences_attributes, :online_application_training_programs_attributes, :permanent_address_attributes, :different_address, :email_confirmation, :registration_type, :online_application_languages_attributes, :diet_ids, :caux_scholar, :caux_intern, :caux_artist, :conference_team, :conference_support, :conference_speaker, :week_of_international_community, :global_assembly, :caux_forum_training, :rate_per_night, :total_nights, :registration_fee, :sponsors_attributes, :communications_language_id, :translate_into_language_id, :application_translation_needs_attributes
 
   belongs_to :application_group
   belongs_to :country, :foreign_key => :citizenship_id
   belongs_to :communications_language, :class_name => "Language"
+  belongs_to :translate_into_language, :class_name => "Language"
 
   has_one :permanent_address, :dependent => :destroy, :inverse_of => :online_application
-
-  accepts_nested_attributes_for :permanent_address,
-    :allow_destroy => :true
+  accepts_nested_attributes_for :permanent_address, :allow_destroy => :true
 
   has_many :sponsors, :dependent => :destroy
   accepts_nested_attributes_for :sponsors, :allow_destroy => :true, :reject_if => :all_blank
@@ -27,11 +26,12 @@ class OnlineApplication < ActiveRecord::Base
   accepts_nested_attributes_for :online_application_training_programs, :allow_destroy => :true, :reject_if => :not_selected, :update_only => :true
 
   has_many :conferences, :through => :online_application_conferences
-  has_many :online_application_conferences
 
+  has_many :online_application_conferences
   accepts_nested_attributes_for :online_application_conferences, :allow_destroy => :true, :reject_if => :not_selected, :update_only => :true
 
-  has_many :application_translation_needs
+  has_many :application_translation_needs, :inverse_of => :online_application, :dependent => :destroy
+  accepts_nested_attributes_for :application_translation_needs, :allow_destroy => :true
 
   # We need to build an OnlineApplicationConference object for every conference,
   # because we have conference sub forms that depend on that. So, we use a checkbox
@@ -45,9 +45,6 @@ class OnlineApplication < ActiveRecord::Base
   scope :other_applicants, -> { where("relation != 'primary applicant'") }
 
   attr_accessor :the_request
-
-  # we translate these into ApplicationTranslationNeed records
-  attr_accessor :translate_english, :translate_french, :translate_german
 
   attr_accessor :registration_type
   attr_accessor :group_name
@@ -162,6 +159,9 @@ class OnlineApplication < ActiveRecord::Base
   # /begin detail
 
   validates :communications_language, :presence => true, :if => :detail?
+  # Can't use .where because these are dirty records! Use select instead.
+  validates :translate_into_language, :presence => true, :if => lambda { |oa| detail? and not application_translation_needs.select{ |atn| atn[:need] == true}.empty? }
+
   validate :must_have_one_language, :if => :detail?
 
   def must_have_one_language

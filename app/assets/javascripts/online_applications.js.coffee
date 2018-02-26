@@ -53,6 +53,26 @@ jQuery ->
   $(".edit_application_group").on "change", "input[class^=different_address_]", ->
     $("." + $(this).attr('class') + "_subform").toggle()
 
+  ##### handle translate_into_language ####
+
+  ## First the code that will run on document load ##
+  $("#translate_into_language_subform").hide()
+  $("select[id*=_translation_needs_attributes_]").each ->
+    if $(this).val() == 'true'
+      $("#translate_into_language_subform").show()
+
+  ## And then all the hooks
+  $("select[id*=_translation_needs_attributes_]").change ->
+    show_translate_into_language_subform = false
+    # FIXME: for multiple group members, this is going to show all subforms as soon as someone needs interpretation
+    $("select[id*=_translation_needs_attributes_]").each ->
+      if $(this).val() == 'true'
+        show_translate_into_language_subform = true
+    if show_translate_into_language_subform
+      $("#translate_into_language_subform").show()
+    else
+      $("#translate_into_language_subform").hide()
+
   ##### handle diet_other ####
 
   ## First the code that will run on document load ##
