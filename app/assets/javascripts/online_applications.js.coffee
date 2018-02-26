@@ -57,15 +57,18 @@ jQuery ->
 
   ## First the code that will run on document load ##
   $("#translate_into_language_subform").hide()
-  $("select[id*=_translate_]").each ->
+  $("select[id*=_translation_needs_attributes_]").each ->
     if $(this).val() == 'true'
       $("#translate_into_language_subform").show()
 
   ## And then all the hooks
-  $("select[id*=_translate_]").change ->
-    if $("select[id$=_translate_english]").val() == 'true' ||
-       $("select[id$=_translate_french]").val() == 'true' ||
-       $("select[id$=_translate_german]").val() == 'true'
+  $("select[id*=_translation_needs_attributes_]").change ->
+    show_translate_into_language_subform = false
+    # FIXME: for multiple group members, this is going to show all subforms as soon as someone needs interpretation
+    $("select[id*=_translation_needs_attributes_]").each ->
+      if $(this).val() == 'true'
+        show_translate_into_language_subform = true
+    if show_translate_into_language_subform
       $("#translate_into_language_subform").show()
     else
       $("#translate_into_language_subform").hide()

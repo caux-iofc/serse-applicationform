@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180222211900) do
+ActiveRecord::Schema.define(version: 20180225151900) do
 
   create_table "address_versions", force: :cascade do |t|
     t.integer  "address_id",            limit: 4
@@ -133,6 +133,7 @@ ActiveRecord::Schema.define(version: 20180222211900) do
     t.datetime "deleted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "need",                                        default: false, null: false
   end
 
   add_index "application_translation_need_versions", ["application_translation_need_id"], name: "index_application_translation_need_versions_on_application_tran", using: :btree
@@ -140,12 +141,13 @@ ActiveRecord::Schema.define(version: 20180222211900) do
   create_table "application_translation_needs", force: :cascade do |t|
     t.integer  "online_application_id", limit: 4
     t.integer  "language_id",           limit: 4
-    t.string   "created_by",            limit: 100, default: "", null: false
-    t.string   "updated_by",            limit: 100, default: "", null: false
-    t.integer  "lock_version",          limit: 4,   default: 0,  null: false
+    t.string   "created_by",            limit: 100, default: "",    null: false
+    t.string   "updated_by",            limit: 100, default: "",    null: false
+    t.integer  "lock_version",          limit: 4,   default: 0,     null: false
     t.datetime "deleted_at"
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.boolean  "need",                              default: false, null: false
   end
 
   create_table "conference_package_versions", force: :cascade do |t|
@@ -631,7 +633,7 @@ ActiveRecord::Schema.define(version: 20180222211900) do
     t.string   "rate",                                   limit: 255
     t.text     "financial_remarks",                      limit: 65535
     t.integer  "communications_language_id",             limit: 4,        default: 0,     null: false
-    t.integer  "translate_into_language_id",             limit: 4,        default: 0,     null: false
+    t.integer  "translate_into_language_id",             limit: 4
   end
 
   add_index "online_application_versions", ["online_application_id"], name: "index_online_application_versions_on_online_application_id", using: :btree
@@ -705,7 +707,7 @@ ActiveRecord::Schema.define(version: 20180222211900) do
     t.string   "rate",                                   limit: 255
     t.text     "financial_remarks",                      limit: 65535
     t.integer  "communications_language_id",             limit: 4,        default: 0,     null: false
-    t.integer  "translate_into_language_id",             limit: 4,        default: 0,     null: false
+    t.integer  "translate_into_language_id",             limit: 4
   end
 
   add_index "online_applications", ["application_group_id"], name: "index_online_applications_on_application_group_id", using: :btree

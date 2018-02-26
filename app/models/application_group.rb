@@ -9,7 +9,6 @@ class ApplicationGroup < ActiveRecord::Base
   belongs_to :session_group
 
   has_many :online_applications, :dependent => :destroy
-
   accepts_nested_attributes_for :online_applications, :allow_destroy => true
 
   validates_associated :online_applications

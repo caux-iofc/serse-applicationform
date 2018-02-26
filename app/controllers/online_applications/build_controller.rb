@@ -318,6 +318,24 @@ protected
       end
     end
 
+    # Make sure we have application_translation_needs records for each applicant
+    # in the three languages
+    @application_group.online_applications.each do |oa|
+      @english_id = Language.joins(:translations).with_locales(:en).where("language_translations.name = 'English'").first.id
+      # Can't use .where because these are dirty records!
+      if oa.application_translation_needs.select{|atn| atn[:language_id] == @english_id}.empty?
+        oa.application_translation_needs.build(:language_id => @english_id)
+      end
+      @french_id = Language.joins(:translations).with_locales(:en).where("language_translations.name = 'French'").first.id
+      if oa.application_translation_needs.select{|atn| atn[:language_id] == @french_id}.empty?
+        oa.application_translation_needs.build(:language_id => @french_id)
+      end
+      @german_id = Language.joins(:translations).with_locales(:en).where("language_translations.name = 'German'").first.id
+      if oa.application_translation_needs.select{|atn| atn[:language_id] == @german_id}.empty?
+        oa.application_translation_needs.build(:language_id => @german_id)
+      end
+    end
+
     @application_group.online_applications.each do |oa|
       @conferences = Hash.new()
       oa.online_application_conferences.each_with_object({}) {|oac| @conferences[oac.conference_id]=oac.conference_id }
