@@ -340,7 +340,16 @@ protected
       @conferences = Hash.new()
       oa.online_application_conferences.each_with_object({}) {|oac| @conferences[oac.conference_id]=oac.conference_id }
       @priority_sort = 0
-      Conference.normal.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
+
+      if not session[:internal]
+        @c = Conference.not_internal
+        @t = TrainingProgram.not_internal
+      else
+        @c = Conference.all
+        @t = TrainingProgram.all
+      end
+
+      @c.normal.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
         @earliest_start_year = c.start.year if c.start.year < @earliest_start_year
         @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
         if not @conferences.has_key?(c.id) then
@@ -349,7 +358,7 @@ protected
         end
       end
 
-      Conference.special.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
+      @c.special.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
         @earliest_start_year = c.start.year if c.start.year < @earliest_start_year
         @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
         if not @conferences.has_key?(c.id) then
@@ -358,7 +367,7 @@ protected
         end
       end
 
-      Conference.caux_forum_training.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
+      @c.caux_forum_training.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
         @earliest_start_year = c.start.year if c.start.year < @earliest_start_year
         @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
         if not @conferences.has_key?(c.id) then
@@ -372,7 +381,8 @@ protected
       @training_programs = Hash.new()
       oa.online_application_training_programs.each_with_object({}) {|oatp| @training_programs[oatp.training_program_id]=oatp.training_program_id }
       @priority_sort = 0
-      TrainingProgram.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
+
+      @t.where('session_group_id = ?',session[:session_group_id]).sort { |a,b| a.start <=> b.start }.each do |c|
         @earliest_start_year = c.start.year if c.start.year < @earliest_start_year
         @latest_stop_year = c.stop.year if c.stop.year > @latest_stop_year
         if not @training_programs.has_key?(c.id) then

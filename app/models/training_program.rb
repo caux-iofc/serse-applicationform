@@ -5,4 +5,8 @@ class TrainingProgram < ActiveRecord::Base
   attr_accessible
 
   belongs_to :session_group
+
+  scope :internal, -> { where("internal = ?", true) }
+  scope :not_internal, -> { where("internal = ?", false) }
+
 end
