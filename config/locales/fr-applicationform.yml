@@ -372,3 +372,6 @@ les organisateurs de la session."
   menu_missing: "Please choose a type of menu"
   no_more_than_one_diet_choice: "Maximum one dietary restriction"
   please_register_every_person: "Veuillez s'il vous plaît inscrire chaque personne, y compris les enfants en bas âge qui voyagent avec vous. Choisissez l'option correcte et sur la page suivante vous pourrez enregistrer des personnes supplémentaires."
+
+  data_protection_caux_info: "Je souhaite recevoir des newsletters par e-mail"
+  data_protection_local_info: "J'accepte le partage des données personnelles avec mon équipe d'I&C locale"

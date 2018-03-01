@@ -205,19 +205,6 @@ class OnlineApplications::BuildController < ApplicationController
         end
       end
 
-      if step == :confirmation
-        # As of 2016, we now do a single opt out for newletters on the confirmation page.
-        # Turn that into the correct value for the caux and local opt in fields here.
-        if params[:application_group][:no_newsletters]
-          params[:application_group].delete('no_newsletters')
-          @application_group.data_protection_caux_info = false
-          @application_group.data_protection_local_info = false
-        else
-          @application_group.data_protection_caux_info = true
-          @application_group.data_protection_local_info = true
-        end
-      end
-
       if not @application_group.update_attributes(params[:application_group])
         # We can't use render_wizard directly here, because @online_application validates fine,
         # but this step is tied to the validation of application_group. Yes, we're doing silly
@@ -410,14 +397,6 @@ protected
     @diets = @online_application.diets.collect { |d| d.id }
 
     @countries = [ [t(:other_please_specify),'0'] ] + Country.all.select{|c| ! c.nil? and !c.name.nil? }.sort { |a,b| a.name <=> b.name }.collect {|p| [ p.name, p.id ] }
-
-    if step == :confirmation
-      # Just default (force) the info fields to 'yes'. This is sneaky, but
-      # there's no good way to tell if they have never been set: after one failed
-      # validation they are no longer nil...
-      @application_group.data_protection_caux_info = true
-      @application_group.data_protection_local_info = true
-    end
 
     if step == :group or step == :family or step == :confirmation
       # this page needs to store a few fields on the application group object
