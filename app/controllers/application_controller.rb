@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery :with => :exception
 
+  before_filter :store_request
   before_filter :set_locale
   before_filter :select_online_form
  
@@ -154,6 +155,13 @@ class ApplicationController < ActionController::Base
       @application_group = ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first
       @online_application = OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first
     end
+  end
+
+protected
+
+  def store_request
+    # Save the request so that we can access it from ActionMailer
+    SessionInfo.request = request
   end
 
 end

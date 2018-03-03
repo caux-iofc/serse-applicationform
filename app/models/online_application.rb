@@ -1,4 +1,6 @@
 class OnlineApplication < ActiveRecord::Base
+  include SessionInfo
+
   acts_as_paranoid_versioned :version_column => :lock_version
 
   attr_accessible :date_of_birth, :relation, :firstname, :surname, :gender, :citizenship_id, :other_citizenship, :profession, :employer, :email, :telephone, :cellphone, :arrival, :departure, :previous_visit, :heard_about, :visa, :confirmation_letter_via, :accompanied_by, :passport_number, :passport_issue_date, :passport_issue_place, :passport_expiry_date, :passport_embassy, :nightly_contribution, :remarks, :badge_firstname, :badge_surname, :badge_country, :interpreter, :volunteer, :other_reason, :other_reason_detail, :staff, :staff_detail, :volunteer_detail, :diet_other_detail, :family_discount, :support_renovation_fund, :full_time_volunteer, :day_visit, :calculated_registration_fee, :calculated_night_rate, :calculated_total_personal_contribution, :calculated_nights, :calculated_rate_and_fee_details, :sent_by_employer, :student, :status, :rate, :financial_remarks, :online_application_conferences_attributes, :online_application_training_programs_attributes, :permanent_address_attributes, :different_address, :email_confirmation, :registration_type, :online_application_languages_attributes, :diet_ids, :caux_scholar, :caux_intern, :caux_artist, :conference_team, :conference_support, :conference_speaker, :week_of_international_community, :global_assembly, :caux_forum_training, :rate_per_night, :total_nights, :registration_fee, :sponsors_attributes, :communications_language_id, :translate_into_language_id, :application_translation_needs_attributes
@@ -115,7 +117,8 @@ class OnlineApplication < ActiveRecord::Base
           end
         end
       end
-      SystemMailer.validation_failure_notification(messages,self.the_request).deliver
+      # request is a mixin from SessionInfo
+      SystemMailer.validation_failure_notification(messages,request).deliver
     end
   end
 

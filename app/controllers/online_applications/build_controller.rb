@@ -89,8 +89,6 @@ class OnlineApplications::BuildController < ApplicationController
     end
 
     if step != :group and step != :family and step != :detail and step != :dates_and_events and step != :visa and step != :finances and step != :confirmation and step != :payment
-      @online_application.the_request = request
-
       params[:online_application][:status] = step.to_s
       params[:online_application][:status] = 'complete' if step == steps.last
 
