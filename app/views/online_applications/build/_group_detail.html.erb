@@ -43,13 +43,13 @@
             <%= atn.hidden_field(:language_id, :value => atn.object.language_id) %>
           </div>
           <div class="col-md-9">
-            <%= atn.select(:need, options_for_select([[t(:no),false], [t(:yes),true]],{ :selected => atn.object.need }), {}, { :class => 'form-control' }) %>
+            <%= atn.select(:need, options_for_select([[t(:no),false], [t(:yes),true]],{ :selected => atn.object.need }), {}, { :class => "form-control translate_into_language_id_#{online_application.id}" }) %>
           </div>
         </div>
       <% end -%>
     </div>
 
-    <div class="form-group required" style="display: none" id="translate_into_language_subform">
+    <div class="form-group required" style="display: none" id="translate_into_language_id_<%= online_application.id -%>_subform">
       <div class="row">
         <div class="col-md-6 control-label">
           <%= t(:translate_into_language) %>

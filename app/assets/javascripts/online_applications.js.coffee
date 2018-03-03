@@ -56,22 +56,17 @@ jQuery ->
   ##### handle translate_into_language ####
 
   ## First the code that will run on document load ##
-  $("#translate_into_language_subform").hide()
-  $("select[id*=_translation_needs_attributes_]").each ->
-    if $(this).val() == 'true'
-      $("#translate_into_language_subform").show()
 
-  ## And then all the hooks
-  $("select[id*=_translation_needs_attributes_]").change ->
-    show_translate_into_language_subform = false
-    # FIXME: for multiple group members, this is going to show all subforms as soon as someone needs interpretation
-    $("select[id*=_translation_needs_attributes_]").each ->
+  $("select[class^='form-control translate_into_language_id_']").each ->
+    if $(this).val() == 'true'
+      $("#" + $(this).attr('class').replace('form-control ','') + "_subform").show()
+
+  ## And then all the hooks ##
+  $("select[class^='form-control translate_into_language_id_']").change ->
+    $("#" + $(this).attr('class').replace('form-control ','') + "_subform").hide()
+    $("." + $(this).attr('class').replace('form-control ','')).each ->
       if $(this).val() == 'true'
-        show_translate_into_language_subform = true
-    if show_translate_into_language_subform
-      $("#translate_into_language_subform").show()
-    else
-      $("#translate_into_language_subform").hide()
+        $("#" + $(this).attr('class').replace('form-control ','') + "_subform").show()
 
   ##### handle diet_other ####
 
