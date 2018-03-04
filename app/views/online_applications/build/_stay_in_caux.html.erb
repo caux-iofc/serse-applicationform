@@ -36,5 +36,8 @@
       <%= f.label :heard_about, t(:heard_about), class: 'control-label' %><br />
       <%= f.select :heard_about, options_for_select(@heard_about, online_application.heard_about), {}, { :class => 'form-control' } %>
     </div>
+
+    <strong><%=t :practical_life %></strong>
+
   </div>
 </div>
