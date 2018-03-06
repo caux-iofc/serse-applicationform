@@ -146,11 +146,6 @@ class ApplicationController < ActionController::Base
       end
       session[:application_group_id] = @application_group.id
       session[:online_application_id] = @online_application.id
-      # Make sure to clear the :skip_payment session value,
-      # we do not want that to stick around in the session.
-      session.delete :skip_payment
-      # Same for the :internal session value
-      session.delete :internal
     else
       @application_group = ApplicationGroup.where(:id => session[:application_group_id], :session_id => request.session_options[:id]).first
       @online_application = OnlineApplication.where(:id => session[:online_application_id], :session_id => request.session_options[:id]).first
