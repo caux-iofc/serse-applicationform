@@ -209,7 +209,7 @@ en:
   english: English
   french: French
   german: German
-  translate_into_language: 'Into which language do you need the language(s) marked with "YES" translated?'
+  translate_into_language: 'Into which language do you need interpretation from the language(s) marked "YES"?'
 
   conference_participation: "I will participate in the Caux Forum"
   special_conference_participation: "I will participate in the following ..."

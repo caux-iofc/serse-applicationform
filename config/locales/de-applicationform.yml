@@ -26,7 +26,7 @@ de:
   english: Englisch
   french: Französisch
   german: Deutsch
-  translation_target_language: 'In welche Sprache benötigen Sie die mit "JA" markierten Sprache(n) übersetzt?'
+  translate_into_language: 'In welche Sprache benötigen Sie die mit «JA» angekreuzte(n) Sprache(n) übersetzt?'
 
   female: Weiblich
   register: Anmelden!

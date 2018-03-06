@@ -36,7 +36,7 @@ fr:
   english: anglais
   french: français
   german: allemand
-  translation_target_language: 'Dans quelle langue devrions-nous traduire les langue(s) marqués par « OUI »?'
+  translate_into_language: "Dans quelle langue avez-vous besoin d'interprétation pour les langues marquées «OUI» ?"
 
   female: "Féminin"
   register: Soumettre!
@@ -317,7 +317,7 @@ les organisateurs de la session."
   group_or_family_name: Nom
   register_as_single_person: "Je m'inscris en tant que personne seule"
   register_as_part_of_family: "Je m'inscris en tant que membre d'une famille"
-  family_intro_text: N.B. Tous les membres de la famille auront les même adresse et coordonnées que le premier membre inscrit.
+  family_intro_text: N.B. Tous les membres de la famille auront la même adresse et les mêmes coordonnées que le premier membre inscrit.
   family_name: Nom de famille
   family_personal_details: Données personnelles des membres de la famille
   remove_from_family: Enlever cette personne de l'inscription
@@ -358,7 +358,7 @@ les organisateurs de la session."
   conference_package: 'offre promotionelle par conference'
   early_bird_discount: 'offre promotionelle'
   support_team: "membre de l'équipe support"
-  please_carefully_read_html: "S'il vous plaît bien lire <a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/ge/general_terms_and_conditions_2017_fr_final.pdf\" target=\"_new\">les conditions générales</a> avant d'accepter.<p/>"
+  please_carefully_read_html: "Veuillez bien lire <a href=\"http://www.caux.ch/sites/caux.iofc.org/files/media/document/ge/general_terms_and_conditions_2017_fr_final.pdf\" target=\"_new\">les conditions générales</a> avant de finaliser votre inscription.<p/>"
   no_newsletters: "Je ne veux pas recevoir des bulletins d'information"
   notice_of_receipt_subject: 'Caux Forum - accusé de réception'
   conference_package_advertisement: "Profitez de nos offres promotionnelles en alignant vos dates d'arrivée et de départ  avec celles de la conférence qui vous intéresse!"
@@ -374,4 +374,4 @@ les organisateurs de la session."
   please_register_every_person: "Veuillez s'il vous plaît inscrire chaque personne, y compris les enfants en bas âge qui voyagent avec vous. Choisissez l'option correcte et sur la page suivante vous pourrez enregistrer des personnes supplémentaires."
 
   data_protection_caux_info: "Je souhaite recevoir des newsletters par e-mail"
-  data_protection_local_info: "J'accepte le partage des données personnelles avec mon équipe d'I&C locale"
+  data_protection_local_info: "J'accepte de partager mes données personnelles avec mon équipe d'I&C locale"
