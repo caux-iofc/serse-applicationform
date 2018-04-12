@@ -402,7 +402,7 @@ jQuery ->
         age = ~~((now.getTime() - date_of_birth.getTime()) / YEAR)
 
       day_visit = 0
-      if $(base_id + "_day_visit").val() == '1'
+      if $(base_id + "_day_visit").val() == 'true'
         # We force the night_rate and the registration-fee below for the day visitor case.
         day_visit = 1
         # See if this is a day visitor who will be present for a few hours only, if so still
@@ -416,6 +416,10 @@ jQuery ->
       conference_package_fee = 0
       early_bird_discount = 0
       calculated_rate_and_fee_details = 'Standard: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
+
+      if day_visit == 1
+        registration_fee = 0
+        calculated_rate_and_fee_details += 'Day visit: night rate: CHF ' + night_rate + '; registration fee: CHF ' + registration_fee + '\n'
 
       if $(base_id + '_rate_student').is(':checked')
         night_rate = 105
