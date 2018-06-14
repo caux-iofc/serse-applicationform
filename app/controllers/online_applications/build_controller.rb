@@ -129,6 +129,26 @@ class OnlineApplications::BuildController < ApplicationController
           val['permanent_address_attributes']['_destroy'] = true if val['different_address'] != '1'
         end
       end
+
+      if step == :detail
+        # Walk the online_application_languages entries. If there are any that have an id
+        # (i.e. they were previously saved) but no longer have a value (i.e. the user went
+        # back and set language and proficiency to 'choose one', and saved again, then
+        # mark that entry as to be destroyed. I surprised that the ":reject_if => :all_blank"
+        # option on the accepts_nested_attributes_for :online_application_languages line in
+        # the online_application model does not catch this...
+        params[:application_group][:online_applications_attributes].each do |k,v|
+          if params[:application_group][:online_applications_attributes][k].has_key?('online_application_languages_attributes')
+            params[:application_group][:online_applications_attributes][k]['online_application_languages_attributes'].each do |k2,v2|
+              if v2.has_key?('id') and v2.has_key?('language_id') and v2['language_id'].empty? and
+                 v2.has_key?('proficiency') and v2['proficiency'].empty?
+                v2['_destroy'] = true
+              end
+            end
+          end
+        end
+      end
+
       if step == :dates_and_events
         if params[:application_group][:online_applications_attributes]['0']['heard_about'] == 'I have been to Caux before'
           params[:application_group][:online_applications_attributes]['0']['previous_visit'] = true
