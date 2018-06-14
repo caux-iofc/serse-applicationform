@@ -83,8 +83,8 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
     @serse_application_group_id = @res[0]['currval']
 
     ag.online_applications.each do |oa|
-      puts oa.firstname
-      puts oa.surname
+      puts oa.firstname if verbose
+      puts oa.surname if verbose
 
       if oa.relation == 'primary applicant' then
         @application_group_sort = 1
@@ -434,7 +434,7 @@ ApplicationGroup.complete.where('copied_to_serse = ?',false).each do |ag|
       @values += ')'
 
       @pg_sql = "insert into tbl_applications #{@keys} values #{@values}"
-      STDERR.puts @pg_sql.pretty_inspect()
+      STDERR.puts @pg_sql.pretty_inspect() if verbose
       @res = @conn.exec(@pg_sql)
 
       ####################### APPLICATION TRANSLATION NEEDS ################################
