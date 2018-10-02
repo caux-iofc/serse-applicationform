@@ -4,7 +4,7 @@ ruby '2.3.7'
 
 gem 'rails', '4.2.10'
 
-gem 'mysql2'
+gem 'mysql2', '0.4.10'
 
 gem 'json'
 
