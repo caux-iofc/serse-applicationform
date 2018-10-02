@@ -59,7 +59,7 @@ gem 'wicked'
 
 # For Twitter bootstrap
 gem 'bootstrap-sass', '~> 3.2.0'
-gem 'autoprefixer-rails'
+gem 'autoprefixer-rails', '8.6.5'
 
 # For ruby 2.2
 gem 'test-unit', '~> 3.0'
